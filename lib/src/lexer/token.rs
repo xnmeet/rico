@@ -1,8 +1,19 @@
-use logos::Logos;
+use logos::{Lexer, Logos, Skip};
+
+/// Update the line count and the char index.
+fn newline_callback(lex: &mut Lexer<Token>) -> Skip {
+    lex.extras.0 += 1;
+    lex.extras.1 = lex.span().end;
+    Skip
+}
 
 #[derive(Logos, Debug, PartialEq, Clone)]
-#[logos(skip r"[ \t\r\n\f]+")]
+#[logos(skip r"[ ]+")]
+#[logos(extras = (usize, usize))]
 pub enum Token {
+    #[regex(r"[\t\r\n\f]", newline_callback)]
+    Newline,
+
     // Keywords
     #[token("namespace")]
     Namespace,

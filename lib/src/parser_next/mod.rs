@@ -3,6 +3,7 @@ mod error;
 use crate::ast::*;
 use crate::lexer::Token;
 use crate::parser_next::error::ParseError;
+use error::Loc;
 use logos::Logos;
 
 pub struct Parser<'a> {
@@ -36,13 +37,7 @@ impl<'a> Parser<'a> {
                     Token::Namespace => {
                         headers.push(Headers::Namespace(self.parse_namespace()?));
                     }
-                    _ => {
-                        return Err(ParseError::UnexpectedToken(format!(
-                            "{:?} at pos {:?}",
-                            token,
-                            self.lexer.span()
-                        )))
-                    }
+                    _ => return Err(ParseError::UnexpectedToken(self.current_loc())),
                 }
                 self.advance();
             } else {
@@ -66,10 +61,15 @@ impl<'a> Parser<'a> {
         if let Some(Ok(token)) = current_token {
             self.current_token = Some(token);
         } else {
-            self.current_token = None
+            self.current_token = None;
         }
-
         return self.current_token.as_ref();
+    }
+
+    fn current_loc(&self) -> Loc {
+        let line = self.lexer.extras.0;
+        let column = self.lexer.span().start - self.lexer.extras.1;
+        Loc { line, column }
     }
 
     fn parse_include(&mut self) -> Result<Include, ParseError> {
@@ -100,7 +100,6 @@ impl<'a> Parser<'a> {
         self.advance();
         self.expect_token(Token::ChainIdentifier)?;
         let space = self.lexer.slice(); // result a.b.c
-
         let combined = format!("{}{}", indent_scope, space);
 
         Ok(Namespace {
@@ -117,24 +116,8 @@ impl<'a> Parser<'a> {
     fn expect_token(&mut self, expected: Token) -> Result<(), ParseError> {
         match &self.current_token {
             Some(token) if token == &expected => Ok(()),
-            Some(token) => Err(ParseError::UnexpectedToken(format!(
-                "{:?} at pos {:?}",
-                token,
-                self.lexer.span().start
-            ))),
-            None => Err(ParseError::UnexpectedEOF),
-        }
-    }
-
-    fn expect_identifier(&mut self) -> Result<String, ParseError> {
-        match &self.current_token {
-            Some(token) => {
-                if token == &Token::Identifier {
-                    return Ok(format!("{:?}", token));
-                }
-                return Err(ParseError::UnexpectedToken(format!("{:?}", token)));
-            }
-            None => Err(ParseError::UnexpectedEOF),
+            Some(token) => Err(ParseError::UnexpectedToken(self.current_loc())),
+            None => Err(ParseError::UnexpectedEOF(self.current_loc())),
         }
     }
 
