@@ -1,5 +1,5 @@
 use std::fs;
-use thrift_parser::parser_next::Parser; // Add this line to import the fs module
+use thrift_parser::parser::Parser; // Add this line to import the fs module
 
 fn main() {
     let input = fs::read_to_string("tests/header.thrift").expect("Unable to read file"); // Handle potential errors

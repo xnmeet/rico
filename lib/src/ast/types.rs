@@ -1,31 +1,131 @@
-#[derive(Debug, Clone, PartialEq)]
-pub enum Type {
-    Bool,
-    Byte,
-    I16,
-    I32,
-    I64,
-    Double,
-    String,
-    Binary,
-    Map(Box<Type>, Box<Type>),
-    List(Box<Type>),
-    Set(Box<Type>),
-    Custom(String),
+use serde::{Deserialize, Serialize};
+
+#[derive(Debug)]
+pub struct Span {
+    pub line: usize,
+    pub column: usize,
+    pub index: usize,
 }
 
-impl Type {
-    pub fn from_str(s: &str) -> Option<Self> {
-        match s {
-            "bool" => Some(Type::Bool),
-            "byte" => Some(Type::Byte),
-            "i16" => Some(Type::I16),
-            "i32" => Some(Type::I32),
-            "i64" => Some(Type::I64),
-            "double" => Some(Type::Double),
-            "string" => Some(Type::String),
-            "binary" => Some(Type::Binary),
-            _ => Some(Type::Custom(s.to_string())),
-        }
-    }
+#[derive(Debug)]
+pub struct LOC {
+    pub start: Span,
+    pub end: Span,
+}
+#[derive(Debug)]
+pub struct Common<T = String> {
+    pub kind: NodeType,
+    pub value: T,
+    pub loc: LOC,
+}
+
+#[derive(Serialize, Deserialize, Debug)]
+#[serde(rename_all = "PascalCase")]
+pub enum NodeType {
+    ThriftDocument,
+    ThriftErrors,
+
+    Identifier,
+    FieldID,
+
+    // Statements
+    NamespaceDefinition,
+    IncludeDefinition,
+    CppIncludeDefinition,
+    ConstDefinition,
+    StructDefinition,
+    EnumDefinition,
+    ServiceDefinition,
+    ExceptionDefinition,
+    TypedefDefinition,
+    UnionDefinition,
+
+    // Fields
+    FieldDefinition,
+    FunctionDefinition,
+    ParametersDefinition,
+    ThrowsDefinition,
+
+    // Type Annotations
+    FieldType,
+    BaseType,
+    SetType,
+    MapType,
+    ListType,
+
+    // Values
+    ConstValue,
+    IntConstant,
+    DoubleConstant,
+
+    ConstList,
+    ConstMap,
+    EnumMember,
+
+    // Literals
+    CommentLine,
+    CommentBlock,
+    StringLiteral,
+    IntegerLiteral,
+    FloatLiteral,
+    HexLiteral,
+    ExponentialLiteral,
+    BooleanLiteral,
+    PropertyAssignment,
+
+    // Tokens
+    LeftParenToken,
+    RightParenToken,
+    LeftBraceToken,
+    RightBraceToken,
+    LeftBracketToken,
+    RightBracketToken,
+    CommaToken,
+    DotToken,
+    MinusToken,
+    SemicolonToken,
+    ColonToken,
+    StarToken,
+    EqualToken,
+    LessThanToken,
+    GreaterThanToken,
+
+    // Keywords
+    NamespaceKeyword,
+    IncludeKeyword,
+    CppIncludeKeyword,
+    ExceptionKeyword,
+    ServiceKeyword,
+    ExtendsKeyword,
+    RequiredKeyword,
+    OptionalKeyword,
+    FalseKeyword,
+    TrueKeyword,
+    ConstKeyword,
+    DoubleKeyword,
+    StructKeyword,
+    TypedefKeyword,
+    UnionKeyword,
+    StringKeyword,
+    BinaryKeyword,
+    BoolKeyword,
+    ByteKeyword,
+    EnumKeyword,
+    SenumKeyword,
+    ListKeyword,
+    SetKeyword,
+    MapKeyword,
+    I8Keyword,
+    I16Keyword,
+    I32Keyword,
+    I64Keyword,
+    ThrowsKeyword,
+    VoidKeyword,
+    OnewayKeyword,
+
+    // Other
+    Annotation,
+    Annotations,
+
+    EOF,
 }
