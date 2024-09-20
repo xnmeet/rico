@@ -1,13 +1,15 @@
+use serde::{Deserialize, Serialize};
+
 use super::types::{Common, NodeType, LOC};
 
-#[derive(Debug)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct Comment {
     pub kind: NodeType,
     pub value: String,
     pub loc: LOC,
 }
 
-#[derive(Debug)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct Annotation {
     pub kind: NodeType,
     pub value: String,
@@ -15,14 +17,14 @@ pub struct Annotation {
     pub name: Common<String>,
 }
 
-#[derive(Debug)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct Annotations {
     pub kind: NodeType,
     pub loc: LOC,
     pub members: Vec<Annotation>,
 }
 
-#[derive(Debug)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct Namespace {
     pub kind: NodeType,
     pub loc: LOC,
@@ -30,20 +32,20 @@ pub struct Namespace {
     pub scope: Common<String>,
 }
 
-#[derive(Debug)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct Include {
     pub kind: NodeType,
     pub loc: LOC,
     pub name: Common<String>,
 }
 
-#[derive(Debug)]
+#[derive(Serialize, Deserialize, Debug)]
 pub enum DocumentMembers {
     Namespace(Namespace),
     Include(Include),
 }
 
-#[derive(Debug)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct Document {
     pub kind: NodeType,
     pub members: Vec<DocumentMembers>,

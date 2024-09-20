@@ -1,6 +1,6 @@
-include "apps.thrift \n 
-ss
+include "apps.thrift"
+include "foo
+bar
 "
-// c
 
-// namespace go lark.apaas.app
+namespace go a.b.c

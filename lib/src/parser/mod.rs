@@ -8,7 +8,6 @@ use logos::Logos;
 pub struct Parser<'a> {
     lexer: logos::Lexer<'a, Token>,
     current_token: Option<Token>,
-    next_token: Option<Token>,
 }
 
 impl<'a> Parser<'a> {
@@ -17,29 +16,25 @@ impl<'a> Parser<'a> {
         Parser {
             lexer,
             current_token: None,
-            next_token: None,
         }
     }
 
     pub fn parse(&mut self) -> Result<Document, ParseError> {
         let mut members = Vec::new();
 
-        self.advance();
         loop {
+            self.advance();
             self.skip_comments();
-            self.skip_newline();
-            self.skip_whitespace();
             if let Some(token) = &self.current_token {
                 match token {
                     Token::Include => {
                         members.push(DocumentMembers::Include(self.parse_include()?));
                     }
-                    // Token::Namespace => {
-                    //     members.push(DocumentMembers::Namespace(self.parse_namespace()?));
-                    // }
-                    _ => return Err(ParseError::UnexpectedToken(self.current_loc())),
+                    Token::Namespace => {
+                        members.push(DocumentMembers::Namespace(self.parse_namespace()?));
+                    }
+                    _ => return Err(ParseError::UnexpectedToken(self.start_pos())),
                 }
-                self.advance();
             } else {
                 break;
             }
@@ -52,176 +47,132 @@ impl<'a> Parser<'a> {
     }
 
     fn advance(&mut self) -> Option<&Token> {
-        self.try_update_prev_string_pos();
-        self.current_token = self.next_token.to_owned();
+        // 处理换行字符串
+        self.bump_block_string_loc();
 
-        if let None = &self.next_token {
-            let current_token = self.lexer.next();
-            if let Some(Ok(token)) = current_token {
-                self.current_token = Some(token);
-            }
+        let current_token = self.lexer.next();
+        if let Some(Ok(token)) = current_token {
+            self.current_token = Some(token);
+        } else {
+            self.current_token = None;
         }
-        println!("{:?}", self.current_token);
-
         return self.current_token.as_ref();
     }
 
-    fn peek(&mut self) -> Option<&Token> {
-        if let Some(_) = &self.next_token {
-            return self.next_token.as_ref();
+    fn bump_block_string_loc(&mut self) {
+        if let Some(token) = &self.current_token {
+            if token == &Token::StringLiteral {
+                let count = self.lexer.slice().matches('\n').count();
+                if count > 0 {
+                    self.lexer.extras.0 += count;
+                    self.lexer.extras.1 = self.lexer.span().end;
+                }
+            }
         }
-
-        let next_token = self.lexer.next();
-        if let Some(Ok(token)) = next_token {
-            self.next_token = Some(token);
-        } else {
-            self.next_token = None;
-        }
-        return self.next_token.as_ref();
     }
 
-    fn current_loc(&mut self) -> (usize, usize) {
-        let line = self.lexer.extras.0;
-        let column = self.lexer.span().start - self.lexer.extras.1;
+    fn start_pos(&mut self) -> Span {
+        let line = self.lexer.extras.0 + 1;
+        // The addition of 1 here is on the one hand to make the column start at 1
+        // and on the other hand to avoid newline value overflow
+        let column = self.lexer.span().start + 1 - self.lexer.extras.1;
 
-        if let Some(token) = self.peek() {
-            if let token = &Token::Whitespace {
-                return (
-                    self.lexer.extras.0,
-                    self.lexer.span().start - self.lexer.extras.1,
-                );
+        Span {
+            line,
+            column,
+            index: self.lexer.span().start,
+        }
+    }
+
+    fn end_pos(&mut self) -> Span {
+        if let Some(token) = &self.current_token {
+            if token == &Token::StringLiteral {
+                // Handling newline strings
+                let split_vec: Vec<&str> = self.lexer.slice().split('\n').collect();
+                if split_vec.len() > 1 {
+                    return Span {
+                        line: self.lexer.extras.0 + split_vec.len(),
+                        column: split_vec.last().unwrap().len() + 1,
+                        index: self.lexer.span().end,
+                    };
+                }
             }
         }
 
-        (line, column)
-    }
-
-    fn start_loc(&self) -> Span {
-        let line = self.lexer.extras.0;
-        let column = self.lexer.span().start - self.lexer.extras.1;
+        let line = self.lexer.extras.0 + 1;
+        let column = self.lexer.span().end + 1 - self.lexer.extras.1;
         Span {
-            column,
             line,
+            column,
             index: self.lexer.span().end,
         }
     }
 
-    fn try_update_prev_string_pos(&mut self) {
-        if let Some(token) = &self.current_token {
-            if token == &Token::String {
-                // 处理换行字符串
-                let count = self.lexer.slice().matches('\n').count();
-                self.lexer.extras.0 += count;
-                self.lexer.extras.1 = self.lexer.span().end;
-            }
+    fn get_token_loc(&mut self) -> LOC {
+        LOC {
+            start: self.start_pos(),
+            end: self.end_pos(),
         }
     }
 
+    fn get_token_parent_loc(&self, start: Span, end: Span) -> LOC {
+        LOC { start, end }
+    }
+
     fn parse_include(&mut self) -> Result<Include, ParseError> {
-        let start_span = self.lexer.span();
-        let (start_line, start_column) = self.current_loc();
+        let include_start_pos = self.start_pos();
+
         self.advance();
-        self.skip_whitespace();
+        let value_loc = self.get_token_loc();
         self.expect_token(Token::StringLiteral)?;
-        let (value_line, value_column) = self.current_loc();
         let value = self.lexer.slice();
 
         Ok(Include {
             name: Common {
-                kind: NodeType::IncludeKeyword,
+                kind: NodeType::Identifier,
                 value: value.to_string(),
-                loc: LOC {
-                    start: Span {
-                        column: value_column,
-                        line: value_line,
-                        index: start_span.start,
-                    },
-                    end: Span {
-                        column: value_column + value.len(),
-                        line: value_line,
-                        index: start_span.end,
-                    },
-                },
+                loc: value_loc,
             },
             kind: NodeType::IncludeDefinition,
-            loc: LOC {
-                start: Span {
-                    column: start_column,
-                    line: start_line,
-                    index: start_span.start,
-                },
-                end: Span {
-                    column: value_column + value.len(),
-                    line: value_line,
-                    index: self.lexer.span().end,
-                },
-            },
+            loc: self.get_token_parent_loc(include_start_pos, value_loc.end),
         })
     }
 
-    // fn parse_namespace(&mut self) -> Result<Namespace, ParseError> {
-    //     let start_span = self.lexer.span();
+    fn parse_namespace(&mut self) -> Result<Namespace, ParseError> {
+        let namespace_start_pos = self.start_pos();
 
-    //     self.advance();
-    //     self.expect_token(Token::Identifier)?;
-    //     // for example: namespace go a.b.c
-    //     let indent_scope = self.lexer.slice(); // result go
+        self.advance();
+        let scope_loc = self.get_token_loc();
+        self.expect_token(Token::Identifier)?;
+        // for example: namespace go a.b.c
+        let indent_scope = self.lexer.slice(); // result go
 
-    //     self.advance();
-    //     self.expect_token(Token::ChainIdentifier)?;
-    //     let space = self.lexer.slice(); // result a.b.c
-    //     let combined = format!("{}{}", indent_scope, space);
+        self.advance();
+        let value_loc = self.get_token_loc();
+        self.expect_token(Token::ChainIdentifier)?;
+        let value = self.lexer.slice(); // result a.b.c
 
-    //     Ok(Namespace {
-    //         kind: NodeType::NamespaceDefinition,
-    //         name: Common {
-    //             kind: NodeType::Identifier,
-    //             value: space.to_string(),
-    //             loc: LOC {
-    //                 start: Span {
-    //                     column: value_column,
-    //                     line: value_line,
-    //                     index: start_span.start,
-    //                 },
-    //                 end: Span {
-    //                     column: value_column + value.len(),
-    //                     line: value_line,
-    //                     index: start_span.end,
-    //                 },
-    //             },
-    //         },
-    //         loc: LOC {
-    //             start: Span {
-    //                 index: start_span.start,
-    //             },
-    //             end: Span {
-    //                 index: self.lexer.span().end,
-    //             },
-    //         },
-    //         scope: Common {
-    //             kind: NodeType::Identifier,
-    //             value: indent_scope.to_string(),
-    //             loc: LOC {
-    //                 start: Span {
-    //                     column: value_column,
-    //                     line: value_line,
-    //                     index: start_span.start,
-    //                 },
-    //                 end: Span {
-    //                     column: value_column + value.len(),
-    //                     line: value_line,
-    //                     index: start_span.end,
-    //                 },
-    //             },
-    //         },
-    //     })
-    // }
+        Ok(Namespace {
+            kind: NodeType::NamespaceDefinition,
+            name: Common {
+                kind: NodeType::Identifier,
+                value: value.to_string(),
+                loc: value_loc,
+            },
+            scope: Common {
+                kind: NodeType::Identifier,
+                value: indent_scope.to_string(),
+                loc: scope_loc,
+            },
+            loc: self.get_token_parent_loc(namespace_start_pos, value_loc.end),
+        })
+    }
 
     fn expect_token(&mut self, expected: Token) -> Result<(), ParseError> {
         match &self.current_token {
             Some(token) if token == &expected => Ok(()),
-            Some(_) => Err(ParseError::UnexpectedToken(self.current_loc())),
-            None => Err(ParseError::UnexpectedEOF(self.current_loc())),
+            Some(_) => Err(ParseError::UnexpectedToken(self.start_pos())),
+            None => Err(ParseError::UnexpectedEOF(self.start_pos())),
         }
     }
 
@@ -229,28 +180,6 @@ impl<'a> Parser<'a> {
         loop {
             if let Some(token) = &self.current_token {
                 if token == &Token::LineComment || token == &Token::BlockComment {
-                    self.advance();
-                }
-            }
-            break;
-        }
-    }
-
-    fn skip_newline(&mut self) {
-        loop {
-            if let Some(token) = &self.current_token {
-                if token == &Token::Newline {
-                    self.advance();
-                }
-            }
-            break;
-        }
-    }
-
-    fn skip_whitespace(&mut self) {
-        loop {
-            if let Some(token) = &self.current_token {
-                if token == &Token::Whitespace {
                     self.advance();
                 }
             }

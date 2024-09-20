@@ -1,18 +1,18 @@
 use serde::{Deserialize, Serialize};
 
-#[derive(Debug)]
+#[derive(Serialize, Deserialize, Debug, Clone, Copy)]
 pub struct Span {
     pub line: usize,
     pub column: usize,
     pub index: usize,
 }
 
-#[derive(Debug)]
+#[derive(Serialize, Deserialize, Debug, Clone, Copy)]
 pub struct LOC {
     pub start: Span,
     pub end: Span,
 }
-#[derive(Debug)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct Common<T = String> {
     pub kind: NodeType,
     pub value: T,

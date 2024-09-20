@@ -1,18 +1,18 @@
-use logos::{Lexer, Logos};
+use logos::{Lexer, Logos, Skip};
 
 /// Update the line count and the char index.
-fn newline_callback(lex: &mut Lexer<Token>) {
+fn newline_callback(lex: &mut Lexer<Token>) -> Skip {
     lex.extras.0 += 1;
     lex.extras.1 = lex.span().end;
+    Skip
 }
 
 #[derive(Logos, Debug, PartialEq, Clone)]
+#[logos(skip r"[ ]+")]
 #[logos(extras = (usize, usize))]
 pub enum Token {
     #[regex(r"[\t\r\n\f]", newline_callback)]
     Newline,
-    #[regex(r"[ ]+")]
-    Whitespace,
 
     // Keywords
     #[token("namespace")]
@@ -66,7 +66,7 @@ pub enum Token {
     #[token("set")]
     Set,
 
-    #[regex(r"[a-zA-Z_][a-zA-Z0-9_]*(\.[a-zA-Z_][a-zA-Z0-9_]+)+", priority = 3)]
+    #[regex(r"[a-zA-Z_][a-zA-Z0-9_]*(\.[a-zA-Z_][a-zA-Z0-9_]*)+", priority = 3)]
     ChainIdentifier,
 
     #[regex("[a-zA-Z_][a-zA-Z0-9_]*")]

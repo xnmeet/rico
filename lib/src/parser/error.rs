@@ -1,31 +1,33 @@
 use std::fmt;
 
+use super::Span;
+
 #[derive(Debug)]
 pub enum ParseError {
-    UnexpectedToken((usize, usize)),
-    UnexpectedEOF((usize, usize)),
-    InvalidInteger((usize, usize)),
-    InvalidFloat((usize, usize)),
-    LexerError((usize, usize)),
+    UnexpectedToken(Span),
+    UnexpectedEOF(Span),
+    InvalidInteger(Span),
+    InvalidFloat(Span),
+    LexerError(Span),
 }
 
 impl fmt::Display for ParseError {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         match self {
             ParseError::UnexpectedToken(loc) => {
-                write!(f, "Unexpected token:{}:{}", loc.0, loc.1)
+                write!(f, "Unexpected token:{}:{}", loc.line, loc.column)
             }
             ParseError::UnexpectedEOF(loc) => {
-                write!(f, "Unexpected end of file:{}:{}", loc.0, loc.1)
+                write!(f, "Unexpected end of file:{}:{}", loc.line, loc.column)
             }
             ParseError::InvalidInteger(loc) => {
-                write!(f, "Invalid integer:{}:{}", loc.0, loc.1)
+                write!(f, "Invalid integer:{}:{}", loc.line, loc.column)
             }
             ParseError::InvalidFloat(loc) => {
-                write!(f, "Invalid float:{}:{}", loc.0, loc.1)
+                write!(f, "Invalid float:{}:{}", loc.line, loc.column)
             }
             ParseError::LexerError(loc) => {
-                write!(f, "Lexer error:{}:{}", loc.0, loc.1)
+                write!(f, "Lexer error:{}:{}", loc.line, loc.column)
             }
         }
     }
