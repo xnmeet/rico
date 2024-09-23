@@ -1,3 +1,4 @@
+use crate::lexer::Token;
 use serde::{Deserialize, Serialize};
 
 #[derive(Serialize, Deserialize, Debug, Clone, Copy)]
@@ -73,23 +74,6 @@ pub enum NodeType {
     BooleanLiteral,
     PropertyAssignment,
 
-    // Tokens
-    LeftParenToken,
-    RightParenToken,
-    LeftBraceToken,
-    RightBraceToken,
-    LeftBracketToken,
-    RightBracketToken,
-    CommaToken,
-    DotToken,
-    MinusToken,
-    SemicolonToken,
-    ColonToken,
-    StarToken,
-    EqualToken,
-    LessThanToken,
-    GreaterThanToken,
-
     // Keywords
     NamespaceKeyword,
     IncludeKeyword,
@@ -111,7 +95,6 @@ pub enum NodeType {
     BoolKeyword,
     ByteKeyword,
     EnumKeyword,
-    SenumKeyword,
     ListKeyword,
     SetKeyword,
     MapKeyword,
@@ -128,4 +111,39 @@ pub enum NodeType {
     Annotations,
 
     EOF,
+}
+
+impl NodeType {
+    pub fn from_token(token: &Token) -> Option<Self> {
+        match token {
+            Token::Namespace => Some(NodeType::NamespaceKeyword),
+            Token::Include => Some(NodeType::IncludeKeyword),
+            Token::Exception => Some(NodeType::ExceptionKeyword),
+            Token::Service => Some(NodeType::ServiceKeyword),
+            Token::Extends => Some(NodeType::ExtendsKeyword),
+            Token::Required => Some(NodeType::RequiredKeyword),
+            Token::Optional => Some(NodeType::OptionalKeyword),
+            Token::False => Some(NodeType::FalseKeyword),
+            Token::True => Some(NodeType::TrueKeyword),
+            Token::Const => Some(NodeType::ConstKeyword),
+            Token::Double => Some(NodeType::DoubleKeyword),
+            Token::Struct => Some(NodeType::StructKeyword),
+            Token::Typedef => Some(NodeType::TypedefKeyword),
+            Token::Union => Some(NodeType::UnionKeyword),
+            Token::String => Some(NodeType::StringKeyword),
+            Token::Binary => Some(NodeType::BinaryKeyword),
+            Token::Bool => Some(NodeType::BoolKeyword),
+            Token::Byte => Some(NodeType::ByteKeyword),
+            Token::Enum => Some(NodeType::EnumKeyword),
+            Token::List => Some(NodeType::ListKeyword),
+            Token::Set => Some(NodeType::SetKeyword),
+            Token::Map => Some(NodeType::MapKeyword),
+            Token::I16 => Some(NodeType::I16Keyword),
+            Token::I32 => Some(NodeType::I32Keyword),
+            Token::I64 => Some(NodeType::I64Keyword),
+            Token::Throws => Some(NodeType::ThrowsKeyword),
+            Token::Void => Some(NodeType::VoidKeyword),
+            _ => None,
+        }
+    }
 }

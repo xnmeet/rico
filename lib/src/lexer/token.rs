@@ -43,6 +43,8 @@ pub enum Token {
     Optional,
 
     // Base types
+    #[token("void")]
+    Void,
     #[token("bool")]
     Bool,
     #[token("byte")]
@@ -66,10 +68,7 @@ pub enum Token {
     #[token("set")]
     Set,
 
-    #[regex(r"[a-zA-Z_][a-zA-Z0-9_]*(\.[a-zA-Z_][a-zA-Z0-9_]*)+", priority = 3)]
-    ChainIdentifier,
-
-    #[regex("[a-zA-Z_][a-zA-Z0-9_]*")]
+    #[regex(r"[a-zA-Z_][a-zA-Z0-9_]*(\.[a-zA-Z_][a-zA-Z0-9_]*)*")]
     Identifier,
 
     #[regex(r#""([^"\\]|\\.)*""#)]

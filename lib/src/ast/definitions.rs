@@ -40,9 +40,31 @@ pub struct Include {
 }
 
 #[derive(Serialize, Deserialize, Debug)]
+pub struct FiledType {
+    pub kind: NodeType,
+    pub loc: LOC,
+    pub value: String,
+    #[serde(rename = "keyType")]
+    pub key_type: Option<Common<String>>,
+    #[serde(rename = "valueType")]
+    pub value_type: Option<Common<String>>,
+}
+
+#[derive(Serialize, Deserialize, Debug)]
+pub struct Const {
+    pub kind: NodeType,
+    pub loc: LOC,
+    pub name: Common<String>,
+    pub value: Common<String>,
+    #[serde(rename = "fieldType")]
+    pub field_type: FiledType,
+}
+
+#[derive(Serialize, Deserialize, Debug)]
 pub enum DocumentMembers {
     Namespace(Namespace),
     Include(Include),
+    Const(Const),
 }
 
 #[derive(Serialize, Deserialize, Debug)]
