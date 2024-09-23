@@ -210,14 +210,14 @@ impl<'a> Parser<'a> {
         })
     }
 
-    fn parse_list_type(&mut self) -> Result<FiledType, ParseError> {
+    fn parse_list_type(&mut self) -> Result<FieldType, ParseError> {
         let list_start_loc = self.get_token_loc();
         let list_slice = self.lexer.slice();
 
         self.advance();
         self.expect_token(&[Token::LeftAngle])?;
 
-        let filed_type = self.parse_field_type().unwrap();
+        let filed_type = self.parse_field_type()?;
 
         self.advance();
         self.expect_token(&[Token::RightAngle])?;
@@ -236,7 +236,7 @@ impl<'a> Parser<'a> {
         ))
     }
 
-    fn parse_field_type(&mut self) -> Result<FiledType, ParseError> {
+    fn parse_field_type(&mut self) -> Result<FieldType, ParseError> {
         self.advance();
         match &self.current_token {
             Some(token) => match token {

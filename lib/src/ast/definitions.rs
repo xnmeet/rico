@@ -40,7 +40,7 @@ pub struct Include {
 }
 
 #[derive(Serialize, Deserialize, Debug)]
-pub struct FiledType {
+pub struct FieldType {
     pub kind: NodeType,
     pub loc: LOC,
     pub value: String,
@@ -57,7 +57,7 @@ pub struct Const {
     pub name: Common<String>,
     pub value: Common<String>,
     #[serde(rename = "fieldType")]
-    pub field_type: FiledType,
+    pub field_type: FieldType,
 }
 
 #[derive(Serialize, Deserialize, Debug)]
