@@ -4,7 +4,10 @@ mod factory;
 use crate::ast::*;
 use crate::lexer::Token;
 use crate::parser::error::ParseError;
-use factory::{create_keyword_field_type, create_list_field_type, create_set_field_type};
+use factory::{
+    create_identifier_field_type, create_keyword_field_type, create_list_field_type,
+    create_set_field_type,
+};
 use logos::Logos;
 
 pub struct Parser<'a> {
@@ -274,14 +277,15 @@ impl<'a> Parser<'a> {
                     self.get_token_loc(),
                     self.lexer.slice(),
                 )),
+                Token::Identifier => Ok(create_identifier_field_type(
+                    self.get_token_loc(),
+                    self.lexer.slice(),
+                )),
                 Token::List => self.parse_list_type(),
                 // Token::Map => {
                 //     // Handle double parseMapType
                 // }
                 Token::Set => self.parse_set_type(),
-                // Token::Identifier => {
-                //     // Handle identifier
-                // }
                 _ => Err(ParseError::UnsupportedType(self.start_pos())),
             },
             None => Err(ParseError::MissingTypeDeclaration(self.start_pos())),

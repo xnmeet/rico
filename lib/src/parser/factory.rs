@@ -12,6 +12,16 @@ pub fn create_keyword_field_type(token: &Token, loc: LOC, slice: &str) -> FieldT
     }
 }
 
+pub fn create_identifier_field_type(loc: LOC, slice: &str) -> FieldType {
+    FieldType {
+        kind: NodeType::Identifier,
+        loc,
+        value: slice.to_string(),
+        key_type: None,
+        value_type: None,
+    }
+}
+
 pub fn create_map_field_type(
     loc: LOC,
     slice: &str,
