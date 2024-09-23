@@ -36,3 +36,13 @@ pub fn create_list_field_type(loc: LOC, slice: &str, value_type: Common) -> Fiel
         value: slice.to_string(),
     }
 }
+
+pub fn create_set_field_type(loc: LOC, slice: &str, value_type: Common) -> FieldType {
+    FieldType {
+        kind: NodeType::SetType,
+        loc,
+        key_type: None,
+        value_type: Some(value_type),
+        value: slice.to_string(),
+    }
+}

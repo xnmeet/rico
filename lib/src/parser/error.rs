@@ -9,6 +9,9 @@ pub enum ParseError {
     InvalidInteger(Span),
     InvalidFloat(Span),
     LexerError(Span),
+    NestedComplexType(Span),
+    UnsupportedType(Span),
+    MissingTypeDeclaration(Span),
 }
 
 impl fmt::Display for ParseError {
@@ -28,6 +31,19 @@ impl fmt::Display for ParseError {
             }
             ParseError::LexerError(loc) => {
                 write!(f, "Lexer error:{}:{}", loc.line, loc.column)
+            }
+            ParseError::NestedComplexType(loc) => {
+                write!(
+                    f,
+                    "Nested complex types are not allowed:{}:{}",
+                    loc.line, loc.column
+                )
+            }
+            ParseError::UnsupportedType(loc) => {
+                write!(f, "Unsupported type format:{}:{}", loc.line, loc.column)
+            }
+            ParseError::MissingTypeDeclaration(loc) => {
+                write!(f, "Missing type declaration:{}:{}", loc.line, loc.column)
             }
         }
     }

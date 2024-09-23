@@ -4,7 +4,7 @@ mod factory;
 use crate::ast::*;
 use crate::lexer::Token;
 use crate::parser::error::ParseError;
-use factory::{create_keyword_field_type, create_list_field_type};
+use factory::{create_keyword_field_type, create_list_field_type, create_set_field_type};
 use logos::Logos;
 
 pub struct Parser<'a> {
@@ -210,30 +210,52 @@ impl<'a> Parser<'a> {
         })
     }
 
-    fn parse_list_type(&mut self) -> Result<FieldType, ParseError> {
-        let list_start_loc = self.get_token_loc();
-        let list_slice = self.lexer.slice();
+    fn is_nested_complex_type(&self, filed_type: &FieldType) -> bool {
+        matches!(
+            filed_type.kind,
+            NodeType::ListType | NodeType::MapType | NodeType::SetType
+        )
+    }
+
+    fn parse_complex_type<F>(&mut self, create_field_type: F) -> Result<FieldType, ParseError>
+    where
+        F: Fn(LOC, &str, Common) -> FieldType,
+    {
+        let start_loc = self.get_token_loc();
+        let slice = self.lexer.slice();
 
         self.advance();
         self.expect_token(&[Token::LeftAngle])?;
 
         let filed_type = self.parse_field_type()?;
+        // 检查复杂类型的嵌套
+        if self.is_nested_complex_type(&filed_type) {
+            return Err(ParseError::NestedComplexType(filed_type.loc.start));
+        }
 
         self.advance();
         self.expect_token(&[Token::RightAngle])?;
         let end_loc = self.get_token_loc();
-        Ok(create_list_field_type(
+        Ok(create_field_type(
             LOC {
-                start: list_start_loc.start,
+                start: start_loc.start,
                 end: end_loc.end,
             },
-            list_slice,
+            slice,
             Common {
                 kind: filed_type.kind,
                 value: filed_type.value,
                 loc: filed_type.loc,
             },
         ))
+    }
+
+    fn parse_list_type(&mut self) -> Result<FieldType, ParseError> {
+        self.parse_complex_type(create_list_field_type)
+    }
+
+    fn parse_set_type(&mut self) -> Result<FieldType, ParseError> {
+        self.parse_complex_type(create_set_field_type)
     }
 
     fn parse_field_type(&mut self) -> Result<FieldType, ParseError> {
@@ -256,15 +278,13 @@ impl<'a> Parser<'a> {
                 // Token::Map => {
                 //     // Handle double parseMapType
                 // }
-                // Token::Set => {
-                //     // Handle double parseSetType
-                // }
+                Token::Set => self.parse_set_type(),
                 // Token::Identifier => {
                 //     // Handle identifier
                 // }
-                _ => Err(ParseError::UnexpectedToken(self.start_pos())),
+                _ => Err(ParseError::UnsupportedType(self.start_pos())),
             },
-            None => Err(ParseError::UnexpectedToken(self.start_pos())),
+            None => Err(ParseError::MissingTypeDeclaration(self.start_pos())),
         }
     }
 
