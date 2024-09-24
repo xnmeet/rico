@@ -57,7 +57,7 @@ impl<'a> Parser<'a> {
 
     fn advance(&mut self) -> Option<&Token> {
         // 处理换行字符串
-        self.bump_block_string_loc();
+        self.bump_block_token_loc();
 
         let current_token = self.lexer.next();
         if let Some(Ok(token)) = current_token {
@@ -68,9 +68,9 @@ impl<'a> Parser<'a> {
         return self.current_token.as_ref();
     }
 
-    fn bump_block_string_loc(&mut self) {
+    fn bump_block_token_loc(&mut self) {
         if let Some(token) = &self.current_token {
-            if token == &Token::StringLiteral {
+            if token == &Token::StringLiteral || token == &Token::BlockComment {
                 let count = self.lexer.slice().matches('\n').count();
                 if count > 0 {
                     self.lexer.extras.0 += count;
@@ -95,7 +95,7 @@ impl<'a> Parser<'a> {
 
     fn end_pos(&self) -> Span {
         if let Some(token) = &self.current_token {
-            if token == &Token::StringLiteral {
+            if token == &Token::StringLiteral || token == &Token::BlockComment {
                 // Handling newline strings
                 let split_vec: Vec<&str> = self.lexer.slice().split('\n').collect();
                 if split_vec.len() > 1 {

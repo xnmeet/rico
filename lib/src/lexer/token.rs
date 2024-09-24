@@ -118,6 +118,6 @@ pub enum Token {
     // Comments
     #[regex(r"//.*")]
     LineComment,
-    #[regex(r"/\*([^*]|\*[^/])*\*/")]
+    #[regex(r"/\*[^*]*\*+(?:[^*/][^*]*\*+)*/")]
     BlockComment,
 }

@@ -1,8 +1,2 @@
 include "apps.thrift"
-include "foo
-bar
-"
-
-namespace go a.b.c
-
-const list<string> SystemRole = "system_admin"           // 系统管理员
+namespace go a.b.c 
