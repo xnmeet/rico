@@ -76,10 +76,17 @@ pub struct ConstList {
 }
 
 #[derive(Serialize, Deserialize, Debug)]
+pub struct MapProperty {
+    pub kind: NodeType,
+    pub loc: LOC,
+    pub value: FieldInitialValue,
+    pub name: FieldInitialValue,
+}
+#[derive(Serialize, Deserialize, Debug)]
 pub struct ConstMap {
     pub kind: NodeType,
     pub loc: LOC,
-    pub properties: Vec<Common<FieldInitialValue>>,
+    pub properties: Vec<MapProperty>,
 }
 
 #[derive(Serialize, Deserialize, Debug)]

@@ -1,8 +1,8 @@
 use crate::lexer::Token;
 
 use super::{
-    Common, ConstList, FieldCollectionType, FieldInitialValue, FieldMapType, FieldType, NodeType,
-    LOC,
+    Common, ConstList, ConstMap, FieldCollectionType, FieldInitialValue, FieldMapType, FieldType,
+    MapProperty, NodeType, LOC,
 };
 
 // for field type
@@ -79,5 +79,13 @@ pub fn create_const_list_value(loc: LOC, elements: Vec<FieldInitialValue>) -> Fi
         kind: NodeType::ConstList,
         loc,
         elements,
+    })
+}
+
+pub fn create_map_value(loc: LOC, properties: Vec<MapProperty>) -> FieldInitialValue {
+    FieldInitialValue::ConstMap(ConstMap {
+        kind: NodeType::ConstMap,
+        loc,
+        properties,
     })
 }

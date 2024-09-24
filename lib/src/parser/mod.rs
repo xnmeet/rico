@@ -7,7 +7,7 @@ use crate::parser::error::ParseError;
 use factory::{
     create_const_list_value, create_const_value, create_identifier_field_type,
     create_identifier_value, create_keyword_field_type, create_list_field_type,
-    create_map_field_type, create_set_field_type,
+    create_map_field_type, create_map_value, create_set_field_type,
 };
 use logos::Logos;
 
@@ -132,9 +132,8 @@ impl<'a> Parser<'a> {
     fn parse_include(&mut self) -> Result<Include, ParseError> {
         let include_start_pos = self.start_pos();
 
-        self.advance();
+        self.consume(Token::StringLiteral)?;
         let value_loc = self.get_token_loc();
-        self.expect_token(&[Token::StringLiteral])?;
         let value = self.lexer.slice();
 
         Ok(Include {
@@ -151,15 +150,15 @@ impl<'a> Parser<'a> {
     fn parse_namespace(&mut self) -> Result<Namespace, ParseError> {
         let namespace_start_pos = self.start_pos();
 
-        self.advance();
+        self.consume(Token::Identifier)?;
         let scope_loc = self.get_token_loc();
-        self.expect_token(&[Token::Identifier])?;
+
         // for example: namespace go a.b.c
         let indent_scope = self.lexer.slice(); // result go
 
-        self.advance();
+        self.consume(Token::Identifier)?;
         let value_loc = self.get_token_loc();
-        self.expect_token(&[Token::Identifier])?;
+
         let value = self.lexer.slice(); // result a.b.c
 
         Ok(Namespace {
@@ -182,13 +181,11 @@ impl<'a> Parser<'a> {
         let const_start_pos = self.start_pos();
         let field_type = self.parse_field_type()?;
 
-        self.advance();
-        self.expect_token(&[Token::Identifier])?;
+        self.consume(Token::Identifier)?;
         let name_loc = self.get_token_loc();
         let name = self.lexer.slice();
 
-        self.advance();
-        self.expect_token(&[Token::Equals])?;
+        self.consume(Token::Equals)?;
 
         let const_value = self.parse_field_value()?;
 
@@ -209,8 +206,7 @@ impl<'a> Parser<'a> {
         let typedef_start_pos = self.start_pos();
         let field_type = self.parse_field_type()?;
 
-        self.advance();
-        self.expect_token(&[Token::Identifier])?;
+        self.consume(Token::Identifier)?;
         let name_loc = self.get_token_loc();
         let name = self.lexer.slice();
 
@@ -227,7 +223,11 @@ impl<'a> Parser<'a> {
     }
 
     fn is_list_token_end(&mut self) -> bool {
-        self.expect_token(&[Token::RightBracket]).is_ok()
+        self.expect_token(Token::RightBracket).is_ok()
+    }
+
+    fn is_map_token_end(&mut self) -> bool {
+        self.expect_token(Token::RightBrace).is_ok()
     }
 
     fn parse_complex_type<F>(&mut self, create_field_type: F) -> Result<FieldType, ParseError>
@@ -237,13 +237,10 @@ impl<'a> Parser<'a> {
         let start_loc = self.start_pos();
         let slice = self.lexer.slice();
 
-        self.advance();
-        self.expect_token(&[Token::LeftAngle])?;
-
+        self.consume(Token::LeftAngle)?;
         let filed_type = self.parse_field_type()?;
 
-        self.advance();
-        self.expect_token(&[Token::RightAngle])?;
+        self.consume(Token::RightAngle)?;
         let end_loc = self.get_token_loc();
         Ok(create_field_type(
             LOC {
@@ -267,18 +264,13 @@ impl<'a> Parser<'a> {
         let start_loc = self.start_pos();
         let slice = self.lexer.slice();
 
-        self.advance();
-        self.expect_token(&[Token::LeftAngle])?;
-
+        self.consume(Token::LeftAngle)?;
         let filed_key_type = self.parse_field_type()?;
 
-        self.advance();
-        self.expect_token(&[Token::Comma])?;
-
+        self.consume(Token::Comma)?;
         let filed_value_type = self.parse_field_type()?;
 
-        self.advance();
-        self.expect_token(&[Token::RightAngle])?;
+        self.consume(Token::RightAngle)?;
 
         let end_loc = self.get_token_loc();
         Ok(create_map_field_type(
@@ -337,12 +329,49 @@ impl<'a> Parser<'a> {
             if self.is_list_token_end() {
                 break;
             }
-            self.expect_token(&[Token::Comma])?;
+            self.expect_token(Token::Comma)?;
         }
 
         Ok(create_const_list_value(
             self.get_token_parent_loc(start_loc.start, self.end_pos()),
             elements,
+        ))
+    }
+
+    fn parse_map_value(&mut self) -> Result<FieldInitialValue, ParseError> {
+        let start_pos = self.start_pos();
+        let mut properties: Vec<MapProperty> = Vec::new();
+
+        loop {
+            let property_start_pos = self.start_pos();
+            let property_key = self.parse_field_value()?;
+
+            self.consume(Token::Colon)?;
+            let property_value = self.parse_field_value();
+
+            if let Ok(value) = property_value {
+                properties.push(MapProperty {
+                    kind: NodeType::PropertyAssignment,
+                    loc: self.get_token_parent_loc(property_start_pos, self.get_token_loc().end),
+                    name: property_key,
+                    value,
+                });
+            } else if self.is_map_token_end() {
+                break;
+            } else {
+                return property_value;
+            }
+
+            self.advance();
+            if self.is_map_token_end() {
+                break;
+            }
+            self.expect_token(Token::Comma)?;
+        }
+
+        Ok(create_map_value(
+            self.get_token_parent_loc(start_pos, self.end_pos()),
+            properties,
         ))
     }
 
@@ -363,18 +392,24 @@ impl<'a> Parser<'a> {
                     self.lexer.slice(),
                 )),
                 Token::LeftBracket => self.parse_list_value(),
+                Token::LeftBrace => self.parse_map_value(),
                 _ => Err(ParseError::InvalidValueDeclaration(self.start_pos())),
             },
             None => Err(ParseError::UnexpectedEOF(self.start_pos())),
         }
     }
 
-    fn expect_token(&mut self, expected: &[Token]) -> Result<(), ParseError> {
+    fn expect_token(&mut self, expected: Token) -> Result<(), ParseError> {
         match &self.current_token {
-            Some(token) if expected.contains(token) => Ok(()),
+            Some(token) if token == &expected => Ok(()),
             Some(_) => Err(ParseError::UnexpectedToken(self.start_pos())),
             None => Err(ParseError::UnexpectedEOF(self.start_pos())),
         }
+    }
+
+    fn consume(&mut self, token: Token) -> Result<(), ParseError> {
+        self.advance();
+        self.expect_token(token)
     }
 
     fn skip_comments(&mut self) {
