@@ -101,11 +101,21 @@ pub struct Const {
 }
 
 #[derive(Serialize, Deserialize, Debug)]
+pub struct Typedef {
+    pub kind: NodeType,
+    pub loc: LOC,
+    pub name: Common<String>,
+    #[serde(rename = "fieldType")]
+    pub field_type: FieldType,
+}
+
+#[derive(Serialize, Deserialize, Debug)]
 #[serde(untagged)]
 pub enum DocumentMembers {
     Namespace(Namespace),
     Include(Include),
     Const(Const),
+    Typedef(Typedef),
 }
 
 #[derive(Serialize, Deserialize, Debug)]

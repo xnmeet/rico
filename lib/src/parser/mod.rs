@@ -40,6 +40,7 @@ impl<'a> Parser<'a> {
                         members.push(DocumentMembers::Namespace(self.parse_namespace()?));
                     }
                     Token::Const => members.push(DocumentMembers::Const(self.parse_const()?)),
+                    Token::Typedef => members.push(DocumentMembers::Typedef(self.parse_typedef()?)),
                     _ => {
                         return Err(ParseError::UnexpectedToken(self.start_pos()));
                     }
@@ -204,6 +205,27 @@ impl<'a> Parser<'a> {
         })
     }
 
+    fn parse_typedef(&mut self) -> Result<Typedef, ParseError> {
+        let typedef_start_pos = self.start_pos();
+        let field_type = self.parse_field_type()?;
+
+        self.advance();
+        self.expect_token(&[Token::Identifier])?;
+        let name_loc = self.get_token_loc();
+        let name = self.lexer.slice();
+
+        Ok(Typedef {
+            kind: NodeType::TypedefDefinition,
+            loc: self.get_token_parent_loc(typedef_start_pos, self.get_token_loc().end),
+            name: Common {
+                loc: name_loc,
+                value: name.to_string(),
+                kind: NodeType::Identifier,
+            },
+            field_type,
+        })
+    }
+
     fn is_list_token_end(&mut self) -> bool {
         self.expect_token(&[Token::RightBracket]).is_ok()
     }
@@ -212,7 +234,7 @@ impl<'a> Parser<'a> {
     where
         F: Fn(LOC, &str, FieldType) -> FieldType,
     {
-        let start_loc = self.get_token_loc();
+        let start_loc = self.start_pos();
         let slice = self.lexer.slice();
 
         self.advance();
@@ -225,7 +247,7 @@ impl<'a> Parser<'a> {
         let end_loc = self.get_token_loc();
         Ok(create_field_type(
             LOC {
-                start: start_loc.start,
+                start: start_loc,
                 end: end_loc.end,
             },
             slice,
@@ -242,7 +264,7 @@ impl<'a> Parser<'a> {
     }
 
     fn parse_map_type(&mut self) -> Result<FieldType, ParseError> {
-        let start_loc = self.get_token_loc();
+        let start_loc = self.start_pos();
         let slice = self.lexer.slice();
 
         self.advance();
@@ -260,7 +282,7 @@ impl<'a> Parser<'a> {
 
         let end_loc = self.get_token_loc();
         Ok(create_map_field_type(
-            self.get_token_parent_loc(start_loc.start, end_loc.end),
+            self.get_token_parent_loc(start_loc, end_loc.end),
             slice,
             filed_key_type,
             filed_value_type,
