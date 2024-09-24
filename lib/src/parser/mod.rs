@@ -4,11 +4,7 @@ mod factory;
 use crate::ast::*;
 use crate::lexer::Token;
 use crate::parser::error::ParseError;
-use factory::{
-    create_const_list_value, create_const_value, create_identifier_field_type,
-    create_identifier_value, create_keyword_field_type, create_list_field_type,
-    create_map_field_type, create_map_value, create_set_field_type,
-};
+use factory::*;
 use logos::Logos;
 
 pub struct Parser<'a> {
