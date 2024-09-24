@@ -1,6 +1,6 @@
 use crate::lexer::Token;
 
-use super::{Common, FieldType, NodeType, LOC};
+use super::{Common, ConstList, FieldInitialValue, FieldType, NodeType, LOC};
 
 pub fn create_keyword_field_type(token: &Token, loc: LOC, slice: &str) -> FieldType {
     FieldType {
@@ -55,4 +55,28 @@ pub fn create_set_field_type(loc: LOC, slice: &str, value_type: Common) -> Field
         value_type: Some(value_type),
         value: slice.to_string(),
     }
+}
+
+pub fn create_const_value(token: &Token, loc: LOC, slice: &str) -> FieldInitialValue {
+    FieldInitialValue::ConstValue(Common {
+        kind: NodeType::from_token(token).unwrap(),
+        loc,
+        value: slice.to_string(),
+    })
+}
+
+pub fn create_identifier_value(loc: LOC, slice: &str) -> FieldInitialValue {
+    FieldInitialValue::ConstValue(Common {
+        kind: NodeType::Identifier,
+        loc,
+        value: slice.to_string(),
+    })
+}
+
+pub fn create_const_list_value(loc: LOC, elements: Vec<FieldInitialValue>) -> FieldInitialValue {
+    FieldInitialValue::ConstList(ConstList {
+        kind: NodeType::ConstList,
+        loc,
+        elements,
+    })
 }

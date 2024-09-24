@@ -116,6 +116,7 @@ pub enum NodeType {
 impl NodeType {
     pub fn from_token(token: &Token) -> Option<Self> {
         match token {
+            // Keywords
             Token::Namespace => Some(NodeType::NamespaceKeyword),
             Token::Include => Some(NodeType::IncludeKeyword),
             Token::Exception => Some(NodeType::ExceptionKeyword),
@@ -123,8 +124,6 @@ impl NodeType {
             Token::Extends => Some(NodeType::ExtendsKeyword),
             Token::Required => Some(NodeType::RequiredKeyword),
             Token::Optional => Some(NodeType::OptionalKeyword),
-            Token::False => Some(NodeType::FalseKeyword),
-            Token::True => Some(NodeType::TrueKeyword),
             Token::Const => Some(NodeType::ConstKeyword),
             Token::Double => Some(NodeType::DoubleKeyword),
             Token::Struct => Some(NodeType::StructKeyword),
@@ -143,6 +142,13 @@ impl NodeType {
             Token::I64 => Some(NodeType::I64Keyword),
             Token::Throws => Some(NodeType::ThrowsKeyword),
             Token::Void => Some(NodeType::VoidKeyword),
+            // Literals
+            Token::LineComment => Some(NodeType::CommentLine),
+            Token::BlockComment => Some(NodeType::CommentBlock),
+            Token::StringLiteral => Some(NodeType::StringLiteral),
+            Token::IntegerLiteral => Some(NodeType::IntegerLiteral),
+            Token::DoubleLiteral => Some(NodeType::FloatLiteral),
+            Token::BooleanLiteral => Some(NodeType::BooleanLiteral),
             _ => None,
         }
     }

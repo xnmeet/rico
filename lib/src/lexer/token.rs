@@ -84,9 +84,8 @@ pub enum Token {
     DoubleLiteral,
 
     #[token("true")]
-    True,
     #[token("false")]
-    False,
+    BooleanLiteral,
 
     // Punctuation
     #[token("{")]

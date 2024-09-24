@@ -12,6 +12,7 @@ pub enum ParseError {
     NestedComplexType(Span),
     UnsupportedType(Span),
     MissingTypeDeclaration(Span),
+    InvalidValueDeclaration(Span),
 }
 
 impl fmt::Display for ParseError {
@@ -44,6 +45,9 @@ impl fmt::Display for ParseError {
             }
             ParseError::MissingTypeDeclaration(loc) => {
                 write!(f, "Missing type declaration:{}:{}", loc.line, loc.column)
+            }
+            ParseError::InvalidValueDeclaration(loc) => {
+                write!(f, "Invalid value declaration:{}:{}", loc.line, loc.column)
             }
         }
     }

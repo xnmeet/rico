@@ -5,7 +5,8 @@ use crate::ast::*;
 use crate::lexer::Token;
 use crate::parser::error::ParseError;
 use factory::{
-    create_identifier_field_type, create_keyword_field_type, create_list_field_type,
+    create_const_list_value, create_const_value, create_identifier_field_type,
+    create_identifier_value, create_keyword_field_type, create_list_field_type,
     create_set_field_type,
 };
 use logos::Logos;
@@ -186,29 +187,17 @@ impl<'a> Parser<'a> {
         self.advance();
         self.expect_token(&[Token::Equals])?;
 
-        self.advance();
-        self.expect_token(&[
-            Token::StringLiteral,
-            Token::IntegerLiteral,
-            Token::Double,
-            Token::Identifier,
-        ])?;
-        let value_loc = self.get_token_loc();
-        let value = self.lexer.slice();
+        let const_value = self.parse_field_value()?;
 
         Ok(Const {
             kind: NodeType::ConstDefinition,
-            loc: self.get_token_parent_loc(const_start_pos, value_loc.end),
+            loc: self.get_token_parent_loc(const_start_pos, self.get_token_loc().end),
             name: Common {
                 loc: name_loc,
                 value: name.to_string(),
                 kind: NodeType::Identifier,
             },
-            value: Common {
-                loc: value_loc,
-                value: value.to_string(),
-                kind: NodeType::Identifier,
-            },
+            value: const_value,
             field_type,
         })
     }
@@ -218,6 +207,10 @@ impl<'a> Parser<'a> {
             filed_type.kind,
             NodeType::ListType | NodeType::MapType | NodeType::SetType
         )
+    }
+
+    fn is_list_token_end(&mut self) -> bool {
+        self.expect_token(&[Token::RightBracket]).is_ok()
     }
 
     fn parse_complex_type<F>(&mut self, create_field_type: F) -> Result<FieldType, ParseError>
@@ -292,9 +285,60 @@ impl<'a> Parser<'a> {
         }
     }
 
+    fn parse_list_value(&mut self) -> Result<FieldInitialValue, ParseError> {
+        let start_loc = self.get_token_loc();
+        let mut elements: Vec<FieldInitialValue> = Vec::new();
+
+        loop {
+            let value = self.parse_field_value();
+
+            if let Ok(val) = value {
+                elements.push(val);
+            } else if self.is_list_token_end() {
+                break;
+            } else {
+                return value;
+            }
+
+            self.advance();
+            if self.is_list_token_end() {
+                break;
+            }
+            self.expect_token(&[Token::Comma])?;
+        }
+
+        Ok(create_const_list_value(
+            self.get_token_parent_loc(start_loc.start, self.end_pos()),
+            elements,
+        ))
+    }
+
+    fn parse_field_value(&mut self) -> Result<FieldInitialValue, ParseError> {
+        self.advance();
+        match &self.current_token {
+            Some(token) => match token {
+                Token::StringLiteral
+                | Token::IntegerLiteral
+                | Token::DoubleLiteral
+                | Token::BooleanLiteral => Ok(create_const_value(
+                    token,
+                    self.get_token_loc(),
+                    self.lexer.slice(),
+                )),
+                Token::Identifier => Ok(create_identifier_value(
+                    self.get_token_loc(),
+                    self.lexer.slice(),
+                )),
+                Token::LeftBracket => self.parse_list_value(),
+                _ => Err(ParseError::InvalidValueDeclaration(self.start_pos())),
+            },
+            None => Err(ParseError::UnexpectedEOF(self.start_pos())),
+        }
+    }
+
     fn expect_token(&mut self, expected: &[Token]) -> Result<(), ParseError> {
         match &self.current_token {
-            Some(token) if expected.contains(token) => Ok(()), // 修改为接受多个 token
+            Some(token) if expected.contains(token) => Ok(()),
             Some(_) => Err(ParseError::UnexpectedToken(self.start_pos())),
             None => Err(ParseError::UnexpectedEOF(self.start_pos())),
         }
