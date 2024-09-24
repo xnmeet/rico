@@ -40,14 +40,32 @@ pub struct Include {
 }
 
 #[derive(Serialize, Deserialize, Debug)]
-pub struct FieldType {
+pub struct FieldCollectionType {
     pub kind: NodeType,
     pub loc: LOC,
     pub value: String,
-    #[serde(rename = "keyType", skip_serializing_if = "Option::is_none")]
-    pub key_type: Option<Common<String>>,
-    #[serde(rename = "valueType", skip_serializing_if = "Option::is_none")]
-    pub value_type: Option<Common<String>>,
+    #[serde(rename = "valueType")]
+    pub value_type: Box<FieldType>,
+}
+
+#[derive(Serialize, Deserialize, Debug)]
+pub struct FieldMapType {
+    pub kind: NodeType,
+    pub loc: LOC,
+    pub value: String,
+    #[serde(rename = "valueType")]
+    pub value_type: Box<FieldType>,
+    #[serde(rename = "keyType")]
+    pub key_type: Box<FieldType>,
+}
+
+#[derive(Serialize, Deserialize, Debug)]
+#[serde(untagged)]
+pub enum FieldType {
+    // set or list
+    CollectionType(FieldCollectionType),
+    MapType(FieldMapType),
+    CommonType(Common<String>),
 }
 
 #[derive(Serialize, Deserialize, Debug)]

@@ -1,61 +1,62 @@
 use crate::lexer::Token;
 
-use super::{Common, ConstList, FieldInitialValue, FieldType, NodeType, LOC};
+use super::{
+    Common, ConstList, FieldCollectionType, FieldInitialValue, FieldMapType, FieldType, NodeType,
+    LOC,
+};
+
+// for field type
 
 pub fn create_keyword_field_type(token: &Token, loc: LOC, slice: &str) -> FieldType {
-    FieldType {
+    FieldType::CommonType(Common {
         kind: NodeType::from_token(token).unwrap(),
         loc,
         value: slice.to_string(),
-        key_type: None,
-        value_type: None,
-    }
+    })
 }
 
 pub fn create_identifier_field_type(loc: LOC, slice: &str) -> FieldType {
-    FieldType {
+    FieldType::CommonType(Common {
         kind: NodeType::Identifier,
         loc,
         value: slice.to_string(),
-        key_type: None,
-        value_type: None,
-    }
+    })
 }
 
 pub fn create_map_field_type(
     loc: LOC,
     slice: &str,
-    key_type: Common,
-    value_type: Common,
+    key_type: FieldType,
+    value_type: FieldType,
 ) -> FieldType {
-    FieldType {
+    FieldType::MapType(FieldMapType {
         kind: NodeType::MapType,
         loc,
-        key_type: Some(key_type),
-        value_type: Some(value_type),
+        key_type: Box::new(key_type),
+        value_type: Box::new(value_type),
         value: slice.to_string(),
-    }
+    })
 }
 
-pub fn create_list_field_type(loc: LOC, slice: &str, value_type: Common) -> FieldType {
-    FieldType {
+pub fn create_list_field_type(loc: LOC, slice: &str, value_type: FieldType) -> FieldType {
+    FieldType::CollectionType(FieldCollectionType {
         kind: NodeType::ListType,
         loc,
-        key_type: None,
-        value_type: Some(value_type),
+        value_type: Box::new(value_type),
         value: slice.to_string(),
-    }
+    })
 }
 
-pub fn create_set_field_type(loc: LOC, slice: &str, value_type: Common) -> FieldType {
-    FieldType {
+pub fn create_set_field_type(loc: LOC, slice: &str, value_type: FieldType) -> FieldType {
+    FieldType::CollectionType(FieldCollectionType {
         kind: NodeType::SetType,
         loc,
-        key_type: None,
-        value_type: Some(value_type),
+        value_type: Box::new(value_type),
         value: slice.to_string(),
-    }
+    })
 }
+
+// for field value
 
 pub fn create_const_value(token: &Token, loc: LOC, slice: &str) -> FieldInitialValue {
     FieldInitialValue::ConstValue(Common {

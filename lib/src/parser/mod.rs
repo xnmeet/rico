@@ -7,7 +7,7 @@ use crate::parser::error::ParseError;
 use factory::{
     create_const_list_value, create_const_value, create_identifier_field_type,
     create_identifier_value, create_keyword_field_type, create_list_field_type,
-    create_set_field_type,
+    create_map_field_type, create_set_field_type,
 };
 use logos::Logos;
 
@@ -40,7 +40,9 @@ impl<'a> Parser<'a> {
                         members.push(DocumentMembers::Namespace(self.parse_namespace()?));
                     }
                     Token::Const => members.push(DocumentMembers::Const(self.parse_const()?)),
-                    _ => return Err(ParseError::UnexpectedToken(self.start_pos())),
+                    _ => {
+                        return Err(ParseError::UnexpectedToken(self.start_pos()));
+                    }
                 }
             } else {
                 break;
@@ -202,20 +204,13 @@ impl<'a> Parser<'a> {
         })
     }
 
-    fn is_nested_complex_type(&self, filed_type: &FieldType) -> bool {
-        matches!(
-            filed_type.kind,
-            NodeType::ListType | NodeType::MapType | NodeType::SetType
-        )
-    }
-
     fn is_list_token_end(&mut self) -> bool {
         self.expect_token(&[Token::RightBracket]).is_ok()
     }
 
     fn parse_complex_type<F>(&mut self, create_field_type: F) -> Result<FieldType, ParseError>
     where
-        F: Fn(LOC, &str, Common) -> FieldType,
+        F: Fn(LOC, &str, FieldType) -> FieldType,
     {
         let start_loc = self.get_token_loc();
         let slice = self.lexer.slice();
@@ -224,10 +219,6 @@ impl<'a> Parser<'a> {
         self.expect_token(&[Token::LeftAngle])?;
 
         let filed_type = self.parse_field_type()?;
-        // 检查复杂类型的嵌套
-        if self.is_nested_complex_type(&filed_type) {
-            return Err(ParseError::NestedComplexType(filed_type.loc.start));
-        }
 
         self.advance();
         self.expect_token(&[Token::RightAngle])?;
@@ -238,11 +229,7 @@ impl<'a> Parser<'a> {
                 end: end_loc.end,
             },
             slice,
-            Common {
-                kind: filed_type.kind,
-                value: filed_type.value,
-                loc: filed_type.loc,
-            },
+            filed_type,
         ))
     }
 
@@ -252,6 +239,32 @@ impl<'a> Parser<'a> {
 
     fn parse_set_type(&mut self) -> Result<FieldType, ParseError> {
         self.parse_complex_type(create_set_field_type)
+    }
+
+    fn parse_map_type(&mut self) -> Result<FieldType, ParseError> {
+        let start_loc = self.get_token_loc();
+        let slice = self.lexer.slice();
+
+        self.advance();
+        self.expect_token(&[Token::LeftAngle])?;
+
+        let filed_key_type = self.parse_field_type()?;
+
+        self.advance();
+        self.expect_token(&[Token::Comma])?;
+
+        let filed_value_type = self.parse_field_type()?;
+
+        self.advance();
+        self.expect_token(&[Token::RightAngle])?;
+
+        let end_loc = self.get_token_loc();
+        Ok(create_map_field_type(
+            self.get_token_parent_loc(start_loc.start, end_loc.end),
+            slice,
+            filed_key_type,
+            filed_value_type,
+        ))
     }
 
     fn parse_field_type(&mut self) -> Result<FieldType, ParseError> {
@@ -275,9 +288,7 @@ impl<'a> Parser<'a> {
                     self.lexer.slice(),
                 )),
                 Token::List => self.parse_list_type(),
-                // Token::Map => {
-                //     // Handle double parseMapType
-                // }
+                Token::Map => self.parse_map_type(),
                 Token::Set => self.parse_set_type(),
                 _ => Err(ParseError::UnsupportedType(self.start_pos())),
             },
@@ -349,6 +360,7 @@ impl<'a> Parser<'a> {
             if let Some(token) = &self.current_token {
                 if token == &Token::LineComment || token == &Token::BlockComment {
                     self.advance();
+                    continue;
                 }
             }
             break;
