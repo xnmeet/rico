@@ -1,5 +1,5 @@
 enum Env {
-    Development = 1 // 开发环境
+    Development // 开发环境
     Online = 2      // 线上环境
 }
 

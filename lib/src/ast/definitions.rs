@@ -117,12 +117,35 @@ pub struct Typedef {
 }
 
 #[derive(Serialize, Deserialize, Debug)]
+pub struct Initializer {
+    pub kind: NodeType,
+    pub value: Common<String>,
+    pub loc: LOC,
+}
+#[derive(Serialize, Deserialize, Debug)]
+pub struct EnumMember {
+    pub kind: NodeType,
+    pub loc: LOC,
+    pub name: Common<String>,
+    pub initializer: Option<Initializer>,
+}
+
+#[derive(Serialize, Deserialize, Debug)]
+pub struct Enum {
+    pub kind: NodeType,
+    pub loc: LOC,
+    pub name: Common<String>,
+    pub members: Vec<EnumMember>,
+}
+
+#[derive(Serialize, Deserialize, Debug)]
 #[serde(untagged)]
 pub enum DocumentMembers {
     Namespace(Namespace),
     Include(Include),
     Const(Const),
     Typedef(Typedef),
+    Enum(Enum),
 }
 
 #[derive(Serialize, Deserialize, Debug)]

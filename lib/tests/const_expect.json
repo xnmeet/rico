@@ -1,0 +1,162 @@
+{
+  "kind": "ThriftDocument",
+  "members": [
+    {
+      "kind": "ConstDefinition",
+      "loc": {
+        "start": { "line": 2, "column": 1, "index": 1 },
+        "end": { "line": 2, "column": 41, "index": 41 }
+      },
+      "name": {
+        "kind": "Identifier",
+        "value": "SystemRole",
+        "loc": {
+          "start": { "line": 2, "column": 14, "index": 14 },
+          "end": { "line": 2, "column": 24, "index": 24 }
+        }
+      },
+      "value": {
+        "kind": "StringLiteral",
+        "value": "\"system_admin\"",
+        "loc": {
+          "start": { "line": 2, "column": 27, "index": 27 },
+          "end": { "line": 2, "column": 41, "index": 41 }
+        }
+      },
+      "fieldType": {
+        "kind": "StringKeyword",
+        "value": "string",
+        "loc": {
+          "start": { "line": 2, "column": 7, "index": 7 },
+          "end": { "line": 2, "column": 13, "index": 13 }
+        }
+      }
+    },
+    {
+      "kind": "ConstDefinition",
+      "loc": {
+        "start": { "line": 3, "column": 1, "index": 71 },
+        "end": { "line": 3, "column": 41, "index": 111 }
+      },
+      "name": {
+        "kind": "Identifier",
+        "value": "AdminRole",
+        "loc": {
+          "start": { "line": 3, "column": 14, "index": 84 },
+          "end": { "line": 3, "column": 23, "index": 93 }
+        }
+      },
+      "value": {
+        "kind": "StringLiteral",
+        "value": "\"package_admin\"",
+        "loc": {
+          "start": { "line": 3, "column": 26, "index": 96 },
+          "end": { "line": 3, "column": 41, "index": 111 }
+        }
+      },
+      "fieldType": {
+        "kind": "StringKeyword",
+        "value": "string",
+        "loc": {
+          "start": { "line": 3, "column": 7, "index": 77 },
+          "end": { "line": 3, "column": 13, "index": 83 }
+        }
+      }
+    },
+    {
+      "kind": "ConstDefinition",
+      "loc": {
+        "start": { "line": 4, "column": 1, "index": 144 },
+        "end": { "line": 4, "column": 49, "index": 192 }
+      },
+      "name": {
+        "kind": "Identifier",
+        "value": "DeveloperRole",
+        "loc": {
+          "start": { "line": 4, "column": 14, "index": 157 },
+          "end": { "line": 4, "column": 27, "index": 170 }
+        }
+      },
+      "value": {
+        "kind": "StringLiteral",
+        "value": "\"package_developer\"",
+        "loc": {
+          "start": { "line": 4, "column": 30, "index": 173 },
+          "end": { "line": 4, "column": 49, "index": 192 }
+        }
+      },
+      "fieldType": {
+        "kind": "StringKeyword",
+        "value": "string",
+        "loc": {
+          "start": { "line": 4, "column": 7, "index": 150 },
+          "end": { "line": 4, "column": 13, "index": 156 }
+        }
+      }
+    },
+    {
+      "kind": "ConstDefinition",
+      "loc": {
+        "start": { "line": 5, "column": 1, "index": 220 },
+        "end": { "line": 5, "column": 49, "index": 268 }
+      },
+      "name": {
+        "kind": "Identifier",
+        "value": "TestUserRole",
+        "loc": {
+          "start": { "line": 5, "column": 20, "index": 239 },
+          "end": { "line": 5, "column": 32, "index": 251 }
+        }
+      },
+      "value": {
+        "kind": "ConstList",
+        "loc": {
+          "start": { "line": 5, "column": 35, "index": 254 },
+          "end": { "line": 5, "column": 49, "index": 268 }
+        },
+        "elements": [
+          {
+            "kind": "IntegerLiteral",
+            "value": "1",
+            "loc": {
+              "start": { "line": 5, "column": 36, "index": 255 },
+              "end": { "line": 5, "column": 37, "index": 256 }
+            }
+          },
+          {
+            "kind": "StringLiteral",
+            "value": "\"2\"",
+            "loc": {
+              "start": { "line": 5, "column": 38, "index": 257 },
+              "end": { "line": 5, "column": 41, "index": 260 }
+            }
+          },
+          {
+            "kind": "Identifier",
+            "value": "indent",
+            "loc": {
+              "start": { "line": 5, "column": 42, "index": 261 },
+              "end": { "line": 5, "column": 48, "index": 267 }
+            }
+          }
+        ]
+      },
+      "fieldType": {
+        "kind": "ListType",
+        "loc": {
+          "start": { "line": 5, "column": 7, "index": 226 },
+          "end": { "line": 5, "column": 19, "index": 238 }
+        },
+        "value": "list",
+        "valueType": {
+          "kind": "StringKeyword",
+          "value": "string",
+          "loc": {
+            "start": { "line": 5, "column": 12, "index": 231 },
+            "end": { "line": 5, "column": 18, "index": 237 }
+          }
+        }
+      }
+    }
+  ]
+}
