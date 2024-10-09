@@ -149,6 +149,7 @@ impl NodeType {
             Token::IntegerLiteral => Some(NodeType::IntegerLiteral),
             Token::DoubleLiteral => Some(NodeType::FloatLiteral),
             Token::BooleanLiteral => Some(NodeType::BooleanLiteral),
+            Token::HexLiteral => Some(NodeType::HexLiteral),
             _ => None,
         }
     }

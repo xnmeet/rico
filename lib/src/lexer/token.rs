@@ -87,6 +87,9 @@ pub enum Token {
     #[token("false")]
     BooleanLiteral,
 
+    #[regex(r"0[xX][0-9a-fA-F]+")]
+    HexLiteral,
+
     // Punctuation
     #[token("{")]
     LeftBrace,

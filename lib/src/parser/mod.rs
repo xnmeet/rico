@@ -457,7 +457,8 @@ impl<'a> Parser<'a> {
                 Token::StringLiteral
                 | Token::IntegerLiteral
                 | Token::DoubleLiteral
-                | Token::BooleanLiteral => {
+                | Token::BooleanLiteral
+                | Token::HexLiteral => {
                     Ok(create_const_value(token, self.get_token_loc(), self.text()))
                 }
                 Token::Identifier => Ok(create_identifier_value(self.get_token_loc(), self.text())),
@@ -495,17 +496,22 @@ impl<'a> Parser<'a> {
 
             if let Some(Token::Equals) = self.peek() {
                 self.consume(Token::Equals)?;
-                self.consume(Token::IntegerLiteral)?;
+                self.advance();
+                let value_token = self.token().unwrap();
 
-                initializer = Some(Initializer {
-                    loc: self.get_token_loc(),
-                    kind: NodeType::IntConstant,
-                    value: Common {
+                if matches!(value_token, Token::IntegerLiteral | Token::HexLiteral) {
+                    initializer = Some(Initializer {
                         loc: self.get_token_loc(),
-                        kind: NodeType::IntegerLiteral,
-                        value: self.text().to_owned(),
-                    },
-                });
+                        kind: NodeType::from_token(value_token).unwrap(),
+                        value: Common {
+                            loc: self.get_token_loc(),
+                            kind: NodeType::IntegerLiteral,
+                            value: self.text().to_owned(),
+                        },
+                    });
+                } else {
+                    return Err(ParseError::InvalidValueDeclaration(self.start_pos()));
+                }
             }
 
             members.push(EnumMember {
