@@ -481,8 +481,8 @@ impl<'a> Parser<'a> {
         self.consume(Token::LeftBrace)?;
         loop {
             self.advance();
-            self.skip_comments();
             self.skip_comma();
+            self.skip_comments();
 
             if let Some(Token::RightBrace) = self.token() {
                 break;
@@ -502,10 +502,10 @@ impl<'a> Parser<'a> {
                 if matches!(value_token, Token::IntegerLiteral | Token::HexLiteral) {
                     initializer = Some(Initializer {
                         loc: self.get_token_loc(),
-                        kind: NodeType::from_token(value_token).unwrap(),
+                        kind: NodeType::IntConstant,
                         value: Common {
                             loc: self.get_token_loc(),
-                            kind: NodeType::IntegerLiteral,
+                            kind: NodeType::from_token(value_token).unwrap(),
                             value: self.text().to_owned(),
                         },
                     });
