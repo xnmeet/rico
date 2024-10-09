@@ -47,7 +47,7 @@ impl<'a> Parser<'a> {
                     }
                     Token::Const => members.push(DocumentMembers::Const(self.parse_const()?)),
                     Token::Typedef => members.push(DocumentMembers::Typedef(self.parse_typedef()?)),
-                    // Token::Enum => members.push(DocumentMembers::Enum(self.parse_enum()?)),
+                    Token::Enum => members.push(DocumentMembers::Enum(self.parse_enum()?)),
                     _ => {
                         return Err(ParseError::UnexpectedToken(self.start_pos()));
                     }
@@ -469,6 +469,69 @@ impl<'a> Parser<'a> {
         }
     }
 
+    fn parse_enum(&mut self) -> Result<Enum, ParseError> {
+        let enum_start_pos = self.start_pos();
+        let mut members = Vec::new();
+
+        self.consume(Token::Identifier)?;
+        let name_loc = self.get_token_loc();
+        let name = self.text().to_owned();
+
+        self.consume(Token::LeftBrace)?;
+        loop {
+            self.advance();
+            self.skip_comments();
+            self.skip_comma();
+
+            if let Some(Token::RightBrace) = self.token() {
+                break;
+            }
+
+            self.expect_token(Token::Identifier)?;
+            let member_name = self.text().to_owned();
+            let member_name_loc = self.get_token_loc();
+
+            let mut initializer = None;
+
+            if let Some(Token::Equals) = self.peek() {
+                self.consume(Token::Equals)?;
+                self.consume(Token::IntegerLiteral)?;
+
+                initializer = Some(Initializer {
+                    loc: self.get_token_loc(),
+                    kind: NodeType::IntConstant,
+                    value: Common {
+                        loc: self.get_token_loc(),
+                        kind: NodeType::IntegerLiteral,
+                        value: self.text().to_owned(),
+                    },
+                });
+            }
+
+            members.push(EnumMember {
+                kind: NodeType::EnumMember,
+                loc: self.get_token_parent_loc(member_name_loc.start, self.end_pos()),
+                name: Common {
+                    loc: member_name_loc,
+                    kind: NodeType::Identifier,
+                    value: member_name,
+                },
+                initializer,
+            });
+        }
+
+        Ok(Enum {
+            kind: NodeType::EnumDefinition,
+            loc: self.get_token_parent_loc(enum_start_pos, self.end_pos()),
+            name: Common {
+                value: name,
+                loc: name_loc,
+                kind: NodeType::Identifier,
+            },
+            members,
+        })
+    }
+
     fn expect_token(&mut self, expected: Token) -> Result<(), ParseError> {
         match self.token() {
             Some(token) if token == &expected => Ok(()),
@@ -486,6 +549,18 @@ impl<'a> Parser<'a> {
         loop {
             if let Some(token) = self.token() {
                 if token == &Token::LineComment || token == &Token::BlockComment {
+                    self.advance();
+                    continue;
+                }
+            }
+            break;
+        }
+    }
+
+    fn skip_comma(&mut self) {
+        loop {
+            if let Some(token) = self.token() {
+                if token == &Token::Comma {
                     self.advance();
                     continue;
                 }

@@ -1,0 +1,329 @@
+{
+  "kind": "ThriftDocument",
+  "members": [
+    {
+      "kind": "EnumDefinition",
+      "loc": {
+        "start": { "line": 1, "column": 1, "index": 0 },
+        "end": { "line": 4, "column": 2, "index": 80 }
+      },
+      "name": {
+        "kind": "Identifier",
+        "value": "Env",
+        "loc": {
+          "start": { "line": 1, "column": 6, "index": 5 },
+          "end": { "line": 1, "column": 9, "index": 8 }
+        }
+      },
+      "members": [
+        {
+          "kind": "EnumMember",
+          "loc": {
+            "start": { "line": 2, "column": 5, "index": 15 },
+            "end": { "line": 2, "column": 16, "index": 26 }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "Development",
+            "loc": {
+              "start": { "line": 2, "column": 5, "index": 15 },
+              "end": { "line": 2, "column": 16, "index": 26 }
+            }
+          },
+          "initializer": null
+        },
+        {
+          "kind": "EnumMember",
+          "loc": {
+            "start": { "line": 3, "column": 5, "index": 47 },
+            "end": { "line": 3, "column": 15, "index": 57 }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "Online",
+            "loc": {
+              "start": { "line": 3, "column": 5, "index": 47 },
+              "end": { "line": 3, "column": 11, "index": 53 }
+            }
+          },
+          "initializer": {
+            "kind": "IntConstant",
+            "value": {
+              "kind": "IntegerLiteral",
+              "value": "2",
+              "loc": {
+                "start": { "line": 3, "column": 14, "index": 56 },
+                "end": { "line": 3, "column": 15, "index": 57 }
+              }
+            },
+            "loc": {
+              "start": { "line": 3, "column": 14, "index": 56 },
+              "end": { "line": 3, "column": 15, "index": 57 }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "EnumDefinition",
+      "loc": {
+        "start": { "line": 6, "column": 1, "index": 82 },
+        "end": { "line": 9, "column": 2, "index": 177 }
+      },
+      "name": {
+        "kind": "Identifier",
+        "value": "ProxyType",
+        "loc": {
+          "start": { "line": 6, "column": 6, "index": 87 },
+          "end": { "line": 6, "column": 15, "index": 96 }
+        }
+      },
+      "members": [
+        {
+          "kind": "EnumMember",
+          "loc": {
+            "start": { "line": 7, "column": 5, "index": 103 },
+            "end": { "line": 7, "column": 12, "index": 110 }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "TLB",
+            "loc": {
+              "start": { "line": 7, "column": 5, "index": 103 },
+              "end": { "line": 7, "column": 8, "index": 106 }
+            }
+          },
+          "initializer": {
+            "kind": "IntConstant",
+            "value": {
+              "kind": "IntegerLiteral",
+              "value": "1",
+              "loc": {
+                "start": { "line": 7, "column": 11, "index": 109 },
+                "end": { "line": 7, "column": 12, "index": 110 }
+              }
+            },
+            "loc": {
+              "start": { "line": 7, "column": 11, "index": 109 },
+              "end": { "line": 7, "column": 12, "index": 110 }
+            }
+          }
+        },
+        {
+          "kind": "EnumMember",
+          "loc": {
+            "start": { "line": 8, "column": 5, "index": 137 },
+            "end": { "line": 8, "column": 21, "index": 153 }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "ProxyService",
+            "loc": {
+              "start": { "line": 8, "column": 5, "index": 137 },
+              "end": { "line": 8, "column": 17, "index": 149 }
+            }
+          },
+          "initializer": {
+            "kind": "IntConstant",
+            "value": {
+              "kind": "IntegerLiteral",
+              "value": "2",
+              "loc": {
+                "start": { "line": 8, "column": 20, "index": 152 },
+                "end": { "line": 8, "column": 21, "index": 153 }
+              }
+            },
+            "loc": {
+              "start": { "line": 8, "column": 20, "index": 152 },
+              "end": { "line": 8, "column": 21, "index": 153 }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "EnumDefinition",
+      "loc": {
+        "start": { "line": 11, "column": 1, "index": 179 },
+        "end": { "line": 15, "column": 2, "index": 319 }
+      },
+      "name": {
+        "kind": "Identifier",
+        "value": "RootPathStatus",
+        "loc": {
+          "start": { "line": 11, "column": 6, "index": 184 },
+          "end": { "line": 11, "column": 20, "index": 198 }
+        }
+      },
+      "members": [
+        {
+          "kind": "EnumMember",
+          "loc": {
+            "start": { "line": 12, "column": 5, "index": 205 },
+            "end": { "line": 12, "column": 17, "index": 217 }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "UnFinish",
+            "loc": {
+              "start": { "line": 12, "column": 5, "index": 205 },
+              "end": { "line": 12, "column": 13, "index": 213 }
+            }
+          },
+          "initializer": {
+            "kind": "IntConstant",
+            "value": {
+              "kind": "IntegerLiteral",
+              "value": "1",
+              "loc": {
+                "start": { "line": 12, "column": 16, "index": 216 },
+                "end": { "line": 12, "column": 17, "index": 217 }
+              }
+            },
+            "loc": {
+              "start": { "line": 12, "column": 16, "index": 216 },
+              "end": { "line": 12, "column": 17, "index": 217 }
+            }
+          }
+        },
+        {
+          "kind": "EnumMember",
+          "loc": {
+            "start": { "line": 13, "column": 5, "index": 247 },
+            "end": { "line": 13, "column": 19, "index": 261 }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "Accessible",
+            "loc": {
+              "start": { "line": 13, "column": 5, "index": 247 },
+              "end": { "line": 13, "column": 15, "index": 257 }
+            }
+          },
+          "initializer": {
+            "kind": "IntConstant",
+            "value": {
+              "kind": "IntegerLiteral",
+              "value": "2",
+              "loc": {
+                "start": { "line": 13, "column": 18, "index": 260 },
+                "end": { "line": 13, "column": 19, "index": 261 }
+              }
+            },
+            "loc": {
+              "start": { "line": 13, "column": 18, "index": 260 },
+              "end": { "line": 13, "column": 19, "index": 261 }
+            }
+          }
+        },
+        {
+          "kind": "EnumMember",
+          "loc": {
+            "start": { "line": 14, "column": 5, "index": 283 },
+            "end": { "line": 14, "column": 21, "index": 299 }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "UnAccessible",
+            "loc": {
+              "start": { "line": 14, "column": 5, "index": 283 },
+              "end": { "line": 14, "column": 17, "index": 295 }
+            }
+          },
+          "initializer": {
+            "kind": "IntConstant",
+            "value": {
+              "kind": "IntegerLiteral",
+              "value": "3",
+              "loc": {
+                "start": { "line": 14, "column": 20, "index": 298 },
+                "end": { "line": 14, "column": 21, "index": 299 }
+              }
+            },
+            "loc": {
+              "start": { "line": 14, "column": 20, "index": 298 },
+              "end": { "line": 14, "column": 21, "index": 299 }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "EnumDefinition",
+      "loc": {
+        "start": { "line": 17, "column": 1, "index": 321 },
+        "end": { "line": 24, "column": 2, "index": 495 }
+      },
+      "name": {
+        "kind": "Identifier",
+        "value": "RootPathPublishStatus",
+        "loc": {
+          "start": { "line": 17, "column": 6, "index": 326 },
+          "end": { "line": 17, "column": 27, "index": 347 }
+        }
+      },
+      "members": [
+        {
+          "kind": "EnumMember",
+          "loc": {
+            "start": { "line": 22, "column": 5, "index": 440 },
+            "end": { "line": 22, "column": 14, "index": 449 }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "Draft",
+            "loc": {
+              "start": { "line": 22, "column": 5, "index": 440 },
+              "end": { "line": 22, "column": 10, "index": 445 }
+            }
+          },
+          "initializer": {
+            "kind": "IntConstant",
+            "value": {
+              "kind": "IntegerLiteral",
+              "value": "1",
+              "loc": {
+                "start": { "line": 22, "column": 13, "index": 448 },
+                "end": { "line": 22, "column": 14, "index": 449 }
+              }
+            },
+            "loc": {
+              "start": { "line": 22, "column": 13, "index": 448 },
+              "end": { "line": 22, "column": 14, "index": 449 }
+            }
+          }
+        },
+        {
+          "kind": "EnumMember",
+          "loc": {
+            "start": { "line": 23, "column": 5, "index": 462 },
+            "end": { "line": 23, "column": 18, "index": 475 }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "Published",
+            "loc": {
+              "start": { "line": 23, "column": 5, "index": 462 },
+              "end": { "line": 23, "column": 14, "index": 471 }
+            }
+          },
+          "initializer": {
+            "kind": "IntConstant",
+            "value": {
+              "kind": "IntegerLiteral",
+              "value": "2",
+              "loc": {
+                "start": { "line": 23, "column": 17, "index": 474 },
+                "end": { "line": 23, "column": 18, "index": 475 }
+              }
+            },
+            "loc": {
+              "start": { "line": 23, "column": 17, "index": 474 },
+              "end": { "line": 23, "column": 18, "index": 475 }
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
