@@ -147,7 +147,8 @@ pub struct Field {
     pub field_id: Common<String>,
     #[serde(rename = "fieldType")]
     pub field_type: FieldType,
-    pub requiredness: String,
+    #[serde(rename = "requiredType")]
+    pub required_type: String,
     #[serde(rename = "defaultValue")]
     pub default_value: Option<FieldInitialValue>,
     pub annotations: Annotations,
