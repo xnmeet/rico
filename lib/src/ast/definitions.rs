@@ -139,6 +139,48 @@ pub struct Enum {
 }
 
 #[derive(Serialize, Deserialize, Debug)]
+pub struct Field {
+    pub kind: NodeType,
+    pub loc: LOC,
+    pub name: Common<String>,
+    #[serde(rename = "fieldID")]
+    pub field_id: Common<String>,
+    #[serde(rename = "fieldType")]
+    pub field_type: FieldType,
+    pub requiredness: String,
+    #[serde(rename = "defaultValue")]
+    pub default_value: Option<FieldInitialValue>,
+    pub annotations: Annotations,
+}
+#[derive(Serialize, Deserialize, Debug)]
+pub struct Struct {
+    pub kind: NodeType,
+    pub loc: LOC,
+    pub name: Common<String>,
+    pub members: Vec<Field>,
+}
+
+#[derive(Serialize, Deserialize, Debug)]
+pub struct Function {
+    pub kind: NodeType,
+    pub loc: LOC,
+    pub name: Common<String>,
+    #[serde(rename = "returnType")]
+    pub return_type: Common<String>,
+    pub params: Vec<Field>,
+    pub annotations: Annotations,
+    pub comments: Vec<Comment>,
+}
+
+#[derive(Serialize, Deserialize, Debug)]
+pub struct Service {
+    pub kind: NodeType,
+    pub loc: LOC,
+    pub name: Common<String>,
+    pub members: Vec<Function>,
+}
+
+#[derive(Serialize, Deserialize, Debug)]
 #[serde(untagged)]
 pub enum DocumentMembers {
     Namespace(Namespace),
@@ -146,6 +188,7 @@ pub enum DocumentMembers {
     Const(Const),
     Typedef(Typedef),
     Enum(Enum),
+    Struct(Struct),
 }
 
 #[derive(Serialize, Deserialize, Debug)]
