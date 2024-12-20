@@ -1,10 +1,10 @@
+mod definitions;
 mod error;
 mod factory;
-mod location_ops;
-mod parse_definitions;
-mod parse_types;
-mod parse_values;
-mod token_ops;
+mod location;
+mod token;
+mod types;
+mod values;
 
 use crate::ast::*;
 use crate::lexer::Token;
