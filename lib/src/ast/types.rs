@@ -19,6 +19,11 @@ pub struct Common<T = String> {
     pub value: T,
     pub loc: LOC,
 }
+impl<T> Common<T> {
+    pub fn new(kind: NodeType, value: T, loc: LOC) -> Self {
+        Self { kind, value, loc }
+    }
+}
 
 #[derive(Serialize, Deserialize, Debug)]
 #[serde(rename_all = "PascalCase")]

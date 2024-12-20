@@ -1,3 +1,4 @@
+use crate::ast::*;
 use crate::lexer::Token;
 
 use super::{
@@ -88,4 +89,29 @@ pub fn create_map_value(loc: LOC, properties: Vec<MapProperty>) -> FieldInitialV
         loc,
         properties,
     })
+}
+
+pub(crate) fn create_identifier(loc: LOC, value: String) -> Common {
+    Common {
+        kind: NodeType::Identifier,
+        value,
+        loc,
+    }
+}
+
+pub(crate) fn create_enum_member(
+    loc: LOC,
+    name: Common,
+    initializer: Option<Initializer>,
+) -> EnumMember {
+    EnumMember {
+        kind: NodeType::EnumMember,
+        loc,
+        name,
+        initializer,
+    }
+}
+
+pub(crate) fn create_initializer(loc: LOC, value: Common, kind: NodeType) -> Initializer {
+    Initializer { kind, loc, value }
 }

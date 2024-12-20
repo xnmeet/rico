@@ -2,6 +2,23 @@ use crate::ast::{Span, LOC};
 use crate::lexer::Token;
 use crate::parser::Parser;
 
+pub(crate) struct LocationTracker {
+    start_pos: Span,
+}
+
+impl LocationTracker {
+    pub fn new(start_pos: Span) -> Self {
+        Self { start_pos }
+    }
+
+    pub fn to_parent_loc(&self, end_loc: &LOC) -> LOC {
+        LOC {
+            start: self.start_pos,
+            end: end_loc.end,
+        }
+    }
+}
+
 impl<'a> Parser<'a> {
     pub(crate) fn start_pos(&self) -> Span {
         let mut line = 0;
