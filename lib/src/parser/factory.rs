@@ -103,12 +103,14 @@ pub(crate) fn create_enum_member(
     loc: LOC,
     name: Common,
     initializer: Option<Initializer>,
+    comments: Vec<Comment>,
 ) -> EnumMember {
     EnumMember {
         kind: NodeType::EnumMember,
         loc,
         name,
         initializer,
+        comments,
     }
 }
 

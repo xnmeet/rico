@@ -23,6 +23,7 @@ pub struct Parser<'a> {
     lexer: logos::Lexer<'a, Token>,
     cur_token: Option<ParserToken<'a>>,
     next_token: Option<ParserToken<'a>>,
+    pending_comments: Vec<Comment>,
 }
 
 impl<'a> Parser<'a> {
@@ -32,6 +33,7 @@ impl<'a> Parser<'a> {
             lexer,
             next_token: None,
             cur_token: None,
+            pending_comments: Vec::new(),
         }
     }
 
@@ -57,10 +59,12 @@ impl<'a> Parser<'a> {
                     }
                 }
             } else {
+                self.clear_pending_comments();
                 break;
             }
         }
 
+        println!("{:?}", self.pending_comments);
         Ok(Document {
             kind: NodeType::ThriftDocument,
             members,

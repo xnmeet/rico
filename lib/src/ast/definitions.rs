@@ -30,6 +30,7 @@ pub struct Namespace {
     pub loc: LOC,
     pub name: Common<String>,
     pub scope: Common<String>,
+    pub comments: Vec<Comment>,
 }
 
 #[derive(Serialize, Deserialize, Debug)]
@@ -37,6 +38,7 @@ pub struct Include {
     pub kind: NodeType,
     pub loc: LOC,
     pub name: Common<String>,
+    pub comments: Vec<Comment>,
 }
 
 #[derive(Serialize, Deserialize, Debug)]
@@ -105,6 +107,7 @@ pub struct Const {
     pub value: FieldInitialValue,
     #[serde(rename = "fieldType")]
     pub field_type: FieldType,
+    pub comments: Vec<Comment>,
 }
 
 #[derive(Serialize, Deserialize, Debug)]
@@ -114,6 +117,7 @@ pub struct Typedef {
     pub name: Common<String>,
     #[serde(rename = "fieldType")]
     pub field_type: FieldType,
+    pub comments: Vec<Comment>,
 }
 
 #[derive(Serialize, Deserialize, Debug)]
@@ -128,6 +132,7 @@ pub struct EnumMember {
     pub loc: LOC,
     pub name: Common<String>,
     pub initializer: Option<Initializer>,
+    pub comments: Vec<Comment>,
 }
 
 #[derive(Serialize, Deserialize, Debug)]
@@ -136,6 +141,7 @@ pub struct Enum {
     pub loc: LOC,
     pub name: Common<String>,
     pub members: Vec<EnumMember>,
+    pub comments: Vec<Comment>,
 }
 
 #[derive(Serialize, Deserialize, Debug)]
@@ -152,6 +158,7 @@ pub struct Field {
     #[serde(rename = "defaultValue")]
     pub default_value: Option<FieldInitialValue>,
     pub annotations: Annotations,
+    pub comments: Vec<Comment>,
 }
 #[derive(Serialize, Deserialize, Debug)]
 pub struct Struct {
@@ -159,6 +166,7 @@ pub struct Struct {
     pub loc: LOC,
     pub name: Common<String>,
     pub members: Vec<Field>,
+    pub comments: Vec<Comment>,
 }
 
 #[derive(Serialize, Deserialize, Debug)]
@@ -179,6 +187,7 @@ pub struct Service {
     pub loc: LOC,
     pub name: Common<String>,
     pub members: Vec<Function>,
+    pub comments: Vec<Comment>,
 }
 
 #[derive(Serialize, Deserialize, Debug)]

@@ -8,6 +8,7 @@ use crate::parser::Parser;
 impl<'a> Parser<'a> {
     pub(crate) fn parse_include(&mut self) -> Result<Include, ParseError> {
         let tracker = LocationTracker::new(self.start_pos());
+        let comments = self.take_pending_comments();
 
         self.consume(Token::StringLiteral)?;
         let name = create_identifier(self.get_token_loc(), self.text().to_string());
@@ -17,11 +18,13 @@ impl<'a> Parser<'a> {
             name,
             kind: NodeType::IncludeDefinition,
             loc: tracker.to_parent_loc(&end_loc),
+            comments,
         })
     }
 
     pub(crate) fn parse_namespace(&mut self) -> Result<Namespace, ParseError> {
         let tracker = LocationTracker::new(self.start_pos());
+        let comments = self.take_pending_comments();
 
         self.consume(Token::Identifier)?;
         let scope = create_identifier(self.get_token_loc(), self.text().to_owned());
@@ -35,11 +38,13 @@ impl<'a> Parser<'a> {
             name,
             scope,
             loc: tracker.to_parent_loc(&end_loc),
+            comments,
         })
     }
 
     pub(crate) fn parse_const(&mut self) -> Result<Const, ParseError> {
         let tracker = LocationTracker::new(self.start_pos());
+        let comments = self.take_pending_comments();
         let field_type = self.parse_field_type()?;
 
         self.consume(Token::Identifier)?;
@@ -54,11 +59,13 @@ impl<'a> Parser<'a> {
             name,
             value: const_value,
             field_type,
+            comments,
         })
     }
 
     pub(crate) fn parse_typedef(&mut self) -> Result<Typedef, ParseError> {
         let tracker = LocationTracker::new(self.start_pos());
+        let comments = self.take_pending_comments();
         let field_type = self.parse_field_type()?;
 
         self.consume(Token::Identifier)?;
@@ -69,6 +76,7 @@ impl<'a> Parser<'a> {
             loc: tracker.to_parent_loc(&name.loc),
             name,
             field_type,
+            comments,
         })
     }
 
@@ -79,6 +87,8 @@ impl<'a> Parser<'a> {
         self.consume(Token::Identifier)?;
         let name = create_identifier(self.get_token_loc(), self.text().to_owned());
 
+        let comments = self.take_pending_comments();
+
         self.consume(Token::LeftBrace)?;
         loop {
             self.advance();
@@ -88,6 +98,8 @@ impl<'a> Parser<'a> {
             if let Some(Token::RightBrace) = self.token() {
                 break;
             }
+
+            let member_comments = self.take_pending_comments();
 
             self.expect_token(Token::Identifier)?;
             let member_name = create_identifier(self.get_token_loc(), self.text().to_owned());
@@ -120,6 +132,7 @@ impl<'a> Parser<'a> {
                 self.get_token_parent_loc(member_start_loc.start, self.end_pos()),
                 member_name,
                 initializer,
+                member_comments,
             ));
         }
 
@@ -128,6 +141,7 @@ impl<'a> Parser<'a> {
             loc: tracker.to_parent_loc(&self.get_token_loc()),
             name,
             members,
+            comments,
         })
     }
 }
