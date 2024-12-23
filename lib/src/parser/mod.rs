@@ -55,6 +55,7 @@ impl<'a> Parser<'a> {
                     Token::Const => members.push(DocumentMembers::Const(self.parse_const()?)),
                     Token::Typedef => members.push(DocumentMembers::Typedef(self.parse_typedef()?)),
                     Token::Enum => members.push(DocumentMembers::Enum(self.parse_enum()?)),
+                    Token::Struct => members.push(DocumentMembers::Struct(self.parse_struct()?)),
                     _ => {
                         return Err(ParseError::UnexpectedToken(self.start_pos()));
                     }
@@ -65,7 +66,6 @@ impl<'a> Parser<'a> {
             }
         }
 
-        println!("{:?}", self.pending_comments);
         Ok(Document {
             kind: NodeType::ThriftDocument,
             members,

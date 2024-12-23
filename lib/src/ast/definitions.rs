@@ -12,7 +12,7 @@ pub struct Comment {
 #[derive(Serialize, Deserialize, Debug)]
 pub struct Annotation {
     pub kind: NodeType,
-    pub value: String,
+    pub value: Common<String>,
     pub loc: LOC,
     pub name: Common<String>,
 }

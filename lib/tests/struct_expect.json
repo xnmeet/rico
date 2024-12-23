@@ -1,0 +1,602 @@
+{
+  "kind": "ThriftDocument",
+  "members": [
+    {
+      "kind": "StructDefinition",
+      "loc": {
+        "start": {
+          "line": 1,
+          "column": 1,
+          "index": 0
+        },
+        "end": {
+          "line": 5,
+          "column": 2,
+          "index": 330
+        }
+      },
+      "name": {
+        "kind": "Identifier",
+        "value": "Filter",
+        "loc": {
+          "start": {
+            "line": 1,
+            "column": 8,
+            "index": 7
+          },
+          "end": {
+            "line": 1,
+            "column": 14,
+            "index": 13
+          }
+        }
+      },
+      "members": [
+        {
+          "kind": "FieldDefinition",
+          "loc": {
+            "start": {
+              "line": 2,
+              "column": 5,
+              "index": 20
+            },
+            "end": {
+              "line": 2,
+              "column": 89,
+              "index": 104
+            }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "CreatedBySelf",
+            "loc": {
+              "start": {
+                "line": 2,
+                "column": 13,
+                "index": 28
+              },
+              "end": {
+                "line": 2,
+                "column": 26,
+                "index": 41
+              }
+            }
+          },
+          "fieldID": {
+            "kind": "Identifier",
+            "value": "1:",
+            "loc": {
+              "start": {
+                "line": 2,
+                "column": 5,
+                "index": 20
+              },
+              "end": {
+                "line": 2,
+                "column": 7,
+                "index": 22
+              }
+            }
+          },
+          "fieldType": {
+            "kind": "BoolKeyword",
+            "value": "bool",
+            "loc": {
+              "start": {
+                "line": 2,
+                "column": 8,
+                "index": 23
+              },
+              "end": {
+                "line": 2,
+                "column": 12,
+                "index": 27
+              }
+            }
+          },
+          "requiredType": "default",
+          "defaultValue": null,
+          "annotations": {
+            "kind": "Annotations",
+            "loc": {
+              "start": {
+                "line": 2,
+                "column": 13,
+                "index": 28
+              },
+              "end": {
+                "line": 2,
+                "column": 89,
+                "index": 104
+              }
+            },
+            "members": [
+              {
+                "kind": "Annotation",
+                "value": {
+                  "kind": "StringLiteral",
+                  "value": "\"json:\\\"createdBySelf\\\"\"",
+                  "loc": {
+                    "start": {
+                      "line": 2,
+                      "column": 37,
+                      "index": 52
+                    },
+                    "end": {
+                      "line": 2,
+                      "column": 61,
+                      "index": 76
+                    }
+                  }
+                },
+                "loc": {
+                  "start": {
+                    "line": 2,
+                    "column": 28,
+                    "index": 43
+                  },
+                  "end": {
+                    "line": 2,
+                    "column": 61,
+                    "index": 76
+                  }
+                },
+                "name": {
+                  "kind": "Identifier",
+                  "value": "go.tag",
+                  "loc": {
+                    "start": {
+                      "line": 2,
+                      "column": 28,
+                      "index": 43
+                    },
+                    "end": {
+                      "line": 2,
+                      "column": 34,
+                      "index": 49
+                    }
+                  }
+                }
+              },
+              {
+                "kind": "Annotation",
+                "value": {
+                  "kind": "StringLiteral",
+                  "value": "\"createdBySelf\"",
+                  "loc": {
+                    "start": {
+                      "line": 2,
+                      "column": 73,
+                      "index": 88
+                    },
+                    "end": {
+                      "line": 2,
+                      "column": 88,
+                      "index": 103
+                    }
+                  }
+                },
+                "loc": {
+                  "start": {
+                    "line": 2,
+                    "column": 62,
+                    "index": 77
+                  },
+                  "end": {
+                    "line": 2,
+                    "column": 88,
+                    "index": 103
+                  }
+                },
+                "name": {
+                  "kind": "Identifier",
+                  "value": "api.json",
+                  "loc": {
+                    "start": {
+                      "line": 2,
+                      "column": 62,
+                      "index": 77
+                    },
+                    "end": {
+                      "line": 2,
+                      "column": 70,
+                      "index": 85
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "comments": []
+        },
+        {
+          "kind": "FieldDefinition",
+          "loc": {
+            "start": {
+              "line": 3,
+              "column": 5,
+              "index": 109
+            },
+            "end": {
+              "line": 3,
+              "column": 94,
+              "index": 198
+            }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "StatusList",
+            "loc": {
+              "start": {
+                "line": 3,
+                "column": 27,
+                "index": 131
+              },
+              "end": {
+                "line": 3,
+                "column": 37,
+                "index": 141
+              }
+            }
+          },
+          "fieldID": {
+            "kind": "Identifier",
+            "value": "2:",
+            "loc": {
+              "start": {
+                "line": 3,
+                "column": 5,
+                "index": 109
+              },
+              "end": {
+                "line": 3,
+                "column": 7,
+                "index": 111
+              }
+            }
+          },
+          "fieldType": {
+            "kind": "ListType",
+            "loc": {
+              "start": {
+                "line": 3,
+                "column": 17,
+                "index": 121
+              },
+              "end": {
+                "line": 3,
+                "column": 26,
+                "index": 130
+              }
+            },
+            "value": "list",
+            "valueType": {
+              "kind": "I64Keyword",
+              "value": "i64",
+              "loc": {
+                "start": {
+                  "line": 3,
+                  "column": 22,
+                  "index": 126
+                },
+                "end": {
+                  "line": 3,
+                  "column": 25,
+                  "index": 129
+                }
+              }
+            }
+          },
+          "requiredType": "required",
+          "defaultValue": null,
+          "annotations": {
+            "kind": "Annotations",
+            "loc": {
+              "start": {
+                "line": 3,
+                "column": 27,
+                "index": 131
+              },
+              "end": {
+                "line": 3,
+                "column": 94,
+                "index": 198
+              }
+            },
+            "members": [
+              {
+                "kind": "Annotation",
+                "value": {
+                  "kind": "StringLiteral",
+                  "value": "\"json:\\\"statusList\\\"\"",
+                  "loc": {
+                    "start": {
+                      "line": 3,
+                      "column": 48,
+                      "index": 152
+                    },
+                    "end": {
+                      "line": 3,
+                      "column": 69,
+                      "index": 173
+                    }
+                  }
+                },
+                "loc": {
+                  "start": {
+                    "line": 3,
+                    "column": 39,
+                    "index": 143
+                  },
+                  "end": {
+                    "line": 3,
+                    "column": 69,
+                    "index": 173
+                  }
+                },
+                "name": {
+                  "kind": "Identifier",
+                  "value": "go.tag",
+                  "loc": {
+                    "start": {
+                      "line": 3,
+                      "column": 39,
+                      "index": 143
+                    },
+                    "end": {
+                      "line": 3,
+                      "column": 45,
+                      "index": 149
+                    }
+                  }
+                }
+              },
+              {
+                "kind": "Annotation",
+                "value": {
+                  "kind": "StringLiteral",
+                  "value": "\"statusList\"",
+                  "loc": {
+                    "start": {
+                      "line": 3,
+                      "column": 81,
+                      "index": 185
+                    },
+                    "end": {
+                      "line": 3,
+                      "column": 93,
+                      "index": 197
+                    }
+                  }
+                },
+                "loc": {
+                  "start": {
+                    "line": 3,
+                    "column": 70,
+                    "index": 174
+                  },
+                  "end": {
+                    "line": 3,
+                    "column": 93,
+                    "index": 197
+                  }
+                },
+                "name": {
+                  "kind": "Identifier",
+                  "value": "api.json",
+                  "loc": {
+                    "start": {
+                      "line": 3,
+                      "column": 70,
+                      "index": 174
+                    },
+                    "end": {
+                      "line": 3,
+                      "column": 78,
+                      "index": 182
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "comments": []
+        },
+        {
+          "kind": "FieldDefinition",
+          "loc": {
+            "start": {
+              "line": 4,
+              "column": 5,
+              "index": 203
+            },
+            "end": {
+              "line": 4,
+              "column": 130,
+              "index": 328
+            }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "DistributionStatusList",
+            "loc": {
+              "start": {
+                "line": 4,
+                "column": 27,
+                "index": 225
+              },
+              "end": {
+                "line": 4,
+                "column": 49,
+                "index": 247
+              }
+            }
+          },
+          "fieldID": {
+            "kind": "Identifier",
+            "value": "3:",
+            "loc": {
+              "start": {
+                "line": 4,
+                "column": 5,
+                "index": 203
+              },
+              "end": {
+                "line": 4,
+                "column": 7,
+                "index": 205
+              }
+            }
+          },
+          "fieldType": {
+            "kind": "ListType",
+            "loc": {
+              "start": {
+                "line": 4,
+                "column": 17,
+                "index": 215
+              },
+              "end": {
+                "line": 4,
+                "column": 26,
+                "index": 224
+              }
+            },
+            "value": "list",
+            "valueType": {
+              "kind": "I64Keyword",
+              "value": "i64",
+              "loc": {
+                "start": {
+                  "line": 4,
+                  "column": 22,
+                  "index": 220
+                },
+                "end": {
+                  "line": 4,
+                  "column": 25,
+                  "index": 223
+                }
+              }
+            }
+          },
+          "requiredType": "optional",
+          "defaultValue": null,
+          "annotations": {
+            "kind": "Annotations",
+            "loc": {
+              "start": {
+                "line": 4,
+                "column": 27,
+                "index": 225
+              },
+              "end": {
+                "line": 4,
+                "column": 130,
+                "index": 328
+              }
+            },
+            "members": [
+              {
+                "kind": "Annotation",
+                "value": {
+                  "kind": "StringLiteral",
+                  "value": "\"json:\\\"distributionStatusList\\\"\"",
+                  "loc": {
+                    "start": {
+                      "line": 4,
+                      "column": 60,
+                      "index": 258
+                    },
+                    "end": {
+                      "line": 4,
+                      "column": 93,
+                      "index": 291
+                    }
+                  }
+                },
+                "loc": {
+                  "start": {
+                    "line": 4,
+                    "column": 51,
+                    "index": 249
+                  },
+                  "end": {
+                    "line": 4,
+                    "column": 93,
+                    "index": 291
+                  }
+                },
+                "name": {
+                  "kind": "Identifier",
+                  "value": "go.tag",
+                  "loc": {
+                    "start": {
+                      "line": 4,
+                      "column": 51,
+                      "index": 249
+                    },
+                    "end": {
+                      "line": 4,
+                      "column": 57,
+                      "index": 255
+                    }
+                  }
+                }
+              },
+              {
+                "kind": "Annotation",
+                "value": {
+                  "kind": "StringLiteral",
+                  "value": "\"distributionStatusList\"",
+                  "loc": {
+                    "start": {
+                      "line": 4,
+                      "column": 105,
+                      "index": 303
+                    },
+                    "end": {
+                      "line": 4,
+                      "column": 129,
+                      "index": 327
+                    }
+                  }
+                },
+                "loc": {
+                  "start": {
+                    "line": 4,
+                    "column": 94,
+                    "index": 292
+                  },
+                  "end": {
+                    "line": 4,
+                    "column": 129,
+                    "index": 327
+                  }
+                },
+                "name": {
+                  "kind": "Identifier",
+                  "value": "api.json",
+                  "loc": {
+                    "start": {
+                      "line": 4,
+                      "column": 94,
+                      "index": 292
+                    },
+                    "end": {
+                      "line": 4,
+                      "column": 102,
+                      "index": 300
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "comments": []
+        }
+      ],
+      "comments": []
+    }
+  ]
+}
