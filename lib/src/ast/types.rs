@@ -7,6 +7,15 @@ pub struct Span {
     pub column: usize,
     pub index: usize,
 }
+impl Span {
+    pub fn new(line: usize, column: usize, index: usize) -> Self {
+        Self {
+            line,
+            column,
+            index,
+        }
+    }
+}
 
 #[derive(Serialize, Deserialize, Debug, Clone, Copy)]
 pub struct LOC {

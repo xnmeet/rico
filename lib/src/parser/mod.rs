@@ -16,7 +16,8 @@ pub struct ParserToken<'a> {
     pub text: &'a str,
     pub span: logos::Span,
     pub token: Token,
-    pub extras: (usize, usize),
+    pub start: Span,
+    pub end: Span,
 }
 
 pub struct Parser<'a> {
@@ -72,9 +73,6 @@ impl<'a> Parser<'a> {
     }
 
     fn advance(&mut self) -> Option<&Token> {
-        // 处理换行字符串
-        self.bump_block_token_loc();
-
         // 如果没有下一个 token 且当前 token 存在，清空当前 token
         if self.next_token.is_none() && self.cur_token.is_some() {
             self.cur_token = None;
@@ -82,21 +80,17 @@ impl<'a> Parser<'a> {
         }
 
         // 更新当前 token
-        if let Some(ref mut token) = self.next_token {
-            if let Some(ref cur) = self.cur_token {
-                token.extras.0 = cur.extras.0.max(token.extras.0);
-            }
-            self.cur_token = self.next_token.take(); // Move next_token to cur_token
-        }
+        self.cur_token = self.next_token.take(); // Move next_token to cur_token
 
-        // 获取当前 token
+        // 获取当前 token，发生于首 token
         if self.cur_token.is_none() {
             if let Some(Ok(token)) = self.lexer.next() {
                 self.cur_token = Some(ParserToken {
                     text: self.lexer.slice(),
                     span: self.lexer.span(),
                     token,
-                    extras: self.lexer.extras,
+                    start: self.bind_start_position(),
+                    end: self.bind_end_position(),
                 });
             }
         }
@@ -110,7 +104,8 @@ impl<'a> Parser<'a> {
                     text: self.lexer.slice(),
                     span: self.lexer.span(),
                     token,
-                    extras: self.lexer.extras,
+                    start: self.bind_start_position(),
+                    end: self.bind_end_position(),
                 })
             })
             .transpose()
@@ -142,17 +137,31 @@ impl<'a> Parser<'a> {
         return "";
     }
 
-    fn bump_block_token_loc(&mut self) {
-        if let Some(token) = self.token() {
-            if token == &Token::StringLiteral || token == &Token::BlockComment {
-                let count = self.text().matches('\n').count();
-                if count > 0 {
-                    if let Some(ref mut token) = self.cur_token {
-                        token.extras.0 += count;
-                        token.extras.1 = self.lexer.span().end;
-                    }
-                }
-            }
+    fn bind_start_position(&mut self) -> Span {
+        let source = self.lexer.source();
+        let span = self.lexer.span();
+        let start_index = source[..span.start].len();
+        let column = source[self.lexer.extras.1..span.start].len() + 1;
+        let line = self.lexer.extras.0 + 1;
+        let index = start_index;
+        Span::new(line, column, index)
+    }
+
+    fn bind_end_position(&mut self) -> Span {
+        let span = self.lexer.span();
+        let source = self.lexer.source();
+        // handle inner multiple content
+        let newline_count = self.lexer.slice().matches('\n').count();
+
+        if newline_count > 0 {
+            self.lexer.extras.0 += newline_count;
+            self.lexer.extras.1 = self.lexer.span().end;
         }
+
+        let line = self.lexer.extras.0 + 1;
+        let column = source[self.lexer.extras.1..span.end].len() + 1;
+        let index = source[..span.end].len();
+
+        Span::new(line, column, index)
     }
 }

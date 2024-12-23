@@ -7,6 +7,16 @@ fn newline_callback(lex: &mut Lexer<Token>) -> Skip {
     Skip
 }
 
+fn multiple_lines_callback(lex: &mut Lexer<Token>) -> () {
+    let comment = lex.slice();
+    let multiple_lines: Vec<&str> = comment.split('\n').collect();
+    if multiple_lines.len() > 1 {
+        lex.extras.0 += multiple_lines.len() - 1;
+    }
+    lex.extras.1 = lex.span().end;
+    ()
+}
+
 #[derive(Logos, Debug, PartialEq, Clone)]
 #[logos(skip r"[ ]+")]
 #[logos(extras = (usize, usize))]
