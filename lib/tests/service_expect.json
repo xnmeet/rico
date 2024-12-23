@@ -1,0 +1,579 @@
+{
+  "kind": "ThriftDocument",
+  "members": [
+    {
+      "kind": "ServiceDefinition",
+      "loc": {
+        "start": {
+          "line": 1,
+          "column": 1,
+          "index": 0
+        },
+        "end": {
+          "line": 5,
+          "column": 2,
+          "index": 275
+        }
+      },
+      "name": {
+        "kind": "Identifier",
+        "value": "AppService",
+        "loc": {
+          "start": {
+            "line": 1,
+            "column": 9,
+            "index": 8
+          },
+          "end": {
+            "line": 1,
+            "column": 19,
+            "index": 18
+          }
+        }
+      },
+      "members": [
+        {
+          "kind": "FunctionDefinition",
+          "loc": {
+            "start": {
+              "line": 2,
+              "column": 21,
+              "index": 41
+            },
+            "end": {
+              "line": 2,
+              "column": 86,
+              "index": 106
+            }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "GetAppInfo",
+            "loc": {
+              "start": {
+                "line": 2,
+                "column": 21,
+                "index": 41
+              },
+              "end": {
+                "line": 2,
+                "column": 31,
+                "index": 51
+              }
+            }
+          },
+          "returnType": {
+            "kind": "Identifier",
+            "value": "GetAppInfoResponse",
+            "loc": {
+              "start": {
+                "line": 2,
+                "column": 2,
+                "index": 22
+              },
+              "end": {
+                "line": 2,
+                "column": 20,
+                "index": 40
+              }
+            }
+          },
+          "params": [
+            {
+              "kind": "FieldDefinition",
+              "loc": {
+                "start": {
+                  "line": 2,
+                  "column": 32,
+                  "index": 52
+                },
+                "end": {
+                  "line": 2,
+                  "column": 60,
+                  "index": 80
+                }
+              },
+              "name": {
+                "kind": "Identifier",
+                "value": "request",
+                "loc": {
+                  "start": {
+                    "line": 2,
+                    "column": 53,
+                    "index": 73
+                  },
+                  "end": {
+                    "line": 2,
+                    "column": 60,
+                    "index": 80
+                  }
+                }
+              },
+              "fieldID": {
+                "kind": "FieldID",
+                "value": "1",
+                "loc": {
+                  "start": {
+                    "line": 2,
+                    "column": 32,
+                    "index": 52
+                  },
+                  "end": {
+                    "line": 2,
+                    "column": 34,
+                    "index": 54
+                  }
+                }
+              },
+              "fieldType": {
+                "kind": "Identifier",
+                "value": "GetAppInfoRequest",
+                "loc": {
+                  "start": {
+                    "line": 2,
+                    "column": 35,
+                    "index": 55
+                  },
+                  "end": {
+                    "line": 2,
+                    "column": 52,
+                    "index": 72
+                  }
+                }
+              },
+              "requiredType": "default",
+              "defaultValue": null,
+              "annotations": {
+                "kind": "Annotations",
+                "loc": {
+                  "start": {
+                    "line": 2,
+                    "column": 53,
+                    "index": 73
+                  },
+                  "end": {
+                    "line": 2,
+                    "column": 60,
+                    "index": 80
+                  }
+                },
+                "members": []
+              },
+              "comments": []
+            }
+          ],
+          "annotations": {
+            "kind": "Annotations",
+            "loc": {
+              "start": {
+                "line": 2,
+                "column": 61,
+                "index": 81
+              },
+              "end": {
+                "line": 2,
+                "column": 86,
+                "index": 106
+              }
+            },
+            "members": [
+              {
+                "kind": "Annotation",
+                "value": {
+                  "kind": "StringLiteral",
+                  "value": "\"/api/test\"",
+                  "loc": {
+                    "start": {
+                      "line": 2,
+                      "column": 74,
+                      "index": 94
+                    },
+                    "end": {
+                      "line": 2,
+                      "column": 85,
+                      "index": 105
+                    }
+                  }
+                },
+                "loc": {
+                  "start": {
+                    "line": 2,
+                    "column": 63,
+                    "index": 83
+                  },
+                  "end": {
+                    "line": 2,
+                    "column": 85,
+                    "index": 105
+                  }
+                },
+                "name": {
+                  "kind": "Identifier",
+                  "value": "api.post",
+                  "loc": {
+                    "start": {
+                      "line": 2,
+                      "column": 63,
+                      "index": 83
+                    },
+                    "end": {
+                      "line": 2,
+                      "column": 71,
+                      "index": 91
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "comments": []
+        },
+        {
+          "kind": "FunctionDefinition",
+          "loc": {
+            "start": {
+              "line": 3,
+              "column": 10,
+              "index": 116
+            },
+            "end": {
+              "line": 3,
+              "column": 62,
+              "index": 168
+            }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "GetAppInfo",
+            "loc": {
+              "start": {
+                "line": 3,
+                "column": 10,
+                "index": 116
+              },
+              "end": {
+                "line": 3,
+                "column": 20,
+                "index": 126
+              }
+            }
+          },
+          "returnType": {
+            "kind": "VoidKeyword",
+            "value": "void",
+            "loc": {
+              "start": {
+                "line": 3,
+                "column": 5,
+                "index": 111
+              },
+              "end": {
+                "line": 3,
+                "column": 9,
+                "index": 115
+              }
+            }
+          },
+          "params": [
+            {
+              "kind": "FieldDefinition",
+              "loc": {
+                "start": {
+                  "line": 3,
+                  "column": 21,
+                  "index": 127
+                },
+                "end": {
+                  "line": 3,
+                  "column": 60,
+                  "index": 166
+                }
+              },
+              "name": {
+                "kind": "Identifier",
+                "value": "request",
+                "loc": {
+                  "start": {
+                    "line": 3,
+                    "column": 47,
+                    "index": 153
+                  },
+                  "end": {
+                    "line": 3,
+                    "column": 54,
+                    "index": 160
+                  }
+                }
+              },
+              "fieldID": {
+                "kind": "FieldID",
+                "value": "1",
+                "loc": {
+                  "start": {
+                    "line": 3,
+                    "column": 21,
+                    "index": 127
+                  },
+                  "end": {
+                    "line": 3,
+                    "column": 23,
+                    "index": 129
+                  }
+                }
+              },
+              "fieldType": {
+                "kind": "Identifier",
+                "value": "apps.GetAppInfoRequest",
+                "loc": {
+                  "start": {
+                    "line": 3,
+                    "column": 24,
+                    "index": 130
+                  },
+                  "end": {
+                    "line": 3,
+                    "column": 46,
+                    "index": 152
+                  }
+                }
+              },
+              "requiredType": "default",
+              "defaultValue": {
+                "kind": "ConstList",
+                "loc": {
+                  "start": {
+                    "line": 3,
+                    "column": 55,
+                    "index": 161
+                  },
+                  "end": {
+                    "line": 3,
+                    "column": 60,
+                    "index": 166
+                  }
+                },
+                "elements": [
+                  {
+                    "kind": "IntegerLiteral",
+                    "value": "1",
+                    "loc": {
+                      "start": {
+                        "line": 3,
+                        "column": 56,
+                        "index": 162
+                      },
+                      "end": {
+                        "line": 3,
+                        "column": 57,
+                        "index": 163
+                      }
+                    }
+                  },
+                  {
+                    "kind": "IntegerLiteral",
+                    "value": "2",
+                    "loc": {
+                      "start": {
+                        "line": 3,
+                        "column": 58,
+                        "index": 164
+                      },
+                      "end": {
+                        "line": 3,
+                        "column": 59,
+                        "index": 165
+                      }
+                    }
+                  }
+                ]
+              },
+              "annotations": {
+                "kind": "Annotations",
+                "loc": {
+                  "start": {
+                    "line": 3,
+                    "column": 59,
+                    "index": 165
+                  },
+                  "end": {
+                    "line": 3,
+                    "column": 60,
+                    "index": 166
+                  }
+                },
+                "members": []
+              },
+              "comments": []
+            }
+          ],
+          "annotations": {
+            "kind": "Annotations",
+            "loc": {
+              "start": {
+                "line": 3,
+                "column": 61,
+                "index": 167
+              },
+              "end": {
+                "line": 3,
+                "column": 62,
+                "index": 168
+              }
+            },
+            "members": []
+          },
+          "comments": []
+        },
+        {
+          "kind": "FunctionDefinition",
+          "loc": {
+            "start": {
+              "line": 4,
+              "column": 41,
+              "index": 209
+            },
+            "end": {
+              "line": 4,
+              "column": 105,
+              "index": 273
+            }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "UpdateRecordByFlow",
+            "loc": {
+              "start": {
+                "line": 4,
+                "column": 41,
+                "index": 209
+              },
+              "end": {
+                "line": 4,
+                "column": 59,
+                "index": 227
+              }
+            }
+          },
+          "returnType": {
+            "kind": "Identifier",
+            "value": "record.UpdateRecordByActionResponse",
+            "loc": {
+              "start": {
+                "line": 4,
+                "column": 5,
+                "index": 173
+              },
+              "end": {
+                "line": 4,
+                "column": 40,
+                "index": 208
+              }
+            }
+          },
+          "params": [
+            {
+              "kind": "FieldDefinition",
+              "loc": {
+                "start": {
+                  "line": 4,
+                  "column": 60,
+                  "index": 228
+                },
+                "end": {
+                  "line": 4,
+                  "column": 103,
+                  "index": 271
+                }
+              },
+              "name": {
+                "kind": "Identifier",
+                "value": "request",
+                "loc": {
+                  "start": {
+                    "line": 4,
+                    "column": 96,
+                    "index": 264
+                  },
+                  "end": {
+                    "line": 4,
+                    "column": 103,
+                    "index": 271
+                  }
+                }
+              },
+              "fieldID": {
+                "kind": "FieldID",
+                "value": "1",
+                "loc": {
+                  "start": {
+                    "line": 4,
+                    "column": 60,
+                    "index": 228
+                  },
+                  "end": {
+                    "line": 4,
+                    "column": 62,
+                    "index": 230
+                  }
+                }
+              },
+              "fieldType": {
+                "kind": "Identifier",
+                "value": "record.UpdateRecordByFlowRequest",
+                "loc": {
+                  "start": {
+                    "line": 4,
+                    "column": 63,
+                    "index": 231
+                  },
+                  "end": {
+                    "line": 4,
+                    "column": 95,
+                    "index": 263
+                  }
+                }
+              },
+              "requiredType": "default",
+              "defaultValue": null,
+              "annotations": {
+                "kind": "Annotations",
+                "loc": {
+                  "start": {
+                    "line": 4,
+                    "column": 96,
+                    "index": 264
+                  },
+                  "end": {
+                    "line": 4,
+                    "column": 103,
+                    "index": 271
+                  }
+                },
+                "members": []
+              },
+              "comments": []
+            }
+          ],
+          "annotations": {
+            "kind": "Annotations",
+            "loc": {
+              "start": {
+                "line": 4,
+                "column": 104,
+                "index": 272
+              },
+              "end": {
+                "line": 4,
+                "column": 105,
+                "index": 273
+              }
+            },
+            "members": []
+          },
+          "comments": []
+        }
+      ],
+      "comments": []
+    }
+  ]
+}

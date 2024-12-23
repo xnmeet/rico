@@ -1,0 +1,12 @@
+[package]
+name = "thrift-scan"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+thrift_parser = { path = "../lib" }
+clap = { version = "4.5.1", features = ["derive"] }
+rayon = "1.8.1"
+indicatif = "0.17.8"
+serde_json = "1.0.128"
+colored = "2.1.0"

@@ -8,10 +8,10 @@ fn newline_callback(lex: &mut Lexer<Token>) -> Skip {
 }
 
 #[derive(Logos, Debug, PartialEq, Clone)]
-#[logos(skip r"[ ]+")]
+#[logos(skip r"[ \t]+")]
 #[logos(extras = (usize, usize))]
 pub enum Token {
-    #[regex(r"[\t\r\n\f]", newline_callback)]
+    #[regex(r"[\r\n\f]", newline_callback)]
     Newline,
 
     // Keywords

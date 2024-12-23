@@ -4,118 +4,276 @@
     {
       "kind": "TypedefDefinition",
       "loc": {
-        "start": { "line": 1, "column": 1, "index": 0 },
-        "end": { "line": 1, "column": 28, "index": 27 }
+        "start": {
+          "line": 1,
+          "column": 1,
+          "index": 0
+        },
+        "end": {
+          "line": 1,
+          "column": 28,
+          "index": 27
+        }
       },
       "name": {
         "kind": "Identifier",
         "value": "ResourceType",
         "loc": {
-          "start": { "line": 1, "column": 16, "index": 15 },
-          "end": { "line": 1, "column": 28, "index": 27 }
+          "start": {
+            "line": 1,
+            "column": 16,
+            "index": 15
+          },
+          "end": {
+            "line": 1,
+            "column": 28,
+            "index": 27
+          }
         }
       },
       "fieldType": {
         "kind": "StringKeyword",
         "value": "string",
         "loc": {
-          "start": { "line": 1, "column": 9, "index": 8 },
-          "end": { "line": 1, "column": 15, "index": 14 }
+          "start": {
+            "line": 1,
+            "column": 9,
+            "index": 8
+          },
+          "end": {
+            "line": 1,
+            "column": 15,
+            "index": 14
+          }
         }
-      }
+      },
+      "comments": []
     },
     {
       "kind": "ConstDefinition",
       "loc": {
-        "start": { "line": 2, "column": 1, "index": 28 },
-        "end": { "line": 2, "column": 60, "index": 87 }
+        "start": {
+          "line": 2,
+          "column": 1,
+          "index": 28
+        },
+        "end": {
+          "line": 2,
+          "column": 60,
+          "index": 87
+        }
       },
       "name": {
         "kind": "Identifier",
         "value": "ResourceTypeInternalApp",
         "loc": {
-          "start": { "line": 2, "column": 20, "index": 47 },
-          "end": { "line": 2, "column": 43, "index": 70 }
+          "start": {
+            "line": 2,
+            "column": 20,
+            "index": 47
+          },
+          "end": {
+            "line": 2,
+            "column": 43,
+            "index": 70
+          }
         }
       },
       "value": {
         "kind": "StringLiteral",
         "value": "\"internal_app\"",
         "loc": {
-          "start": { "line": 2, "column": 46, "index": 73 },
-          "end": { "line": 2, "column": 60, "index": 87 }
+          "start": {
+            "line": 2,
+            "column": 46,
+            "index": 73
+          },
+          "end": {
+            "line": 2,
+            "column": 60,
+            "index": 87
+          }
         }
       },
       "fieldType": {
         "kind": "Identifier",
         "value": "ResourceType",
         "loc": {
-          "start": { "line": 2, "column": 7, "index": 34 },
-          "end": { "line": 2, "column": 19, "index": 46 }
+          "start": {
+            "line": 2,
+            "column": 7,
+            "index": 34
+          },
+          "end": {
+            "line": 2,
+            "column": 19,
+            "index": 46
+          }
         }
-      }
+      },
+      "comments": []
     },
     {
       "kind": "ConstDefinition",
       "loc": {
-        "start": { "line": 3, "column": 1, "index": 110 },
-        "end": { "line": 3, "column": 50, "index": 159 }
+        "start": {
+          "line": 3,
+          "column": 1,
+          "index": 110
+        },
+        "end": {
+          "line": 3,
+          "column": 50,
+          "index": 159
+        }
       },
       "name": {
         "kind": "Identifier",
         "value": "ResourceTypeISVApp",
         "loc": {
-          "start": { "line": 3, "column": 20, "index": 129 },
-          "end": { "line": 3, "column": 38, "index": 147 }
+          "start": {
+            "line": 3,
+            "column": 20,
+            "index": 129
+          },
+          "end": {
+            "line": 3,
+            "column": 38,
+            "index": 147
+          }
         }
       },
       "value": {
         "kind": "StringLiteral",
         "value": "\"isv_app\"",
         "loc": {
-          "start": { "line": 3, "column": 41, "index": 150 },
-          "end": { "line": 3, "column": 50, "index": 159 }
+          "start": {
+            "line": 3,
+            "column": 41,
+            "index": 150
+          },
+          "end": {
+            "line": 3,
+            "column": 50,
+            "index": 159
+          }
         }
       },
       "fieldType": {
         "kind": "Identifier",
         "value": "ResourceType",
         "loc": {
-          "start": { "line": 3, "column": 7, "index": 116 },
-          "end": { "line": 3, "column": 19, "index": 128 }
+          "start": {
+            "line": 3,
+            "column": 7,
+            "index": 116
+          },
+          "end": {
+            "line": 3,
+            "column": 19,
+            "index": 128
+          }
         }
-      }
+      },
+      "comments": [
+        {
+          "kind": "CommentLine",
+          "value": "// 对应应用模版",
+          "loc": {
+            "start": {
+              "line": 2,
+              "column": 61,
+              "index": 88
+            },
+            "end": {
+              "line": 2,
+              "column": 82,
+              "index": 109
+            }
+          }
+        }
+      ]
     },
     {
       "kind": "ConstDefinition",
       "loc": {
-        "start": { "line": 4, "column": 1, "index": 176 },
-        "end": { "line": 4, "column": 62, "index": 237 }
+        "start": {
+          "line": 4,
+          "column": 1,
+          "index": 176
+        },
+        "end": {
+          "line": 4,
+          "column": 62,
+          "index": 237
+        }
       },
       "name": {
         "kind": "Identifier",
         "value": "ResourceTypeComponentLib",
         "loc": {
-          "start": { "line": 4, "column": 20, "index": 195 },
-          "end": { "line": 4, "column": 44, "index": 219 }
+          "start": {
+            "line": 4,
+            "column": 20,
+            "index": 195
+          },
+          "end": {
+            "line": 4,
+            "column": 44,
+            "index": 219
+          }
         }
       },
       "value": {
         "kind": "StringLiteral",
         "value": "\"component_lib\"",
         "loc": {
-          "start": { "line": 4, "column": 47, "index": 222 },
-          "end": { "line": 4, "column": 62, "index": 237 }
+          "start": {
+            "line": 4,
+            "column": 47,
+            "index": 222
+          },
+          "end": {
+            "line": 4,
+            "column": 62,
+            "index": 237
+          }
         }
       },
       "fieldType": {
         "kind": "Identifier",
         "value": "ResourceType",
         "loc": {
-          "start": { "line": 4, "column": 7, "index": 182 },
-          "end": { "line": 4, "column": 19, "index": 194 }
+          "start": {
+            "line": 4,
+            "column": 7,
+            "index": 182
+          },
+          "end": {
+            "line": 4,
+            "column": 19,
+            "index": 194
+          }
         }
-      }
+      },
+      "comments": [
+        {
+          "kind": "CommentLine",
+          "value": "// 解决方案",
+          "loc": {
+            "start": {
+              "line": 3,
+              "column": 51,
+              "index": 160
+            },
+            "end": {
+              "line": 3,
+              "column": 66,
+              "index": 175
+            }
+          }
+        }
+      ]
     }
   ]
 }

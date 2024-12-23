@@ -199,6 +199,7 @@ pub enum DocumentMembers {
     Typedef(Typedef),
     Enum(Enum),
     Struct(Struct),
+    Service(Service),
 }
 
 #[derive(Serialize, Deserialize, Debug)]

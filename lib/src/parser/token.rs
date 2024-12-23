@@ -44,10 +44,10 @@ impl<'a> Parser<'a> {
         self.pending_comments.clear();
     }
 
-    pub(crate) fn skip_comma(&mut self) {
+    pub(crate) fn skip_separator(&mut self) {
         loop {
             if let Some(token) = self.token() {
-                if token == &Token::Comma {
+                if token == &Token::Comma || token == &Token::Semicolon {
                     self.advance();
                     continue;
                 }

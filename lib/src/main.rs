@@ -4,7 +4,7 @@ use thrift_parser::parser::Parser;
 
 fn main() {
     // 预定义要处理的文件名列表
-    let files = vec!["struct"];
+    let files = vec!["struct", "service", "enum", "const", "typedef"];
 
     for file_name in files {
         // 构造输入文件路径

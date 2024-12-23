@@ -117,3 +117,19 @@ pub(crate) fn create_enum_member(
 pub(crate) fn create_initializer(loc: LOC, value: Common, kind: NodeType) -> Initializer {
     Initializer { kind, loc, value }
 }
+
+pub(crate) fn create_field_id(loc: LOC, value: String) -> Common {
+    Common {
+        kind: NodeType::FieldID,
+        value: value.trim_end_matches(':').to_string(),
+        loc,
+    }
+}
+
+pub fn create_void(loc: LOC, value: String) -> Common<String> {
+    Common {
+        kind: NodeType::VoidKeyword,
+        value,
+        loc,
+    }
+}
