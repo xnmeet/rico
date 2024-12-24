@@ -281,7 +281,8 @@ impl<'a> Parser<'a> {
 
             // Parse parameters
             let params = parser.parse_parameters(|p| p.parse_field())?;
-
+            // skip trivia like comma, semicolon, line comment, block comment
+            parser.skip_trivia();
             // Parse function annotations
             let function_annotations = parser.parse_annotations()?;
 
@@ -303,6 +304,19 @@ impl<'a> Parser<'a> {
             members,
             comments,
         })
+    }
+
+    pub(crate) fn parser_comments(&mut self) {
+        if let Some(token) = self.token() {
+            if token == &Token::LineComment || token == &Token::BlockComment {
+                let comment = Comment {
+                    kind: NodeType::from_token(token).unwrap(),
+                    value: self.text().to_string(),
+                    loc: self.get_token_loc(),
+                };
+                self.pending_comments.push(comment);
+            }
+        }
     }
 
     fn parse_members<T, F>(&mut self, mut parse_member: F) -> Result<Vec<T>, ParseError>
