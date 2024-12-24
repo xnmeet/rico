@@ -13,6 +13,7 @@ pub enum ParseError {
     UnsupportedType(Span),
     MissingTypeDeclaration(Span),
     InvalidValueDeclaration(Span),
+    InvalidReturnType(Span),
 }
 
 impl fmt::Display for ParseError {
@@ -48,6 +49,9 @@ impl fmt::Display for ParseError {
             }
             ParseError::InvalidValueDeclaration(loc) => {
                 write!(f, "Invalid value declaration:{}:{}", loc.line, loc.column)
+            }
+            ParseError::InvalidReturnType(loc) => {
+                write!(f, "Invalid return type:{}:{}", loc.line, loc.column)
             }
         }
     }

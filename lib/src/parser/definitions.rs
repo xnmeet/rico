@@ -136,7 +136,6 @@ impl<'a> Parser<'a> {
 
     fn parse_field(&mut self) -> Result<Field, ParseError> {
         let field_comments = self.take_pending_comments();
-
         // Parse field ID
         self.expect_token(Token::FieldId)?;
         let field_id = create_field_id(self.get_token_loc(), self.text().to_owned());
@@ -269,11 +268,10 @@ impl<'a> Parser<'a> {
             // Parse return type
             let return_type = match parser.token() {
                 Some(Token::Void) => create_void(parser.get_token_loc(), parser.text().to_owned()),
-                Some(_) => {
-                    parser.expect_token(Token::Identifier)?;
+                Some(Token::Identifier) => {
                     create_identifier(parser.get_token_loc(), parser.text().to_owned())
                 }
-                None => return Err(ParseError::UnexpectedEOF(parser.start_pos())),
+                Some(_) | None => return Err(ParseError::InvalidReturnType(parser.start_pos())),
             };
 
             // Parse function name

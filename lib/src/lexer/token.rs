@@ -71,7 +71,7 @@ pub enum Token {
     #[regex(r"[a-zA-Z_][a-zA-Z0-9_]*(\.[a-zA-Z_][a-zA-Z0-9_]*)*")]
     Identifier,
 
-    #[regex(r#""([^"\\]|\\.)*""#)]
+    #[regex(r#"(?:"([^"\\]|\\.)*"|'([^'\\]|\\.)*')"#)]
     StringLiteral,
 
     #[regex(r"\d+:", priority = 2)]

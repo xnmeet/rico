@@ -1,0 +1,13 @@
+[package]
+name = "thrift-benchmark"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+thrift_parser = { path = "../lib" }
+colored = "2.1.0"
+indicatif = "0.17.8"
+serde_json = "1.0.128"
+criterion = "0.5"
+memory-stats = "1.1.0"
+humantime = "2.1.0"

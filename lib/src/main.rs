@@ -1,18 +1,25 @@
 use serde_json;
 use std::fs;
+use std::path::Path;
 use thrift_parser::parser::Parser;
 
+fn get_tests_dir() -> String {
+    // 首先尝试当前目录下的 tests
+    if Path::new("tests").exists() {
+        return "tests".to_string();
+    }
+    // 如果不存在，尝试上级目录
+    "../tests".to_string()
+}
+
 fn main() {
-    // 预定义要处理的文件名列表
     let files = vec!["struct", "service", "enum", "const", "typedef"];
+    let tests_dir = get_tests_dir();
 
     for file_name in files {
-        // 构造输入文件路径
-        let input_path = format!("tests/{}.thrift", file_name);
-        // 构造输出文件路径
-        let output_path = format!("tests/{}_expect.json", file_name);
+        let input_path = format!("{}/{}.thrift", tests_dir, file_name);
+        let output_path = format!("{}/{}_expect.json", tests_dir, file_name);
 
-        // 读取输入文件
         match fs::read_to_string(&input_path) {
             Ok(input) => {
                 let mut parser = Parser::new(&input);
