@@ -143,22 +143,7 @@
               },
               "requiredType": "default",
               "defaultValue": null,
-              "annotations": {
-                "kind": "Annotations",
-                "loc": {
-                  "start": {
-                    "line": 2,
-                    "column": 53,
-                    "index": 73
-                  },
-                  "end": {
-                    "line": 2,
-                    "column": 60,
-                    "index": 80
-                  }
-                },
-                "members": []
-              },
+              "annotations": null,
               "comments": []
             }
           ],
@@ -387,41 +372,11 @@
                   }
                 ]
               },
-              "annotations": {
-                "kind": "Annotations",
-                "loc": {
-                  "start": {
-                    "line": 3,
-                    "column": 59,
-                    "index": 165
-                  },
-                  "end": {
-                    "line": 3,
-                    "column": 60,
-                    "index": 166
-                  }
-                },
-                "members": []
-              },
+              "annotations": null,
               "comments": []
             }
           ],
-          "annotations": {
-            "kind": "Annotations",
-            "loc": {
-              "start": {
-                "line": 3,
-                "column": 61,
-                "index": 167
-              },
-              "end": {
-                "line": 3,
-                "column": 62,
-                "index": 168
-              }
-            },
-            "members": []
-          },
+          "annotations": null,
           "comments": []
         },
         {
@@ -535,41 +490,11 @@
               },
               "requiredType": "default",
               "defaultValue": null,
-              "annotations": {
-                "kind": "Annotations",
-                "loc": {
-                  "start": {
-                    "line": 4,
-                    "column": 96,
-                    "index": 264
-                  },
-                  "end": {
-                    "line": 4,
-                    "column": 103,
-                    "index": 271
-                  }
-                },
-                "members": []
-              },
+              "annotations": null,
               "comments": []
             }
           ],
-          "annotations": {
-            "kind": "Annotations",
-            "loc": {
-              "start": {
-                "line": 4,
-                "column": 104,
-                "index": 272
-              },
-              "end": {
-                "line": 4,
-                "column": 105,
-                "index": 273
-              }
-            },
-            "members": []
-          },
+          "annotations": null,
           "comments": []
         }
       ],

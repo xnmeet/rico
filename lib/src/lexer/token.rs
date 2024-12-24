@@ -119,7 +119,7 @@ pub enum Token {
     Dot,
 
     // Comments
-    #[regex(r"//.*")]
+    #[regex(r"(//|#).*")]
     LineComment,
     #[regex(r"/\*[^*]*\*+(?:[^*/][^*]*\*+)*/")]
     BlockComment,

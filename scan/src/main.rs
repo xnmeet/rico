@@ -24,7 +24,6 @@ struct Args {
 /// 记录处理状态
 #[derive(Default)]
 struct ProcessStats {
-    total_files: usize,
     processed_count: AtomicUsize,
     failed_files: Mutex<Vec<(PathBuf, String)>>,
 }
@@ -51,7 +50,6 @@ fn main() {
     );
 
     let stats = Arc::new(ProcessStats {
-        total_files,
         processed_count: AtomicUsize::new(0),
         failed_files: Mutex::new(Vec::new()),
     });

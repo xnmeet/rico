@@ -12,12 +12,12 @@
         "end": {
           "line": 5,
           "column": 2,
-          "index": 338
+          "index": 175
         }
       },
       "name": {
         "kind": "Identifier",
-        "value": "Filter",
+        "value": "MockFilterMinimal",
         "loc": {
           "start": {
             "line": 1,
@@ -26,8 +26,8 @@
           },
           "end": {
             "line": 1,
-            "column": 14,
-            "index": 13
+            "column": 25,
+            "index": 24
           }
         }
       },
@@ -38,12 +38,12 @@
             "start": {
               "line": 2,
               "column": 5,
-              "index": 20
+              "index": 31
             },
             "end": {
               "line": 2,
-              "column": 89,
-              "index": 104
+              "column": 34,
+              "index": 60
             }
           },
           "name": {
@@ -53,12 +53,12 @@
               "start": {
                 "line": 2,
                 "column": 13,
-                "index": 28
+                "index": 39
               },
               "end": {
                 "line": 2,
                 "column": 26,
-                "index": 41
+                "index": 52
               }
             }
           },
@@ -69,12 +69,12 @@
               "start": {
                 "line": 2,
                 "column": 5,
-                "index": 20
+                "index": 31
               },
               "end": {
                 "line": 2,
                 "column": 7,
-                "index": 22
+                "index": 33
               }
             }
           },
@@ -85,128 +85,33 @@
               "start": {
                 "line": 2,
                 "column": 8,
-                "index": 23
+                "index": 34
               },
               "end": {
                 "line": 2,
                 "column": 12,
-                "index": 27
+                "index": 38
               }
             }
           },
           "requiredType": "default",
-          "defaultValue": null,
-          "annotations": {
-            "kind": "Annotations",
+          "defaultValue": {
+            "kind": "BooleanLiteral",
+            "value": "false",
             "loc": {
               "start": {
                 "line": 2,
-                "column": 13,
-                "index": 28
+                "column": 29,
+                "index": 55
               },
               "end": {
                 "line": 2,
-                "column": 89,
-                "index": 104
+                "column": 34,
+                "index": 60
               }
-            },
-            "members": [
-              {
-                "kind": "Annotation",
-                "value": {
-                  "kind": "StringLiteral",
-                  "value": "\"json:\\\"createdBySelf\\\"\"",
-                  "loc": {
-                    "start": {
-                      "line": 2,
-                      "column": 37,
-                      "index": 52
-                    },
-                    "end": {
-                      "line": 2,
-                      "column": 61,
-                      "index": 76
-                    }
-                  }
-                },
-                "loc": {
-                  "start": {
-                    "line": 2,
-                    "column": 28,
-                    "index": 43
-                  },
-                  "end": {
-                    "line": 2,
-                    "column": 61,
-                    "index": 76
-                  }
-                },
-                "name": {
-                  "kind": "Identifier",
-                  "value": "go.tag",
-                  "loc": {
-                    "start": {
-                      "line": 2,
-                      "column": 28,
-                      "index": 43
-                    },
-                    "end": {
-                      "line": 2,
-                      "column": 34,
-                      "index": 49
-                    }
-                  }
-                }
-              },
-              {
-                "kind": "Annotation",
-                "value": {
-                  "kind": "StringLiteral",
-                  "value": "\"createdBySelf\"",
-                  "loc": {
-                    "start": {
-                      "line": 2,
-                      "column": 73,
-                      "index": 88
-                    },
-                    "end": {
-                      "line": 2,
-                      "column": 88,
-                      "index": 103
-                    }
-                  }
-                },
-                "loc": {
-                  "start": {
-                    "line": 2,
-                    "column": 62,
-                    "index": 77
-                  },
-                  "end": {
-                    "line": 2,
-                    "column": 88,
-                    "index": 103
-                  }
-                },
-                "name": {
-                  "kind": "Identifier",
-                  "value": "api.json",
-                  "loc": {
-                    "start": {
-                      "line": 2,
-                      "column": 62,
-                      "index": 77
-                    },
-                    "end": {
-                      "line": 2,
-                      "column": 70,
-                      "index": 85
-                    }
-                  }
-                }
-              }
-            ]
+            }
           },
+          "annotations": null,
           "comments": []
         },
         {
@@ -215,12 +120,12 @@
             "start": {
               "line": 3,
               "column": 5,
-              "index": 109
+              "index": 65
             },
             "end": {
               "line": 3,
-              "column": 102,
-              "index": 206
+              "column": 46,
+              "index": 106
             }
           },
           "name": {
@@ -230,12 +135,12 @@
               "start": {
                 "line": 3,
                 "column": 27,
-                "index": 131
+                "index": 87
               },
               "end": {
                 "line": 3,
                 "column": 37,
-                "index": 141
+                "index": 97
               }
             }
           },
@@ -246,12 +151,12 @@
               "start": {
                 "line": 3,
                 "column": 5,
-                "index": 109
+                "index": 65
               },
               "end": {
                 "line": 3,
                 "column": 7,
-                "index": 111
+                "index": 67
               }
             }
           },
@@ -261,12 +166,12 @@
               "start": {
                 "line": 3,
                 "column": 17,
-                "index": 121
+                "index": 77
               },
               "end": {
                 "line": 3,
                 "column": 26,
-                "index": 130
+                "index": 86
               }
             },
             "value": "list",
@@ -277,12 +182,12 @@
                 "start": {
                   "line": 3,
                   "column": 22,
-                  "index": 126
+                  "index": 82
                 },
                 "end": {
                   "line": 3,
                   "column": 25,
-                  "index": 129
+                  "index": 85
                 }
               }
             }
@@ -293,13 +198,13 @@
             "loc": {
               "start": {
                 "line": 3,
-                "column": 38,
-                "index": 142
+                "column": 40,
+                "index": 100
               },
               "end": {
                 "line": 3,
-                "column": 45,
-                "index": 149
+                "column": 46,
+                "index": 106
               }
             },
             "elements": [
@@ -309,145 +214,35 @@
                 "loc": {
                   "start": {
                     "line": 3,
-                    "column": 39,
-                    "index": 143
+                    "column": 41,
+                    "index": 101
                   },
                   "end": {
                     "line": 3,
-                    "column": 40,
-                    "index": 144
+                    "column": 42,
+                    "index": 102
                   }
                 }
               },
               {
-                "kind": "StringLiteral",
-                "value": "\"2\"",
+                "kind": "IntegerLiteral",
+                "value": "2",
                 "loc": {
                   "start": {
-                    "line": 3,
-                    "column": 41,
-                    "index": 145
-                  },
-                  "end": {
                     "line": 3,
                     "column": 44,
-                    "index": 148
+                    "index": 104
+                  },
+                  "end": {
+                    "line": 3,
+                    "column": 45,
+                    "index": 105
                   }
                 }
               }
             ]
           },
-          "annotations": {
-            "kind": "Annotations",
-            "loc": {
-              "start": {
-                "line": 3,
-                "column": 44,
-                "index": 148
-              },
-              "end": {
-                "line": 3,
-                "column": 102,
-                "index": 206
-              }
-            },
-            "members": [
-              {
-                "kind": "Annotation",
-                "value": {
-                  "kind": "StringLiteral",
-                  "value": "\"json:\\\"statusList\\\"\"",
-                  "loc": {
-                    "start": {
-                      "line": 3,
-                      "column": 56,
-                      "index": 160
-                    },
-                    "end": {
-                      "line": 3,
-                      "column": 77,
-                      "index": 181
-                    }
-                  }
-                },
-                "loc": {
-                  "start": {
-                    "line": 3,
-                    "column": 47,
-                    "index": 151
-                  },
-                  "end": {
-                    "line": 3,
-                    "column": 77,
-                    "index": 181
-                  }
-                },
-                "name": {
-                  "kind": "Identifier",
-                  "value": "go.tag",
-                  "loc": {
-                    "start": {
-                      "line": 3,
-                      "column": 47,
-                      "index": 151
-                    },
-                    "end": {
-                      "line": 3,
-                      "column": 53,
-                      "index": 157
-                    }
-                  }
-                }
-              },
-              {
-                "kind": "Annotation",
-                "value": {
-                  "kind": "StringLiteral",
-                  "value": "\"statusList\"",
-                  "loc": {
-                    "start": {
-                      "line": 3,
-                      "column": 89,
-                      "index": 193
-                    },
-                    "end": {
-                      "line": 3,
-                      "column": 101,
-                      "index": 205
-                    }
-                  }
-                },
-                "loc": {
-                  "start": {
-                    "line": 3,
-                    "column": 78,
-                    "index": 182
-                  },
-                  "end": {
-                    "line": 3,
-                    "column": 101,
-                    "index": 205
-                  }
-                },
-                "name": {
-                  "kind": "Identifier",
-                  "value": "api.json",
-                  "loc": {
-                    "start": {
-                      "line": 3,
-                      "column": 78,
-                      "index": 182
-                    },
-                    "end": {
-                      "line": 3,
-                      "column": 86,
-                      "index": 190
-                    }
-                  }
-                }
-              }
-            ]
-          },
+          "annotations": null,
           "comments": []
         },
         {
@@ -456,12 +251,12 @@
             "start": {
               "line": 4,
               "column": 5,
-              "index": 211
+              "index": 111
             },
             "end": {
               "line": 4,
-              "column": 130,
-              "index": 336
+              "column": 54,
+              "index": 160
             }
           },
           "name": {
@@ -471,12 +266,12 @@
               "start": {
                 "line": 4,
                 "column": 27,
-                "index": 233
+                "index": 133
               },
               "end": {
                 "line": 4,
                 "column": 49,
-                "index": 255
+                "index": 155
               }
             }
           },
@@ -487,12 +282,12 @@
               "start": {
                 "line": 4,
                 "column": 5,
-                "index": 211
+                "index": 111
               },
               "end": {
                 "line": 4,
                 "column": 7,
-                "index": 213
+                "index": 113
               }
             }
           },
@@ -502,12 +297,12 @@
               "start": {
                 "line": 4,
                 "column": 17,
-                "index": 223
+                "index": 123
               },
               "end": {
                 "line": 4,
                 "column": 26,
-                "index": 232
+                "index": 132
               }
             },
             "value": "list",
@@ -518,133 +313,4592 @@
                 "start": {
                   "line": 4,
                   "column": 22,
-                  "index": 228
+                  "index": 128
                 },
                 "end": {
                   "line": 4,
                   "column": 25,
-                  "index": 231
+                  "index": 131
                 }
               }
             }
           },
           "requiredType": "optional",
-          "defaultValue": null,
-          "annotations": {
-            "kind": "Annotations",
+          "defaultValue": {
+            "kind": "ConstList",
             "loc": {
               "start": {
                 "line": 4,
-                "column": 27,
-                "index": 233
+                "column": 52,
+                "index": 158
               },
               "end": {
                 "line": 4,
-                "column": 130,
-                "index": 336
+                "column": 54,
+                "index": 160
               }
             },
-            "members": [
+            "elements": []
+          },
+          "annotations": null,
+          "comments": []
+        }
+      ],
+      "comments": []
+    },
+    {
+      "kind": "StructDefinition",
+      "loc": {
+        "start": {
+          "line": 7,
+          "column": 1,
+          "index": 177
+        },
+        "end": {
+          "line": 11,
+          "column": 2,
+          "index": 374
+        }
+      },
+      "name": {
+        "kind": "Identifier",
+        "value": "MockFilterWithOptional",
+        "loc": {
+          "start": {
+            "line": 7,
+            "column": 8,
+            "index": 184
+          },
+          "end": {
+            "line": 7,
+            "column": 30,
+            "index": 206
+          }
+        }
+      },
+      "members": [
+        {
+          "kind": "FieldDefinition",
+          "loc": {
+            "start": {
+              "line": 8,
+              "column": 5,
+              "index": 213
+            },
+            "end": {
+              "line": 8,
+              "column": 33,
+              "index": 241
+            }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "CreatedBySelf",
+            "loc": {
+              "start": {
+                "line": 8,
+                "column": 13,
+                "index": 221
+              },
+              "end": {
+                "line": 8,
+                "column": 26,
+                "index": 234
+              }
+            }
+          },
+          "fieldID": {
+            "kind": "FieldID",
+            "value": "1",
+            "loc": {
+              "start": {
+                "line": 8,
+                "column": 5,
+                "index": 213
+              },
+              "end": {
+                "line": 8,
+                "column": 7,
+                "index": 215
+              }
+            }
+          },
+          "fieldType": {
+            "kind": "BoolKeyword",
+            "value": "bool",
+            "loc": {
+              "start": {
+                "line": 8,
+                "column": 8,
+                "index": 216
+              },
+              "end": {
+                "line": 8,
+                "column": 12,
+                "index": 220
+              }
+            }
+          },
+          "requiredType": "default",
+          "defaultValue": {
+            "kind": "BooleanLiteral",
+            "value": "true",
+            "loc": {
+              "start": {
+                "line": 8,
+                "column": 29,
+                "index": 237
+              },
+              "end": {
+                "line": 8,
+                "column": 33,
+                "index": 241
+              }
+            }
+          },
+          "annotations": null,
+          "comments": []
+        },
+        {
+          "kind": "FieldDefinition",
+          "loc": {
+            "start": {
+              "line": 9,
+              "column": 5,
+              "index": 246
+            },
+            "end": {
+              "line": 9,
+              "column": 49,
+              "index": 290
+            }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "StatusList",
+            "loc": {
+              "start": {
+                "line": 9,
+                "column": 27,
+                "index": 268
+              },
+              "end": {
+                "line": 9,
+                "column": 37,
+                "index": 278
+              }
+            }
+          },
+          "fieldID": {
+            "kind": "FieldID",
+            "value": "2",
+            "loc": {
+              "start": {
+                "line": 9,
+                "column": 5,
+                "index": 246
+              },
+              "end": {
+                "line": 9,
+                "column": 7,
+                "index": 248
+              }
+            }
+          },
+          "fieldType": {
+            "kind": "ListType",
+            "loc": {
+              "start": {
+                "line": 9,
+                "column": 17,
+                "index": 258
+              },
+              "end": {
+                "line": 9,
+                "column": 26,
+                "index": 267
+              }
+            },
+            "value": "list",
+            "valueType": {
+              "kind": "I64Keyword",
+              "value": "i64",
+              "loc": {
+                "start": {
+                  "line": 9,
+                  "column": 22,
+                  "index": 263
+                },
+                "end": {
+                  "line": 9,
+                  "column": 25,
+                  "index": 266
+                }
+              }
+            }
+          },
+          "requiredType": "required",
+          "defaultValue": {
+            "kind": "ConstList",
+            "loc": {
+              "start": {
+                "line": 9,
+                "column": 40,
+                "index": 281
+              },
+              "end": {
+                "line": 9,
+                "column": 49,
+                "index": 290
+              }
+            },
+            "elements": [
               {
-                "kind": "Annotation",
+                "kind": "IntegerLiteral",
+                "value": "3",
+                "loc": {
+                  "start": {
+                    "line": 9,
+                    "column": 41,
+                    "index": 282
+                  },
+                  "end": {
+                    "line": 9,
+                    "column": 42,
+                    "index": 283
+                  }
+                }
+              },
+              {
+                "kind": "IntegerLiteral",
+                "value": "4",
+                "loc": {
+                  "start": {
+                    "line": 9,
+                    "column": 44,
+                    "index": 285
+                  },
+                  "end": {
+                    "line": 9,
+                    "column": 45,
+                    "index": 286
+                  }
+                }
+              },
+              {
+                "kind": "IntegerLiteral",
+                "value": "5",
+                "loc": {
+                  "start": {
+                    "line": 9,
+                    "column": 47,
+                    "index": 288
+                  },
+                  "end": {
+                    "line": 9,
+                    "column": 48,
+                    "index": 289
+                  }
+                }
+              }
+            ]
+          },
+          "annotations": null,
+          "comments": []
+        },
+        {
+          "kind": "FieldDefinition",
+          "loc": {
+            "start": {
+              "line": 10,
+              "column": 5,
+              "index": 295
+            },
+            "end": {
+              "line": 10,
+              "column": 60,
+              "index": 350
+            }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "DistributionStatusList",
+            "loc": {
+              "start": {
+                "line": 10,
+                "column": 27,
+                "index": 317
+              },
+              "end": {
+                "line": 10,
+                "column": 49,
+                "index": 339
+              }
+            }
+          },
+          "fieldID": {
+            "kind": "FieldID",
+            "value": "3",
+            "loc": {
+              "start": {
+                "line": 10,
+                "column": 5,
+                "index": 295
+              },
+              "end": {
+                "line": 10,
+                "column": 7,
+                "index": 297
+              }
+            }
+          },
+          "fieldType": {
+            "kind": "ListType",
+            "loc": {
+              "start": {
+                "line": 10,
+                "column": 17,
+                "index": 307
+              },
+              "end": {
+                "line": 10,
+                "column": 26,
+                "index": 316
+              }
+            },
+            "value": "list",
+            "valueType": {
+              "kind": "I64Keyword",
+              "value": "i64",
+              "loc": {
+                "start": {
+                  "line": 10,
+                  "column": 22,
+                  "index": 312
+                },
+                "end": {
+                  "line": 10,
+                  "column": 25,
+                  "index": 315
+                }
+              }
+            }
+          },
+          "requiredType": "optional",
+          "defaultValue": {
+            "kind": "ConstList",
+            "loc": {
+              "start": {
+                "line": 10,
+                "column": 52,
+                "index": 342
+              },
+              "end": {
+                "line": 10,
+                "column": 60,
+                "index": 350
+              }
+            },
+            "elements": [
+              {
+                "kind": "IntegerLiteral",
+                "value": "10",
+                "loc": {
+                  "start": {
+                    "line": 10,
+                    "column": 53,
+                    "index": 343
+                  },
+                  "end": {
+                    "line": 10,
+                    "column": 55,
+                    "index": 345
+                  }
+                }
+              },
+              {
+                "kind": "IntegerLiteral",
+                "value": "20",
+                "loc": {
+                  "start": {
+                    "line": 10,
+                    "column": 57,
+                    "index": 347
+                  },
+                  "end": {
+                    "line": 10,
+                    "column": 59,
+                    "index": 349
+                  }
+                }
+              }
+            ]
+          },
+          "annotations": null,
+          "comments": []
+        }
+      ],
+      "comments": [
+        {
+          "kind": "CommentLine",
+          "value": "# 空列表",
+          "loc": {
+            "start": {
+              "line": 4,
+              "column": 56,
+              "index": 162
+            },
+            "end": {
+              "line": 4,
+              "column": 67,
+              "index": 173
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "StructDefinition",
+      "loc": {
+        "start": {
+          "line": 13,
+          "column": 1,
+          "index": 376
+        },
+        "end": {
+          "line": 17,
+          "column": 2,
+          "index": 576
+        }
+      },
+      "name": {
+        "kind": "Identifier",
+        "value": "MockFilterEmpty",
+        "loc": {
+          "start": {
+            "line": 13,
+            "column": 8,
+            "index": 383
+          },
+          "end": {
+            "line": 13,
+            "column": 23,
+            "index": 398
+          }
+        }
+      },
+      "members": [
+        {
+          "kind": "FieldDefinition",
+          "loc": {
+            "start": {
+              "line": 14,
+              "column": 5,
+              "index": 405
+            },
+            "end": {
+              "line": 14,
+              "column": 34,
+              "index": 434
+            }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "CreatedBySelf",
+            "loc": {
+              "start": {
+                "line": 14,
+                "column": 13,
+                "index": 413
+              },
+              "end": {
+                "line": 14,
+                "column": 26,
+                "index": 426
+              }
+            }
+          },
+          "fieldID": {
+            "kind": "FieldID",
+            "value": "1",
+            "loc": {
+              "start": {
+                "line": 14,
+                "column": 5,
+                "index": 405
+              },
+              "end": {
+                "line": 14,
+                "column": 7,
+                "index": 407
+              }
+            }
+          },
+          "fieldType": {
+            "kind": "BoolKeyword",
+            "value": "bool",
+            "loc": {
+              "start": {
+                "line": 14,
+                "column": 8,
+                "index": 408
+              },
+              "end": {
+                "line": 14,
+                "column": 12,
+                "index": 412
+              }
+            }
+          },
+          "requiredType": "default",
+          "defaultValue": {
+            "kind": "BooleanLiteral",
+            "value": "false",
+            "loc": {
+              "start": {
+                "line": 14,
+                "column": 29,
+                "index": 429
+              },
+              "end": {
+                "line": 14,
+                "column": 34,
+                "index": 434
+              }
+            }
+          },
+          "annotations": null,
+          "comments": []
+        },
+        {
+          "kind": "FieldDefinition",
+          "loc": {
+            "start": {
+              "line": 15,
+              "column": 5,
+              "index": 439
+            },
+            "end": {
+              "line": 15,
+              "column": 42,
+              "index": 476
+            }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "StatusList",
+            "loc": {
+              "start": {
+                "line": 15,
+                "column": 27,
+                "index": 461
+              },
+              "end": {
+                "line": 15,
+                "column": 37,
+                "index": 471
+              }
+            }
+          },
+          "fieldID": {
+            "kind": "FieldID",
+            "value": "2",
+            "loc": {
+              "start": {
+                "line": 15,
+                "column": 5,
+                "index": 439
+              },
+              "end": {
+                "line": 15,
+                "column": 7,
+                "index": 441
+              }
+            }
+          },
+          "fieldType": {
+            "kind": "ListType",
+            "loc": {
+              "start": {
+                "line": 15,
+                "column": 17,
+                "index": 451
+              },
+              "end": {
+                "line": 15,
+                "column": 26,
+                "index": 460
+              }
+            },
+            "value": "list",
+            "valueType": {
+              "kind": "I64Keyword",
+              "value": "i64",
+              "loc": {
+                "start": {
+                  "line": 15,
+                  "column": 22,
+                  "index": 456
+                },
+                "end": {
+                  "line": 15,
+                  "column": 25,
+                  "index": 459
+                }
+              }
+            }
+          },
+          "requiredType": "required",
+          "defaultValue": {
+            "kind": "ConstList",
+            "loc": {
+              "start": {
+                "line": 15,
+                "column": 40,
+                "index": 474
+              },
+              "end": {
+                "line": 15,
+                "column": 42,
+                "index": 476
+              }
+            },
+            "elements": []
+          },
+          "annotations": null,
+          "comments": []
+        },
+        {
+          "kind": "FieldDefinition",
+          "loc": {
+            "start": {
+              "line": 16,
+              "column": 5,
+              "index": 503
+            },
+            "end": {
+              "line": 16,
+              "column": 54,
+              "index": 552
+            }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "DistributionStatusList",
+            "loc": {
+              "start": {
+                "line": 16,
+                "column": 27,
+                "index": 525
+              },
+              "end": {
+                "line": 16,
+                "column": 49,
+                "index": 547
+              }
+            }
+          },
+          "fieldID": {
+            "kind": "FieldID",
+            "value": "3",
+            "loc": {
+              "start": {
+                "line": 16,
+                "column": 5,
+                "index": 503
+              },
+              "end": {
+                "line": 16,
+                "column": 7,
+                "index": 505
+              }
+            }
+          },
+          "fieldType": {
+            "kind": "ListType",
+            "loc": {
+              "start": {
+                "line": 16,
+                "column": 17,
+                "index": 515
+              },
+              "end": {
+                "line": 16,
+                "column": 26,
+                "index": 524
+              }
+            },
+            "value": "list",
+            "valueType": {
+              "kind": "I64Keyword",
+              "value": "i64",
+              "loc": {
+                "start": {
+                  "line": 16,
+                  "column": 22,
+                  "index": 520
+                },
+                "end": {
+                  "line": 16,
+                  "column": 25,
+                  "index": 523
+                }
+              }
+            }
+          },
+          "requiredType": "optional",
+          "defaultValue": {
+            "kind": "ConstList",
+            "loc": {
+              "start": {
+                "line": 16,
+                "column": 52,
+                "index": 550
+              },
+              "end": {
+                "line": 16,
+                "column": 54,
+                "index": 552
+              }
+            },
+            "elements": []
+          },
+          "annotations": null,
+          "comments": [
+            {
+              "kind": "CommentLine",
+              "value": "# 空的必填字段",
+              "loc": {
+                "start": {
+                  "line": 15,
+                  "column": 44,
+                  "index": 478
+                },
+                "end": {
+                  "line": 15,
+                  "column": 64,
+                  "index": 498
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "comments": [
+        {
+          "kind": "CommentLine",
+          "value": "# 包含可选字段",
+          "loc": {
+            "start": {
+              "line": 10,
+              "column": 62,
+              "index": 352
+            },
+            "end": {
+              "line": 10,
+              "column": 82,
+              "index": 372
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "StructDefinition",
+      "loc": {
+        "start": {
+          "line": 19,
+          "column": 1,
+          "index": 578
+        },
+        "end": {
+          "line": 23,
+          "column": 2,
+          "index": 783
+        }
+      },
+      "name": {
+        "kind": "Identifier",
+        "value": "MockFilterAllFields",
+        "loc": {
+          "start": {
+            "line": 19,
+            "column": 8,
+            "index": 585
+          },
+          "end": {
+            "line": 19,
+            "column": 27,
+            "index": 604
+          }
+        }
+      },
+      "members": [
+        {
+          "kind": "FieldDefinition",
+          "loc": {
+            "start": {
+              "line": 20,
+              "column": 5,
+              "index": 611
+            },
+            "end": {
+              "line": 20,
+              "column": 33,
+              "index": 639
+            }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "CreatedBySelf",
+            "loc": {
+              "start": {
+                "line": 20,
+                "column": 13,
+                "index": 619
+              },
+              "end": {
+                "line": 20,
+                "column": 26,
+                "index": 632
+              }
+            }
+          },
+          "fieldID": {
+            "kind": "FieldID",
+            "value": "1",
+            "loc": {
+              "start": {
+                "line": 20,
+                "column": 5,
+                "index": 611
+              },
+              "end": {
+                "line": 20,
+                "column": 7,
+                "index": 613
+              }
+            }
+          },
+          "fieldType": {
+            "kind": "BoolKeyword",
+            "value": "bool",
+            "loc": {
+              "start": {
+                "line": 20,
+                "column": 8,
+                "index": 614
+              },
+              "end": {
+                "line": 20,
+                "column": 12,
+                "index": 618
+              }
+            }
+          },
+          "requiredType": "default",
+          "defaultValue": {
+            "kind": "BooleanLiteral",
+            "value": "true",
+            "loc": {
+              "start": {
+                "line": 20,
+                "column": 29,
+                "index": 635
+              },
+              "end": {
+                "line": 20,
+                "column": 33,
+                "index": 639
+              }
+            }
+          },
+          "annotations": null,
+          "comments": []
+        },
+        {
+          "kind": "FieldDefinition",
+          "loc": {
+            "start": {
+              "line": 21,
+              "column": 5,
+              "index": 644
+            },
+            "end": {
+              "line": 21,
+              "column": 55,
+              "index": 694
+            }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "StatusList",
+            "loc": {
+              "start": {
+                "line": 21,
+                "column": 27,
+                "index": 666
+              },
+              "end": {
+                "line": 21,
+                "column": 37,
+                "index": 676
+              }
+            }
+          },
+          "fieldID": {
+            "kind": "FieldID",
+            "value": "2",
+            "loc": {
+              "start": {
+                "line": 21,
+                "column": 5,
+                "index": 644
+              },
+              "end": {
+                "line": 21,
+                "column": 7,
+                "index": 646
+              }
+            }
+          },
+          "fieldType": {
+            "kind": "ListType",
+            "loc": {
+              "start": {
+                "line": 21,
+                "column": 17,
+                "index": 656
+              },
+              "end": {
+                "line": 21,
+                "column": 26,
+                "index": 665
+              }
+            },
+            "value": "list",
+            "valueType": {
+              "kind": "I64Keyword",
+              "value": "i64",
+              "loc": {
+                "start": {
+                  "line": 21,
+                  "column": 22,
+                  "index": 661
+                },
+                "end": {
+                  "line": 21,
+                  "column": 25,
+                  "index": 664
+                }
+              }
+            }
+          },
+          "requiredType": "required",
+          "defaultValue": {
+            "kind": "ConstList",
+            "loc": {
+              "start": {
+                "line": 21,
+                "column": 40,
+                "index": 679
+              },
+              "end": {
+                "line": 21,
+                "column": 55,
+                "index": 694
+              }
+            },
+            "elements": [
+              {
+                "kind": "IntegerLiteral",
+                "value": "100",
+                "loc": {
+                  "start": {
+                    "line": 21,
+                    "column": 41,
+                    "index": 680
+                  },
+                  "end": {
+                    "line": 21,
+                    "column": 44,
+                    "index": 683
+                  }
+                }
+              },
+              {
+                "kind": "IntegerLiteral",
+                "value": "200",
+                "loc": {
+                  "start": {
+                    "line": 21,
+                    "column": 46,
+                    "index": 685
+                  },
+                  "end": {
+                    "line": 21,
+                    "column": 49,
+                    "index": 688
+                  }
+                }
+              },
+              {
+                "kind": "IntegerLiteral",
+                "value": "300",
+                "loc": {
+                  "start": {
+                    "line": 21,
+                    "column": 51,
+                    "index": 690
+                  },
+                  "end": {
+                    "line": 21,
+                    "column": 54,
+                    "index": 693
+                  }
+                }
+              }
+            ]
+          },
+          "annotations": null,
+          "comments": []
+        },
+        {
+          "kind": "FieldDefinition",
+          "loc": {
+            "start": {
+              "line": 22,
+              "column": 5,
+              "index": 699
+            },
+            "end": {
+              "line": 22,
+              "column": 62,
+              "index": 756
+            }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "DistributionStatusList",
+            "loc": {
+              "start": {
+                "line": 22,
+                "column": 27,
+                "index": 721
+              },
+              "end": {
+                "line": 22,
+                "column": 49,
+                "index": 743
+              }
+            }
+          },
+          "fieldID": {
+            "kind": "FieldID",
+            "value": "3",
+            "loc": {
+              "start": {
+                "line": 22,
+                "column": 5,
+                "index": 699
+              },
+              "end": {
+                "line": 22,
+                "column": 7,
+                "index": 701
+              }
+            }
+          },
+          "fieldType": {
+            "kind": "ListType",
+            "loc": {
+              "start": {
+                "line": 22,
+                "column": 17,
+                "index": 711
+              },
+              "end": {
+                "line": 22,
+                "column": 26,
+                "index": 720
+              }
+            },
+            "value": "list",
+            "valueType": {
+              "kind": "I64Keyword",
+              "value": "i64",
+              "loc": {
+                "start": {
+                  "line": 22,
+                  "column": 22,
+                  "index": 716
+                },
+                "end": {
+                  "line": 22,
+                  "column": 25,
+                  "index": 719
+                }
+              }
+            }
+          },
+          "requiredType": "optional",
+          "defaultValue": {
+            "kind": "ConstList",
+            "loc": {
+              "start": {
+                "line": 22,
+                "column": 52,
+                "index": 746
+              },
+              "end": {
+                "line": 22,
+                "column": 62,
+                "index": 756
+              }
+            },
+            "elements": [
+              {
+                "kind": "IntegerLiteral",
+                "value": "400",
+                "loc": {
+                  "start": {
+                    "line": 22,
+                    "column": 53,
+                    "index": 747
+                  },
+                  "end": {
+                    "line": 22,
+                    "column": 56,
+                    "index": 750
+                  }
+                }
+              },
+              {
+                "kind": "IntegerLiteral",
+                "value": "500",
+                "loc": {
+                  "start": {
+                    "line": 22,
+                    "column": 58,
+                    "index": 752
+                  },
+                  "end": {
+                    "line": 22,
+                    "column": 61,
+                    "index": 755
+                  }
+                }
+              }
+            ]
+          },
+          "annotations": null,
+          "comments": []
+        }
+      ],
+      "comments": [
+        {
+          "kind": "CommentLine",
+          "value": "# 空的可选字段",
+          "loc": {
+            "start": {
+              "line": 16,
+              "column": 56,
+              "index": 554
+            },
+            "end": {
+              "line": 16,
+              "column": 76,
+              "index": 574
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "StructDefinition",
+      "loc": {
+        "start": {
+          "line": 25,
+          "column": 1,
+          "index": 785
+        },
+        "end": {
+          "line": 29,
+          "column": 2,
+          "index": 994
+        }
+      },
+      "name": {
+        "kind": "Identifier",
+        "value": "MockFilterEdgeCases",
+        "loc": {
+          "start": {
+            "line": 25,
+            "column": 8,
+            "index": 792
+          },
+          "end": {
+            "line": 25,
+            "column": 27,
+            "index": 811
+          }
+        }
+      },
+      "members": [
+        {
+          "kind": "FieldDefinition",
+          "loc": {
+            "start": {
+              "line": 26,
+              "column": 5,
+              "index": 818
+            },
+            "end": {
+              "line": 26,
+              "column": 33,
+              "index": 846
+            }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "CreatedBySelf",
+            "loc": {
+              "start": {
+                "line": 26,
+                "column": 13,
+                "index": 826
+              },
+              "end": {
+                "line": 26,
+                "column": 26,
+                "index": 839
+              }
+            }
+          },
+          "fieldID": {
+            "kind": "FieldID",
+            "value": "1",
+            "loc": {
+              "start": {
+                "line": 26,
+                "column": 5,
+                "index": 818
+              },
+              "end": {
+                "line": 26,
+                "column": 7,
+                "index": 820
+              }
+            }
+          },
+          "fieldType": {
+            "kind": "BoolKeyword",
+            "value": "bool",
+            "loc": {
+              "start": {
+                "line": 26,
+                "column": 8,
+                "index": 821
+              },
+              "end": {
+                "line": 26,
+                "column": 12,
+                "index": 825
+              }
+            }
+          },
+          "requiredType": "default",
+          "defaultValue": {
+            "kind": "BooleanLiteral",
+            "value": "true",
+            "loc": {
+              "start": {
+                "line": 26,
+                "column": 29,
+                "index": 842
+              },
+              "end": {
+                "line": 26,
+                "column": 33,
+                "index": 846
+              }
+            }
+          },
+          "annotations": null,
+          "comments": []
+        },
+        {
+          "kind": "FieldDefinition",
+          "loc": {
+            "start": {
+              "line": 27,
+              "column": 5,
+              "index": 851
+            },
+            "end": {
+              "line": 27,
+              "column": 65,
+              "index": 911
+            }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "StatusList",
+            "loc": {
+              "start": {
+                "line": 27,
+                "column": 27,
+                "index": 873
+              },
+              "end": {
+                "line": 27,
+                "column": 37,
+                "index": 883
+              }
+            }
+          },
+          "fieldID": {
+            "kind": "FieldID",
+            "value": "2",
+            "loc": {
+              "start": {
+                "line": 27,
+                "column": 5,
+                "index": 851
+              },
+              "end": {
+                "line": 27,
+                "column": 7,
+                "index": 853
+              }
+            }
+          },
+          "fieldType": {
+            "kind": "ListType",
+            "loc": {
+              "start": {
+                "line": 27,
+                "column": 17,
+                "index": 863
+              },
+              "end": {
+                "line": 27,
+                "column": 26,
+                "index": 872
+              }
+            },
+            "value": "list",
+            "valueType": {
+              "kind": "I64Keyword",
+              "value": "i64",
+              "loc": {
+                "start": {
+                  "line": 27,
+                  "column": 22,
+                  "index": 868
+                },
+                "end": {
+                  "line": 27,
+                  "column": 25,
+                  "index": 871
+                }
+              }
+            }
+          },
+          "requiredType": "required",
+          "defaultValue": {
+            "kind": "ConstList",
+            "loc": {
+              "start": {
+                "line": 27,
+                "column": 40,
+                "index": 886
+              },
+              "end": {
+                "line": 27,
+                "column": 65,
+                "index": 911
+              }
+            },
+            "elements": [
+              {
+                "kind": "IntegerLiteral",
+                "value": "-1",
+                "loc": {
+                  "start": {
+                    "line": 27,
+                    "column": 41,
+                    "index": 887
+                  },
+                  "end": {
+                    "line": 27,
+                    "column": 43,
+                    "index": 889
+                  }
+                }
+              },
+              {
+                "kind": "IntegerLiteral",
+                "value": "9223372036854775807",
+                "loc": {
+                  "start": {
+                    "line": 27,
+                    "column": 45,
+                    "index": 891
+                  },
+                  "end": {
+                    "line": 27,
+                    "column": 64,
+                    "index": 910
+                  }
+                }
+              }
+            ]
+          },
+          "annotations": null,
+          "comments": []
+        },
+        {
+          "kind": "FieldDefinition",
+          "loc": {
+            "start": {
+              "line": 28,
+              "column": 5,
+              "index": 929
+            },
+            "end": {
+              "line": 28,
+              "column": 55,
+              "index": 979
+            }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "DistributionStatusList",
+            "loc": {
+              "start": {
+                "line": 28,
+                "column": 27,
+                "index": 951
+              },
+              "end": {
+                "line": 28,
+                "column": 49,
+                "index": 973
+              }
+            }
+          },
+          "fieldID": {
+            "kind": "FieldID",
+            "value": "3",
+            "loc": {
+              "start": {
+                "line": 28,
+                "column": 5,
+                "index": 929
+              },
+              "end": {
+                "line": 28,
+                "column": 7,
+                "index": 931
+              }
+            }
+          },
+          "fieldType": {
+            "kind": "ListType",
+            "loc": {
+              "start": {
+                "line": 28,
+                "column": 17,
+                "index": 941
+              },
+              "end": {
+                "line": 28,
+                "column": 26,
+                "index": 950
+              }
+            },
+            "value": "list",
+            "valueType": {
+              "kind": "I64Keyword",
+              "value": "i64",
+              "loc": {
+                "start": {
+                  "line": 28,
+                  "column": 22,
+                  "index": 946
+                },
+                "end": {
+                  "line": 28,
+                  "column": 25,
+                  "index": 949
+                }
+              }
+            }
+          },
+          "requiredType": "optional",
+          "defaultValue": {
+            "kind": "ConstList",
+            "loc": {
+              "start": {
+                "line": 28,
+                "column": 52,
+                "index": 976
+              },
+              "end": {
+                "line": 28,
+                "column": 55,
+                "index": 979
+              }
+            },
+            "elements": [
+              {
+                "kind": "IntegerLiteral",
+                "value": "0",
+                "loc": {
+                  "start": {
+                    "line": 28,
+                    "column": 53,
+                    "index": 977
+                  },
+                  "end": {
+                    "line": 28,
+                    "column": 54,
+                    "index": 978
+                  }
+                }
+              }
+            ]
+          },
+          "annotations": null,
+          "comments": [
+            {
+              "kind": "CommentLine",
+              "value": "# 边界值",
+              "loc": {
+                "start": {
+                  "line": 27,
+                  "column": 67,
+                  "index": 913
+                },
+                "end": {
+                  "line": 27,
+                  "column": 78,
+                  "index": 924
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "comments": [
+        {
+          "kind": "CommentLine",
+          "value": "# 全部字段都有值",
+          "loc": {
+            "start": {
+              "line": 22,
+              "column": 64,
+              "index": 758
+            },
+            "end": {
+              "line": 22,
+              "column": 87,
+              "index": 781
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "StructDefinition",
+      "loc": {
+        "start": {
+          "line": 31,
+          "column": 1,
+          "index": 996
+        },
+        "end": {
+          "line": 35,
+          "column": 2,
+          "index": 1246
+        }
+      },
+      "name": {
+        "kind": "Identifier",
+        "value": "MockFilterLargeData",
+        "loc": {
+          "start": {
+            "line": 31,
+            "column": 8,
+            "index": 1003
+          },
+          "end": {
+            "line": 31,
+            "column": 27,
+            "index": 1022
+          }
+        }
+      },
+      "members": [
+        {
+          "kind": "FieldDefinition",
+          "loc": {
+            "start": {
+              "line": 32,
+              "column": 5,
+              "index": 1029
+            },
+            "end": {
+              "line": 32,
+              "column": 34,
+              "index": 1058
+            }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "CreatedBySelf",
+            "loc": {
+              "start": {
+                "line": 32,
+                "column": 13,
+                "index": 1037
+              },
+              "end": {
+                "line": 32,
+                "column": 26,
+                "index": 1050
+              }
+            }
+          },
+          "fieldID": {
+            "kind": "FieldID",
+            "value": "1",
+            "loc": {
+              "start": {
+                "line": 32,
+                "column": 5,
+                "index": 1029
+              },
+              "end": {
+                "line": 32,
+                "column": 7,
+                "index": 1031
+              }
+            }
+          },
+          "fieldType": {
+            "kind": "BoolKeyword",
+            "value": "bool",
+            "loc": {
+              "start": {
+                "line": 32,
+                "column": 8,
+                "index": 1032
+              },
+              "end": {
+                "line": 32,
+                "column": 12,
+                "index": 1036
+              }
+            }
+          },
+          "requiredType": "default",
+          "defaultValue": {
+            "kind": "BooleanLiteral",
+            "value": "false",
+            "loc": {
+              "start": {
+                "line": 32,
+                "column": 29,
+                "index": 1053
+              },
+              "end": {
+                "line": 32,
+                "column": 34,
+                "index": 1058
+              }
+            }
+          },
+          "annotations": null,
+          "comments": []
+        },
+        {
+          "kind": "FieldDefinition",
+          "loc": {
+            "start": {
+              "line": 33,
+              "column": 5,
+              "index": 1063
+            },
+            "end": {
+              "line": 33,
+              "column": 71,
+              "index": 1129
+            }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "StatusList",
+            "loc": {
+              "start": {
+                "line": 33,
+                "column": 27,
+                "index": 1085
+              },
+              "end": {
+                "line": 33,
+                "column": 37,
+                "index": 1095
+              }
+            }
+          },
+          "fieldID": {
+            "kind": "FieldID",
+            "value": "2",
+            "loc": {
+              "start": {
+                "line": 33,
+                "column": 5,
+                "index": 1063
+              },
+              "end": {
+                "line": 33,
+                "column": 7,
+                "index": 1065
+              }
+            }
+          },
+          "fieldType": {
+            "kind": "ListType",
+            "loc": {
+              "start": {
+                "line": 33,
+                "column": 17,
+                "index": 1075
+              },
+              "end": {
+                "line": 33,
+                "column": 26,
+                "index": 1084
+              }
+            },
+            "value": "list",
+            "valueType": {
+              "kind": "I64Keyword",
+              "value": "i64",
+              "loc": {
+                "start": {
+                  "line": 33,
+                  "column": 22,
+                  "index": 1080
+                },
+                "end": {
+                  "line": 33,
+                  "column": 25,
+                  "index": 1083
+                }
+              }
+            }
+          },
+          "requiredType": "required",
+          "defaultValue": {
+            "kind": "ConstList",
+            "loc": {
+              "start": {
+                "line": 33,
+                "column": 40,
+                "index": 1098
+              },
+              "end": {
+                "line": 33,
+                "column": 71,
+                "index": 1129
+              }
+            },
+            "elements": [
+              {
+                "kind": "IntegerLiteral",
+                "value": "1",
+                "loc": {
+                  "start": {
+                    "line": 33,
+                    "column": 41,
+                    "index": 1099
+                  },
+                  "end": {
+                    "line": 33,
+                    "column": 42,
+                    "index": 1100
+                  }
+                }
+              },
+              {
+                "kind": "IntegerLiteral",
+                "value": "2",
+                "loc": {
+                  "start": {
+                    "line": 33,
+                    "column": 44,
+                    "index": 1102
+                  },
+                  "end": {
+                    "line": 33,
+                    "column": 45,
+                    "index": 1103
+                  }
+                }
+              },
+              {
+                "kind": "IntegerLiteral",
+                "value": "3",
+                "loc": {
+                  "start": {
+                    "line": 33,
+                    "column": 47,
+                    "index": 1105
+                  },
+                  "end": {
+                    "line": 33,
+                    "column": 48,
+                    "index": 1106
+                  }
+                }
+              },
+              {
+                "kind": "IntegerLiteral",
+                "value": "4",
+                "loc": {
+                  "start": {
+                    "line": 33,
+                    "column": 50,
+                    "index": 1108
+                  },
+                  "end": {
+                    "line": 33,
+                    "column": 51,
+                    "index": 1109
+                  }
+                }
+              },
+              {
+                "kind": "IntegerLiteral",
+                "value": "5",
+                "loc": {
+                  "start": {
+                    "line": 33,
+                    "column": 53,
+                    "index": 1111
+                  },
+                  "end": {
+                    "line": 33,
+                    "column": 54,
+                    "index": 1112
+                  }
+                }
+              },
+              {
+                "kind": "IntegerLiteral",
+                "value": "6",
+                "loc": {
+                  "start": {
+                    "line": 33,
+                    "column": 56,
+                    "index": 1114
+                  },
+                  "end": {
+                    "line": 33,
+                    "column": 57,
+                    "index": 1115
+                  }
+                }
+              },
+              {
+                "kind": "IntegerLiteral",
+                "value": "7",
+                "loc": {
+                  "start": {
+                    "line": 33,
+                    "column": 59,
+                    "index": 1117
+                  },
+                  "end": {
+                    "line": 33,
+                    "column": 60,
+                    "index": 1118
+                  }
+                }
+              },
+              {
+                "kind": "IntegerLiteral",
+                "value": "8",
+                "loc": {
+                  "start": {
+                    "line": 33,
+                    "column": 62,
+                    "index": 1120
+                  },
+                  "end": {
+                    "line": 33,
+                    "column": 63,
+                    "index": 1121
+                  }
+                }
+              },
+              {
+                "kind": "IntegerLiteral",
+                "value": "9",
+                "loc": {
+                  "start": {
+                    "line": 33,
+                    "column": 65,
+                    "index": 1123
+                  },
+                  "end": {
+                    "line": 33,
+                    "column": 66,
+                    "index": 1124
+                  }
+                }
+              },
+              {
+                "kind": "IntegerLiteral",
+                "value": "10",
+                "loc": {
+                  "start": {
+                    "line": 33,
+                    "column": 68,
+                    "index": 1126
+                  },
+                  "end": {
+                    "line": 33,
+                    "column": 70,
+                    "index": 1128
+                  }
+                }
+              }
+            ]
+          },
+          "annotations": null,
+          "comments": []
+        },
+        {
+          "kind": "FieldDefinition",
+          "loc": {
+            "start": {
+              "line": 34,
+              "column": 5,
+              "index": 1150
+            },
+            "end": {
+              "line": 34,
+              "column": 77,
+              "index": 1222
+            }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "DistributionStatusList",
+            "loc": {
+              "start": {
+                "line": 34,
+                "column": 27,
+                "index": 1172
+              },
+              "end": {
+                "line": 34,
+                "column": 49,
+                "index": 1194
+              }
+            }
+          },
+          "fieldID": {
+            "kind": "FieldID",
+            "value": "3",
+            "loc": {
+              "start": {
+                "line": 34,
+                "column": 5,
+                "index": 1150
+              },
+              "end": {
+                "line": 34,
+                "column": 7,
+                "index": 1152
+              }
+            }
+          },
+          "fieldType": {
+            "kind": "ListType",
+            "loc": {
+              "start": {
+                "line": 34,
+                "column": 17,
+                "index": 1162
+              },
+              "end": {
+                "line": 34,
+                "column": 26,
+                "index": 1171
+              }
+            },
+            "value": "list",
+            "valueType": {
+              "kind": "I64Keyword",
+              "value": "i64",
+              "loc": {
+                "start": {
+                  "line": 34,
+                  "column": 22,
+                  "index": 1167
+                },
+                "end": {
+                  "line": 34,
+                  "column": 25,
+                  "index": 1170
+                }
+              }
+            }
+          },
+          "requiredType": "optional",
+          "defaultValue": {
+            "kind": "ConstList",
+            "loc": {
+              "start": {
+                "line": 34,
+                "column": 52,
+                "index": 1197
+              },
+              "end": {
+                "line": 34,
+                "column": 77,
+                "index": 1222
+              }
+            },
+            "elements": [
+              {
+                "kind": "IntegerLiteral",
+                "value": "100",
+                "loc": {
+                  "start": {
+                    "line": 34,
+                    "column": 53,
+                    "index": 1198
+                  },
+                  "end": {
+                    "line": 34,
+                    "column": 56,
+                    "index": 1201
+                  }
+                }
+              },
+              {
+                "kind": "IntegerLiteral",
+                "value": "200",
+                "loc": {
+                  "start": {
+                    "line": 34,
+                    "column": 58,
+                    "index": 1203
+                  },
+                  "end": {
+                    "line": 34,
+                    "column": 61,
+                    "index": 1206
+                  }
+                }
+              },
+              {
+                "kind": "IntegerLiteral",
+                "value": "300",
+                "loc": {
+                  "start": {
+                    "line": 34,
+                    "column": 63,
+                    "index": 1208
+                  },
+                  "end": {
+                    "line": 34,
+                    "column": 66,
+                    "index": 1211
+                  }
+                }
+              },
+              {
+                "kind": "IntegerLiteral",
+                "value": "400",
+                "loc": {
+                  "start": {
+                    "line": 34,
+                    "column": 68,
+                    "index": 1213
+                  },
+                  "end": {
+                    "line": 34,
+                    "column": 71,
+                    "index": 1216
+                  }
+                }
+              },
+              {
+                "kind": "IntegerLiteral",
+                "value": "500",
+                "loc": {
+                  "start": {
+                    "line": 34,
+                    "column": 73,
+                    "index": 1218
+                  },
+                  "end": {
+                    "line": 34,
+                    "column": 76,
+                    "index": 1221
+                  }
+                }
+              }
+            ]
+          },
+          "annotations": null,
+          "comments": [
+            {
+              "kind": "CommentLine",
+              "value": "# 大量数据",
+              "loc": {
+                "start": {
+                  "line": 33,
+                  "column": 73,
+                  "index": 1131
+                },
+                "end": {
+                  "line": 33,
+                  "column": 87,
+                  "index": 1145
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "comments": [
+        {
+          "kind": "CommentLine",
+          "value": "# 包含零",
+          "loc": {
+            "start": {
+              "line": 28,
+              "column": 57,
+              "index": 981
+            },
+            "end": {
+              "line": 28,
+              "column": 68,
+              "index": 992
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "StructDefinition",
+      "loc": {
+        "start": {
+          "line": 37,
+          "column": 1,
+          "index": 1248
+        },
+        "end": {
+          "line": 41,
+          "column": 2,
+          "index": 1468
+        }
+      },
+      "name": {
+        "kind": "Identifier",
+        "value": "MockFilterString",
+        "loc": {
+          "start": {
+            "line": 37,
+            "column": 8,
+            "index": 1255
+          },
+          "end": {
+            "line": 37,
+            "column": 24,
+            "index": 1271
+          }
+        }
+      },
+      "members": [
+        {
+          "kind": "FieldDefinition",
+          "loc": {
+            "start": {
+              "line": 38,
+              "column": 5,
+              "index": 1278
+            },
+            "end": {
+              "line": 38,
+              "column": 33,
+              "index": 1306
+            }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "CreatedBySelf",
+            "loc": {
+              "start": {
+                "line": 38,
+                "column": 13,
+                "index": 1286
+              },
+              "end": {
+                "line": 38,
+                "column": 26,
+                "index": 1299
+              }
+            }
+          },
+          "fieldID": {
+            "kind": "FieldID",
+            "value": "1",
+            "loc": {
+              "start": {
+                "line": 38,
+                "column": 5,
+                "index": 1278
+              },
+              "end": {
+                "line": 38,
+                "column": 7,
+                "index": 1280
+              }
+            }
+          },
+          "fieldType": {
+            "kind": "BoolKeyword",
+            "value": "bool",
+            "loc": {
+              "start": {
+                "line": 38,
+                "column": 8,
+                "index": 1281
+              },
+              "end": {
+                "line": 38,
+                "column": 12,
+                "index": 1285
+              }
+            }
+          },
+          "requiredType": "default",
+          "defaultValue": {
+            "kind": "BooleanLiteral",
+            "value": "true",
+            "loc": {
+              "start": {
+                "line": 38,
+                "column": 29,
+                "index": 1302
+              },
+              "end": {
+                "line": 38,
+                "column": 33,
+                "index": 1306
+              }
+            }
+          },
+          "annotations": null,
+          "comments": []
+        },
+        {
+          "kind": "FieldDefinition",
+          "loc": {
+            "start": {
+              "line": 39,
+              "column": 5,
+              "index": 1336
+            },
+            "end": {
+              "line": 39,
+              "column": 44,
+              "index": 1375
+            }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "Name",
+            "loc": {
+              "start": {
+                "line": 39,
+                "column": 24,
+                "index": 1355
+              },
+              "end": {
+                "line": 39,
+                "column": 28,
+                "index": 1359
+              }
+            }
+          },
+          "fieldID": {
+            "kind": "FieldID",
+            "value": "2",
+            "loc": {
+              "start": {
+                "line": 39,
+                "column": 5,
+                "index": 1336
+              },
+              "end": {
+                "line": 39,
+                "column": 7,
+                "index": 1338
+              }
+            }
+          },
+          "fieldType": {
+            "kind": "StringKeyword",
+            "value": "string",
+            "loc": {
+              "start": {
+                "line": 39,
+                "column": 17,
+                "index": 1348
+              },
+              "end": {
+                "line": 39,
+                "column": 23,
+                "index": 1354
+              }
+            }
+          },
+          "requiredType": "required",
+          "defaultValue": {
+            "kind": "StringLiteral",
+            "value": "\"DefaultName\"",
+            "loc": {
+              "start": {
+                "line": 39,
+                "column": 31,
+                "index": 1362
+              },
+              "end": {
+                "line": 39,
+                "column": 44,
+                "index": 1375
+              }
+            }
+          },
+          "annotations": null,
+          "comments": [
+            {
+              "kind": "CommentLine",
+              "value": "# 是否由自己创建",
+              "loc": {
+                "start": {
+                  "line": 38,
+                  "column": 35,
+                  "index": 1308
+                },
+                "end": {
+                  "line": 38,
+                  "column": 58,
+                  "index": 1331
+                }
+              }
+            }
+          ]
+        },
+        {
+          "kind": "FieldDefinition",
+          "loc": {
+            "start": {
+              "line": 40,
+              "column": 5,
+              "index": 1396
+            },
+            "end": {
+              "line": 40,
+              "column": 42,
+              "index": 1433
+            }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "Description",
+            "loc": {
+              "start": {
+                "line": 40,
+                "column": 24,
+                "index": 1415
+              },
+              "end": {
+                "line": 40,
+                "column": 35,
+                "index": 1426
+              }
+            }
+          },
+          "fieldID": {
+            "kind": "FieldID",
+            "value": "3",
+            "loc": {
+              "start": {
+                "line": 40,
+                "column": 5,
+                "index": 1396
+              },
+              "end": {
+                "line": 40,
+                "column": 7,
+                "index": 1398
+              }
+            }
+          },
+          "fieldType": {
+            "kind": "StringKeyword",
+            "value": "string",
+            "loc": {
+              "start": {
+                "line": 40,
+                "column": 17,
+                "index": 1408
+              },
+              "end": {
+                "line": 40,
+                "column": 23,
+                "index": 1414
+              }
+            }
+          },
+          "requiredType": "optional",
+          "defaultValue": {
+            "kind": "Identifier",
+            "value": "null",
+            "loc": {
+              "start": {
+                "line": 40,
+                "column": 38,
+                "index": 1429
+              },
+              "end": {
+                "line": 40,
+                "column": 42,
+                "index": 1433
+              }
+            }
+          },
+          "annotations": null,
+          "comments": [
+            {
+              "kind": "CommentLine",
+              "value": "# 默认名称",
+              "loc": {
+                "start": {
+                  "line": 39,
+                  "column": 46,
+                  "index": 1377
+                },
+                "end": {
+                  "line": 39,
+                  "column": 60,
+                  "index": 1391
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "comments": [
+        {
+          "kind": "CommentLine",
+          "value": "# 大量可选数据",
+          "loc": {
+            "start": {
+              "line": 34,
+              "column": 79,
+              "index": 1224
+            },
+            "end": {
+              "line": 34,
+              "column": 99,
+              "index": 1244
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "StructDefinition",
+      "loc": {
+        "start": {
+          "line": 43,
+          "column": 1,
+          "index": 1470
+        },
+        "end": {
+          "line": 47,
+          "column": 2,
+          "index": 1670
+        }
+      },
+      "name": {
+        "kind": "Identifier",
+        "value": "MockFilterFloat",
+        "loc": {
+          "start": {
+            "line": 43,
+            "column": 8,
+            "index": 1477
+          },
+          "end": {
+            "line": 43,
+            "column": 23,
+            "index": 1492
+          }
+        }
+      },
+      "members": [
+        {
+          "kind": "FieldDefinition",
+          "loc": {
+            "start": {
+              "line": 44,
+              "column": 5,
+              "index": 1499
+            },
+            "end": {
+              "line": 44,
+              "column": 34,
+              "index": 1528
+            }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "CreatedBySelf",
+            "loc": {
+              "start": {
+                "line": 44,
+                "column": 13,
+                "index": 1507
+              },
+              "end": {
+                "line": 44,
+                "column": 26,
+                "index": 1520
+              }
+            }
+          },
+          "fieldID": {
+            "kind": "FieldID",
+            "value": "1",
+            "loc": {
+              "start": {
+                "line": 44,
+                "column": 5,
+                "index": 1499
+              },
+              "end": {
+                "line": 44,
+                "column": 7,
+                "index": 1501
+              }
+            }
+          },
+          "fieldType": {
+            "kind": "BoolKeyword",
+            "value": "bool",
+            "loc": {
+              "start": {
+                "line": 44,
+                "column": 8,
+                "index": 1502
+              },
+              "end": {
+                "line": 44,
+                "column": 12,
+                "index": 1506
+              }
+            }
+          },
+          "requiredType": "default",
+          "defaultValue": {
+            "kind": "BooleanLiteral",
+            "value": "false",
+            "loc": {
+              "start": {
+                "line": 44,
+                "column": 29,
+                "index": 1523
+              },
+              "end": {
+                "line": 44,
+                "column": 34,
+                "index": 1528
+              }
+            }
+          },
+          "annotations": null,
+          "comments": []
+        },
+        {
+          "kind": "FieldDefinition",
+          "loc": {
+            "start": {
+              "line": 45,
+              "column": 5,
+              "index": 1533
+            },
+            "end": {
+              "line": 45,
+              "column": 54,
+              "index": 1582
+            }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "Ratings",
+            "loc": {
+              "start": {
+                "line": 45,
+                "column": 29,
+                "index": 1557
+              },
+              "end": {
+                "line": 45,
+                "column": 36,
+                "index": 1564
+              }
+            }
+          },
+          "fieldID": {
+            "kind": "FieldID",
+            "value": "2",
+            "loc": {
+              "start": {
+                "line": 45,
+                "column": 5,
+                "index": 1533
+              },
+              "end": {
+                "line": 45,
+                "column": 7,
+                "index": 1535
+              }
+            }
+          },
+          "fieldType": {
+            "kind": "ListType",
+            "loc": {
+              "start": {
+                "line": 45,
+                "column": 17,
+                "index": 1545
+              },
+              "end": {
+                "line": 45,
+                "column": 28,
+                "index": 1556
+              }
+            },
+            "value": "list",
+            "valueType": {
+              "kind": "Identifier",
+              "value": "float",
+              "loc": {
+                "start": {
+                  "line": 45,
+                  "column": 22,
+                  "index": 1550
+                },
+                "end": {
+                  "line": 45,
+                  "column": 27,
+                  "index": 1555
+                }
+              }
+            }
+          },
+          "requiredType": "required",
+          "defaultValue": {
+            "kind": "ConstList",
+            "loc": {
+              "start": {
+                "line": 45,
+                "column": 39,
+                "index": 1567
+              },
+              "end": {
+                "line": 45,
+                "column": 54,
+                "index": 1582
+              }
+            },
+            "elements": [
+              {
+                "kind": "FloatLiteral",
+                "value": "4.5",
+                "loc": {
+                  "start": {
+                    "line": 45,
+                    "column": 40,
+                    "index": 1568
+                  },
+                  "end": {
+                    "line": 45,
+                    "column": 43,
+                    "index": 1571
+                  }
+                }
+              },
+              {
+                "kind": "FloatLiteral",
+                "value": "3.8",
+                "loc": {
+                  "start": {
+                    "line": 45,
+                    "column": 45,
+                    "index": 1573
+                  },
+                  "end": {
+                    "line": 45,
+                    "column": 48,
+                    "index": 1576
+                  }
+                }
+              },
+              {
+                "kind": "FloatLiteral",
+                "value": "5.0",
+                "loc": {
+                  "start": {
+                    "line": 45,
+                    "column": 50,
+                    "index": 1578
+                  },
+                  "end": {
+                    "line": 45,
+                    "column": 53,
+                    "index": 1581
+                  }
+                }
+              }
+            ]
+          },
+          "annotations": null,
+          "comments": []
+        },
+        {
+          "kind": "FieldDefinition",
+          "loc": {
+            "start": {
+              "line": 46,
+              "column": 5,
+              "index": 1603
+            },
+            "end": {
+              "line": 46,
+              "column": 42,
+              "index": 1640
+            }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "AverageRating",
+            "loc": {
+              "start": {
+                "line": 46,
+                "column": 23,
+                "index": 1621
+              },
+              "end": {
+                "line": 46,
+                "column": 36,
+                "index": 1634
+              }
+            }
+          },
+          "fieldID": {
+            "kind": "FieldID",
+            "value": "3",
+            "loc": {
+              "start": {
+                "line": 46,
+                "column": 5,
+                "index": 1603
+              },
+              "end": {
+                "line": 46,
+                "column": 7,
+                "index": 1605
+              }
+            }
+          },
+          "fieldType": {
+            "kind": "Identifier",
+            "value": "float",
+            "loc": {
+              "start": {
+                "line": 46,
+                "column": 17,
+                "index": 1615
+              },
+              "end": {
+                "line": 46,
+                "column": 22,
+                "index": 1620
+              }
+            }
+          },
+          "requiredType": "optional",
+          "defaultValue": {
+            "kind": "FloatLiteral",
+            "value": "4.1",
+            "loc": {
+              "start": {
+                "line": 46,
+                "column": 39,
+                "index": 1637
+              },
+              "end": {
+                "line": 46,
+                "column": 42,
+                "index": 1640
+              }
+            }
+          },
+          "annotations": null,
+          "comments": [
+            {
+              "kind": "CommentLine",
+              "value": "# 评分列表",
+              "loc": {
+                "start": {
+                  "line": 45,
+                  "column": 56,
+                  "index": 1584
+                },
+                "end": {
+                  "line": 45,
+                  "column": 70,
+                  "index": 1598
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "comments": [
+        {
+          "kind": "CommentLine",
+          "value": "# 可选描述，默认为 null",
+          "loc": {
+            "start": {
+              "line": 40,
+              "column": 44,
+              "index": 1435
+            },
+            "end": {
+              "line": 40,
+              "column": 75,
+              "index": 1466
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "StructDefinition",
+      "loc": {
+        "start": {
+          "line": 49,
+          "column": 1,
+          "index": 1672
+        },
+        "end": {
+          "line": 53,
+          "column": 2,
+          "index": 1903
+        }
+      },
+      "name": {
+        "kind": "Identifier",
+        "value": "MockFilterMap",
+        "loc": {
+          "start": {
+            "line": 49,
+            "column": 8,
+            "index": 1679
+          },
+          "end": {
+            "line": 49,
+            "column": 21,
+            "index": 1692
+          }
+        }
+      },
+      "members": [
+        {
+          "kind": "FieldDefinition",
+          "loc": {
+            "start": {
+              "line": 50,
+              "column": 5,
+              "index": 1699
+            },
+            "end": {
+              "line": 50,
+              "column": 33,
+              "index": 1727
+            }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "CreatedBySelf",
+            "loc": {
+              "start": {
+                "line": 50,
+                "column": 13,
+                "index": 1707
+              },
+              "end": {
+                "line": 50,
+                "column": 26,
+                "index": 1720
+              }
+            }
+          },
+          "fieldID": {
+            "kind": "FieldID",
+            "value": "1",
+            "loc": {
+              "start": {
+                "line": 50,
+                "column": 5,
+                "index": 1699
+              },
+              "end": {
+                "line": 50,
+                "column": 7,
+                "index": 1701
+              }
+            }
+          },
+          "fieldType": {
+            "kind": "BoolKeyword",
+            "value": "bool",
+            "loc": {
+              "start": {
+                "line": 50,
+                "column": 8,
+                "index": 1702
+              },
+              "end": {
+                "line": 50,
+                "column": 12,
+                "index": 1706
+              }
+            }
+          },
+          "requiredType": "default",
+          "defaultValue": {
+            "kind": "BooleanLiteral",
+            "value": "true",
+            "loc": {
+              "start": {
+                "line": 50,
+                "column": 29,
+                "index": 1723
+              },
+              "end": {
+                "line": 50,
+                "column": 33,
+                "index": 1727
+              }
+            }
+          },
+          "annotations": null,
+          "comments": []
+        },
+        {
+          "kind": "FieldDefinition",
+          "loc": {
+            "start": {
+              "line": 51,
+              "column": 5,
+              "index": 1732
+            },
+            "end": {
+              "line": 51,
+              "column": 74,
+              "index": 1801
+            }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "StatusMap",
+            "loc": {
+              "start": {
+                "line": 51,
+                "column": 34,
+                "index": 1761
+              },
+              "end": {
+                "line": 51,
+                "column": 43,
+                "index": 1770
+              }
+            }
+          },
+          "fieldID": {
+            "kind": "FieldID",
+            "value": "2",
+            "loc": {
+              "start": {
+                "line": 51,
+                "column": 5,
+                "index": 1732
+              },
+              "end": {
+                "line": 51,
+                "column": 7,
+                "index": 1734
+              }
+            }
+          },
+          "fieldType": {
+            "kind": "MapType",
+            "loc": {
+              "start": {
+                "line": 51,
+                "column": 17,
+                "index": 1744
+              },
+              "end": {
+                "line": 51,
+                "column": 33,
+                "index": 1760
+              }
+            },
+            "value": "map",
+            "valueType": {
+              "kind": "I64Keyword",
+              "value": "i64",
+              "loc": {
+                "start": {
+                  "line": 51,
+                  "column": 29,
+                  "index": 1756
+                },
+                "end": {
+                  "line": 51,
+                  "column": 32,
+                  "index": 1759
+                }
+              }
+            },
+            "keyType": {
+              "kind": "StringKeyword",
+              "value": "string",
+              "loc": {
+                "start": {
+                  "line": 51,
+                  "column": 21,
+                  "index": 1748
+                },
+                "end": {
+                  "line": 51,
+                  "column": 27,
+                  "index": 1754
+                }
+              }
+            }
+          },
+          "requiredType": "required",
+          "defaultValue": {
+            "kind": "ConstMap",
+            "loc": {
+              "start": {
+                "line": 51,
+                "column": 46,
+                "index": 1773
+              },
+              "end": {
+                "line": 51,
+                "column": 74,
+                "index": 1801
+              }
+            },
+            "properties": [
+              {
+                "kind": "PropertyAssignment",
+                "loc": {
+                  "start": {
+                    "line": 51,
+                    "column": 47,
+                    "index": 1774
+                  },
+                  "end": {
+                    "line": 51,
+                    "column": 58,
+                    "index": 1785
+                  }
+                },
                 "value": {
-                  "kind": "StringLiteral",
-                  "value": "\"json:\\\"distributionStatusList\\\"\"",
+                  "kind": "IntegerLiteral",
+                  "value": "1",
                   "loc": {
                     "start": {
-                      "line": 4,
-                      "column": 60,
-                      "index": 266
+                      "line": 51,
+                      "column": 57,
+                      "index": 1784
                     },
                     "end": {
-                      "line": 4,
-                      "column": 93,
-                      "index": 299
+                      "line": 51,
+                      "column": 58,
+                      "index": 1785
                     }
                   }
                 },
-                "loc": {
-                  "start": {
-                    "line": 4,
-                    "column": 51,
-                    "index": 257
-                  },
-                  "end": {
-                    "line": 4,
-                    "column": 93,
-                    "index": 299
-                  }
-                },
                 "name": {
-                  "kind": "Identifier",
-                  "value": "go.tag",
+                  "kind": "StringLiteral",
+                  "value": "\"active\"",
                   "loc": {
                     "start": {
-                      "line": 4,
-                      "column": 51,
-                      "index": 257
+                      "line": 51,
+                      "column": 47,
+                      "index": 1774
                     },
                     "end": {
-                      "line": 4,
-                      "column": 57,
-                      "index": 263
+                      "line": 51,
+                      "column": 55,
+                      "index": 1782
                     }
                   }
                 }
               },
               {
-                "kind": "Annotation",
+                "kind": "PropertyAssignment",
+                "loc": {
+                  "start": {
+                    "line": 51,
+                    "column": 60,
+                    "index": 1787
+                  },
+                  "end": {
+                    "line": 51,
+                    "column": 73,
+                    "index": 1800
+                  }
+                },
                 "value": {
-                  "kind": "StringLiteral",
-                  "value": "\"distributionStatusList\"",
+                  "kind": "IntegerLiteral",
+                  "value": "0",
                   "loc": {
                     "start": {
-                      "line": 4,
-                      "column": 105,
-                      "index": 311
+                      "line": 51,
+                      "column": 72,
+                      "index": 1799
                     },
                     "end": {
-                      "line": 4,
-                      "column": 129,
-                      "index": 335
+                      "line": 51,
+                      "column": 73,
+                      "index": 1800
                     }
                   }
                 },
-                "loc": {
-                  "start": {
-                    "line": 4,
-                    "column": 94,
-                    "index": 300
-                  },
-                  "end": {
-                    "line": 4,
-                    "column": 129,
-                    "index": 335
-                  }
-                },
                 "name": {
-                  "kind": "Identifier",
-                  "value": "api.json",
+                  "kind": "StringLiteral",
+                  "value": "\"inactive\"",
                   "loc": {
                     "start": {
-                      "line": 4,
-                      "column": 94,
-                      "index": 300
+                      "line": 51,
+                      "column": 60,
+                      "index": 1787
                     },
                     "end": {
-                      "line": 4,
-                      "column": 102,
-                      "index": 308
+                      "line": 51,
+                      "column": 70,
+                      "index": 1797
                     }
                   }
                 }
               }
             ]
           },
+          "annotations": null,
           "comments": []
+        },
+        {
+          "kind": "FieldDefinition",
+          "loc": {
+            "start": {
+              "line": 52,
+              "column": 5,
+              "index": 1822
+            },
+            "end": {
+              "line": 52,
+              "column": 50,
+              "index": 1867
+            }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "Metadata",
+            "loc": {
+              "start": {
+                "line": 52,
+                "column": 37,
+                "index": 1854
+              },
+              "end": {
+                "line": 52,
+                "column": 45,
+                "index": 1862
+              }
+            }
+          },
+          "fieldID": {
+            "kind": "FieldID",
+            "value": "3",
+            "loc": {
+              "start": {
+                "line": 52,
+                "column": 5,
+                "index": 1822
+              },
+              "end": {
+                "line": 52,
+                "column": 7,
+                "index": 1824
+              }
+            }
+          },
+          "fieldType": {
+            "kind": "MapType",
+            "loc": {
+              "start": {
+                "line": 52,
+                "column": 17,
+                "index": 1834
+              },
+              "end": {
+                "line": 52,
+                "column": 36,
+                "index": 1853
+              }
+            },
+            "value": "map",
+            "valueType": {
+              "kind": "StringKeyword",
+              "value": "string",
+              "loc": {
+                "start": {
+                  "line": 52,
+                  "column": 29,
+                  "index": 1846
+                },
+                "end": {
+                  "line": 52,
+                  "column": 35,
+                  "index": 1852
+                }
+              }
+            },
+            "keyType": {
+              "kind": "StringKeyword",
+              "value": "string",
+              "loc": {
+                "start": {
+                  "line": 52,
+                  "column": 21,
+                  "index": 1838
+                },
+                "end": {
+                  "line": 52,
+                  "column": 27,
+                  "index": 1844
+                }
+              }
+            }
+          },
+          "requiredType": "optional",
+          "defaultValue": {
+            "kind": "ConstMap",
+            "loc": {
+              "start": {
+                "line": 52,
+                "column": 48,
+                "index": 1865
+              },
+              "end": {
+                "line": 52,
+                "column": 50,
+                "index": 1867
+              }
+            },
+            "properties": []
+          },
+          "annotations": null,
+          "comments": [
+            {
+              "kind": "CommentLine",
+              "value": "# 状态映射",
+              "loc": {
+                "start": {
+                  "line": 51,
+                  "column": 76,
+                  "index": 1803
+                },
+                "end": {
+                  "line": 51,
+                  "column": 90,
+                  "index": 1817
+                }
+              }
+            }
+          ]
         }
       ],
-      "comments": []
+      "comments": [
+        {
+          "kind": "CommentLine",
+          "value": "# 平均评分，默认值",
+          "loc": {
+            "start": {
+              "line": 46,
+              "column": 44,
+              "index": 1642
+            },
+            "end": {
+              "line": 46,
+              "column": 70,
+              "index": 1668
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "StructDefinition",
+      "loc": {
+        "start": {
+          "line": 55,
+          "column": 1,
+          "index": 1905
+        },
+        "end": {
+          "line": 59,
+          "column": 2,
+          "index": 2130
+        }
+      },
+      "name": {
+        "kind": "Identifier",
+        "value": "MockFilterComplex",
+        "loc": {
+          "start": {
+            "line": 55,
+            "column": 8,
+            "index": 1912
+          },
+          "end": {
+            "line": 55,
+            "column": 25,
+            "index": 1929
+          }
+        }
+      },
+      "members": [
+        {
+          "kind": "FieldDefinition",
+          "loc": {
+            "start": {
+              "line": 56,
+              "column": 5,
+              "index": 1936
+            },
+            "end": {
+              "line": 56,
+              "column": 34,
+              "index": 1965
+            }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "CreatedBySelf",
+            "loc": {
+              "start": {
+                "line": 56,
+                "column": 13,
+                "index": 1944
+              },
+              "end": {
+                "line": 56,
+                "column": 26,
+                "index": 1957
+              }
+            }
+          },
+          "fieldID": {
+            "kind": "FieldID",
+            "value": "1",
+            "loc": {
+              "start": {
+                "line": 56,
+                "column": 5,
+                "index": 1936
+              },
+              "end": {
+                "line": 56,
+                "column": 7,
+                "index": 1938
+              }
+            }
+          },
+          "fieldType": {
+            "kind": "BoolKeyword",
+            "value": "bool",
+            "loc": {
+              "start": {
+                "line": 56,
+                "column": 8,
+                "index": 1939
+              },
+              "end": {
+                "line": 56,
+                "column": 12,
+                "index": 1943
+              }
+            }
+          },
+          "requiredType": "default",
+          "defaultValue": {
+            "kind": "BooleanLiteral",
+            "value": "false",
+            "loc": {
+              "start": {
+                "line": 56,
+                "column": 29,
+                "index": 1960
+              },
+              "end": {
+                "line": 56,
+                "column": 34,
+                "index": 1965
+              }
+            }
+          },
+          "annotations": null,
+          "comments": []
+        },
+        {
+          "kind": "FieldDefinition",
+          "loc": {
+            "start": {
+              "line": 57,
+              "column": 5,
+              "index": 1970
+            },
+            "end": {
+              "line": 57,
+              "column": 55,
+              "index": 2020
+            }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "SubFilters",
+            "loc": {
+              "start": {
+                "line": 57,
+                "column": 40,
+                "index": 2005
+              },
+              "end": {
+                "line": 57,
+                "column": 50,
+                "index": 2015
+              }
+            }
+          },
+          "fieldID": {
+            "kind": "FieldID",
+            "value": "2",
+            "loc": {
+              "start": {
+                "line": 57,
+                "column": 5,
+                "index": 1970
+              },
+              "end": {
+                "line": 57,
+                "column": 7,
+                "index": 1972
+              }
+            }
+          },
+          "fieldType": {
+            "kind": "ListType",
+            "loc": {
+              "start": {
+                "line": 57,
+                "column": 17,
+                "index": 1982
+              },
+              "end": {
+                "line": 57,
+                "column": 39,
+                "index": 2004
+              }
+            },
+            "value": "list",
+            "valueType": {
+              "kind": "Identifier",
+              "value": "MockFilterString",
+              "loc": {
+                "start": {
+                  "line": 57,
+                  "column": 22,
+                  "index": 1987
+                },
+                "end": {
+                  "line": 57,
+                  "column": 38,
+                  "index": 2003
+                }
+              }
+            }
+          },
+          "requiredType": "required",
+          "defaultValue": {
+            "kind": "ConstList",
+            "loc": {
+              "start": {
+                "line": 57,
+                "column": 53,
+                "index": 2018
+              },
+              "end": {
+                "line": 57,
+                "column": 55,
+                "index": 2020
+              }
+            },
+            "elements": []
+          },
+          "annotations": null,
+          "comments": []
+        },
+        {
+          "kind": "FieldDefinition",
+          "loc": {
+            "start": {
+              "line": 58,
+              "column": 5,
+              "index": 2047
+            },
+            "end": {
+              "line": 58,
+              "column": 53,
+              "index": 2095
+            }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "AggregateData",
+            "loc": {
+              "start": {
+                "line": 58,
+                "column": 33,
+                "index": 2075
+              },
+              "end": {
+                "line": 58,
+                "column": 46,
+                "index": 2088
+              }
+            }
+          },
+          "fieldID": {
+            "kind": "FieldID",
+            "value": "3",
+            "loc": {
+              "start": {
+                "line": 58,
+                "column": 5,
+                "index": 2047
+              },
+              "end": {
+                "line": 58,
+                "column": 7,
+                "index": 2049
+              }
+            }
+          },
+          "fieldType": {
+            "kind": "Identifier",
+            "value": "MockFilterFloat",
+            "loc": {
+              "start": {
+                "line": 58,
+                "column": 17,
+                "index": 2059
+              },
+              "end": {
+                "line": 58,
+                "column": 32,
+                "index": 2074
+              }
+            }
+          },
+          "requiredType": "optional",
+          "defaultValue": {
+            "kind": "Identifier",
+            "value": "null",
+            "loc": {
+              "start": {
+                "line": 58,
+                "column": 49,
+                "index": 2091
+              },
+              "end": {
+                "line": 58,
+                "column": 53,
+                "index": 2095
+              }
+            }
+          },
+          "annotations": null,
+          "comments": [
+            {
+              "kind": "CommentLine",
+              "value": "# 子过滤器列表",
+              "loc": {
+                "start": {
+                  "line": 57,
+                  "column": 57,
+                  "index": 2022
+                },
+                "end": {
+                  "line": 57,
+                  "column": 77,
+                  "index": 2042
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "comments": [
+        {
+          "kind": "CommentLine",
+          "value": "# 可选元数据，默认为空",
+          "loc": {
+            "start": {
+              "line": 52,
+              "column": 52,
+              "index": 1869
+            },
+            "end": {
+              "line": 52,
+              "column": 84,
+              "index": 1901
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "StructDefinition",
+      "loc": {
+        "start": {
+          "line": 61,
+          "column": 1,
+          "index": 2132
+        },
+        "end": {
+          "line": 65,
+          "column": 2,
+          "index": 2352
+        }
+      },
+      "name": {
+        "kind": "Identifier",
+        "value": "MockFilterDate",
+        "loc": {
+          "start": {
+            "line": 61,
+            "column": 8,
+            "index": 2139
+          },
+          "end": {
+            "line": 61,
+            "column": 22,
+            "index": 2153
+          }
+        }
+      },
+      "members": [
+        {
+          "kind": "FieldDefinition",
+          "loc": {
+            "start": {
+              "line": 62,
+              "column": 5,
+              "index": 2160
+            },
+            "end": {
+              "line": 62,
+              "column": 33,
+              "index": 2188
+            }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "CreatedBySelf",
+            "loc": {
+              "start": {
+                "line": 62,
+                "column": 13,
+                "index": 2168
+              },
+              "end": {
+                "line": 62,
+                "column": 26,
+                "index": 2181
+              }
+            }
+          },
+          "fieldID": {
+            "kind": "FieldID",
+            "value": "1",
+            "loc": {
+              "start": {
+                "line": 62,
+                "column": 5,
+                "index": 2160
+              },
+              "end": {
+                "line": 62,
+                "column": 7,
+                "index": 2162
+              }
+            }
+          },
+          "fieldType": {
+            "kind": "BoolKeyword",
+            "value": "bool",
+            "loc": {
+              "start": {
+                "line": 62,
+                "column": 8,
+                "index": 2163
+              },
+              "end": {
+                "line": 62,
+                "column": 12,
+                "index": 2167
+              }
+            }
+          },
+          "requiredType": "default",
+          "defaultValue": {
+            "kind": "BooleanLiteral",
+            "value": "true",
+            "loc": {
+              "start": {
+                "line": 62,
+                "column": 29,
+                "index": 2184
+              },
+              "end": {
+                "line": 62,
+                "column": 33,
+                "index": 2188
+              }
+            }
+          },
+          "annotations": null,
+          "comments": []
+        },
+        {
+          "kind": "FieldDefinition",
+          "loc": {
+            "start": {
+              "line": 63,
+              "column": 5,
+              "index": 2193
+            },
+            "end": {
+              "line": 63,
+              "column": 46,
+              "index": 2234
+            }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "CreatedAt",
+            "loc": {
+              "start": {
+                "line": 63,
+                "column": 21,
+                "index": 2209
+              },
+              "end": {
+                "line": 63,
+                "column": 30,
+                "index": 2218
+              }
+            }
+          },
+          "fieldID": {
+            "kind": "FieldID",
+            "value": "2",
+            "loc": {
+              "start": {
+                "line": 63,
+                "column": 5,
+                "index": 2193
+              },
+              "end": {
+                "line": 63,
+                "column": 7,
+                "index": 2195
+              }
+            }
+          },
+          "fieldType": {
+            "kind": "I64Keyword",
+            "value": "i64",
+            "loc": {
+              "start": {
+                "line": 63,
+                "column": 17,
+                "index": 2205
+              },
+              "end": {
+                "line": 63,
+                "column": 20,
+                "index": 2208
+              }
+            }
+          },
+          "requiredType": "required",
+          "defaultValue": {
+            "kind": "IntegerLiteral",
+            "value": "1672531199000",
+            "loc": {
+              "start": {
+                "line": 63,
+                "column": 33,
+                "index": 2221
+              },
+              "end": {
+                "line": 63,
+                "column": 46,
+                "index": 2234
+              }
+            }
+          },
+          "annotations": null,
+          "comments": []
+        },
+        {
+          "kind": "FieldDefinition",
+          "loc": {
+            "start": {
+              "line": 64,
+              "column": 5,
+              "index": 2285
+            },
+            "end": {
+              "line": 64,
+              "column": 37,
+              "index": 2317
+            }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "UpdatedAt",
+            "loc": {
+              "start": {
+                "line": 64,
+                "column": 21,
+                "index": 2301
+              },
+              "end": {
+                "line": 64,
+                "column": 30,
+                "index": 2310
+              }
+            }
+          },
+          "fieldID": {
+            "kind": "FieldID",
+            "value": "3",
+            "loc": {
+              "start": {
+                "line": 64,
+                "column": 5,
+                "index": 2285
+              },
+              "end": {
+                "line": 64,
+                "column": 7,
+                "index": 2287
+              }
+            }
+          },
+          "fieldType": {
+            "kind": "I64Keyword",
+            "value": "i64",
+            "loc": {
+              "start": {
+                "line": 64,
+                "column": 17,
+                "index": 2297
+              },
+              "end": {
+                "line": 64,
+                "column": 20,
+                "index": 2300
+              }
+            }
+          },
+          "requiredType": "optional",
+          "defaultValue": {
+            "kind": "Identifier",
+            "value": "null",
+            "loc": {
+              "start": {
+                "line": 64,
+                "column": 33,
+                "index": 2313
+              },
+              "end": {
+                "line": 64,
+                "column": 37,
+                "index": 2317
+              }
+            }
+          },
+          "annotations": null,
+          "comments": [
+            {
+              "kind": "CommentLine",
+              "value": "# 创建时间，默认值为某个时间戳",
+              "loc": {
+                "start": {
+                  "line": 63,
+                  "column": 48,
+                  "index": 2236
+                },
+                "end": {
+                  "line": 63,
+                  "column": 92,
+                  "index": 2280
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "comments": [
+        {
+          "kind": "CommentLine",
+          "value": "# 聚合数据，默认为 null",
+          "loc": {
+            "start": {
+              "line": 58,
+              "column": 55,
+              "index": 2097
+            },
+            "end": {
+              "line": 58,
+              "column": 86,
+              "index": 2128
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "StructDefinition",
+      "loc": {
+        "start": {
+          "line": 67,
+          "column": 1,
+          "index": 2354
+        },
+        "end": {
+          "line": 75,
+          "column": 2,
+          "index": 2714
+        }
+      },
+      "name": {
+        "kind": "Identifier",
+        "value": "MockFilterMultiLineComment",
+        "loc": {
+          "start": {
+            "line": 67,
+            "column": 8,
+            "index": 2361
+          },
+          "end": {
+            "line": 67,
+            "column": 34,
+            "index": 2387
+          }
+        }
+      },
+      "members": [
+        {
+          "kind": "FieldDefinition",
+          "loc": {
+            "start": {
+              "line": 68,
+              "column": 5,
+              "index": 2394
+            },
+            "end": {
+              "line": 68,
+              "column": 34,
+              "index": 2423
+            }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "CreatedBySelf",
+            "loc": {
+              "start": {
+                "line": 68,
+                "column": 13,
+                "index": 2402
+              },
+              "end": {
+                "line": 68,
+                "column": 26,
+                "index": 2415
+              }
+            }
+          },
+          "fieldID": {
+            "kind": "FieldID",
+            "value": "1",
+            "loc": {
+              "start": {
+                "line": 68,
+                "column": 5,
+                "index": 2394
+              },
+              "end": {
+                "line": 68,
+                "column": 7,
+                "index": 2396
+              }
+            }
+          },
+          "fieldType": {
+            "kind": "BoolKeyword",
+            "value": "bool",
+            "loc": {
+              "start": {
+                "line": 68,
+                "column": 8,
+                "index": 2397
+              },
+              "end": {
+                "line": 68,
+                "column": 12,
+                "index": 2401
+              }
+            }
+          },
+          "requiredType": "default",
+          "defaultValue": {
+            "kind": "BooleanLiteral",
+            "value": "false",
+            "loc": {
+              "start": {
+                "line": 68,
+                "column": 29,
+                "index": 2418
+              },
+              "end": {
+                "line": 68,
+                "column": 34,
+                "index": 2423
+              }
+            }
+          },
+          "annotations": null,
+          "comments": []
+        },
+        {
+          "kind": "FieldDefinition",
+          "loc": {
+            "start": {
+              "line": 69,
+              "column": 5,
+              "index": 2428
+            },
+            "end": {
+              "line": 69,
+              "column": 49,
+              "index": 2472
+            }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "StatusList",
+            "loc": {
+              "start": {
+                "line": 69,
+                "column": 27,
+                "index": 2450
+              },
+              "end": {
+                "line": 69,
+                "column": 37,
+                "index": 2460
+              }
+            }
+          },
+          "fieldID": {
+            "kind": "FieldID",
+            "value": "2",
+            "loc": {
+              "start": {
+                "line": 69,
+                "column": 5,
+                "index": 2428
+              },
+              "end": {
+                "line": 69,
+                "column": 7,
+                "index": 2430
+              }
+            }
+          },
+          "fieldType": {
+            "kind": "ListType",
+            "loc": {
+              "start": {
+                "line": 69,
+                "column": 17,
+                "index": 2440
+              },
+              "end": {
+                "line": 69,
+                "column": 26,
+                "index": 2449
+              }
+            },
+            "value": "list",
+            "valueType": {
+              "kind": "I64Keyword",
+              "value": "i64",
+              "loc": {
+                "start": {
+                  "line": 69,
+                  "column": 22,
+                  "index": 2445
+                },
+                "end": {
+                  "line": 69,
+                  "column": 25,
+                  "index": 2448
+                }
+              }
+            }
+          },
+          "requiredType": "required",
+          "defaultValue": {
+            "kind": "ConstList",
+            "loc": {
+              "start": {
+                "line": 69,
+                "column": 40,
+                "index": 2463
+              },
+              "end": {
+                "line": 69,
+                "column": 49,
+                "index": 2472
+              }
+            },
+            "elements": [
+              {
+                "kind": "IntegerLiteral",
+                "value": "1",
+                "loc": {
+                  "start": {
+                    "line": 69,
+                    "column": 41,
+                    "index": 2464
+                  },
+                  "end": {
+                    "line": 69,
+                    "column": 42,
+                    "index": 2465
+                  }
+                }
+              },
+              {
+                "kind": "IntegerLiteral",
+                "value": "2",
+                "loc": {
+                  "start": {
+                    "line": 69,
+                    "column": 44,
+                    "index": 2467
+                  },
+                  "end": {
+                    "line": 69,
+                    "column": 45,
+                    "index": 2468
+                  }
+                }
+              },
+              {
+                "kind": "IntegerLiteral",
+                "value": "3",
+                "loc": {
+                  "start": {
+                    "line": 69,
+                    "column": 47,
+                    "index": 2470
+                  },
+                  "end": {
+                    "line": 69,
+                    "column": 48,
+                    "index": 2471
+                  }
+                }
+              }
+            ]
+          },
+          "annotations": null,
+          "comments": []
+        },
+        {
+          "kind": "FieldDefinition",
+          "loc": {
+            "start": {
+              "line": 70,
+              "column": 5,
+              "index": 2493
+            },
+            "end": {
+              "line": 73,
+              "column": 6,
+              "index": 2662
+            }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "Notes",
+            "loc": {
+              "start": {
+                "line": 70,
+                "column": 30,
+                "index": 2518
+              },
+              "end": {
+                "line": 70,
+                "column": 35,
+                "index": 2523
+              }
+            }
+          },
+          "fieldID": {
+            "kind": "FieldID",
+            "value": "3",
+            "loc": {
+              "start": {
+                "line": 70,
+                "column": 5,
+                "index": 2493
+              },
+              "end": {
+                "line": 70,
+                "column": 7,
+                "index": 2495
+              }
+            }
+          },
+          "fieldType": {
+            "kind": "ListType",
+            "loc": {
+              "start": {
+                "line": 70,
+                "column": 17,
+                "index": 2505
+              },
+              "end": {
+                "line": 70,
+                "column": 29,
+                "index": 2517
+              }
+            },
+            "value": "list",
+            "valueType": {
+              "kind": "StringKeyword",
+              "value": "string",
+              "loc": {
+                "start": {
+                  "line": 70,
+                  "column": 22,
+                  "index": 2510
+                },
+                "end": {
+                  "line": 70,
+                  "column": 28,
+                  "index": 2516
+                }
+              }
+            }
+          },
+          "requiredType": "optional",
+          "defaultValue": {
+            "kind": "ConstList",
+            "loc": {
+              "start": {
+                "line": 70,
+                "column": 38,
+                "index": 2526
+              },
+              "end": {
+                "line": 73,
+                "column": 6,
+                "index": 2662
+              }
+            },
+            "elements": [
+              {
+                "kind": "StringLiteral",
+                "value": "\"这是一个可选的注释\"",
+                "loc": {
+                  "start": {
+                    "line": 71,
+                    "column": 9,
+                    "index": 2536
+                  },
+                  "end": {
+                    "line": 71,
+                    "column": 38,
+                    "index": 2565
+                  }
+                }
+              },
+              {
+                "kind": "StringLiteral",
+                "value": "\"可以包含多行注释，\\n用于详细描述\"",
+                "loc": {
+                  "start": {
+                    "line": 72,
+                    "column": 9,
+                    "index": 2591
+                  },
+                  "end": {
+                    "line": 72,
+                    "column": 58,
+                    "index": 2640
+                  }
+                }
+              }
+            ]
+          },
+          "annotations": null,
+          "comments": [
+            {
+              "kind": "CommentLine",
+              "value": "# 状态列表",
+              "loc": {
+                "start": {
+                  "line": 69,
+                  "column": 51,
+                  "index": 2474
+                },
+                "end": {
+                  "line": 69,
+                  "column": 65,
+                  "index": 2488
+                }
+              }
+            }
+          ]
+        },
+        {
+          "kind": "FieldDefinition",
+          "loc": {
+            "start": {
+              "line": 74,
+              "column": 5,
+              "index": 2667
+            },
+            "end": {
+              "line": 74,
+              "column": 50,
+              "index": 2712
+            }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "Metadata",
+            "loc": {
+              "start": {
+                "line": 74,
+                "column": 37,
+                "index": 2699
+              },
+              "end": {
+                "line": 74,
+                "column": 45,
+                "index": 2707
+              }
+            }
+          },
+          "fieldID": {
+            "kind": "FieldID",
+            "value": "4",
+            "loc": {
+              "start": {
+                "line": 74,
+                "column": 5,
+                "index": 2667
+              },
+              "end": {
+                "line": 74,
+                "column": 7,
+                "index": 2669
+              }
+            }
+          },
+          "fieldType": {
+            "kind": "MapType",
+            "loc": {
+              "start": {
+                "line": 74,
+                "column": 17,
+                "index": 2679
+              },
+              "end": {
+                "line": 74,
+                "column": 36,
+                "index": 2698
+              }
+            },
+            "value": "map",
+            "valueType": {
+              "kind": "StringKeyword",
+              "value": "string",
+              "loc": {
+                "start": {
+                  "line": 74,
+                  "column": 29,
+                  "index": 2691
+                },
+                "end": {
+                  "line": 74,
+                  "column": 35,
+                  "index": 2697
+                }
+              }
+            },
+            "keyType": {
+              "kind": "StringKeyword",
+              "value": "string",
+              "loc": {
+                "start": {
+                  "line": 74,
+                  "column": 21,
+                  "index": 2683
+                },
+                "end": {
+                  "line": 74,
+                  "column": 27,
+                  "index": 2689
+                }
+              }
+            }
+          },
+          "requiredType": "optional",
+          "defaultValue": {
+            "kind": "ConstMap",
+            "loc": {
+              "start": {
+                "line": 74,
+                "column": 48,
+                "index": 2710
+              },
+              "end": {
+                "line": 74,
+                "column": 50,
+                "index": 2712
+              }
+            },
+            "properties": []
+          },
+          "annotations": null,
+          "comments": [
+            {
+              "kind": "CommentLine",
+              "value": "# 单行注释",
+              "loc": {
+                "start": {
+                  "line": 71,
+                  "column": 41,
+                  "index": 2568
+                },
+                "end": {
+                  "line": 71,
+                  "column": 55,
+                  "index": 2582
+                }
+              }
+            },
+            {
+              "kind": "CommentLine",
+              "value": "# 多行注释",
+              "loc": {
+                "start": {
+                  "line": 72,
+                  "column": 60,
+                  "index": 2642
+                },
+                "end": {
+                  "line": 72,
+                  "column": 74,
+                  "index": 2656
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "comments": [
+        {
+          "kind": "CommentLine",
+          "value": "# 更新时间，默认为 null",
+          "loc": {
+            "start": {
+              "line": 64,
+              "column": 39,
+              "index": 2319
+            },
+            "end": {
+              "line": 64,
+              "column": 70,
+              "index": 2350
+            }
+          }
+        }
+      ]
     }
   ]
 }

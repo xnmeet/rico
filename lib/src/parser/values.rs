@@ -10,21 +10,19 @@ impl<'a> Parser<'a> {
         let mut elements: Vec<FieldInitialValue> = Vec::new();
 
         loop {
-            let value = self.parse_field_value();
-
-            if let Ok(val) = value {
-                elements.push(val);
-            } else if self.is_bracket_end() {
-                break;
-            } else {
-                return value;
-            }
-
             self.advance();
+            self.skip_comments();
+
             if self.is_bracket_end() {
                 break;
             }
-            self.expect_token(Token::Comma)?;
+
+            let value = self.parse_field_value_opt(false)?;
+            elements.push(value);
+
+            if let Some(Token::Comma) = self.peek() {
+                self.consume(Token::Comma)?;
+            }
         }
 
         Ok(create_const_list_value(
@@ -38,30 +36,29 @@ impl<'a> Parser<'a> {
         let mut properties: Vec<MapProperty> = Vec::new();
 
         loop {
-            let property_start_pos = self.start_pos();
-            let property_key = self.parse_field_value()?;
-
-            self.consume(Token::Colon)?;
-            let property_value = self.parse_field_value();
-
-            if let Ok(value) = property_value {
-                properties.push(MapProperty {
-                    kind: NodeType::PropertyAssignment,
-                    loc: self.get_token_parent_loc(property_start_pos, self.get_token_loc().end),
-                    name: property_key,
-                    value,
-                });
-            } else if self.is_brace_end() {
-                break;
-            } else {
-                return property_value;
-            }
-
             self.advance();
+            self.skip_comments();
+
             if self.is_brace_end() {
                 break;
             }
-            self.expect_token(Token::Comma)?;
+
+            let property_start_pos = self.start_pos();
+            let property_key = self.parse_field_value_opt(false)?;
+
+            self.consume(Token::Colon)?;
+            let property_value = self.parse_field_value()?;
+
+            properties.push(MapProperty {
+                kind: NodeType::PropertyAssignment,
+                loc: self.get_token_parent_loc(property_start_pos, self.get_token_loc().end),
+                name: property_key,
+                value: property_value,
+            });
+
+            if let Some(Token::Comma) = self.peek() {
+                self.consume(Token::Comma)?;
+            }
         }
 
         Ok(create_map_value(
@@ -71,7 +68,17 @@ impl<'a> Parser<'a> {
     }
 
     pub(crate) fn parse_field_value(&mut self) -> Result<FieldInitialValue, ParseError> {
-        self.advance();
+        self.parse_field_value_opt(true)
+    }
+
+    pub(crate) fn parse_field_value_opt(
+        &mut self,
+        auto_advance: bool,
+    ) -> Result<FieldInitialValue, ParseError> {
+        if auto_advance {
+            self.advance();
+        }
+
         match self.token() {
             Some(token) => match token {
                 Token::StringLiteral
