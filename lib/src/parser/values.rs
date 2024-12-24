@@ -5,25 +5,38 @@ use crate::parser::factory::*;
 use crate::parser::Parser;
 
 impl<'a> Parser<'a> {
-    pub(crate) fn parse_list_value(&mut self) -> Result<FieldInitialValue, ParseError> {
-        let start_loc = self.get_token_loc();
-        let mut elements: Vec<FieldInitialValue> = Vec::new();
+    fn parse_delimited_values<T>(
+        &mut self,
+        is_end: fn(&mut Self) -> bool,
+        parse_element: impl Fn(&mut Self) -> Result<T, ParseError>,
+    ) -> Result<Vec<T>, ParseError> {
+        let mut elements = Vec::new();
 
         loop {
             self.advance();
             self.skip_comments();
 
-            if self.is_bracket_end() {
+            if is_end(self) {
                 break;
             }
 
-            let value = self.parse_field_value_opt(false)?;
-            elements.push(value);
+            let element = parse_element(self)?;
+            elements.push(element);
 
             if let Some(Token::Comma) = self.peek() {
                 self.consume(Token::Comma)?;
             }
         }
+
+        Ok(elements)
+    }
+
+    pub(crate) fn parse_list_value(&mut self) -> Result<FieldInitialValue, ParseError> {
+        let start_loc = self.get_token_loc();
+
+        let elements = self.parse_delimited_values(Self::is_bracket_end, |parser| {
+            parser.parse_field_value_opt(false)
+        })?;
 
         Ok(create_const_list_value(
             self.get_token_parent_loc(start_loc.start, self.end_pos()),
@@ -33,33 +46,21 @@ impl<'a> Parser<'a> {
 
     pub(crate) fn parse_map_value(&mut self) -> Result<FieldInitialValue, ParseError> {
         let start_pos = self.start_pos();
-        let mut properties: Vec<MapProperty> = Vec::new();
 
-        loop {
-            self.advance();
-            self.skip_comments();
+        let properties = self.parse_delimited_values(Self::is_brace_end, |parser| {
+            let property_start_pos = parser.start_pos();
+            let property_key = parser.parse_field_value_opt(false)?;
 
-            if self.is_brace_end() {
-                break;
-            }
+            parser.consume(Token::Colon)?;
+            let property_value = parser.parse_field_value()?;
 
-            let property_start_pos = self.start_pos();
-            let property_key = self.parse_field_value_opt(false)?;
-
-            self.consume(Token::Colon)?;
-            let property_value = self.parse_field_value()?;
-
-            properties.push(MapProperty {
+            Ok(MapProperty {
                 kind: NodeType::PropertyAssignment,
-                loc: self.get_token_parent_loc(property_start_pos, self.get_token_loc().end),
+                loc: parser.get_token_parent_loc(property_start_pos, parser.get_token_loc().end),
                 name: property_key,
                 value: property_value,
-            });
-
-            if let Some(Token::Comma) = self.peek() {
-                self.consume(Token::Comma)?;
-            }
-        }
+            })
+        })?;
 
         Ok(create_map_value(
             self.get_token_parent_loc(start_pos, self.end_pos()),
