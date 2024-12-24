@@ -158,7 +158,15 @@ impl<'a> Parser<'a> {
         let field_type = self.parse_field_type()?;
 
         // Parse field name
-        self.consume(Token::Identifier)?;
+        // adapt name with namespace and include keyword
+        self.advance();
+        if !matches!(
+            self.token(),
+            Some(&Token::Identifier) | Some(&Token::Namespace) | Some(&Token::Include)
+        ) {
+            return Err(ParseError::InvalidFieldName(self.start_pos()));
+        }
+
         let field_name = create_identifier(self.get_token_loc(), self.text().to_owned());
 
         // Parse default value if present
@@ -171,7 +179,6 @@ impl<'a> Parser<'a> {
 
         // Parse annotations if present
         let field_annotations = self.parse_annotations()?;
-
         Ok(Field {
             kind: NodeType::FieldDefinition,
             loc: self.get_token_parent_loc(field_id.loc.start, self.end_pos()),
@@ -203,7 +210,7 @@ impl<'a> Parser<'a> {
         })
     }
 
-    pub(crate) fn parse_annotations(&mut self) -> Result<Annotations, ParseError> {
+    pub(crate) fn parse_annotations(&mut self) -> Result<Option<Annotations>, ParseError> {
         let mut annotations = Vec::new();
 
         if let Some(Token::LeftParen) = self.peek() {
@@ -241,17 +248,13 @@ impl<'a> Parser<'a> {
                 }
             }
 
-            Ok(Annotations {
+            Ok(Some(Annotations {
                 kind: NodeType::Annotations,
                 loc: tracker.to_parent_loc(&self.get_token_loc()),
                 members: annotations,
-            })
+            }))
         } else {
-            Ok(Annotations {
-                kind: NodeType::Annotations,
-                loc: self.get_token_loc(),
-                members: annotations,
-            })
+            Ok(None)
         }
     }
 

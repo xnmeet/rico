@@ -157,7 +157,7 @@ pub struct Field {
     pub required_type: String,
     #[serde(rename = "defaultValue")]
     pub default_value: Option<FieldInitialValue>,
-    pub annotations: Annotations,
+    pub annotations: Option<Annotations>,
     pub comments: Vec<Comment>,
 }
 #[derive(Serialize, Deserialize, Debug)]
@@ -177,7 +177,7 @@ pub struct Function {
     #[serde(rename = "returnType")]
     pub return_type: Common<String>,
     pub params: Vec<Field>,
-    pub annotations: Annotations,
+    pub annotations: Option<Annotations>,
     pub comments: Vec<Comment>,
 }
 

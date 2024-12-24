@@ -45,10 +45,6 @@ impl ThriftBenchmark {
             parser
                 .parse()
                 .map_err(|e| std::io::Error::new(std::io::ErrorKind::Other, e.to_string()))
-                .and_then(|value| {
-                    serde_json::to_string_pretty(&value)
-                        .map_err(|e| std::io::Error::new(std::io::ErrorKind::Other, e.to_string()))
-                })
         });
 
         let parse_time = start_time.elapsed();
