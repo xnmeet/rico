@@ -161,6 +161,15 @@ pub struct Field {
     pub comments: Vec<Comment>,
 }
 #[derive(Serialize, Deserialize, Debug)]
+pub struct Exception {
+    pub kind: NodeType,
+    pub loc: LOC,
+    pub name: Common<String>,
+    pub members: Vec<Field>,
+    pub comments: Vec<Comment>,
+}
+
+#[derive(Serialize, Deserialize, Debug)]
 pub struct Struct {
     pub kind: NodeType,
     pub loc: LOC,
@@ -175,8 +184,9 @@ pub struct Function {
     pub loc: LOC,
     pub name: Common<String>,
     #[serde(rename = "returnType")]
-    pub return_type: Common<String>,
+    pub return_type: FieldType,
     pub params: Vec<Field>,
+    pub throws: Option<Vec<Field>>,
     pub annotations: Option<Annotations>,
     pub comments: Vec<Comment>,
 }
@@ -200,6 +210,7 @@ pub enum DocumentMembers {
     Enum(Enum),
     Struct(Struct),
     Service(Service),
+    Exception(Exception),
 }
 
 #[derive(Serialize, Deserialize, Debug)]

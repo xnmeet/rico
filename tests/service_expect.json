@@ -147,6 +147,7 @@
               "comments": []
             }
           ],
+          "throws": null,
           "annotations": {
             "kind": "Annotations",
             "loc": {
@@ -376,6 +377,7 @@
               "comments": []
             }
           ],
+          "throws": null,
           "annotations": null,
           "comments": []
         },
@@ -494,6 +496,7 @@
               "comments": []
             }
           ],
+          "throws": null,
           "annotations": null,
           "comments": []
         }

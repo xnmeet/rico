@@ -61,7 +61,17 @@ impl<'a> Parser<'a> {
     }
 
     pub(crate) fn parse_field_type(&mut self) -> Result<FieldType, ParseError> {
-        self.advance();
+        self.parse_field_type_opt(true)
+    }
+
+    pub(crate) fn parse_field_type_opt(
+        &mut self,
+        auto_advance: bool,
+    ) -> Result<FieldType, ParseError> {
+        if auto_advance {
+            self.advance();
+        }
+
         match self.token() {
             Some(token) => match token {
                 Token::Binary

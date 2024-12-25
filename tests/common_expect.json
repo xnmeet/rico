@@ -1,0 +1,4958 @@
+{
+  "kind": "ThriftDocument",
+  "members": [
+    {
+      "kind": "NamespaceDefinition",
+      "loc": {
+        "start": {
+          "line": 3,
+          "column": 1,
+          "index": 71
+        },
+        "end": {
+          "line": 3,
+          "column": 26,
+          "index": 96
+        }
+      },
+      "name": {
+        "kind": "Identifier",
+        "value": "mock_example",
+        "loc": {
+          "start": {
+            "line": 3,
+            "column": 14,
+            "index": 84
+          },
+          "end": {
+            "line": 3,
+            "column": 26,
+            "index": 96
+          }
+        }
+      },
+      "scope": {
+        "kind": "Identifier",
+        "value": "py",
+        "loc": {
+          "start": {
+            "line": 3,
+            "column": 11,
+            "index": 81
+          },
+          "end": {
+            "line": 3,
+            "column": 13,
+            "index": 83
+          }
+        }
+      },
+      "comments": [
+        {
+          "kind": "CommentLine",
+          "value": "// help me generate thrift code according to Apache Thrift IDL syntax",
+          "loc": {
+            "start": {
+              "line": 1,
+              "column": 1,
+              "index": 0
+            },
+            "end": {
+              "line": 1,
+              "column": 70,
+              "index": 69
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "NamespaceDefinition",
+      "loc": {
+        "start": {
+          "line": 4,
+          "column": 1,
+          "index": 97
+        },
+        "end": {
+          "line": 4,
+          "column": 31,
+          "index": 127
+        }
+      },
+      "name": {
+        "kind": "Identifier",
+        "value": "mock_example_cpp",
+        "loc": {
+          "start": {
+            "line": 4,
+            "column": 15,
+            "index": 111
+          },
+          "end": {
+            "line": 4,
+            "column": 31,
+            "index": 127
+          }
+        }
+      },
+      "scope": {
+        "kind": "Identifier",
+        "value": "cpp",
+        "loc": {
+          "start": {
+            "line": 4,
+            "column": 11,
+            "index": 107
+          },
+          "end": {
+            "line": 4,
+            "column": 14,
+            "index": 110
+          }
+        }
+      },
+      "comments": []
+    },
+    {
+      "kind": "IncludeDefinition",
+      "loc": {
+        "start": {
+          "line": 11,
+          "column": 1,
+          "index": 276
+        },
+        "end": {
+          "line": 11,
+          "column": 24,
+          "index": 299
+        }
+      },
+      "name": {
+        "kind": "Identifier",
+        "value": "\"common.thrift\"",
+        "loc": {
+          "start": {
+            "line": 11,
+            "column": 9,
+            "index": 284
+          },
+          "end": {
+            "line": 11,
+            "column": 24,
+            "index": 299
+          }
+        }
+      },
+      "comments": [
+        {
+          "kind": "CommentLine",
+          "value": "// This is a multi-line comment",
+          "loc": {
+            "start": {
+              "line": 6,
+              "column": 1,
+              "index": 129
+            },
+            "end": {
+              "line": 6,
+              "column": 32,
+              "index": 160
+            }
+          }
+        },
+        {
+          "kind": "CommentLine",
+          "value": "// It can span multiple lines",
+          "loc": {
+            "start": {
+              "line": 7,
+              "column": 1,
+              "index": 161
+            },
+            "end": {
+              "line": 7,
+              "column": 30,
+              "index": 190
+            }
+          }
+        },
+        {
+          "kind": "CommentLine",
+          "value": "// and is useful for providing detailed explanations",
+          "loc": {
+            "start": {
+              "line": 8,
+              "column": 1,
+              "index": 191
+            },
+            "end": {
+              "line": 8,
+              "column": 53,
+              "index": 243
+            }
+          }
+        },
+        {
+          "kind": "CommentLine",
+          "value": "// Include another Thrift file",
+          "loc": {
+            "start": {
+              "line": 10,
+              "column": 1,
+              "index": 245
+            },
+            "end": {
+              "line": 10,
+              "column": 31,
+              "index": 275
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "EnumDefinition",
+      "loc": {
+        "start": {
+          "line": 14,
+          "column": 1,
+          "index": 335
+        },
+        "end": {
+          "line": 18,
+          "column": 2,
+          "index": 389
+        }
+      },
+      "name": {
+        "kind": "Identifier",
+        "value": "UserRole",
+        "loc": {
+          "start": {
+            "line": 14,
+            "column": 6,
+            "index": 340
+          },
+          "end": {
+            "line": 14,
+            "column": 14,
+            "index": 348
+          }
+        }
+      },
+      "members": [
+        {
+          "kind": "EnumMember",
+          "loc": {
+            "start": {
+              "line": 15,
+              "column": 3,
+              "index": 353
+            },
+            "end": {
+              "line": 15,
+              "column": 12,
+              "index": 362
+            }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "ADMIN",
+            "loc": {
+              "start": {
+                "line": 15,
+                "column": 3,
+                "index": 353
+              },
+              "end": {
+                "line": 15,
+                "column": 8,
+                "index": 358
+              }
+            }
+          },
+          "initializer": {
+            "kind": "IntConstant",
+            "value": {
+              "kind": "IntegerLiteral",
+              "value": "1",
+              "loc": {
+                "start": {
+                  "line": 15,
+                  "column": 11,
+                  "index": 361
+                },
+                "end": {
+                  "line": 15,
+                  "column": 12,
+                  "index": 362
+                }
+              }
+            },
+            "loc": {
+              "start": {
+                "line": 15,
+                "column": 11,
+                "index": 361
+              },
+              "end": {
+                "line": 15,
+                "column": 12,
+                "index": 362
+              }
+            }
+          },
+          "comments": []
+        },
+        {
+          "kind": "EnumMember",
+          "loc": {
+            "start": {
+              "line": 16,
+              "column": 3,
+              "index": 366
+            },
+            "end": {
+              "line": 16,
+              "column": 11,
+              "index": 374
+            }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "USER",
+            "loc": {
+              "start": {
+                "line": 16,
+                "column": 3,
+                "index": 366
+              },
+              "end": {
+                "line": 16,
+                "column": 7,
+                "index": 370
+              }
+            }
+          },
+          "initializer": {
+            "kind": "IntConstant",
+            "value": {
+              "kind": "IntegerLiteral",
+              "value": "2",
+              "loc": {
+                "start": {
+                  "line": 16,
+                  "column": 10,
+                  "index": 373
+                },
+                "end": {
+                  "line": 16,
+                  "column": 11,
+                  "index": 374
+                }
+              }
+            },
+            "loc": {
+              "start": {
+                "line": 16,
+                "column": 10,
+                "index": 373
+              },
+              "end": {
+                "line": 16,
+                "column": 11,
+                "index": 374
+              }
+            }
+          },
+          "comments": []
+        },
+        {
+          "kind": "EnumMember",
+          "loc": {
+            "start": {
+              "line": 17,
+              "column": 3,
+              "index": 378
+            },
+            "end": {
+              "line": 17,
+              "column": 12,
+              "index": 387
+            }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "GUEST",
+            "loc": {
+              "start": {
+                "line": 17,
+                "column": 3,
+                "index": 378
+              },
+              "end": {
+                "line": 17,
+                "column": 8,
+                "index": 383
+              }
+            }
+          },
+          "initializer": {
+            "kind": "IntConstant",
+            "value": {
+              "kind": "IntegerLiteral",
+              "value": "3",
+              "loc": {
+                "start": {
+                  "line": 17,
+                  "column": 11,
+                  "index": 386
+                },
+                "end": {
+                  "line": 17,
+                  "column": 12,
+                  "index": 387
+                }
+              }
+            },
+            "loc": {
+              "start": {
+                "line": 17,
+                "column": 11,
+                "index": 386
+              },
+              "end": {
+                "line": 17,
+                "column": 12,
+                "index": 387
+              }
+            }
+          },
+          "comments": []
+        }
+      ],
+      "comments": [
+        {
+          "kind": "CommentLine",
+          "value": "// Enum definition for user roles",
+          "loc": {
+            "start": {
+              "line": 13,
+              "column": 1,
+              "index": 301
+            },
+            "end": {
+              "line": 13,
+              "column": 34,
+              "index": 334
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "StructDefinition",
+      "loc": {
+        "start": {
+          "line": 21,
+          "column": 1,
+          "index": 421
+        },
+        "end": {
+          "line": 27,
+          "column": 2,
+          "index": 529
+        }
+      },
+      "name": {
+        "kind": "Identifier",
+        "value": "User",
+        "loc": {
+          "start": {
+            "line": 21,
+            "column": 8,
+            "index": 428
+          },
+          "end": {
+            "line": 21,
+            "column": 12,
+            "index": 432
+          }
+        }
+      },
+      "members": [
+        {
+          "kind": "FieldDefinition",
+          "loc": {
+            "start": {
+              "line": 22,
+              "column": 3,
+              "index": 437
+            },
+            "end": {
+              "line": 22,
+              "column": 12,
+              "index": 446
+            }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "id",
+            "loc": {
+              "start": {
+                "line": 22,
+                "column": 10,
+                "index": 444
+              },
+              "end": {
+                "line": 22,
+                "column": 12,
+                "index": 446
+              }
+            }
+          },
+          "fieldID": {
+            "kind": "FieldID",
+            "value": "1",
+            "loc": {
+              "start": {
+                "line": 22,
+                "column": 3,
+                "index": 437
+              },
+              "end": {
+                "line": 22,
+                "column": 5,
+                "index": 439
+              }
+            }
+          },
+          "fieldType": {
+            "kind": "I32Keyword",
+            "value": "i32",
+            "loc": {
+              "start": {
+                "line": 22,
+                "column": 6,
+                "index": 440
+              },
+              "end": {
+                "line": 22,
+                "column": 9,
+                "index": 443
+              }
+            }
+          },
+          "requiredType": "default",
+          "defaultValue": null,
+          "annotations": null,
+          "comments": []
+        },
+        {
+          "kind": "FieldDefinition",
+          "loc": {
+            "start": {
+              "line": 23,
+              "column": 3,
+              "index": 450
+            },
+            "end": {
+              "line": 23,
+              "column": 17,
+              "index": 464
+            }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "name",
+            "loc": {
+              "start": {
+                "line": 23,
+                "column": 13,
+                "index": 460
+              },
+              "end": {
+                "line": 23,
+                "column": 17,
+                "index": 464
+              }
+            }
+          },
+          "fieldID": {
+            "kind": "FieldID",
+            "value": "2",
+            "loc": {
+              "start": {
+                "line": 23,
+                "column": 3,
+                "index": 450
+              },
+              "end": {
+                "line": 23,
+                "column": 5,
+                "index": 452
+              }
+            }
+          },
+          "fieldType": {
+            "kind": "StringKeyword",
+            "value": "string",
+            "loc": {
+              "start": {
+                "line": 23,
+                "column": 6,
+                "index": 453
+              },
+              "end": {
+                "line": 23,
+                "column": 12,
+                "index": 459
+              }
+            }
+          },
+          "requiredType": "default",
+          "defaultValue": null,
+          "annotations": null,
+          "comments": []
+        },
+        {
+          "kind": "FieldDefinition",
+          "loc": {
+            "start": {
+              "line": 24,
+              "column": 3,
+              "index": 468
+            },
+            "end": {
+              "line": 24,
+              "column": 18,
+              "index": 483
+            }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "email",
+            "loc": {
+              "start": {
+                "line": 24,
+                "column": 13,
+                "index": 478
+              },
+              "end": {
+                "line": 24,
+                "column": 18,
+                "index": 483
+              }
+            }
+          },
+          "fieldID": {
+            "kind": "FieldID",
+            "value": "3",
+            "loc": {
+              "start": {
+                "line": 24,
+                "column": 3,
+                "index": 468
+              },
+              "end": {
+                "line": 24,
+                "column": 5,
+                "index": 470
+              }
+            }
+          },
+          "fieldType": {
+            "kind": "StringKeyword",
+            "value": "string",
+            "loc": {
+              "start": {
+                "line": 24,
+                "column": 6,
+                "index": 471
+              },
+              "end": {
+                "line": 24,
+                "column": 12,
+                "index": 477
+              }
+            }
+          },
+          "requiredType": "default",
+          "defaultValue": null,
+          "annotations": null,
+          "comments": []
+        },
+        {
+          "kind": "FieldDefinition",
+          "loc": {
+            "start": {
+              "line": 25,
+              "column": 3,
+              "index": 487
+            },
+            "end": {
+              "line": 25,
+              "column": 23,
+              "index": 507
+            }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "status",
+            "loc": {
+              "start": {
+                "line": 25,
+                "column": 17,
+                "index": 501
+              },
+              "end": {
+                "line": 25,
+                "column": 23,
+                "index": 507
+              }
+            }
+          },
+          "fieldID": {
+            "kind": "FieldID",
+            "value": "4",
+            "loc": {
+              "start": {
+                "line": 25,
+                "column": 3,
+                "index": 487
+              },
+              "end": {
+                "line": 25,
+                "column": 5,
+                "index": 489
+              }
+            }
+          },
+          "fieldType": {
+            "kind": "Identifier",
+            "value": "UserStatus",
+            "loc": {
+              "start": {
+                "line": 25,
+                "column": 6,
+                "index": 490
+              },
+              "end": {
+                "line": 25,
+                "column": 16,
+                "index": 500
+              }
+            }
+          },
+          "requiredType": "default",
+          "defaultValue": null,
+          "annotations": null,
+          "comments": []
+        },
+        {
+          "kind": "FieldDefinition",
+          "loc": {
+            "start": {
+              "line": 26,
+              "column": 3,
+              "index": 511
+            },
+            "end": {
+              "line": 26,
+              "column": 19,
+              "index": 527
+            }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "role",
+            "loc": {
+              "start": {
+                "line": 26,
+                "column": 15,
+                "index": 523
+              },
+              "end": {
+                "line": 26,
+                "column": 19,
+                "index": 527
+              }
+            }
+          },
+          "fieldID": {
+            "kind": "FieldID",
+            "value": "5",
+            "loc": {
+              "start": {
+                "line": 26,
+                "column": 3,
+                "index": 511
+              },
+              "end": {
+                "line": 26,
+                "column": 5,
+                "index": 513
+              }
+            }
+          },
+          "fieldType": {
+            "kind": "Identifier",
+            "value": "UserRole",
+            "loc": {
+              "start": {
+                "line": 26,
+                "column": 6,
+                "index": 514
+              },
+              "end": {
+                "line": 26,
+                "column": 14,
+                "index": 522
+              }
+            }
+          },
+          "requiredType": "default",
+          "defaultValue": null,
+          "annotations": null,
+          "comments": []
+        }
+      ],
+      "comments": [
+        {
+          "kind": "CommentLine",
+          "value": "// Struct definition for User",
+          "loc": {
+            "start": {
+              "line": 20,
+              "column": 1,
+              "index": 391
+            },
+            "end": {
+              "line": 20,
+              "column": 30,
+              "index": 420
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "StructDefinition",
+      "loc": {
+        "start": {
+          "line": 30,
+          "column": 1,
+          "index": 571
+        },
+        "end": {
+          "line": 35,
+          "column": 2,
+          "index": 662
+        }
+      },
+      "name": {
+        "kind": "Identifier",
+        "value": "Address",
+        "loc": {
+          "start": {
+            "line": 30,
+            "column": 8,
+            "index": 578
+          },
+          "end": {
+            "line": 30,
+            "column": 15,
+            "index": 585
+          }
+        }
+      },
+      "members": [
+        {
+          "kind": "FieldDefinition",
+          "loc": {
+            "start": {
+              "line": 31,
+              "column": 3,
+              "index": 590
+            },
+            "end": {
+              "line": 31,
+              "column": 19,
+              "index": 606
+            }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "street",
+            "loc": {
+              "start": {
+                "line": 31,
+                "column": 13,
+                "index": 600
+              },
+              "end": {
+                "line": 31,
+                "column": 19,
+                "index": 606
+              }
+            }
+          },
+          "fieldID": {
+            "kind": "FieldID",
+            "value": "1",
+            "loc": {
+              "start": {
+                "line": 31,
+                "column": 3,
+                "index": 590
+              },
+              "end": {
+                "line": 31,
+                "column": 5,
+                "index": 592
+              }
+            }
+          },
+          "fieldType": {
+            "kind": "StringKeyword",
+            "value": "string",
+            "loc": {
+              "start": {
+                "line": 31,
+                "column": 6,
+                "index": 593
+              },
+              "end": {
+                "line": 31,
+                "column": 12,
+                "index": 599
+              }
+            }
+          },
+          "requiredType": "default",
+          "defaultValue": null,
+          "annotations": null,
+          "comments": []
+        },
+        {
+          "kind": "FieldDefinition",
+          "loc": {
+            "start": {
+              "line": 32,
+              "column": 3,
+              "index": 610
+            },
+            "end": {
+              "line": 32,
+              "column": 17,
+              "index": 624
+            }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "city",
+            "loc": {
+              "start": {
+                "line": 32,
+                "column": 13,
+                "index": 620
+              },
+              "end": {
+                "line": 32,
+                "column": 17,
+                "index": 624
+              }
+            }
+          },
+          "fieldID": {
+            "kind": "FieldID",
+            "value": "2",
+            "loc": {
+              "start": {
+                "line": 32,
+                "column": 3,
+                "index": 610
+              },
+              "end": {
+                "line": 32,
+                "column": 5,
+                "index": 612
+              }
+            }
+          },
+          "fieldType": {
+            "kind": "StringKeyword",
+            "value": "string",
+            "loc": {
+              "start": {
+                "line": 32,
+                "column": 6,
+                "index": 613
+              },
+              "end": {
+                "line": 32,
+                "column": 12,
+                "index": 619
+              }
+            }
+          },
+          "requiredType": "default",
+          "defaultValue": null,
+          "annotations": null,
+          "comments": []
+        },
+        {
+          "kind": "FieldDefinition",
+          "loc": {
+            "start": {
+              "line": 33,
+              "column": 3,
+              "index": 628
+            },
+            "end": {
+              "line": 33,
+              "column": 18,
+              "index": 643
+            }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "state",
+            "loc": {
+              "start": {
+                "line": 33,
+                "column": 13,
+                "index": 638
+              },
+              "end": {
+                "line": 33,
+                "column": 18,
+                "index": 643
+              }
+            }
+          },
+          "fieldID": {
+            "kind": "FieldID",
+            "value": "3",
+            "loc": {
+              "start": {
+                "line": 33,
+                "column": 3,
+                "index": 628
+              },
+              "end": {
+                "line": 33,
+                "column": 5,
+                "index": 630
+              }
+            }
+          },
+          "fieldType": {
+            "kind": "StringKeyword",
+            "value": "string",
+            "loc": {
+              "start": {
+                "line": 33,
+                "column": 6,
+                "index": 631
+              },
+              "end": {
+                "line": 33,
+                "column": 12,
+                "index": 637
+              }
+            }
+          },
+          "requiredType": "default",
+          "defaultValue": null,
+          "annotations": null,
+          "comments": []
+        },
+        {
+          "kind": "FieldDefinition",
+          "loc": {
+            "start": {
+              "line": 34,
+              "column": 3,
+              "index": 647
+            },
+            "end": {
+              "line": 34,
+              "column": 16,
+              "index": 660
+            }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "zip",
+            "loc": {
+              "start": {
+                "line": 34,
+                "column": 13,
+                "index": 657
+              },
+              "end": {
+                "line": 34,
+                "column": 16,
+                "index": 660
+              }
+            }
+          },
+          "fieldID": {
+            "kind": "FieldID",
+            "value": "4",
+            "loc": {
+              "start": {
+                "line": 34,
+                "column": 3,
+                "index": 647
+              },
+              "end": {
+                "line": 34,
+                "column": 5,
+                "index": 649
+              }
+            }
+          },
+          "fieldType": {
+            "kind": "StringKeyword",
+            "value": "string",
+            "loc": {
+              "start": {
+                "line": 34,
+                "column": 6,
+                "index": 650
+              },
+              "end": {
+                "line": 34,
+                "column": 12,
+                "index": 656
+              }
+            }
+          },
+          "requiredType": "default",
+          "defaultValue": null,
+          "annotations": null,
+          "comments": []
+        }
+      ],
+      "comments": [
+        {
+          "kind": "CommentLine",
+          "value": "// Nested struct definition for Address",
+          "loc": {
+            "start": {
+              "line": 29,
+              "column": 1,
+              "index": 531
+            },
+            "end": {
+              "line": 29,
+              "column": 40,
+              "index": 570
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "StructDefinition",
+      "loc": {
+        "start": {
+          "line": 38,
+          "column": 1,
+          "index": 710
+        },
+        "end": {
+          "line": 43,
+          "column": 2,
+          "index": 844
+        }
+      },
+      "name": {
+        "kind": "Identifier",
+        "value": "UserProfile",
+        "loc": {
+          "start": {
+            "line": 38,
+            "column": 8,
+            "index": 717
+          },
+          "end": {
+            "line": 38,
+            "column": 19,
+            "index": 728
+          }
+        }
+      },
+      "members": [
+        {
+          "kind": "FieldDefinition",
+          "loc": {
+            "start": {
+              "line": 39,
+              "column": 3,
+              "index": 733
+            },
+            "end": {
+              "line": 39,
+              "column": 15,
+              "index": 745
+            }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "user",
+            "loc": {
+              "start": {
+                "line": 39,
+                "column": 11,
+                "index": 741
+              },
+              "end": {
+                "line": 39,
+                "column": 15,
+                "index": 745
+              }
+            }
+          },
+          "fieldID": {
+            "kind": "FieldID",
+            "value": "1",
+            "loc": {
+              "start": {
+                "line": 39,
+                "column": 3,
+                "index": 733
+              },
+              "end": {
+                "line": 39,
+                "column": 5,
+                "index": 735
+              }
+            }
+          },
+          "fieldType": {
+            "kind": "Identifier",
+            "value": "User",
+            "loc": {
+              "start": {
+                "line": 39,
+                "column": 6,
+                "index": 736
+              },
+              "end": {
+                "line": 39,
+                "column": 10,
+                "index": 740
+              }
+            }
+          },
+          "requiredType": "default",
+          "defaultValue": null,
+          "annotations": null,
+          "comments": []
+        },
+        {
+          "kind": "FieldDefinition",
+          "loc": {
+            "start": {
+              "line": 40,
+              "column": 3,
+              "index": 749
+            },
+            "end": {
+              "line": 40,
+              "column": 21,
+              "index": 767
+            }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "address",
+            "loc": {
+              "start": {
+                "line": 40,
+                "column": 14,
+                "index": 760
+              },
+              "end": {
+                "line": 40,
+                "column": 21,
+                "index": 767
+              }
+            }
+          },
+          "fieldID": {
+            "kind": "FieldID",
+            "value": "2",
+            "loc": {
+              "start": {
+                "line": 40,
+                "column": 3,
+                "index": 749
+              },
+              "end": {
+                "line": 40,
+                "column": 5,
+                "index": 751
+              }
+            }
+          },
+          "fieldType": {
+            "kind": "Identifier",
+            "value": "Address",
+            "loc": {
+              "start": {
+                "line": 40,
+                "column": 6,
+                "index": 752
+              },
+              "end": {
+                "line": 40,
+                "column": 13,
+                "index": 759
+              }
+            }
+          },
+          "requiredType": "default",
+          "defaultValue": null,
+          "annotations": null,
+          "comments": []
+        },
+        {
+          "kind": "FieldDefinition",
+          "loc": {
+            "start": {
+              "line": 41,
+              "column": 3,
+              "index": 771
+            },
+            "end": {
+              "line": 41,
+              "column": 31,
+              "index": 799
+            }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "hobbies",
+            "loc": {
+              "start": {
+                "line": 41,
+                "column": 19,
+                "index": 787
+              },
+              "end": {
+                "line": 41,
+                "column": 26,
+                "index": 794
+              }
+            }
+          },
+          "fieldID": {
+            "kind": "FieldID",
+            "value": "3",
+            "loc": {
+              "start": {
+                "line": 41,
+                "column": 3,
+                "index": 771
+              },
+              "end": {
+                "line": 41,
+                "column": 5,
+                "index": 773
+              }
+            }
+          },
+          "fieldType": {
+            "kind": "ListType",
+            "loc": {
+              "start": {
+                "line": 41,
+                "column": 6,
+                "index": 774
+              },
+              "end": {
+                "line": 41,
+                "column": 18,
+                "index": 786
+              }
+            },
+            "value": "list",
+            "valueType": {
+              "kind": "StringKeyword",
+              "value": "string",
+              "loc": {
+                "start": {
+                  "line": 41,
+                  "column": 11,
+                  "index": 779
+                },
+                "end": {
+                  "line": 41,
+                  "column": 17,
+                  "index": 785
+                }
+              }
+            }
+          },
+          "requiredType": "default",
+          "defaultValue": {
+            "kind": "ConstList",
+            "loc": {
+              "start": {
+                "line": 41,
+                "column": 29,
+                "index": 797
+              },
+              "end": {
+                "line": 41,
+                "column": 31,
+                "index": 799
+              }
+            },
+            "elements": []
+          },
+          "annotations": null,
+          "comments": []
+        },
+        {
+          "kind": "FieldDefinition",
+          "loc": {
+            "start": {
+              "line": 42,
+              "column": 3,
+              "index": 803
+            },
+            "end": {
+              "line": 42,
+              "column": 42,
+              "index": 842
+            }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "preferences",
+            "loc": {
+              "start": {
+                "line": 42,
+                "column": 26,
+                "index": 826
+              },
+              "end": {
+                "line": 42,
+                "column": 37,
+                "index": 837
+              }
+            }
+          },
+          "fieldID": {
+            "kind": "FieldID",
+            "value": "4",
+            "loc": {
+              "start": {
+                "line": 42,
+                "column": 3,
+                "index": 803
+              },
+              "end": {
+                "line": 42,
+                "column": 5,
+                "index": 805
+              }
+            }
+          },
+          "fieldType": {
+            "kind": "MapType",
+            "loc": {
+              "start": {
+                "line": 42,
+                "column": 6,
+                "index": 806
+              },
+              "end": {
+                "line": 42,
+                "column": 25,
+                "index": 825
+              }
+            },
+            "value": "map",
+            "valueType": {
+              "kind": "StringKeyword",
+              "value": "string",
+              "loc": {
+                "start": {
+                  "line": 42,
+                  "column": 18,
+                  "index": 818
+                },
+                "end": {
+                  "line": 42,
+                  "column": 24,
+                  "index": 824
+                }
+              }
+            },
+            "keyType": {
+              "kind": "StringKeyword",
+              "value": "string",
+              "loc": {
+                "start": {
+                  "line": 42,
+                  "column": 10,
+                  "index": 810
+                },
+                "end": {
+                  "line": 42,
+                  "column": 16,
+                  "index": 816
+                }
+              }
+            }
+          },
+          "requiredType": "default",
+          "defaultValue": {
+            "kind": "ConstMap",
+            "loc": {
+              "start": {
+                "line": 42,
+                "column": 40,
+                "index": 840
+              },
+              "end": {
+                "line": 42,
+                "column": 42,
+                "index": 842
+              }
+            },
+            "properties": []
+          },
+          "annotations": null,
+          "comments": []
+        }
+      ],
+      "comments": [
+        {
+          "kind": "CommentLine",
+          "value": "// Struct with default values for UserProfile",
+          "loc": {
+            "start": {
+              "line": 37,
+              "column": 1,
+              "index": 664
+            },
+            "end": {
+              "line": 37,
+              "column": 46,
+              "index": 709
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "ExceptionDefinition",
+      "loc": {
+        "start": {
+          "line": 46,
+          "column": 1,
+          "index": 889
+        },
+        "end": {
+          "line": 48,
+          "column": 2,
+          "index": 944
+        }
+      },
+      "name": {
+        "kind": "Identifier",
+        "value": "UserNotFoundException",
+        "loc": {
+          "start": {
+            "line": 46,
+            "column": 11,
+            "index": 899
+          },
+          "end": {
+            "line": 46,
+            "column": 32,
+            "index": 920
+          }
+        }
+      },
+      "members": [
+        {
+          "kind": "FieldDefinition",
+          "loc": {
+            "start": {
+              "line": 47,
+              "column": 3,
+              "index": 925
+            },
+            "end": {
+              "line": 47,
+              "column": 20,
+              "index": 942
+            }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "message",
+            "loc": {
+              "start": {
+                "line": 47,
+                "column": 13,
+                "index": 935
+              },
+              "end": {
+                "line": 47,
+                "column": 20,
+                "index": 942
+              }
+            }
+          },
+          "fieldID": {
+            "kind": "FieldID",
+            "value": "1",
+            "loc": {
+              "start": {
+                "line": 47,
+                "column": 3,
+                "index": 925
+              },
+              "end": {
+                "line": 47,
+                "column": 5,
+                "index": 927
+              }
+            }
+          },
+          "fieldType": {
+            "kind": "StringKeyword",
+            "value": "string",
+            "loc": {
+              "start": {
+                "line": 47,
+                "column": 6,
+                "index": 928
+              },
+              "end": {
+                "line": 47,
+                "column": 12,
+                "index": 934
+              }
+            }
+          },
+          "requiredType": "default",
+          "defaultValue": null,
+          "annotations": null,
+          "comments": []
+        }
+      ],
+      "comments": [
+        {
+          "kind": "CommentLine",
+          "value": "// Exception definition for user not found",
+          "loc": {
+            "start": {
+              "line": 45,
+              "column": 1,
+              "index": 846
+            },
+            "end": {
+              "line": 45,
+              "column": 43,
+              "index": 888
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "ServiceDefinition",
+      "loc": {
+        "start": {
+          "line": 51,
+          "column": 1,
+          "index": 984
+        },
+        "end": {
+          "line": 66,
+          "column": 2,
+          "index": 1435
+        }
+      },
+      "name": {
+        "kind": "Identifier",
+        "value": "UserService",
+        "loc": {
+          "start": {
+            "line": 51,
+            "column": 9,
+            "index": 992
+          },
+          "end": {
+            "line": 51,
+            "column": 20,
+            "index": 1003
+          }
+        }
+      },
+      "members": [
+        {
+          "kind": "FunctionDefinition",
+          "loc": {
+            "start": {
+              "line": 53,
+              "column": 8,
+              "index": 1045
+            },
+            "end": {
+              "line": 55,
+              "column": 27,
+              "index": 1128
+            }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "getUser",
+            "loc": {
+              "start": {
+                "line": 53,
+                "column": 8,
+                "index": 1045
+              },
+              "end": {
+                "line": 53,
+                "column": 15,
+                "index": 1052
+              }
+            }
+          },
+          "returnType": {
+            "kind": "Identifier",
+            "value": "User",
+            "loc": {
+              "start": {
+                "line": 53,
+                "column": 3,
+                "index": 1040
+              },
+              "end": {
+                "line": 53,
+                "column": 7,
+                "index": 1044
+              }
+            }
+          },
+          "params": [
+            {
+              "kind": "FieldDefinition",
+              "loc": {
+                "start": {
+                  "line": 53,
+                  "column": 16,
+                  "index": 1053
+                },
+                "end": {
+                  "line": 53,
+                  "column": 25,
+                  "index": 1062
+                }
+              },
+              "name": {
+                "kind": "Identifier",
+                "value": "id",
+                "loc": {
+                  "start": {
+                    "line": 53,
+                    "column": 23,
+                    "index": 1060
+                  },
+                  "end": {
+                    "line": 53,
+                    "column": 25,
+                    "index": 1062
+                  }
+                }
+              },
+              "fieldID": {
+                "kind": "FieldID",
+                "value": "1",
+                "loc": {
+                  "start": {
+                    "line": 53,
+                    "column": 16,
+                    "index": 1053
+                  },
+                  "end": {
+                    "line": 53,
+                    "column": 18,
+                    "index": 1055
+                  }
+                }
+              },
+              "fieldType": {
+                "kind": "I32Keyword",
+                "value": "i32",
+                "loc": {
+                  "start": {
+                    "line": 53,
+                    "column": 19,
+                    "index": 1056
+                  },
+                  "end": {
+                    "line": 53,
+                    "column": 22,
+                    "index": 1059
+                  }
+                }
+              },
+              "requiredType": "default",
+              "defaultValue": null,
+              "annotations": null,
+              "comments": []
+            }
+          ],
+          "throws": [
+            {
+              "kind": "FieldDefinition",
+              "loc": {
+                "start": {
+                  "line": 53,
+                  "column": 35,
+                  "index": 1072
+                },
+                "end": {
+                  "line": 53,
+                  "column": 61,
+                  "index": 1098
+                }
+              },
+              "name": {
+                "kind": "Identifier",
+                "value": "e",
+                "loc": {
+                  "start": {
+                    "line": 53,
+                    "column": 60,
+                    "index": 1097
+                  },
+                  "end": {
+                    "line": 53,
+                    "column": 61,
+                    "index": 1098
+                  }
+                }
+              },
+              "fieldID": {
+                "kind": "FieldID",
+                "value": "1",
+                "loc": {
+                  "start": {
+                    "line": 53,
+                    "column": 35,
+                    "index": 1072
+                  },
+                  "end": {
+                    "line": 53,
+                    "column": 37,
+                    "index": 1074
+                  }
+                }
+              },
+              "fieldType": {
+                "kind": "Identifier",
+                "value": "UserNotFoundException",
+                "loc": {
+                  "start": {
+                    "line": 53,
+                    "column": 38,
+                    "index": 1075
+                  },
+                  "end": {
+                    "line": 53,
+                    "column": 59,
+                    "index": 1096
+                  }
+                }
+              },
+              "requiredType": "default",
+              "defaultValue": null,
+              "annotations": null,
+              "comments": []
+            }
+          ],
+          "annotations": null,
+          "comments": [
+            {
+              "kind": "CommentLine",
+              "value": "// Method to get a user by ID",
+              "loc": {
+                "start": {
+                  "line": 52,
+                  "column": 3,
+                  "index": 1008
+                },
+                "end": {
+                  "line": 52,
+                  "column": 32,
+                  "index": 1037
+                }
+              }
+            }
+          ]
+        },
+        {
+          "kind": "FunctionDefinition",
+          "loc": {
+            "start": {
+              "line": 56,
+              "column": 8,
+              "index": 1136
+            },
+            "end": {
+              "line": 58,
+              "column": 29,
+              "index": 1189
+            }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "saveUser",
+            "loc": {
+              "start": {
+                "line": 56,
+                "column": 8,
+                "index": 1136
+              },
+              "end": {
+                "line": 56,
+                "column": 16,
+                "index": 1144
+              }
+            }
+          },
+          "returnType": {
+            "kind": "VoidKeyword",
+            "value": "void",
+            "loc": {
+              "start": {
+                "line": 56,
+                "column": 3,
+                "index": 1131
+              },
+              "end": {
+                "line": 56,
+                "column": 7,
+                "index": 1135
+              }
+            }
+          },
+          "params": [
+            {
+              "kind": "FieldDefinition",
+              "loc": {
+                "start": {
+                  "line": 56,
+                  "column": 17,
+                  "index": 1145
+                },
+                "end": {
+                  "line": 56,
+                  "column": 29,
+                  "index": 1157
+                }
+              },
+              "name": {
+                "kind": "Identifier",
+                "value": "user",
+                "loc": {
+                  "start": {
+                    "line": 56,
+                    "column": 25,
+                    "index": 1153
+                  },
+                  "end": {
+                    "line": 56,
+                    "column": 29,
+                    "index": 1157
+                  }
+                }
+              },
+              "fieldID": {
+                "kind": "FieldID",
+                "value": "1",
+                "loc": {
+                  "start": {
+                    "line": 56,
+                    "column": 17,
+                    "index": 1145
+                  },
+                  "end": {
+                    "line": 56,
+                    "column": 19,
+                    "index": 1147
+                  }
+                }
+              },
+              "fieldType": {
+                "kind": "Identifier",
+                "value": "User",
+                "loc": {
+                  "start": {
+                    "line": 56,
+                    "column": 20,
+                    "index": 1148
+                  },
+                  "end": {
+                    "line": 56,
+                    "column": 24,
+                    "index": 1152
+                  }
+                }
+              },
+              "requiredType": "default",
+              "defaultValue": null,
+              "annotations": null,
+              "comments": []
+            }
+          ],
+          "throws": null,
+          "annotations": null,
+          "comments": []
+        },
+        {
+          "kind": "FunctionDefinition",
+          "loc": {
+            "start": {
+              "line": 59,
+              "column": 8,
+              "index": 1197
+            },
+            "end": {
+              "line": 61,
+              "column": 30,
+              "index": 1286
+            }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "deleteUser",
+            "loc": {
+              "start": {
+                "line": 59,
+                "column": 8,
+                "index": 1197
+              },
+              "end": {
+                "line": 59,
+                "column": 18,
+                "index": 1207
+              }
+            }
+          },
+          "returnType": {
+            "kind": "VoidKeyword",
+            "value": "void",
+            "loc": {
+              "start": {
+                "line": 59,
+                "column": 3,
+                "index": 1192
+              },
+              "end": {
+                "line": 59,
+                "column": 7,
+                "index": 1196
+              }
+            }
+          },
+          "params": [
+            {
+              "kind": "FieldDefinition",
+              "loc": {
+                "start": {
+                  "line": 59,
+                  "column": 19,
+                  "index": 1208
+                },
+                "end": {
+                  "line": 59,
+                  "column": 28,
+                  "index": 1217
+                }
+              },
+              "name": {
+                "kind": "Identifier",
+                "value": "id",
+                "loc": {
+                  "start": {
+                    "line": 59,
+                    "column": 26,
+                    "index": 1215
+                  },
+                  "end": {
+                    "line": 59,
+                    "column": 28,
+                    "index": 1217
+                  }
+                }
+              },
+              "fieldID": {
+                "kind": "FieldID",
+                "value": "1",
+                "loc": {
+                  "start": {
+                    "line": 59,
+                    "column": 19,
+                    "index": 1208
+                  },
+                  "end": {
+                    "line": 59,
+                    "column": 21,
+                    "index": 1210
+                  }
+                }
+              },
+              "fieldType": {
+                "kind": "I32Keyword",
+                "value": "i32",
+                "loc": {
+                  "start": {
+                    "line": 59,
+                    "column": 22,
+                    "index": 1211
+                  },
+                  "end": {
+                    "line": 59,
+                    "column": 25,
+                    "index": 1214
+                  }
+                }
+              },
+              "requiredType": "default",
+              "defaultValue": null,
+              "annotations": null,
+              "comments": []
+            }
+          ],
+          "throws": [
+            {
+              "kind": "FieldDefinition",
+              "loc": {
+                "start": {
+                  "line": 59,
+                  "column": 38,
+                  "index": 1227
+                },
+                "end": {
+                  "line": 59,
+                  "column": 64,
+                  "index": 1253
+                }
+              },
+              "name": {
+                "kind": "Identifier",
+                "value": "e",
+                "loc": {
+                  "start": {
+                    "line": 59,
+                    "column": 63,
+                    "index": 1252
+                  },
+                  "end": {
+                    "line": 59,
+                    "column": 64,
+                    "index": 1253
+                  }
+                }
+              },
+              "fieldID": {
+                "kind": "FieldID",
+                "value": "1",
+                "loc": {
+                  "start": {
+                    "line": 59,
+                    "column": 38,
+                    "index": 1227
+                  },
+                  "end": {
+                    "line": 59,
+                    "column": 40,
+                    "index": 1229
+                  }
+                }
+              },
+              "fieldType": {
+                "kind": "Identifier",
+                "value": "UserNotFoundException",
+                "loc": {
+                  "start": {
+                    "line": 59,
+                    "column": 41,
+                    "index": 1230
+                  },
+                  "end": {
+                    "line": 59,
+                    "column": 62,
+                    "index": 1251
+                  }
+                }
+              },
+              "requiredType": "default",
+              "defaultValue": null,
+              "annotations": null,
+              "comments": []
+            }
+          ],
+          "annotations": null,
+          "comments": []
+        },
+        {
+          "kind": "FunctionDefinition",
+          "loc": {
+            "start": {
+              "line": 62,
+              "column": 14,
+              "index": 1300
+            },
+            "end": {
+              "line": 64,
+              "column": 35,
+              "index": 1348
+            }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "listUsers",
+            "loc": {
+              "start": {
+                "line": 62,
+                "column": 14,
+                "index": 1300
+              },
+              "end": {
+                "line": 62,
+                "column": 23,
+                "index": 1309
+              }
+            }
+          },
+          "returnType": {
+            "kind": "ListType",
+            "loc": {
+              "start": {
+                "line": 62,
+                "column": 3,
+                "index": 1289
+              },
+              "end": {
+                "line": 62,
+                "column": 13,
+                "index": 1299
+              }
+            },
+            "value": "list",
+            "valueType": {
+              "kind": "Identifier",
+              "value": "User",
+              "loc": {
+                "start": {
+                  "line": 62,
+                  "column": 8,
+                  "index": 1294
+                },
+                "end": {
+                  "line": 62,
+                  "column": 12,
+                  "index": 1298
+                }
+              }
+            }
+          },
+          "params": [],
+          "throws": null,
+          "annotations": null,
+          "comments": []
+        },
+        {
+          "kind": "FunctionDefinition",
+          "loc": {
+            "start": {
+              "line": 65,
+              "column": 8,
+              "index": 1356
+            },
+            "end": {
+              "line": 65,
+              "column": 85,
+              "index": 1433
+            }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "updateUserProfile",
+            "loc": {
+              "start": {
+                "line": 65,
+                "column": 8,
+                "index": 1356
+              },
+              "end": {
+                "line": 65,
+                "column": 25,
+                "index": 1373
+              }
+            }
+          },
+          "returnType": {
+            "kind": "VoidKeyword",
+            "value": "void",
+            "loc": {
+              "start": {
+                "line": 65,
+                "column": 3,
+                "index": 1351
+              },
+              "end": {
+                "line": 65,
+                "column": 7,
+                "index": 1355
+              }
+            }
+          },
+          "params": [
+            {
+              "kind": "FieldDefinition",
+              "loc": {
+                "start": {
+                  "line": 65,
+                  "column": 26,
+                  "index": 1374
+                },
+                "end": {
+                  "line": 65,
+                  "column": 48,
+                  "index": 1396
+                }
+              },
+              "name": {
+                "kind": "Identifier",
+                "value": "profile",
+                "loc": {
+                  "start": {
+                    "line": 65,
+                    "column": 41,
+                    "index": 1389
+                  },
+                  "end": {
+                    "line": 65,
+                    "column": 48,
+                    "index": 1396
+                  }
+                }
+              },
+              "fieldID": {
+                "kind": "FieldID",
+                "value": "1",
+                "loc": {
+                  "start": {
+                    "line": 65,
+                    "column": 26,
+                    "index": 1374
+                  },
+                  "end": {
+                    "line": 65,
+                    "column": 28,
+                    "index": 1376
+                  }
+                }
+              },
+              "fieldType": {
+                "kind": "Identifier",
+                "value": "UserProfile",
+                "loc": {
+                  "start": {
+                    "line": 65,
+                    "column": 29,
+                    "index": 1377
+                  },
+                  "end": {
+                    "line": 65,
+                    "column": 40,
+                    "index": 1388
+                  }
+                }
+              },
+              "requiredType": "default",
+              "defaultValue": null,
+              "annotations": null,
+              "comments": []
+            }
+          ],
+          "throws": [
+            {
+              "kind": "FieldDefinition",
+              "loc": {
+                "start": {
+                  "line": 65,
+                  "column": 58,
+                  "index": 1406
+                },
+                "end": {
+                  "line": 65,
+                  "column": 84,
+                  "index": 1432
+                }
+              },
+              "name": {
+                "kind": "Identifier",
+                "value": "e",
+                "loc": {
+                  "start": {
+                    "line": 65,
+                    "column": 83,
+                    "index": 1431
+                  },
+                  "end": {
+                    "line": 65,
+                    "column": 84,
+                    "index": 1432
+                  }
+                }
+              },
+              "fieldID": {
+                "kind": "FieldID",
+                "value": "1",
+                "loc": {
+                  "start": {
+                    "line": 65,
+                    "column": 58,
+                    "index": 1406
+                  },
+                  "end": {
+                    "line": 65,
+                    "column": 60,
+                    "index": 1408
+                  }
+                }
+              },
+              "fieldType": {
+                "kind": "Identifier",
+                "value": "UserNotFoundException",
+                "loc": {
+                  "start": {
+                    "line": 65,
+                    "column": 61,
+                    "index": 1409
+                  },
+                  "end": {
+                    "line": 65,
+                    "column": 82,
+                    "index": 1430
+                  }
+                }
+              },
+              "requiredType": "default",
+              "defaultValue": null,
+              "annotations": null,
+              "comments": []
+            }
+          ],
+          "annotations": null,
+          "comments": []
+        }
+      ],
+      "comments": [
+        {
+          "kind": "CommentLine",
+          "value": "// Service definition for UserService",
+          "loc": {
+            "start": {
+              "line": 50,
+              "column": 1,
+              "index": 946
+            },
+            "end": {
+              "line": 50,
+              "column": 38,
+              "index": 983
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "ServiceDefinition",
+      "loc": {
+        "start": {
+          "line": 69,
+          "column": 1,
+          "index": 1476
+        },
+        "end": {
+          "line": 78,
+          "column": 2,
+          "index": 1772
+        }
+      },
+      "name": {
+        "kind": "Identifier",
+        "value": "AdminService",
+        "loc": {
+          "start": {
+            "line": 69,
+            "column": 9,
+            "index": 1484
+          },
+          "end": {
+            "line": 69,
+            "column": 21,
+            "index": 1496
+          }
+        }
+      },
+      "members": [
+        {
+          "kind": "FunctionDefinition",
+          "loc": {
+            "start": {
+              "line": 71,
+              "column": 8,
+              "index": 1536
+            },
+            "end": {
+              "line": 73,
+              "column": 31,
+              "index": 1627
+            }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "suspendUser",
+            "loc": {
+              "start": {
+                "line": 71,
+                "column": 8,
+                "index": 1536
+              },
+              "end": {
+                "line": 71,
+                "column": 19,
+                "index": 1547
+              }
+            }
+          },
+          "returnType": {
+            "kind": "VoidKeyword",
+            "value": "void",
+            "loc": {
+              "start": {
+                "line": 71,
+                "column": 3,
+                "index": 1531
+              },
+              "end": {
+                "line": 71,
+                "column": 7,
+                "index": 1535
+              }
+            }
+          },
+          "params": [
+            {
+              "kind": "FieldDefinition",
+              "loc": {
+                "start": {
+                  "line": 71,
+                  "column": 20,
+                  "index": 1548
+                },
+                "end": {
+                  "line": 71,
+                  "column": 29,
+                  "index": 1557
+                }
+              },
+              "name": {
+                "kind": "Identifier",
+                "value": "id",
+                "loc": {
+                  "start": {
+                    "line": 71,
+                    "column": 27,
+                    "index": 1555
+                  },
+                  "end": {
+                    "line": 71,
+                    "column": 29,
+                    "index": 1557
+                  }
+                }
+              },
+              "fieldID": {
+                "kind": "FieldID",
+                "value": "1",
+                "loc": {
+                  "start": {
+                    "line": 71,
+                    "column": 20,
+                    "index": 1548
+                  },
+                  "end": {
+                    "line": 71,
+                    "column": 22,
+                    "index": 1550
+                  }
+                }
+              },
+              "fieldType": {
+                "kind": "I32Keyword",
+                "value": "i32",
+                "loc": {
+                  "start": {
+                    "line": 71,
+                    "column": 23,
+                    "index": 1551
+                  },
+                  "end": {
+                    "line": 71,
+                    "column": 26,
+                    "index": 1554
+                  }
+                }
+              },
+              "requiredType": "default",
+              "defaultValue": null,
+              "annotations": null,
+              "comments": []
+            }
+          ],
+          "throws": [
+            {
+              "kind": "FieldDefinition",
+              "loc": {
+                "start": {
+                  "line": 71,
+                  "column": 39,
+                  "index": 1567
+                },
+                "end": {
+                  "line": 71,
+                  "column": 65,
+                  "index": 1593
+                }
+              },
+              "name": {
+                "kind": "Identifier",
+                "value": "e",
+                "loc": {
+                  "start": {
+                    "line": 71,
+                    "column": 64,
+                    "index": 1592
+                  },
+                  "end": {
+                    "line": 71,
+                    "column": 65,
+                    "index": 1593
+                  }
+                }
+              },
+              "fieldID": {
+                "kind": "FieldID",
+                "value": "1",
+                "loc": {
+                  "start": {
+                    "line": 71,
+                    "column": 39,
+                    "index": 1567
+                  },
+                  "end": {
+                    "line": 71,
+                    "column": 41,
+                    "index": 1569
+                  }
+                }
+              },
+              "fieldType": {
+                "kind": "Identifier",
+                "value": "UserNotFoundException",
+                "loc": {
+                  "start": {
+                    "line": 71,
+                    "column": 42,
+                    "index": 1570
+                  },
+                  "end": {
+                    "line": 71,
+                    "column": 63,
+                    "index": 1591
+                  }
+                }
+              },
+              "requiredType": "default",
+              "defaultValue": null,
+              "annotations": null,
+              "comments": []
+            }
+          ],
+          "annotations": null,
+          "comments": [
+            {
+              "kind": "CommentLine",
+              "value": "// Method to suspend a user",
+              "loc": {
+                "start": {
+                  "line": 70,
+                  "column": 3,
+                  "index": 1501
+                },
+                "end": {
+                  "line": 70,
+                  "column": 30,
+                  "index": 1528
+                }
+              }
+            }
+          ]
+        },
+        {
+          "kind": "FunctionDefinition",
+          "loc": {
+            "start": {
+              "line": 74,
+              "column": 8,
+              "index": 1635
+            },
+            "end": {
+              "line": 76,
+              "column": 35,
+              "index": 1731
+            }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "activateUser",
+            "loc": {
+              "start": {
+                "line": 74,
+                "column": 8,
+                "index": 1635
+              },
+              "end": {
+                "line": 74,
+                "column": 20,
+                "index": 1647
+              }
+            }
+          },
+          "returnType": {
+            "kind": "VoidKeyword",
+            "value": "void",
+            "loc": {
+              "start": {
+                "line": 74,
+                "column": 3,
+                "index": 1630
+              },
+              "end": {
+                "line": 74,
+                "column": 7,
+                "index": 1634
+              }
+            }
+          },
+          "params": [
+            {
+              "kind": "FieldDefinition",
+              "loc": {
+                "start": {
+                  "line": 74,
+                  "column": 21,
+                  "index": 1648
+                },
+                "end": {
+                  "line": 74,
+                  "column": 30,
+                  "index": 1657
+                }
+              },
+              "name": {
+                "kind": "Identifier",
+                "value": "id",
+                "loc": {
+                  "start": {
+                    "line": 74,
+                    "column": 28,
+                    "index": 1655
+                  },
+                  "end": {
+                    "line": 74,
+                    "column": 30,
+                    "index": 1657
+                  }
+                }
+              },
+              "fieldID": {
+                "kind": "FieldID",
+                "value": "1",
+                "loc": {
+                  "start": {
+                    "line": 74,
+                    "column": 21,
+                    "index": 1648
+                  },
+                  "end": {
+                    "line": 74,
+                    "column": 23,
+                    "index": 1650
+                  }
+                }
+              },
+              "fieldType": {
+                "kind": "I32Keyword",
+                "value": "i32",
+                "loc": {
+                  "start": {
+                    "line": 74,
+                    "column": 24,
+                    "index": 1651
+                  },
+                  "end": {
+                    "line": 74,
+                    "column": 27,
+                    "index": 1654
+                  }
+                }
+              },
+              "requiredType": "default",
+              "defaultValue": null,
+              "annotations": null,
+              "comments": []
+            }
+          ],
+          "throws": [
+            {
+              "kind": "FieldDefinition",
+              "loc": {
+                "start": {
+                  "line": 74,
+                  "column": 40,
+                  "index": 1667
+                },
+                "end": {
+                  "line": 74,
+                  "column": 66,
+                  "index": 1693
+                }
+              },
+              "name": {
+                "kind": "Identifier",
+                "value": "e",
+                "loc": {
+                  "start": {
+                    "line": 74,
+                    "column": 65,
+                    "index": 1692
+                  },
+                  "end": {
+                    "line": 74,
+                    "column": 66,
+                    "index": 1693
+                  }
+                }
+              },
+              "fieldID": {
+                "kind": "FieldID",
+                "value": "1",
+                "loc": {
+                  "start": {
+                    "line": 74,
+                    "column": 40,
+                    "index": 1667
+                  },
+                  "end": {
+                    "line": 74,
+                    "column": 42,
+                    "index": 1669
+                  }
+                }
+              },
+              "fieldType": {
+                "kind": "Identifier",
+                "value": "UserNotFoundException",
+                "loc": {
+                  "start": {
+                    "line": 74,
+                    "column": 43,
+                    "index": 1670
+                  },
+                  "end": {
+                    "line": 74,
+                    "column": 64,
+                    "index": 1691
+                  }
+                }
+              },
+              "requiredType": "default",
+              "defaultValue": null,
+              "annotations": null,
+              "comments": []
+            }
+          ],
+          "annotations": null,
+          "comments": []
+        },
+        {
+          "kind": "FunctionDefinition",
+          "loc": {
+            "start": {
+              "line": 77,
+              "column": 20,
+              "index": 1751
+            },
+            "end": {
+              "line": 77,
+              "column": 39,
+              "index": 1770
+            }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "getUserStatistics",
+            "loc": {
+              "start": {
+                "line": 77,
+                "column": 20,
+                "index": 1751
+              },
+              "end": {
+                "line": 77,
+                "column": 37,
+                "index": 1768
+              }
+            }
+          },
+          "returnType": {
+            "kind": "MapType",
+            "loc": {
+              "start": {
+                "line": 77,
+                "column": 3,
+                "index": 1734
+              },
+              "end": {
+                "line": 77,
+                "column": 19,
+                "index": 1750
+              }
+            },
+            "value": "map",
+            "valueType": {
+              "kind": "I32Keyword",
+              "value": "i32",
+              "loc": {
+                "start": {
+                  "line": 77,
+                  "column": 15,
+                  "index": 1746
+                },
+                "end": {
+                  "line": 77,
+                  "column": 18,
+                  "index": 1749
+                }
+              }
+            },
+            "keyType": {
+              "kind": "StringKeyword",
+              "value": "string",
+              "loc": {
+                "start": {
+                  "line": 77,
+                  "column": 7,
+                  "index": 1738
+                },
+                "end": {
+                  "line": 77,
+                  "column": 13,
+                  "index": 1744
+                }
+              }
+            }
+          },
+          "params": [],
+          "throws": null,
+          "annotations": null,
+          "comments": []
+        }
+      ],
+      "comments": [
+        {
+          "kind": "CommentLine",
+          "value": "// Service definition for AdminService",
+          "loc": {
+            "start": {
+              "line": 68,
+              "column": 1,
+              "index": 1437
+            },
+            "end": {
+              "line": 68,
+              "column": 39,
+              "index": 1475
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "ServiceDefinition",
+      "loc": {
+        "start": {
+          "line": 81,
+          "column": 1,
+          "index": 1820
+        },
+        "end": {
+          "line": 87,
+          "column": 2,
+          "index": 2048
+        }
+      },
+      "name": {
+        "kind": "Identifier",
+        "value": "NotificationService",
+        "loc": {
+          "start": {
+            "line": 81,
+            "column": 9,
+            "index": 1828
+          },
+          "end": {
+            "line": 81,
+            "column": 28,
+            "index": 1847
+          }
+        }
+      },
+      "members": [
+        {
+          "kind": "FunctionDefinition",
+          "loc": {
+            "start": {
+              "line": 83,
+              "column": 8,
+              "index": 1892
+            },
+            "end": {
+              "line": 85,
+              "column": 44,
+              "index": 1995
+            }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "sendNotification",
+            "loc": {
+              "start": {
+                "line": 83,
+                "column": 8,
+                "index": 1892
+              },
+              "end": {
+                "line": 83,
+                "column": 24,
+                "index": 1908
+              }
+            }
+          },
+          "returnType": {
+            "kind": "VoidKeyword",
+            "value": "void",
+            "loc": {
+              "start": {
+                "line": 83,
+                "column": 3,
+                "index": 1887
+              },
+              "end": {
+                "line": 83,
+                "column": 7,
+                "index": 1891
+              }
+            }
+          },
+          "params": [
+            {
+              "kind": "FieldDefinition",
+              "loc": {
+                "start": {
+                  "line": 83,
+                  "column": 25,
+                  "index": 1909
+                },
+                "end": {
+                  "line": 83,
+                  "column": 42,
+                  "index": 1926
+                }
+              },
+              "name": {
+                "kind": "Identifier",
+                "value": "message",
+                "loc": {
+                  "start": {
+                    "line": 83,
+                    "column": 35,
+                    "index": 1919
+                  },
+                  "end": {
+                    "line": 83,
+                    "column": 42,
+                    "index": 1926
+                  }
+                }
+              },
+              "fieldID": {
+                "kind": "FieldID",
+                "value": "1",
+                "loc": {
+                  "start": {
+                    "line": 83,
+                    "column": 25,
+                    "index": 1909
+                  },
+                  "end": {
+                    "line": 83,
+                    "column": 27,
+                    "index": 1911
+                  }
+                }
+              },
+              "fieldType": {
+                "kind": "StringKeyword",
+                "value": "string",
+                "loc": {
+                  "start": {
+                    "line": 83,
+                    "column": 28,
+                    "index": 1912
+                  },
+                  "end": {
+                    "line": 83,
+                    "column": 34,
+                    "index": 1918
+                  }
+                }
+              },
+              "requiredType": "default",
+              "defaultValue": null,
+              "annotations": null,
+              "comments": []
+            },
+            {
+              "kind": "FieldDefinition",
+              "loc": {
+                "start": {
+                  "line": 83,
+                  "column": 44,
+                  "index": 1928
+                },
+                "end": {
+                  "line": 83,
+                  "column": 64,
+                  "index": 1948
+                }
+              },
+              "name": {
+                "kind": "Identifier",
+                "value": "userIds",
+                "loc": {
+                  "start": {
+                    "line": 83,
+                    "column": 57,
+                    "index": 1941
+                  },
+                  "end": {
+                    "line": 83,
+                    "column": 64,
+                    "index": 1948
+                  }
+                }
+              },
+              "fieldID": {
+                "kind": "FieldID",
+                "value": "2",
+                "loc": {
+                  "start": {
+                    "line": 83,
+                    "column": 44,
+                    "index": 1928
+                  },
+                  "end": {
+                    "line": 83,
+                    "column": 46,
+                    "index": 1930
+                  }
+                }
+              },
+              "fieldType": {
+                "kind": "ListType",
+                "loc": {
+                  "start": {
+                    "line": 83,
+                    "column": 47,
+                    "index": 1931
+                  },
+                  "end": {
+                    "line": 83,
+                    "column": 56,
+                    "index": 1940
+                  }
+                },
+                "value": "list",
+                "valueType": {
+                  "kind": "I32Keyword",
+                  "value": "i32",
+                  "loc": {
+                    "start": {
+                      "line": 83,
+                      "column": 52,
+                      "index": 1936
+                    },
+                    "end": {
+                      "line": 83,
+                      "column": 55,
+                      "index": 1939
+                    }
+                  }
+                }
+              },
+              "requiredType": "default",
+              "defaultValue": null,
+              "annotations": null,
+              "comments": []
+            }
+          ],
+          "throws": null,
+          "annotations": null,
+          "comments": [
+            {
+              "kind": "CommentLine",
+              "value": "// Method to send a notification",
+              "loc": {
+                "start": {
+                  "line": 82,
+                  "column": 3,
+                  "index": 1852
+                },
+                "end": {
+                  "line": 82,
+                  "column": 35,
+                  "index": 1884
+                }
+              }
+            }
+          ]
+        },
+        {
+          "kind": "FunctionDefinition",
+          "loc": {
+            "start": {
+              "line": 86,
+              "column": 16,
+              "index": 2011
+            },
+            "end": {
+              "line": 86,
+              "column": 51,
+              "index": 2046
+            }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "getUserNotifications",
+            "loc": {
+              "start": {
+                "line": 86,
+                "column": 16,
+                "index": 2011
+              },
+              "end": {
+                "line": 86,
+                "column": 36,
+                "index": 2031
+              }
+            }
+          },
+          "returnType": {
+            "kind": "ListType",
+            "loc": {
+              "start": {
+                "line": 86,
+                "column": 3,
+                "index": 1998
+              },
+              "end": {
+                "line": 86,
+                "column": 15,
+                "index": 2010
+              }
+            },
+            "value": "list",
+            "valueType": {
+              "kind": "StringKeyword",
+              "value": "string",
+              "loc": {
+                "start": {
+                  "line": 86,
+                  "column": 8,
+                  "index": 2003
+                },
+                "end": {
+                  "line": 86,
+                  "column": 14,
+                  "index": 2009
+                }
+              }
+            }
+          },
+          "params": [
+            {
+              "kind": "FieldDefinition",
+              "loc": {
+                "start": {
+                  "line": 86,
+                  "column": 37,
+                  "index": 2032
+                },
+                "end": {
+                  "line": 86,
+                  "column": 50,
+                  "index": 2045
+                }
+              },
+              "name": {
+                "kind": "Identifier",
+                "value": "userId",
+                "loc": {
+                  "start": {
+                    "line": 86,
+                    "column": 44,
+                    "index": 2039
+                  },
+                  "end": {
+                    "line": 86,
+                    "column": 50,
+                    "index": 2045
+                  }
+                }
+              },
+              "fieldID": {
+                "kind": "FieldID",
+                "value": "1",
+                "loc": {
+                  "start": {
+                    "line": 86,
+                    "column": 37,
+                    "index": 2032
+                  },
+                  "end": {
+                    "line": 86,
+                    "column": 39,
+                    "index": 2034
+                  }
+                }
+              },
+              "fieldType": {
+                "kind": "I32Keyword",
+                "value": "i32",
+                "loc": {
+                  "start": {
+                    "line": 86,
+                    "column": 40,
+                    "index": 2035
+                  },
+                  "end": {
+                    "line": 86,
+                    "column": 43,
+                    "index": 2038
+                  }
+                }
+              },
+              "requiredType": "default",
+              "defaultValue": null,
+              "annotations": null,
+              "comments": []
+            }
+          ],
+          "throws": null,
+          "annotations": null,
+          "comments": []
+        }
+      ],
+      "comments": [
+        {
+          "kind": "CommentLine",
+          "value": "// Service definition for NotificationService",
+          "loc": {
+            "start": {
+              "line": 80,
+              "column": 1,
+              "index": 1774
+            },
+            "end": {
+              "line": 80,
+              "column": 46,
+              "index": 1819
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "StructDefinition",
+      "loc": {
+        "start": {
+          "line": 92,
+          "column": 1,
+          "index": 2116
+        },
+        "end": {
+          "line": 96,
+          "column": 2,
+          "index": 2235
+        }
+      },
+      "name": {
+        "kind": "Identifier",
+        "value": "InconsistentIndentation",
+        "loc": {
+          "start": {
+            "line": 92,
+            "column": 8,
+            "index": 2123
+          },
+          "end": {
+            "line": 92,
+            "column": 31,
+            "index": 2146
+          }
+        }
+      },
+      "members": [
+        {
+          "kind": "FieldDefinition",
+          "loc": {
+            "start": {
+              "line": 93,
+              "column": 3,
+              "index": 2151
+            },
+            "end": {
+              "line": 93,
+              "column": 12,
+              "index": 2160
+            }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "id",
+            "loc": {
+              "start": {
+                "line": 93,
+                "column": 10,
+                "index": 2158
+              },
+              "end": {
+                "line": 93,
+                "column": 12,
+                "index": 2160
+              }
+            }
+          },
+          "fieldID": {
+            "kind": "FieldID",
+            "value": "1",
+            "loc": {
+              "start": {
+                "line": 93,
+                "column": 3,
+                "index": 2151
+              },
+              "end": {
+                "line": 93,
+                "column": 5,
+                "index": 2153
+              }
+            }
+          },
+          "fieldType": {
+            "kind": "I32Keyword",
+            "value": "i32",
+            "loc": {
+              "start": {
+                "line": 93,
+                "column": 6,
+                "index": 2154
+              },
+              "end": {
+                "line": 93,
+                "column": 9,
+                "index": 2157
+              }
+            }
+          },
+          "requiredType": "default",
+          "defaultValue": null,
+          "annotations": null,
+          "comments": []
+        },
+        {
+          "kind": "FieldDefinition",
+          "loc": {
+            "start": {
+              "line": 94,
+              "column": 5,
+              "index": 2166
+            },
+            "end": {
+              "line": 94,
+              "column": 19,
+              "index": 2180
+            }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "name",
+            "loc": {
+              "start": {
+                "line": 94,
+                "column": 15,
+                "index": 2176
+              },
+              "end": {
+                "line": 94,
+                "column": 19,
+                "index": 2180
+              }
+            }
+          },
+          "fieldID": {
+            "kind": "FieldID",
+            "value": "2",
+            "loc": {
+              "start": {
+                "line": 94,
+                "column": 5,
+                "index": 2166
+              },
+              "end": {
+                "line": 94,
+                "column": 7,
+                "index": 2168
+              }
+            }
+          },
+          "fieldType": {
+            "kind": "StringKeyword",
+            "value": "string",
+            "loc": {
+              "start": {
+                "line": 94,
+                "column": 8,
+                "index": 2169
+              },
+              "end": {
+                "line": 94,
+                "column": 14,
+                "index": 2175
+              }
+            }
+          },
+          "requiredType": "default",
+          "defaultValue": null,
+          "annotations": null,
+          "comments": []
+        },
+        {
+          "kind": "FieldDefinition",
+          "loc": {
+            "start": {
+              "line": 95,
+              "column": 3,
+              "index": 2218
+            },
+            "end": {
+              "line": 95,
+              "column": 18,
+              "index": 2233
+            }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "email",
+            "loc": {
+              "start": {
+                "line": 95,
+                "column": 13,
+                "index": 2228
+              },
+              "end": {
+                "line": 95,
+                "column": 18,
+                "index": 2233
+              }
+            }
+          },
+          "fieldID": {
+            "kind": "FieldID",
+            "value": "3",
+            "loc": {
+              "start": {
+                "line": 95,
+                "column": 3,
+                "index": 2218
+              },
+              "end": {
+                "line": 95,
+                "column": 5,
+                "index": 2220
+              }
+            }
+          },
+          "fieldType": {
+            "kind": "StringKeyword",
+            "value": "string",
+            "loc": {
+              "start": {
+                "line": 95,
+                "column": 6,
+                "index": 2221
+              },
+              "end": {
+                "line": 95,
+                "column": 12,
+                "index": 2227
+              }
+            }
+          },
+          "requiredType": "default",
+          "defaultValue": null,
+          "annotations": null,
+          "comments": [
+            {
+              "kind": "CommentLine",
+              "value": "// 这个字段的缩进不一致",
+              "loc": {
+                "start": {
+                  "line": 94,
+                  "column": 21,
+                  "index": 2182
+                },
+                "end": {
+                  "line": 94,
+                  "column": 54,
+                  "index": 2215
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "comments": [
+        {
+          "kind": "CommentLine",
+          "value": "// 下面是一些不规范的写法示例",
+          "loc": {
+            "start": {
+              "line": 89,
+              "column": 1,
+              "index": 2050
+            },
+            "end": {
+              "line": 89,
+              "column": 43,
+              "index": 2092
+            }
+          }
+        },
+        {
+          "kind": "CommentLine",
+          "value": "// 不一致的缩进",
+          "loc": {
+            "start": {
+              "line": 91,
+              "column": 1,
+              "index": 2094
+            },
+            "end": {
+              "line": 91,
+              "column": 22,
+              "index": 2115
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "StructDefinition",
+      "loc": {
+        "start": {
+          "line": 99,
+          "column": 1,
+          "index": 2259
+        },
+        "end": {
+          "line": 103,
+          "column": 2,
+          "index": 2366
+        }
+      },
+      "name": {
+        "kind": "Identifier",
+        "value": "DuplicateFieldNames",
+        "loc": {
+          "start": {
+            "line": 99,
+            "column": 8,
+            "index": 2266
+          },
+          "end": {
+            "line": 99,
+            "column": 27,
+            "index": 2285
+          }
+        }
+      },
+      "members": [
+        {
+          "kind": "FieldDefinition",
+          "loc": {
+            "start": {
+              "line": 100,
+              "column": 3,
+              "index": 2290
+            },
+            "end": {
+              "line": 100,
+              "column": 17,
+              "index": 2304
+            }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "name",
+            "loc": {
+              "start": {
+                "line": 100,
+                "column": 13,
+                "index": 2300
+              },
+              "end": {
+                "line": 100,
+                "column": 17,
+                "index": 2304
+              }
+            }
+          },
+          "fieldID": {
+            "kind": "FieldID",
+            "value": "1",
+            "loc": {
+              "start": {
+                "line": 100,
+                "column": 3,
+                "index": 2290
+              },
+              "end": {
+                "line": 100,
+                "column": 5,
+                "index": 2292
+              }
+            }
+          },
+          "fieldType": {
+            "kind": "StringKeyword",
+            "value": "string",
+            "loc": {
+              "start": {
+                "line": 100,
+                "column": 6,
+                "index": 2293
+              },
+              "end": {
+                "line": 100,
+                "column": 12,
+                "index": 2299
+              }
+            }
+          },
+          "requiredType": "default",
+          "defaultValue": null,
+          "annotations": null,
+          "comments": []
+        },
+        {
+          "kind": "FieldDefinition",
+          "loc": {
+            "start": {
+              "line": 101,
+              "column": 3,
+              "index": 2308
+            },
+            "end": {
+              "line": 101,
+              "column": 17,
+              "index": 2322
+            }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "name",
+            "loc": {
+              "start": {
+                "line": 101,
+                "column": 13,
+                "index": 2318
+              },
+              "end": {
+                "line": 101,
+                "column": 17,
+                "index": 2322
+              }
+            }
+          },
+          "fieldID": {
+            "kind": "FieldID",
+            "value": "2",
+            "loc": {
+              "start": {
+                "line": 101,
+                "column": 3,
+                "index": 2308
+              },
+              "end": {
+                "line": 101,
+                "column": 5,
+                "index": 2310
+              }
+            }
+          },
+          "fieldType": {
+            "kind": "StringKeyword",
+            "value": "string",
+            "loc": {
+              "start": {
+                "line": 101,
+                "column": 6,
+                "index": 2311
+              },
+              "end": {
+                "line": 101,
+                "column": 12,
+                "index": 2317
+              }
+            }
+          },
+          "requiredType": "default",
+          "defaultValue": null,
+          "annotations": null,
+          "comments": []
+        },
+        {
+          "kind": "FieldDefinition",
+          "loc": {
+            "start": {
+              "line": 102,
+              "column": 3,
+              "index": 2354
+            },
+            "end": {
+              "line": 102,
+              "column": 13,
+              "index": 2364
+            }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "age",
+            "loc": {
+              "start": {
+                "line": 102,
+                "column": 10,
+                "index": 2361
+              },
+              "end": {
+                "line": 102,
+                "column": 13,
+                "index": 2364
+              }
+            }
+          },
+          "fieldID": {
+            "kind": "FieldID",
+            "value": "3",
+            "loc": {
+              "start": {
+                "line": 102,
+                "column": 3,
+                "index": 2354
+              },
+              "end": {
+                "line": 102,
+                "column": 5,
+                "index": 2356
+              }
+            }
+          },
+          "fieldType": {
+            "kind": "I32Keyword",
+            "value": "i32",
+            "loc": {
+              "start": {
+                "line": 102,
+                "column": 6,
+                "index": 2357
+              },
+              "end": {
+                "line": 102,
+                "column": 9,
+                "index": 2360
+              }
+            }
+          },
+          "requiredType": "default",
+          "defaultValue": null,
+          "annotations": null,
+          "comments": [
+            {
+              "kind": "CommentLine",
+              "value": "// 这个字段名重复了",
+              "loc": {
+                "start": {
+                  "line": 101,
+                  "column": 19,
+                  "index": 2324
+                },
+                "end": {
+                  "line": 101,
+                  "column": 46,
+                  "index": 2351
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "comments": [
+        {
+          "kind": "CommentLine",
+          "value": "// 重复的字段名",
+          "loc": {
+            "start": {
+              "line": 98,
+              "column": 1,
+              "index": 2237
+            },
+            "end": {
+              "line": 98,
+              "column": 22,
+              "index": 2258
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "StructDefinition",
+      "loc": {
+        "start": {
+          "line": 106,
+          "column": 1,
+          "index": 2393
+        },
+        "end": {
+          "line": 110,
+          "column": 2,
+          "index": 2492
+        }
+      },
+      "name": {
+        "kind": "Identifier",
+        "value": "IncompleteUser",
+        "loc": {
+          "start": {
+            "line": 106,
+            "column": 8,
+            "index": 2400
+          },
+          "end": {
+            "line": 106,
+            "column": 22,
+            "index": 2414
+          }
+        }
+      },
+      "members": [
+        {
+          "kind": "FieldDefinition",
+          "loc": {
+            "start": {
+              "line": 107,
+              "column": 3,
+              "index": 2419
+            },
+            "end": {
+              "line": 107,
+              "column": 12,
+              "index": 2428
+            }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "id",
+            "loc": {
+              "start": {
+                "line": 107,
+                "column": 10,
+                "index": 2426
+              },
+              "end": {
+                "line": 107,
+                "column": 12,
+                "index": 2428
+              }
+            }
+          },
+          "fieldID": {
+            "kind": "FieldID",
+            "value": "1",
+            "loc": {
+              "start": {
+                "line": 107,
+                "column": 3,
+                "index": 2419
+              },
+              "end": {
+                "line": 107,
+                "column": 5,
+                "index": 2421
+              }
+            }
+          },
+          "fieldType": {
+            "kind": "I32Keyword",
+            "value": "i32",
+            "loc": {
+              "start": {
+                "line": 107,
+                "column": 6,
+                "index": 2422
+              },
+              "end": {
+                "line": 107,
+                "column": 9,
+                "index": 2425
+              }
+            }
+          },
+          "requiredType": "default",
+          "defaultValue": null,
+          "annotations": null,
+          "comments": []
+        },
+        {
+          "kind": "FieldDefinition",
+          "loc": {
+            "start": {
+              "line": 109,
+              "column": 3,
+              "index": 2475
+            },
+            "end": {
+              "line": 109,
+              "column": 18,
+              "index": 2490
+            }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "email",
+            "loc": {
+              "start": {
+                "line": 109,
+                "column": 13,
+                "index": 2485
+              },
+              "end": {
+                "line": 109,
+                "column": 18,
+                "index": 2490
+              }
+            }
+          },
+          "fieldID": {
+            "kind": "FieldID",
+            "value": "3",
+            "loc": {
+              "start": {
+                "line": 109,
+                "column": 3,
+                "index": 2475
+              },
+              "end": {
+                "line": 109,
+                "column": 5,
+                "index": 2477
+              }
+            }
+          },
+          "fieldType": {
+            "kind": "StringKeyword",
+            "value": "string",
+            "loc": {
+              "start": {
+                "line": 109,
+                "column": 6,
+                "index": 2478
+              },
+              "end": {
+                "line": 109,
+                "column": 12,
+                "index": 2484
+              }
+            }
+          },
+          "requiredType": "default",
+          "defaultValue": null,
+          "annotations": null,
+          "comments": [
+            {
+              "kind": "CommentLine",
+              "value": "// 2: string name, // 这个字段缺失",
+              "loc": {
+                "start": {
+                  "line": 108,
+                  "column": 3,
+                  "index": 2432
+                },
+                "end": {
+                  "line": 108,
+                  "column": 43,
+                  "index": 2472
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "comments": [
+        {
+          "kind": "CommentLine",
+          "value": "// 缺少必要的字段",
+          "loc": {
+            "start": {
+              "line": 105,
+              "column": 1,
+              "index": 2368
+            },
+            "end": {
+              "line": 105,
+              "column": 25,
+              "index": 2392
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "StructDefinition",
+      "loc": {
+        "start": {
+          "line": 115,
+          "column": 1,
+          "index": 2610
+        },
+        "end": {
+          "line": 117,
+          "column": 2,
+          "index": 2686
+        }
+      },
+      "name": {
+        "kind": "Identifier",
+        "value": "UnclearComment",
+        "loc": {
+          "start": {
+            "line": 115,
+            "column": 8,
+            "index": 2617
+          },
+          "end": {
+            "line": 115,
+            "column": 22,
+            "index": 2631
+          }
+        }
+      },
+      "members": [
+        {
+          "kind": "FieldDefinition",
+          "loc": {
+            "start": {
+              "line": 116,
+              "column": 3,
+              "index": 2636
+            },
+            "end": {
+              "line": 116,
+              "column": 17,
+              "index": 2650
+            }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "data",
+            "loc": {
+              "start": {
+                "line": 116,
+                "column": 13,
+                "index": 2646
+              },
+              "end": {
+                "line": 116,
+                "column": 17,
+                "index": 2650
+              }
+            }
+          },
+          "fieldID": {
+            "kind": "FieldID",
+            "value": "1",
+            "loc": {
+              "start": {
+                "line": 116,
+                "column": 3,
+                "index": 2636
+              },
+              "end": {
+                "line": 116,
+                "column": 5,
+                "index": 2638
+              }
+            }
+          },
+          "fieldType": {
+            "kind": "StringKeyword",
+            "value": "string",
+            "loc": {
+              "start": {
+                "line": 116,
+                "column": 6,
+                "index": 2639
+              },
+              "end": {
+                "line": 116,
+                "column": 12,
+                "index": 2645
+              }
+            }
+          },
+          "requiredType": "default",
+          "defaultValue": null,
+          "annotations": null,
+          "comments": []
+        }
+      ],
+      "comments": [
+        {
+          "kind": "CommentLine",
+          "value": "// 不规范的注释风格",
+          "loc": {
+            "start": {
+              "line": 112,
+              "column": 1,
+              "index": 2494
+            },
+            "end": {
+              "line": 112,
+              "column": 28,
+              "index": 2521
+            }
+          }
+        },
+        {
+          "kind": "CommentLine",
+          "value": "// This is a comment without a clear purpose",
+          "loc": {
+            "start": {
+              "line": 113,
+              "column": 1,
+              "index": 2522
+            },
+            "end": {
+              "line": 113,
+              "column": 45,
+              "index": 2566
+            }
+          }
+        },
+        {
+          "kind": "CommentLine",
+          "value": "// 这行注释没有提供有用的信息",
+          "loc": {
+            "start": {
+              "line": 114,
+              "column": 1,
+              "index": 2567
+            },
+            "end": {
+              "line": 114,
+              "column": 43,
+              "index": 2609
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "StructDefinition",
+      "loc": {
+        "start": {
+          "line": 120,
+          "column": 1,
+          "index": 2707
+        },
+        "end": {
+          "line": 126,
+          "column": 2,
+          "index": 2795
+        }
+      },
+      "name": {
+        "kind": "Identifier",
+        "value": "ExtraEmptyLines",
+        "loc": {
+          "start": {
+            "line": 120,
+            "column": 8,
+            "index": 2714
+          },
+          "end": {
+            "line": 120,
+            "column": 23,
+            "index": 2729
+          }
+        }
+      },
+      "members": [
+        {
+          "kind": "FieldDefinition",
+          "loc": {
+            "start": {
+              "line": 122,
+              "column": 3,
+              "index": 2735
+            },
+            "end": {
+              "line": 122,
+              "column": 17,
+              "index": 2749
+            }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "info",
+            "loc": {
+              "start": {
+                "line": 122,
+                "column": 13,
+                "index": 2745
+              },
+              "end": {
+                "line": 122,
+                "column": 17,
+                "index": 2749
+              }
+            }
+          },
+          "fieldID": {
+            "kind": "FieldID",
+            "value": "1",
+            "loc": {
+              "start": {
+                "line": 122,
+                "column": 3,
+                "index": 2735
+              },
+              "end": {
+                "line": 122,
+                "column": 5,
+                "index": 2737
+              }
+            }
+          },
+          "fieldType": {
+            "kind": "StringKeyword",
+            "value": "string",
+            "loc": {
+              "start": {
+                "line": 122,
+                "column": 6,
+                "index": 2738
+              },
+              "end": {
+                "line": 122,
+                "column": 12,
+                "index": 2744
+              }
+            }
+          },
+          "requiredType": "default",
+          "defaultValue": null,
+          "annotations": null,
+          "comments": []
+        }
+      ],
+      "comments": [
+        {
+          "kind": "CommentLine",
+          "value": "// 这个字段的注释不清晰",
+          "loc": {
+            "start": {
+              "line": 116,
+              "column": 18,
+              "index": 2651
+            },
+            "end": {
+              "line": 116,
+              "column": 51,
+              "index": 2684
+            }
+          }
+        },
+        {
+          "kind": "CommentLine",
+          "value": "// 额外的空行",
+          "loc": {
+            "start": {
+              "line": 119,
+              "column": 1,
+              "index": 2688
+            },
+            "end": {
+              "line": 119,
+              "column": 19,
+              "index": 2706
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "StructDefinition",
+      "loc": {
+        "start": {
+          "line": 129,
+          "column": 1,
+          "index": 2813
+        },
+        "end": {
+          "line": 131,
+          "column": 2,
+          "index": 3004
+        }
+      },
+      "name": {
+        "kind": "Identifier",
+        "value": "LongLineExample",
+        "loc": {
+          "start": {
+            "line": 129,
+            "column": 8,
+            "index": 2820
+          },
+          "end": {
+            "line": 129,
+            "column": 23,
+            "index": 2835
+          }
+        }
+      },
+      "members": [
+        {
+          "kind": "FieldDefinition",
+          "loc": {
+            "start": {
+              "line": 130,
+              "column": 3,
+              "index": 2840
+            },
+            "end": {
+              "line": 130,
+              "column": 165,
+              "index": 3002
+            }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "description",
+            "loc": {
+              "start": {
+                "line": 130,
+                "column": 13,
+                "index": 2850
+              },
+              "end": {
+                "line": 130,
+                "column": 24,
+                "index": 2861
+              }
+            }
+          },
+          "fieldID": {
+            "kind": "FieldID",
+            "value": "1",
+            "loc": {
+              "start": {
+                "line": 130,
+                "column": 3,
+                "index": 2840
+              },
+              "end": {
+                "line": 130,
+                "column": 5,
+                "index": 2842
+              }
+            }
+          },
+          "fieldType": {
+            "kind": "StringKeyword",
+            "value": "string",
+            "loc": {
+              "start": {
+                "line": 130,
+                "column": 6,
+                "index": 2843
+              },
+              "end": {
+                "line": 130,
+                "column": 12,
+                "index": 2849
+              }
+            }
+          },
+          "requiredType": "default",
+          "defaultValue": {
+            "kind": "StringLiteral",
+            "value": "\"This is a very long line that exceeds the typical length for a single line in Thrift IDL and should be broken up for better readability.\"",
+            "loc": {
+              "start": {
+                "line": 130,
+                "column": 27,
+                "index": 2864
+              },
+              "end": {
+                "line": 130,
+                "column": 165,
+                "index": 3002
+              }
+            }
+          },
+          "annotations": null,
+          "comments": []
+        }
+      ],
+      "comments": [
+        {
+          "kind": "CommentLine",
+          "value": "// 这个结构体中有多余的空行",
+          "loc": {
+            "start": {
+              "line": 125,
+              "column": 3,
+              "index": 2754
+            },
+            "end": {
+              "line": 125,
+              "column": 42,
+              "index": 2793
+            }
+          }
+        },
+        {
+          "kind": "CommentLine",
+          "value": "// 过长的行",
+          "loc": {
+            "start": {
+              "line": 128,
+              "column": 1,
+              "index": 2797
+            },
+            "end": {
+              "line": 128,
+              "column": 16,
+              "index": 2812
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "StructDefinition",
+      "loc": {
+        "start": {
+          "line": 134,
+          "column": 1,
+          "index": 3025
+        },
+        "end": {
+          "line": 141,
+          "column": 2,
+          "index": 3242
+        }
+      },
+      "name": {
+        "kind": "Identifier",
+        "value": "ExcessiveSpaces",
+        "loc": {
+          "start": {
+            "line": 134,
+            "column": 8,
+            "index": 3032
+          },
+          "end": {
+            "line": 134,
+            "column": 23,
+            "index": 3047
+          }
+        }
+      },
+      "members": [
+        {
+          "kind": "FieldDefinition",
+          "loc": {
+            "start": {
+              "line": 135,
+              "column": 3,
+              "index": 3052
+            },
+            "end": {
+              "line": 135,
+              "column": 19,
+              "index": 3068
+            }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "name",
+            "loc": {
+              "start": {
+                "line": 135,
+                "column": 15,
+                "index": 3064
+              },
+              "end": {
+                "line": 135,
+                "column": 19,
+                "index": 3068
+              }
+            }
+          },
+          "fieldID": {
+            "kind": "FieldID",
+            "value": "1",
+            "loc": {
+              "start": {
+                "line": 135,
+                "column": 3,
+                "index": 3052
+              },
+              "end": {
+                "line": 135,
+                "column": 5,
+                "index": 3054
+              }
+            }
+          },
+          "fieldType": {
+            "kind": "StringKeyword",
+            "value": "string",
+            "loc": {
+              "start": {
+                "line": 135,
+                "column": 6,
+                "index": 3055
+              },
+              "end": {
+                "line": 135,
+                "column": 12,
+                "index": 3061
+              }
+            }
+          },
+          "requiredType": "default",
+          "defaultValue": null,
+          "annotations": null,
+          "comments": []
+        },
+        {
+          "kind": "FieldDefinition",
+          "loc": {
+            "start": {
+              "line": 136,
+              "column": 3,
+              "index": 3109
+            },
+            "end": {
+              "line": 136,
+              "column": 13,
+              "index": 3119
+            }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "age",
+            "loc": {
+              "start": {
+                "line": 136,
+                "column": 10,
+                "index": 3116
+              },
+              "end": {
+                "line": 136,
+                "column": 13,
+                "index": 3119
+              }
+            }
+          },
+          "fieldID": {
+            "kind": "FieldID",
+            "value": "2",
+            "loc": {
+              "start": {
+                "line": 136,
+                "column": 3,
+                "index": 3109
+              },
+              "end": {
+                "line": 136,
+                "column": 5,
+                "index": 3111
+              }
+            }
+          },
+          "fieldType": {
+            "kind": "I32Keyword",
+            "value": "i32",
+            "loc": {
+              "start": {
+                "line": 136,
+                "column": 6,
+                "index": 3112
+              },
+              "end": {
+                "line": 136,
+                "column": 9,
+                "index": 3115
+              }
+            }
+          },
+          "requiredType": "default",
+          "defaultValue": null,
+          "annotations": null,
+          "comments": [
+            {
+              "kind": "CommentLine",
+              "value": "// 这个字段前有过多的空格",
+              "loc": {
+                "start": {
+                  "line": 135,
+                  "column": 21,
+                  "index": 3070
+                },
+                "end": {
+                  "line": 135,
+                  "column": 57,
+                  "index": 3106
+                }
+              }
+            }
+          ]
+        },
+        {
+          "kind": "FieldDefinition",
+          "loc": {
+            "start": {
+              "line": 137,
+              "column": 3,
+              "index": 3123
+            },
+            "end": {
+              "line": 140,
+              "column": 28,
+              "index": 3240
+            }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "hobbies",
+            "loc": {
+              "start": {
+                "line": 137,
+                "column": 19,
+                "index": 3139
+              },
+              "end": {
+                "line": 137,
+                "column": 26,
+                "index": 3146
+              }
+            }
+          },
+          "fieldID": {
+            "kind": "FieldID",
+            "value": "3",
+            "loc": {
+              "start": {
+                "line": 137,
+                "column": 3,
+                "index": 3123
+              },
+              "end": {
+                "line": 137,
+                "column": 5,
+                "index": 3125
+              }
+            }
+          },
+          "fieldType": {
+            "kind": "ListType",
+            "loc": {
+              "start": {
+                "line": 137,
+                "column": 6,
+                "index": 3126
+              },
+              "end": {
+                "line": 137,
+                "column": 18,
+                "index": 3138
+              }
+            },
+            "value": "list",
+            "valueType": {
+              "kind": "StringKeyword",
+              "value": "string",
+              "loc": {
+                "start": {
+                  "line": 137,
+                  "column": 11,
+                  "index": 3131
+                },
+                "end": {
+                  "line": 137,
+                  "column": 17,
+                  "index": 3137
+                }
+              }
+            }
+          },
+          "requiredType": "default",
+          "defaultValue": {
+            "kind": "ConstList",
+            "loc": {
+              "start": {
+                "line": 137,
+                "column": 29,
+                "index": 3149
+              },
+              "end": {
+                "line": 140,
+                "column": 28,
+                "index": 3240
+              }
+            },
+            "elements": [
+              {
+                "kind": "StringLiteral",
+                "value": "\"reading\"",
+                "loc": {
+                  "start": {
+                    "line": 139,
+                    "column": 5,
+                    "index": 3189
+                  },
+                  "end": {
+                    "line": 139,
+                    "column": 14,
+                    "index": 3198
+                  }
+                }
+              },
+              {
+                "kind": "StringLiteral",
+                "value": "\"traveling\"",
+                "loc": {
+                  "start": {
+                    "line": 140,
+                    "column": 6,
+                    "index": 3218
+                  },
+                  "end": {
+                    "line": 140,
+                    "column": 17,
+                    "index": 3229
+                  }
+                }
+              },
+              {
+                "kind": "StringLiteral",
+                "value": "\"coding\"",
+                "loc": {
+                  "start": {
+                    "line": 140,
+                    "column": 19,
+                    "index": 3231
+                  },
+                  "end": {
+                    "line": 140,
+                    "column": 27,
+                    "index": 3239
+                  }
+                }
+              }
+            ]
+          },
+          "annotations": null,
+          "comments": []
+        }
+      ],
+      "comments": [
+        {
+          "kind": "CommentLine",
+          "value": "// 过多的空格",
+          "loc": {
+            "start": {
+              "line": 133,
+              "column": 1,
+              "index": 3006
+            },
+            "end": {
+              "line": 133,
+              "column": 19,
+              "index": 3024
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

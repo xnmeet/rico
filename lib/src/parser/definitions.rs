@@ -192,7 +192,11 @@ impl<'a> Parser<'a> {
         })
     }
 
-    pub(crate) fn parse_struct(&mut self) -> Result<Struct, ParseError> {
+    fn parse_struct_like<T>(
+        &mut self,
+        kind: NodeType,
+        constructor: impl FnOnce(NodeType, LOC, Common<String>, Vec<Field>, Vec<Comment>) -> T,
+    ) -> Result<T, ParseError> {
         let tracker = LocationTracker::new(self.start_pos());
         let comments = self.take_pending_comments();
 
@@ -201,13 +205,39 @@ impl<'a> Parser<'a> {
 
         let members = self.parse_members(|parser| parser.parse_field())?;
 
-        Ok(Struct {
-            kind: NodeType::StructDefinition,
-            loc: tracker.to_parent_loc(&self.get_token_loc()),
+        Ok(constructor(
+            kind,
+            tracker.to_parent_loc(&self.get_token_loc()),
             name,
             members,
             comments,
-        })
+        ))
+    }
+
+    pub(crate) fn parse_struct(&mut self) -> Result<Struct, ParseError> {
+        self.parse_struct_like(
+            NodeType::StructDefinition,
+            |kind, loc, name, members, comments| Struct {
+                kind,
+                loc,
+                name,
+                members,
+                comments,
+            },
+        )
+    }
+
+    pub(crate) fn parse_exception(&mut self) -> Result<Exception, ParseError> {
+        self.parse_struct_like(
+            NodeType::ExceptionDefinition,
+            |kind, loc, name, members, comments| Exception {
+                kind,
+                loc,
+                name,
+                members,
+                comments,
+            },
+        )
     }
 
     pub(crate) fn parse_annotations(&mut self) -> Result<Option<Annotations>, ParseError> {
@@ -270,20 +300,24 @@ impl<'a> Parser<'a> {
 
             // Parse return type
             let return_type = match parser.token() {
-                Some(Token::Void) => create_void(parser.get_token_loc(), parser.text().to_owned()),
-                Some(Token::Identifier) => {
-                    create_identifier(parser.get_token_loc(), parser.text().to_owned())
-                }
-                Some(_) | None => return Err(ParseError::InvalidReturnType(parser.start_pos())),
+                Some(Token::Void) => FieldType::CommonType(create_void(
+                    parser.get_token_loc(),
+                    parser.text().to_owned(),
+                )),
+                Some(_) => parser.parse_field_type_opt(false)?,
+                None => return Err(ParseError::InvalidReturnType(parser.start_pos())),
             };
 
-            // Parse function name
             parser.consume(Token::Identifier)?;
             let function_name = create_identifier(parser.get_token_loc(), parser.text().to_owned());
             let function_start_loc = function_name.loc;
 
             // Parse parameters
             let params = parser.parse_parameters(|p| p.parse_field())?;
+
+            // Parse throws if present
+            let throws = parser.parse_throws()?;
+
             // skip trivia like comma, semicolon, line comment, block comment
             parser.skip_trivia();
             // Parse function annotations
@@ -295,6 +329,7 @@ impl<'a> Parser<'a> {
                 name: function_name,
                 return_type,
                 params,
+                throws,
                 annotations: function_annotations,
                 comments: function_comments,
             })
@@ -366,5 +401,15 @@ impl<'a> Parser<'a> {
         }
 
         Ok(params)
+    }
+
+    fn parse_throws(&mut self) -> Result<Option<Vec<Field>>, ParseError> {
+        if let Some(Token::Throws) = self.peek() {
+            self.advance(); // 消费 throws 关键字
+            let throws = self.parse_parameters(|p| p.parse_field())?;
+            Ok(Some(throws))
+        } else {
+            Ok(None)
+        }
     }
 }

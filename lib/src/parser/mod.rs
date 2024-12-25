@@ -56,6 +56,9 @@ impl<'a> Parser<'a> {
                     Token::Typedef => members.push(DocumentMembers::Typedef(self.parse_typedef()?)),
                     Token::Enum => members.push(DocumentMembers::Enum(self.parse_enum()?)),
                     Token::Struct => members.push(DocumentMembers::Struct(self.parse_struct()?)),
+                    Token::Exception => {
+                        members.push(DocumentMembers::Exception(self.parse_exception()?))
+                    }
                     Token::Service => members.push(DocumentMembers::Service(self.parse_service()?)),
                     _ => {
                         return Err(ParseError::UnexpectedToken(self.start_pos()));

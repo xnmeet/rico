@@ -13,7 +13,7 @@ fn get_tests_dir() -> String {
 }
 
 fn main() {
-    let files = vec!["struct", "service", "enum", "const", "typedef"];
+    let files = vec!["struct", "service", "enum", "const", "typedef", "common"];
     let tests_dir = get_tests_dir();
 
     for file_name in files {
