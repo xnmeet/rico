@@ -10,9 +10,9 @@
           "index": 0
         },
         "end": {
-          "line": 5,
+          "line": 7,
           "column": 2,
-          "index": 275
+          "index": 485
         }
       },
       "name": {
@@ -37,14 +37,14 @@
           "kind": "FunctionDefinition",
           "loc": {
             "start": {
-              "line": 2,
+              "line": 4,
               "column": 21,
-              "index": 41
+              "index": 251
             },
             "end": {
-              "line": 2,
+              "line": 4,
               "column": 86,
-              "index": 106
+              "index": 316
             }
           },
           "name": {
@@ -52,14 +52,14 @@
             "value": "GetAppInfo",
             "loc": {
               "start": {
-                "line": 2,
+                "line": 4,
                 "column": 21,
-                "index": 41
+                "index": 251
               },
               "end": {
-                "line": 2,
+                "line": 4,
                 "column": 31,
-                "index": 51
+                "index": 261
               }
             }
           },
@@ -68,14 +68,14 @@
             "value": "GetAppInfoResponse",
             "loc": {
               "start": {
-                "line": 2,
+                "line": 4,
                 "column": 2,
-                "index": 22
+                "index": 232
               },
               "end": {
-                "line": 2,
+                "line": 4,
                 "column": 20,
-                "index": 40
+                "index": 250
               }
             }
           },
@@ -84,14 +84,14 @@
               "kind": "FieldDefinition",
               "loc": {
                 "start": {
-                  "line": 2,
+                  "line": 4,
                   "column": 32,
-                  "index": 52
+                  "index": 262
                 },
                 "end": {
-                  "line": 2,
+                  "line": 4,
                   "column": 60,
-                  "index": 80
+                  "index": 290
                 }
               },
               "name": {
@@ -99,14 +99,14 @@
                 "value": "request",
                 "loc": {
                   "start": {
-                    "line": 2,
+                    "line": 4,
                     "column": 53,
-                    "index": 73
+                    "index": 283
                   },
                   "end": {
-                    "line": 2,
+                    "line": 4,
                     "column": 60,
-                    "index": 80
+                    "index": 290
                   }
                 }
               },
@@ -115,14 +115,14 @@
                 "value": "1",
                 "loc": {
                   "start": {
-                    "line": 2,
+                    "line": 4,
                     "column": 32,
-                    "index": 52
+                    "index": 262
                   },
                   "end": {
-                    "line": 2,
-                    "column": 34,
-                    "index": 54
+                    "line": 4,
+                    "column": 33,
+                    "index": 263
                   }
                 }
               },
@@ -131,14 +131,14 @@
                 "value": "GetAppInfoRequest",
                 "loc": {
                   "start": {
-                    "line": 2,
+                    "line": 4,
                     "column": 35,
-                    "index": 55
+                    "index": 265
                   },
                   "end": {
-                    "line": 2,
+                    "line": 4,
                     "column": 52,
-                    "index": 72
+                    "index": 282
                   }
                 }
               },
@@ -153,14 +153,14 @@
             "kind": "Annotations",
             "loc": {
               "start": {
-                "line": 2,
+                "line": 4,
                 "column": 61,
-                "index": 81
+                "index": 291
               },
               "end": {
-                "line": 2,
+                "line": 4,
                 "column": 86,
-                "index": 106
+                "index": 316
               }
             },
             "members": [
@@ -171,27 +171,27 @@
                   "value": "\"/api/test\"",
                   "loc": {
                     "start": {
-                      "line": 2,
+                      "line": 4,
                       "column": 74,
-                      "index": 94
+                      "index": 304
                     },
                     "end": {
-                      "line": 2,
+                      "line": 4,
                       "column": 85,
-                      "index": 105
+                      "index": 315
                     }
                   }
                 },
                 "loc": {
                   "start": {
-                    "line": 2,
+                    "line": 4,
                     "column": 63,
-                    "index": 83
+                    "index": 293
                   },
                   "end": {
-                    "line": 2,
+                    "line": 4,
                     "column": 85,
-                    "index": 105
+                    "index": 315
                   }
                 },
                 "name": {
@@ -199,34 +199,67 @@
                   "value": "api.post",
                   "loc": {
                     "start": {
-                      "line": 2,
+                      "line": 4,
                       "column": 63,
-                      "index": 83
+                      "index": 293
                     },
                     "end": {
-                      "line": 2,
+                      "line": 4,
                       "column": 71,
-                      "index": 91
+                      "index": 301
                     }
                   }
                 }
               }
             ]
           },
-          "comments": []
+          "comments": [
+            {
+              "kind": "CommentLine",
+              "value": "// 注意下一行的开头是制表符，由于制表符在 IDE 中是有自己的空格转换逻辑的，可能表现会有差异，导致结果存在位置偏差",
+              "loc": {
+                "start": {
+                  "line": 2,
+                  "column": 5,
+                  "index": 25
+                },
+                "end": {
+                  "line": 2,
+                  "column": 169,
+                  "index": 189
+                }
+              }
+            },
+            {
+              "kind": "CommentLine",
+              "value": "// 所以应该禁止制表符使用",
+              "loc": {
+                "start": {
+                  "line": 3,
+                  "column": 5,
+                  "index": 194
+                },
+                "end": {
+                  "line": 3,
+                  "column": 41,
+                  "index": 230
+                }
+              }
+            }
+          ]
         },
         {
           "kind": "FunctionDefinition",
           "loc": {
             "start": {
-              "line": 3,
+              "line": 5,
               "column": 10,
-              "index": 116
+              "index": 326
             },
             "end": {
-              "line": 3,
+              "line": 5,
               "column": 62,
-              "index": 168
+              "index": 378
             }
           },
           "name": {
@@ -234,14 +267,14 @@
             "value": "GetAppInfo",
             "loc": {
               "start": {
-                "line": 3,
+                "line": 5,
                 "column": 10,
-                "index": 116
+                "index": 326
               },
               "end": {
-                "line": 3,
+                "line": 5,
                 "column": 20,
-                "index": 126
+                "index": 336
               }
             }
           },
@@ -250,14 +283,14 @@
             "value": "void",
             "loc": {
               "start": {
-                "line": 3,
+                "line": 5,
                 "column": 5,
-                "index": 111
+                "index": 321
               },
               "end": {
-                "line": 3,
+                "line": 5,
                 "column": 9,
-                "index": 115
+                "index": 325
               }
             }
           },
@@ -266,14 +299,14 @@
               "kind": "FieldDefinition",
               "loc": {
                 "start": {
-                  "line": 3,
+                  "line": 5,
                   "column": 21,
-                  "index": 127
+                  "index": 337
                 },
                 "end": {
-                  "line": 3,
+                  "line": 5,
                   "column": 60,
-                  "index": 166
+                  "index": 376
                 }
               },
               "name": {
@@ -281,14 +314,14 @@
                 "value": "request",
                 "loc": {
                   "start": {
-                    "line": 3,
+                    "line": 5,
                     "column": 47,
-                    "index": 153
+                    "index": 363
                   },
                   "end": {
-                    "line": 3,
+                    "line": 5,
                     "column": 54,
-                    "index": 160
+                    "index": 370
                   }
                 }
               },
@@ -297,14 +330,14 @@
                 "value": "1",
                 "loc": {
                   "start": {
-                    "line": 3,
+                    "line": 5,
                     "column": 21,
-                    "index": 127
+                    "index": 337
                   },
                   "end": {
-                    "line": 3,
-                    "column": 23,
-                    "index": 129
+                    "line": 5,
+                    "column": 22,
+                    "index": 338
                   }
                 }
               },
@@ -313,14 +346,14 @@
                 "value": "apps.GetAppInfoRequest",
                 "loc": {
                   "start": {
-                    "line": 3,
+                    "line": 5,
                     "column": 24,
-                    "index": 130
+                    "index": 340
                   },
                   "end": {
-                    "line": 3,
+                    "line": 5,
                     "column": 46,
-                    "index": 152
+                    "index": 362
                   }
                 }
               },
@@ -329,14 +362,14 @@
                 "kind": "ConstList",
                 "loc": {
                   "start": {
-                    "line": 3,
+                    "line": 5,
                     "column": 55,
-                    "index": 161
+                    "index": 371
                   },
                   "end": {
-                    "line": 3,
+                    "line": 5,
                     "column": 60,
-                    "index": 166
+                    "index": 376
                   }
                 },
                 "elements": [
@@ -345,14 +378,14 @@
                     "value": "1",
                     "loc": {
                       "start": {
-                        "line": 3,
+                        "line": 5,
                         "column": 56,
-                        "index": 162
+                        "index": 372
                       },
                       "end": {
-                        "line": 3,
+                        "line": 5,
                         "column": 57,
-                        "index": 163
+                        "index": 373
                       }
                     }
                   },
@@ -361,14 +394,14 @@
                     "value": "2",
                     "loc": {
                       "start": {
-                        "line": 3,
+                        "line": 5,
                         "column": 58,
-                        "index": 164
+                        "index": 374
                       },
                       "end": {
-                        "line": 3,
+                        "line": 5,
                         "column": 59,
-                        "index": 165
+                        "index": 375
                       }
                     }
                   }
@@ -386,14 +419,14 @@
           "kind": "FunctionDefinition",
           "loc": {
             "start": {
-              "line": 4,
+              "line": 6,
               "column": 41,
-              "index": 209
+              "index": 419
             },
             "end": {
-              "line": 4,
+              "line": 6,
               "column": 105,
-              "index": 273
+              "index": 483
             }
           },
           "name": {
@@ -401,14 +434,14 @@
             "value": "UpdateRecordByFlow",
             "loc": {
               "start": {
-                "line": 4,
+                "line": 6,
                 "column": 41,
-                "index": 209
+                "index": 419
               },
               "end": {
-                "line": 4,
+                "line": 6,
                 "column": 59,
-                "index": 227
+                "index": 437
               }
             }
           },
@@ -417,14 +450,14 @@
             "value": "record.UpdateRecordByActionResponse",
             "loc": {
               "start": {
-                "line": 4,
+                "line": 6,
                 "column": 5,
-                "index": 173
+                "index": 383
               },
               "end": {
-                "line": 4,
+                "line": 6,
                 "column": 40,
-                "index": 208
+                "index": 418
               }
             }
           },
@@ -433,14 +466,14 @@
               "kind": "FieldDefinition",
               "loc": {
                 "start": {
-                  "line": 4,
+                  "line": 6,
                   "column": 60,
-                  "index": 228
+                  "index": 438
                 },
                 "end": {
-                  "line": 4,
+                  "line": 6,
                   "column": 103,
-                  "index": 271
+                  "index": 481
                 }
               },
               "name": {
@@ -448,14 +481,14 @@
                 "value": "request",
                 "loc": {
                   "start": {
-                    "line": 4,
+                    "line": 6,
                     "column": 96,
-                    "index": 264
+                    "index": 474
                   },
                   "end": {
-                    "line": 4,
+                    "line": 6,
                     "column": 103,
-                    "index": 271
+                    "index": 481
                   }
                 }
               },
@@ -464,14 +497,14 @@
                 "value": "1",
                 "loc": {
                   "start": {
-                    "line": 4,
+                    "line": 6,
                     "column": 60,
-                    "index": 228
+                    "index": 438
                   },
                   "end": {
-                    "line": 4,
-                    "column": 62,
-                    "index": 230
+                    "line": 6,
+                    "column": 61,
+                    "index": 439
                   }
                 }
               },
@@ -480,14 +513,14 @@
                 "value": "record.UpdateRecordByFlowRequest",
                 "loc": {
                   "start": {
-                    "line": 4,
+                    "line": 6,
                     "column": 63,
-                    "index": 231
+                    "index": 441
                   },
                   "end": {
-                    "line": 4,
+                    "line": 6,
                     "column": 95,
-                    "index": 263
+                    "index": 473
                   }
                 }
               },
@@ -509,14 +542,14 @@
       "kind": "ServiceDefinition",
       "loc": {
         "start": {
-          "line": 7,
+          "line": 9,
           "column": 1,
-          "index": 277
+          "index": 487
         },
         "end": {
-          "line": 9,
+          "line": 11,
           "column": 22,
-          "index": 421
+          "index": 631
         }
       },
       "name": {
@@ -524,14 +557,14 @@
         "value": "ForTest",
         "loc": {
           "start": {
-            "line": 7,
+            "line": 9,
             "column": 9,
-            "index": 285
+            "index": 495
           },
           "end": {
-            "line": 7,
+            "line": 9,
             "column": 16,
-            "index": 292
+            "index": 502
           }
         }
       },
@@ -540,14 +573,14 @@
         "value": "AppService",
         "loc": {
           "start": {
-            "line": 7,
+            "line": 9,
             "column": 25,
-            "index": 301
+            "index": 511
           },
           "end": {
-            "line": 7,
+            "line": 9,
             "column": 35,
-            "index": 311
+            "index": 521
           }
         }
       },
@@ -556,14 +589,14 @@
           "kind": "FunctionDefinition",
           "loc": {
             "start": {
-              "line": 8,
+              "line": 10,
               "column": 21,
-              "index": 334
+              "index": 544
             },
             "end": {
-              "line": 8,
+              "line": 10,
               "column": 86,
-              "index": 399
+              "index": 609
             }
           },
           "name": {
@@ -571,14 +604,14 @@
             "value": "GetAppInfo",
             "loc": {
               "start": {
-                "line": 8,
+                "line": 10,
                 "column": 21,
-                "index": 334
+                "index": 544
               },
               "end": {
-                "line": 8,
+                "line": 10,
                 "column": 31,
-                "index": 344
+                "index": 554
               }
             }
           },
@@ -587,14 +620,14 @@
             "value": "GetAppInfoResponse",
             "loc": {
               "start": {
-                "line": 8,
+                "line": 10,
                 "column": 2,
-                "index": 315
+                "index": 525
               },
               "end": {
-                "line": 8,
+                "line": 10,
                 "column": 20,
-                "index": 333
+                "index": 543
               }
             }
           },
@@ -603,14 +636,14 @@
               "kind": "FieldDefinition",
               "loc": {
                 "start": {
-                  "line": 8,
+                  "line": 10,
                   "column": 32,
-                  "index": 345
+                  "index": 555
                 },
                 "end": {
-                  "line": 8,
+                  "line": 10,
                   "column": 60,
-                  "index": 373
+                  "index": 583
                 }
               },
               "name": {
@@ -618,14 +651,14 @@
                 "value": "request",
                 "loc": {
                   "start": {
-                    "line": 8,
+                    "line": 10,
                     "column": 53,
-                    "index": 366
+                    "index": 576
                   },
                   "end": {
-                    "line": 8,
+                    "line": 10,
                     "column": 60,
-                    "index": 373
+                    "index": 583
                   }
                 }
               },
@@ -634,14 +667,14 @@
                 "value": "1",
                 "loc": {
                   "start": {
-                    "line": 8,
+                    "line": 10,
                     "column": 32,
-                    "index": 345
+                    "index": 555
                   },
                   "end": {
-                    "line": 8,
-                    "column": 34,
-                    "index": 347
+                    "line": 10,
+                    "column": 33,
+                    "index": 556
                   }
                 }
               },
@@ -650,14 +683,14 @@
                 "value": "GetAppInfoRequest",
                 "loc": {
                   "start": {
-                    "line": 8,
+                    "line": 10,
                     "column": 35,
-                    "index": 348
+                    "index": 558
                   },
                   "end": {
-                    "line": 8,
+                    "line": 10,
                     "column": 52,
-                    "index": 365
+                    "index": 575
                   }
                 }
               },
@@ -672,14 +705,14 @@
             "kind": "Annotations",
             "loc": {
               "start": {
-                "line": 8,
+                "line": 10,
                 "column": 61,
-                "index": 374
+                "index": 584
               },
               "end": {
-                "line": 8,
+                "line": 10,
                 "column": 86,
-                "index": 399
+                "index": 609
               }
             },
             "members": [
@@ -690,27 +723,27 @@
                   "value": "\"/api/test\"",
                   "loc": {
                     "start": {
-                      "line": 8,
+                      "line": 10,
                       "column": 74,
-                      "index": 387
+                      "index": 597
                     },
                     "end": {
-                      "line": 8,
+                      "line": 10,
                       "column": 85,
-                      "index": 398
+                      "index": 608
                     }
                   }
                 },
                 "loc": {
                   "start": {
-                    "line": 8,
+                    "line": 10,
                     "column": 63,
-                    "index": 376
+                    "index": 586
                   },
                   "end": {
-                    "line": 8,
+                    "line": 10,
                     "column": 85,
-                    "index": 398
+                    "index": 608
                   }
                 },
                 "name": {
@@ -718,14 +751,14 @@
                   "value": "api.post",
                   "loc": {
                     "start": {
-                      "line": 8,
+                      "line": 10,
                       "column": 63,
-                      "index": 376
+                      "index": 586
                     },
                     "end": {
-                      "line": 8,
+                      "line": 10,
                       "column": 71,
-                      "index": 384
+                      "index": 594
                     }
                   }
                 }
@@ -740,14 +773,14 @@
         "kind": "Annotations",
         "loc": {
           "start": {
-            "line": 9,
+            "line": 11,
             "column": 1,
-            "index": 400
+            "index": 610
           },
           "end": {
-            "line": 9,
+            "line": 11,
             "column": 22,
-            "index": 421
+            "index": 631
           }
         },
         "members": [
@@ -758,27 +791,27 @@
               "value": "\"/api/test\"",
               "loc": {
                 "start": {
-                  "line": 9,
+                  "line": 11,
                   "column": 10,
-                  "index": 409
+                  "index": 619
                 },
                 "end": {
-                  "line": 9,
+                  "line": 11,
                   "column": 21,
-                  "index": 420
+                  "index": 630
                 }
               }
             },
             "loc": {
               "start": {
-                "line": 9,
+                "line": 11,
                 "column": 3,
-                "index": 402
+                "index": 612
               },
               "end": {
-                "line": 9,
+                "line": 11,
                 "column": 21,
-                "index": 420
+                "index": 630
               }
             },
             "name": {
@@ -786,14 +819,14 @@
               "value": "api.gw",
               "loc": {
                 "start": {
-                  "line": 9,
+                  "line": 11,
                   "column": 3,
-                  "index": 402
+                  "index": 612
                 },
                 "end": {
-                  "line": 9,
+                  "line": 11,
                   "column": 9,
-                  "index": 408
+                  "index": 618
                 }
               }
             }

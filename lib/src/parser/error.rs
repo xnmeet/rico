@@ -15,6 +15,7 @@ pub enum ParseError {
     InvalidValueDeclaration(Span),
     InvalidReturnType(Span),
     InvalidFieldName(Span),
+    InvalidFieldId(Span),
 }
 
 impl fmt::Display for ParseError {
@@ -56,6 +57,9 @@ impl fmt::Display for ParseError {
             }
             ParseError::InvalidFieldName(loc) => {
                 write!(f, "Invalid field name:{}:{}", loc.line, loc.column)
+            }
+            ParseError::InvalidFieldId(loc) => {
+                write!(f, "Invalid field ID:{}:{}", loc.line, loc.column)
             }
         }
     }

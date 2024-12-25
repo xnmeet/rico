@@ -121,7 +121,7 @@ pub(crate) fn create_initializer(loc: LOC, value: Common, kind: NodeType) -> Ini
 pub(crate) fn create_field_id(loc: LOC, value: String) -> Common {
     Common {
         kind: NodeType::FieldID,
-        value: value.trim_end_matches(':').to_string(),
+        value,
         loc,
     }
 }

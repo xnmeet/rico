@@ -158,9 +158,9 @@ impl<'a> Parser<'a> {
 
     fn parse_field(&mut self) -> Result<Field, ParseError> {
         let field_comments = self.take_pending_comments();
-        // Parse field ID
-        self.expect_token(Token::FieldId)?;
-        let field_id = create_field_id(self.get_token_loc(), self.text().to_owned());
+
+        // Parse field ID using the new function
+        let field_id = self.parse_field_id()?;
 
         // Parse required/optional
         let required_type = match self.peek() {
@@ -462,5 +462,18 @@ impl<'a> Parser<'a> {
         } else {
             Ok(None)
         }
+    }
+
+    fn parse_field_id(&mut self) -> Result<Common<String>, ParseError> {
+        // Get the token text without the colon
+        let text = self.text();
+        // Validate that it's a valid unsigned integer
+        let field_id = match text.parse::<u64>() {
+            Ok(_) => Ok(create_field_id(self.get_token_loc(), text.to_string())),
+            Err(_) => Err(ParseError::InvalidFieldId(self.start_pos())),
+        };
+        self.consume(Token::Colon)?;
+
+        field_id
     }
 }

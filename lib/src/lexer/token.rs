@@ -74,9 +74,6 @@ pub enum Token {
     #[regex(r#"(?:"([^"\\]|\\.)*"|'([^'\\]|\\.)*')"#)]
     StringLiteral,
 
-    #[regex(r"\d+:", priority = 2)]
-    FieldId,
-
     #[regex(r"[+-]?[0-9]+")]
     IntegerLiteral,
 

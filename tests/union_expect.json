@@ -73,8 +73,8 @@
               },
               "end": {
                 "line": 2,
-                "column": 7,
-                "index": 29
+                "column": 6,
+                "index": 28
               }
             }
           },
@@ -155,8 +155,8 @@
               },
               "end": {
                 "line": 3,
-                "column": 7,
-                "index": 71
+                "column": 6,
+                "index": 70
               }
             }
           },
