@@ -53,14 +53,16 @@ impl<'a> Parser<'a> {
         self.consume(Token::Equals)?;
         let const_value = self.parse_field_value()?;
 
-        Ok(Const {
+        let result = Const {
             kind: NodeType::ConstDefinition,
             loc: tracker.to_parent_loc(&self.get_token_loc()),
             name,
             value: const_value,
             field_type,
             comments,
-        })
+        };
+        self.skip_trivia();
+        Ok(result)
     }
 
     pub(crate) fn parse_typedef(&mut self) -> Result<Typedef, ParseError> {
@@ -134,6 +136,26 @@ impl<'a> Parser<'a> {
         })
     }
 
+    fn parse_field_name(&mut self) -> Result<Common<String>, ParseError> {
+        self.advance();
+        if !matches!(
+            self.token(),
+            Some(&Token::Identifier)
+                | Some(&Token::Namespace)
+                | Some(&Token::Include)
+                | Some(&Token::List)
+                | Some(&Token::Map)
+                | Some(&Token::Set)
+        ) {
+            return Err(ParseError::InvalidFieldName(self.start_pos()));
+        }
+
+        Ok(create_identifier(
+            self.get_token_loc(),
+            self.text().to_owned(),
+        ))
+    }
+
     fn parse_field(&mut self) -> Result<Field, ParseError> {
         let field_comments = self.take_pending_comments();
         // Parse field ID
@@ -158,16 +180,7 @@ impl<'a> Parser<'a> {
         let field_type = self.parse_field_type()?;
 
         // Parse field name
-        // adapt name with namespace and include keyword
-        self.advance();
-        if !matches!(
-            self.token(),
-            Some(&Token::Identifier) | Some(&Token::Namespace) | Some(&Token::Include)
-        ) {
-            return Err(ParseError::InvalidFieldName(self.start_pos()));
-        }
-
-        let field_name = create_identifier(self.get_token_loc(), self.text().to_owned());
+        let field_name = self.parse_field_name()?;
 
         // Parse default value if present
         let default_value = if let Some(Token::Equals) = self.peek() {

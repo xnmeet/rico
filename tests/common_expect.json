@@ -2024,7 +2024,24 @@
           ],
           "throws": null,
           "annotations": null,
-          "comments": []
+          "comments": [
+            {
+              "kind": "CommentLine",
+              "value": "// Method to save a user",
+              "loc": {
+                "start": {
+                  "line": 55,
+                  "column": 3,
+                  "index": 1104
+                },
+                "end": {
+                  "line": 55,
+                  "column": 27,
+                  "index": 1128
+                }
+              }
+            }
+          ]
         },
         {
           "kind": "FunctionDefinition",
@@ -2211,7 +2228,24 @@
             }
           ],
           "annotations": null,
-          "comments": []
+          "comments": [
+            {
+              "kind": "CommentLine",
+              "value": "// Method to delete a user",
+              "loc": {
+                "start": {
+                  "line": 58,
+                  "column": 3,
+                  "index": 1163
+                },
+                "end": {
+                  "line": 58,
+                  "column": 29,
+                  "index": 1189
+                }
+              }
+            }
+          ]
         },
         {
           "kind": "FunctionDefinition",
@@ -2278,7 +2312,24 @@
           "params": [],
           "throws": null,
           "annotations": null,
-          "comments": []
+          "comments": [
+            {
+              "kind": "CommentLine",
+              "value": "// Method to list all users",
+              "loc": {
+                "start": {
+                  "line": 61,
+                  "column": 3,
+                  "index": 1259
+                },
+                "end": {
+                  "line": 61,
+                  "column": 30,
+                  "index": 1286
+                }
+              }
+            }
+          ]
         },
         {
           "kind": "FunctionDefinition",
@@ -2465,7 +2516,24 @@
             }
           ],
           "annotations": null,
-          "comments": []
+          "comments": [
+            {
+              "kind": "CommentLine",
+              "value": "// Method to update user profile",
+              "loc": {
+                "start": {
+                  "line": 64,
+                  "column": 3,
+                  "index": 1316
+                },
+                "end": {
+                  "line": 64,
+                  "column": 35,
+                  "index": 1348
+                }
+              }
+            }
+          ]
         }
       ],
       "comments": [
@@ -2909,7 +2977,24 @@
             }
           ],
           "annotations": null,
-          "comments": []
+          "comments": [
+            {
+              "kind": "CommentLine",
+              "value": "// Method to activate a user",
+              "loc": {
+                "start": {
+                  "line": 73,
+                  "column": 3,
+                  "index": 1599
+                },
+                "end": {
+                  "line": 73,
+                  "column": 31,
+                  "index": 1627
+                }
+              }
+            }
+          ]
         },
         {
           "kind": "FunctionDefinition",
@@ -2992,7 +3077,24 @@
           "params": [],
           "throws": null,
           "annotations": null,
-          "comments": []
+          "comments": [
+            {
+              "kind": "CommentLine",
+              "value": "// Method to get user statistics",
+              "loc": {
+                "start": {
+                  "line": 76,
+                  "column": 3,
+                  "index": 1699
+                },
+                "end": {
+                  "line": 76,
+                  "column": 35,
+                  "index": 1731
+                }
+              }
+            }
+          ]
         }
       ],
       "comments": [
@@ -3399,7 +3501,24 @@
           ],
           "throws": null,
           "annotations": null,
-          "comments": []
+          "comments": [
+            {
+              "kind": "CommentLine",
+              "value": "// Method to get notifications for a user",
+              "loc": {
+                "start": {
+                  "line": 85,
+                  "column": 3,
+                  "index": 1954
+                },
+                "end": {
+                  "line": 85,
+                  "column": 44,
+                  "index": 1995
+                }
+              }
+            }
+          ]
         }
       ],
       "comments": [

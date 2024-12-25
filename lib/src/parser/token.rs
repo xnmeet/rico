@@ -55,10 +55,8 @@ impl<'a> Parser<'a> {
             if let Some(token) = self.peek() {
                 match token {
                     Token::Comma | Token::Semicolon | Token::LineComment | Token::BlockComment => {
-                        if token == &Token::LineComment || token == &Token::BlockComment {
-                            self.parser_comments();
-                        }
                         self.advance();
+                        self.parser_comments();
                         continue;
                     }
                     _ => break,
