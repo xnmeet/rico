@@ -63,7 +63,8 @@
             }
           },
           "initializer": null,
-          "comments": []
+          "comments": [],
+          "annotations": null
         },
         {
           "kind": "EnumMember",
@@ -143,7 +144,8 @@
                 }
               }
             }
-          ]
+          ],
+          "annotations": null
         }
       ],
       "comments": []
@@ -240,7 +242,8 @@
               }
             }
           },
-          "comments": []
+          "comments": [],
+          "annotations": null
         },
         {
           "kind": "EnumMember",
@@ -320,7 +323,8 @@
                 }
               }
             }
-          ]
+          ],
+          "annotations": null
         }
       ],
       "comments": [
@@ -434,7 +438,8 @@
               }
             }
           },
-          "comments": []
+          "comments": [],
+          "annotations": null
         },
         {
           "kind": "EnumMember",
@@ -514,7 +519,8 @@
                 }
               }
             }
-          ]
+          ],
+          "annotations": null
         },
         {
           "kind": "EnumMember",
@@ -594,7 +600,8 @@
                 }
               }
             }
-          ]
+          ],
+          "annotations": null
         }
       ],
       "comments": [
@@ -773,7 +780,8 @@
                 }
               }
             }
-          ]
+          ],
+          "annotations": null
         },
         {
           "kind": "EnumMember",
@@ -836,7 +844,8 @@
               }
             }
           },
-          "comments": []
+          "comments": [],
+          "annotations": null
         }
       ],
       "comments": [

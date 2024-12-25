@@ -133,6 +133,7 @@ pub struct EnumMember {
     pub name: Common<String>,
     pub initializer: Option<Initializer>,
     pub comments: Vec<Comment>,
+    pub annotations: Option<Annotations>,
 }
 
 #[derive(Serialize, Deserialize, Debug)]

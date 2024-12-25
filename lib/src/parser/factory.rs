@@ -104,6 +104,7 @@ pub(crate) fn create_enum_member(
     name: Common,
     initializer: Option<Initializer>,
     comments: Vec<Comment>,
+    annotations: Option<Annotations>,
 ) -> EnumMember {
     EnumMember {
         kind: NodeType::EnumMember,
@@ -111,6 +112,7 @@ pub(crate) fn create_enum_member(
         name,
         initializer,
         comments,
+        annotations,
     }
 }
 

@@ -119,11 +119,13 @@ impl<'a> Parser<'a> {
                 }
             }
 
+            let annotations = parser.parse_annotations()?;
             Ok(create_enum_member(
                 parser.get_token_parent_loc(member_start_loc.start, parser.end_pos()),
                 member_name,
                 initializer,
                 member_comments,
+                annotations,
             ))
         })?;
 
@@ -138,15 +140,22 @@ impl<'a> Parser<'a> {
 
     fn parse_field_name(&mut self) -> Result<Common<String>, ParseError> {
         self.advance();
-        if !matches!(
-            self.token(),
-            Some(&Token::Identifier)
-                | Some(&Token::Namespace)
-                | Some(&Token::Include)
-                | Some(&Token::List)
-                | Some(&Token::Map)
-                | Some(&Token::Set)
-        ) {
+
+        const VALID_TOKENS: &[Token] = &[
+            Token::Identifier,
+            Token::Namespace,
+            Token::Include,
+            Token::List,
+            Token::Map,
+            Token::Set,
+            Token::Oneway,
+            Token::Required,
+            Token::Optional,
+            Token::Throws,
+            Token::Bool,
+        ];
+
+        if !VALID_TOKENS.iter().any(|valid| self.token() == Some(valid)) {
             return Err(ParseError::InvalidFieldName(self.start_pos()));
         }
 

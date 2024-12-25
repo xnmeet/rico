@@ -303,7 +303,8 @@
               }
             }
           },
-          "comments": []
+          "comments": [],
+          "annotations": null
         },
         {
           "kind": "EnumMember",
@@ -366,7 +367,8 @@
               }
             }
           },
-          "comments": []
+          "comments": [],
+          "annotations": null
         },
         {
           "kind": "EnumMember",
@@ -429,7 +431,8 @@
               }
             }
           },
-          "comments": []
+          "comments": [],
+          "annotations": null
         }
       ],
       "comments": [
