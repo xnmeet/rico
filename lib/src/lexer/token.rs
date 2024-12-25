@@ -120,4 +120,7 @@ pub enum Token {
     LineComment,
     #[regex(r"/\*[^*]*\*+(?:[^*/][^*]*\*+)*/")]
     BlockComment,
+
+    #[token("oneway")]
+    Oneway,
 }

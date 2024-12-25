@@ -1905,7 +1905,8 @@
                 }
               }
             }
-          ]
+          ],
+          "oneway": false
         },
         {
           "kind": "FunctionDefinition",
@@ -2041,7 +2042,8 @@
                 }
               }
             }
-          ]
+          ],
+          "oneway": false
         },
         {
           "kind": "FunctionDefinition",
@@ -2245,7 +2247,8 @@
                 }
               }
             }
-          ]
+          ],
+          "oneway": false
         },
         {
           "kind": "FunctionDefinition",
@@ -2329,7 +2332,8 @@
                 }
               }
             }
-          ]
+          ],
+          "oneway": false
         },
         {
           "kind": "FunctionDefinition",
@@ -2533,7 +2537,8 @@
                 }
               }
             }
-          ]
+          ],
+          "oneway": false
         }
       ],
       "comments": [
@@ -2790,7 +2795,8 @@
                 }
               }
             }
-          ]
+          ],
+          "oneway": false
         },
         {
           "kind": "FunctionDefinition",
@@ -2994,7 +3000,8 @@
                 }
               }
             }
-          ]
+          ],
+          "oneway": false
         },
         {
           "kind": "FunctionDefinition",
@@ -3094,7 +3101,8 @@
                 }
               }
             }
-          ]
+          ],
+          "oneway": false
         }
       ],
       "comments": [
@@ -3366,7 +3374,8 @@
                 }
               }
             }
-          ]
+          ],
+          "oneway": false
         },
         {
           "kind": "FunctionDefinition",
@@ -3518,7 +3527,8 @@
                 }
               }
             }
-          ]
+          ],
+          "oneway": false
         }
       ],
       "comments": [

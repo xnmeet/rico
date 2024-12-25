@@ -351,6 +351,14 @@ impl<'a> Parser<'a> {
         let members = self.parse_members(|parser| {
             let function_comments = parser.take_pending_comments();
 
+            // Parse oneway if present
+            let oneway = if let Some(Token::Oneway) = parser.token() {
+                parser.advance();
+                true
+            } else {
+                false
+            };
+
             // Parse return type
             let return_type = parser.parse_return_type()?;
 
@@ -378,6 +386,7 @@ impl<'a> Parser<'a> {
                 throws,
                 annotations: function_annotations,
                 comments: function_comments,
+                oneway,
             })
         })?;
 

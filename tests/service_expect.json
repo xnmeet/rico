@@ -10,9 +10,9 @@
           "index": 0
         },
         "end": {
-          "line": 7,
+          "line": 8,
           "column": 2,
-          "index": 485
+          "index": 554
         }
       },
       "name": {
@@ -246,7 +246,8 @@
                 }
               }
             }
-          ]
+          ],
+          "oneway": false
         },
         {
           "kind": "FunctionDefinition",
@@ -413,51 +414,52 @@
           ],
           "throws": null,
           "annotations": null,
-          "comments": []
+          "comments": [],
+          "oneway": false
         },
         {
           "kind": "FunctionDefinition",
           "loc": {
             "start": {
               "line": 6,
-              "column": 41,
-              "index": 419
+              "column": 17,
+              "index": 395
             },
             "end": {
               "line": 6,
-              "column": 105,
-              "index": 483
+              "column": 69,
+              "index": 447
             }
           },
           "name": {
             "kind": "Identifier",
-            "value": "UpdateRecordByFlow",
+            "value": "GetAppInfo",
             "loc": {
               "start": {
                 "line": 6,
-                "column": 41,
-                "index": 419
+                "column": 17,
+                "index": 395
               },
               "end": {
                 "line": 6,
-                "column": 59,
-                "index": 437
+                "column": 27,
+                "index": 405
               }
             }
           },
           "returnType": {
-            "kind": "Identifier",
-            "value": "record.UpdateRecordByActionResponse",
+            "kind": "VoidKeyword",
+            "value": "void",
             "loc": {
               "start": {
                 "line": 6,
-                "column": 5,
-                "index": 383
+                "column": 12,
+                "index": 390
               },
               "end": {
                 "line": 6,
-                "column": 40,
-                "index": 418
+                "column": 16,
+                "index": 394
               }
             }
           },
@@ -467,13 +469,13 @@
               "loc": {
                 "start": {
                   "line": 6,
-                  "column": 60,
-                  "index": 438
+                  "column": 28,
+                  "index": 406
                 },
                 "end": {
                   "line": 6,
-                  "column": 103,
-                  "index": 481
+                  "column": 67,
+                  "index": 445
                 }
               },
               "name": {
@@ -482,13 +484,13 @@
                 "loc": {
                   "start": {
                     "line": 6,
-                    "column": 96,
-                    "index": 474
+                    "column": 54,
+                    "index": 432
                   },
                   "end": {
                     "line": 6,
-                    "column": 103,
-                    "index": 481
+                    "column": 61,
+                    "index": 439
                   }
                 }
               },
@@ -498,13 +500,181 @@
                 "loc": {
                   "start": {
                     "line": 6,
-                    "column": 60,
-                    "index": 438
+                    "column": 28,
+                    "index": 406
                   },
                   "end": {
                     "line": 6,
+                    "column": 29,
+                    "index": 407
+                  }
+                }
+              },
+              "fieldType": {
+                "kind": "Identifier",
+                "value": "apps.GetAppInfoRequest",
+                "loc": {
+                  "start": {
+                    "line": 6,
+                    "column": 31,
+                    "index": 409
+                  },
+                  "end": {
+                    "line": 6,
+                    "column": 53,
+                    "index": 431
+                  }
+                }
+              },
+              "requiredType": "default",
+              "defaultValue": {
+                "kind": "ConstList",
+                "loc": {
+                  "start": {
+                    "line": 6,
+                    "column": 62,
+                    "index": 440
+                  },
+                  "end": {
+                    "line": 6,
+                    "column": 67,
+                    "index": 445
+                  }
+                },
+                "elements": [
+                  {
+                    "kind": "IntegerLiteral",
+                    "value": "1",
+                    "loc": {
+                      "start": {
+                        "line": 6,
+                        "column": 63,
+                        "index": 441
+                      },
+                      "end": {
+                        "line": 6,
+                        "column": 64,
+                        "index": 442
+                      }
+                    }
+                  },
+                  {
+                    "kind": "IntegerLiteral",
+                    "value": "2",
+                    "loc": {
+                      "start": {
+                        "line": 6,
+                        "column": 65,
+                        "index": 443
+                      },
+                      "end": {
+                        "line": 6,
+                        "column": 66,
+                        "index": 444
+                      }
+                    }
+                  }
+                ]
+              },
+              "annotations": null,
+              "comments": []
+            }
+          ],
+          "throws": null,
+          "annotations": null,
+          "comments": [],
+          "oneway": true
+        },
+        {
+          "kind": "FunctionDefinition",
+          "loc": {
+            "start": {
+              "line": 7,
+              "column": 41,
+              "index": 488
+            },
+            "end": {
+              "line": 7,
+              "column": 105,
+              "index": 552
+            }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "UpdateRecordByFlow",
+            "loc": {
+              "start": {
+                "line": 7,
+                "column": 41,
+                "index": 488
+              },
+              "end": {
+                "line": 7,
+                "column": 59,
+                "index": 506
+              }
+            }
+          },
+          "returnType": {
+            "kind": "Identifier",
+            "value": "record.UpdateRecordByActionResponse",
+            "loc": {
+              "start": {
+                "line": 7,
+                "column": 5,
+                "index": 452
+              },
+              "end": {
+                "line": 7,
+                "column": 40,
+                "index": 487
+              }
+            }
+          },
+          "params": [
+            {
+              "kind": "FieldDefinition",
+              "loc": {
+                "start": {
+                  "line": 7,
+                  "column": 60,
+                  "index": 507
+                },
+                "end": {
+                  "line": 7,
+                  "column": 103,
+                  "index": 550
+                }
+              },
+              "name": {
+                "kind": "Identifier",
+                "value": "request",
+                "loc": {
+                  "start": {
+                    "line": 7,
+                    "column": 96,
+                    "index": 543
+                  },
+                  "end": {
+                    "line": 7,
+                    "column": 103,
+                    "index": 550
+                  }
+                }
+              },
+              "fieldID": {
+                "kind": "FieldID",
+                "value": "1",
+                "loc": {
+                  "start": {
+                    "line": 7,
+                    "column": 60,
+                    "index": 507
+                  },
+                  "end": {
+                    "line": 7,
                     "column": 61,
-                    "index": 439
+                    "index": 508
                   }
                 }
               },
@@ -513,14 +683,14 @@
                 "value": "record.UpdateRecordByFlowRequest",
                 "loc": {
                   "start": {
-                    "line": 6,
+                    "line": 7,
                     "column": 63,
-                    "index": 441
+                    "index": 510
                   },
                   "end": {
-                    "line": 6,
+                    "line": 7,
                     "column": 95,
-                    "index": 473
+                    "index": 542
                   }
                 }
               },
@@ -532,7 +702,8 @@
           ],
           "throws": null,
           "annotations": null,
-          "comments": []
+          "comments": [],
+          "oneway": false
         }
       ],
       "comments": [],
@@ -542,14 +713,14 @@
       "kind": "ServiceDefinition",
       "loc": {
         "start": {
-          "line": 9,
+          "line": 10,
           "column": 1,
-          "index": 487
+          "index": 556
         },
         "end": {
-          "line": 11,
+          "line": 12,
           "column": 22,
-          "index": 631
+          "index": 700
         }
       },
       "name": {
@@ -557,14 +728,14 @@
         "value": "ForTest",
         "loc": {
           "start": {
-            "line": 9,
+            "line": 10,
             "column": 9,
-            "index": 495
+            "index": 564
           },
           "end": {
-            "line": 9,
+            "line": 10,
             "column": 16,
-            "index": 502
+            "index": 571
           }
         }
       },
@@ -573,14 +744,14 @@
         "value": "AppService",
         "loc": {
           "start": {
-            "line": 9,
+            "line": 10,
             "column": 25,
-            "index": 511
+            "index": 580
           },
           "end": {
-            "line": 9,
+            "line": 10,
             "column": 35,
-            "index": 521
+            "index": 590
           }
         }
       },
@@ -589,14 +760,14 @@
           "kind": "FunctionDefinition",
           "loc": {
             "start": {
-              "line": 10,
+              "line": 11,
               "column": 21,
-              "index": 544
+              "index": 613
             },
             "end": {
-              "line": 10,
+              "line": 11,
               "column": 86,
-              "index": 609
+              "index": 678
             }
           },
           "name": {
@@ -604,14 +775,14 @@
             "value": "GetAppInfo",
             "loc": {
               "start": {
-                "line": 10,
+                "line": 11,
                 "column": 21,
-                "index": 544
+                "index": 613
               },
               "end": {
-                "line": 10,
+                "line": 11,
                 "column": 31,
-                "index": 554
+                "index": 623
               }
             }
           },
@@ -620,14 +791,14 @@
             "value": "GetAppInfoResponse",
             "loc": {
               "start": {
-                "line": 10,
+                "line": 11,
                 "column": 2,
-                "index": 525
+                "index": 594
               },
               "end": {
-                "line": 10,
+                "line": 11,
                 "column": 20,
-                "index": 543
+                "index": 612
               }
             }
           },
@@ -636,14 +807,14 @@
               "kind": "FieldDefinition",
               "loc": {
                 "start": {
-                  "line": 10,
+                  "line": 11,
                   "column": 32,
-                  "index": 555
+                  "index": 624
                 },
                 "end": {
-                  "line": 10,
+                  "line": 11,
                   "column": 60,
-                  "index": 583
+                  "index": 652
                 }
               },
               "name": {
@@ -651,14 +822,14 @@
                 "value": "request",
                 "loc": {
                   "start": {
-                    "line": 10,
+                    "line": 11,
                     "column": 53,
-                    "index": 576
+                    "index": 645
                   },
                   "end": {
-                    "line": 10,
+                    "line": 11,
                     "column": 60,
-                    "index": 583
+                    "index": 652
                   }
                 }
               },
@@ -667,14 +838,14 @@
                 "value": "1",
                 "loc": {
                   "start": {
-                    "line": 10,
+                    "line": 11,
                     "column": 32,
-                    "index": 555
+                    "index": 624
                   },
                   "end": {
-                    "line": 10,
+                    "line": 11,
                     "column": 33,
-                    "index": 556
+                    "index": 625
                   }
                 }
               },
@@ -683,14 +854,14 @@
                 "value": "GetAppInfoRequest",
                 "loc": {
                   "start": {
-                    "line": 10,
+                    "line": 11,
                     "column": 35,
-                    "index": 558
+                    "index": 627
                   },
                   "end": {
-                    "line": 10,
+                    "line": 11,
                     "column": 52,
-                    "index": 575
+                    "index": 644
                   }
                 }
               },
@@ -705,14 +876,14 @@
             "kind": "Annotations",
             "loc": {
               "start": {
-                "line": 10,
+                "line": 11,
                 "column": 61,
-                "index": 584
+                "index": 653
               },
               "end": {
-                "line": 10,
+                "line": 11,
                 "column": 86,
-                "index": 609
+                "index": 678
               }
             },
             "members": [
@@ -723,27 +894,27 @@
                   "value": "\"/api/test\"",
                   "loc": {
                     "start": {
-                      "line": 10,
+                      "line": 11,
                       "column": 74,
-                      "index": 597
+                      "index": 666
                     },
                     "end": {
-                      "line": 10,
+                      "line": 11,
                       "column": 85,
-                      "index": 608
+                      "index": 677
                     }
                   }
                 },
                 "loc": {
                   "start": {
-                    "line": 10,
+                    "line": 11,
                     "column": 63,
-                    "index": 586
+                    "index": 655
                   },
                   "end": {
-                    "line": 10,
+                    "line": 11,
                     "column": 85,
-                    "index": 608
+                    "index": 677
                   }
                 },
                 "name": {
@@ -751,21 +922,22 @@
                   "value": "api.post",
                   "loc": {
                     "start": {
-                      "line": 10,
+                      "line": 11,
                       "column": 63,
-                      "index": 586
+                      "index": 655
                     },
                     "end": {
-                      "line": 10,
+                      "line": 11,
                       "column": 71,
-                      "index": 594
+                      "index": 663
                     }
                   }
                 }
               }
             ]
           },
-          "comments": []
+          "comments": [],
+          "oneway": false
         }
       ],
       "comments": [],
@@ -773,14 +945,14 @@
         "kind": "Annotations",
         "loc": {
           "start": {
-            "line": 11,
+            "line": 12,
             "column": 1,
-            "index": 610
+            "index": 679
           },
           "end": {
-            "line": 11,
+            "line": 12,
             "column": 22,
-            "index": 631
+            "index": 700
           }
         },
         "members": [
@@ -791,27 +963,27 @@
               "value": "\"/api/test\"",
               "loc": {
                 "start": {
-                  "line": 11,
+                  "line": 12,
                   "column": 10,
-                  "index": 619
+                  "index": 688
                 },
                 "end": {
-                  "line": 11,
+                  "line": 12,
                   "column": 21,
-                  "index": 630
+                  "index": 699
                 }
               }
             },
             "loc": {
               "start": {
-                "line": 11,
+                "line": 12,
                 "column": 3,
-                "index": 612
+                "index": 681
               },
               "end": {
-                "line": 11,
+                "line": 12,
                 "column": 21,
-                "index": 630
+                "index": 699
               }
             },
             "name": {
@@ -819,14 +991,14 @@
               "value": "api.gw",
               "loc": {
                 "start": {
-                  "line": 11,
+                  "line": 12,
                   "column": 3,
-                  "index": 612
+                  "index": 681
                 },
                 "end": {
-                  "line": 11,
+                  "line": 12,
                   "column": 9,
-                  "index": 618
+                  "index": 687
                 }
               }
             }

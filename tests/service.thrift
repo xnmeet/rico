@@ -3,6 +3,7 @@ service AppService {
     // 所以应该禁止制表符使用
 	GetAppInfoResponse GetAppInfo(1: GetAppInfoRequest request )(api.post = "/api/test")
     void GetAppInfo(1: apps.GetAppInfoRequest request=[1,2] )
+    oneway void GetAppInfo(1: apps.GetAppInfoRequest request=[1,2] )
     record.UpdateRecordByActionResponse UpdateRecordByFlow(1: record.UpdateRecordByFlowRequest request )
 }
 

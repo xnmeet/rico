@@ -198,6 +198,7 @@ pub struct Function {
     pub throws: Option<Vec<Field>>,
     pub annotations: Option<Annotations>,
     pub comments: Vec<Comment>,
+    pub oneway: bool,
 }
 
 #[derive(Serialize, Deserialize, Debug)]
