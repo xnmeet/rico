@@ -1,0 +1,205 @@
+{
+  "kind": "ThriftDocument",
+  "members": [
+    {
+      "kind": "UnionDefinition",
+      "loc": {
+        "start": {
+          "line": 1,
+          "column": 1,
+          "index": 0
+        },
+        "end": {
+          "line": 4,
+          "column": 2,
+          "index": 103
+        }
+      },
+      "name": {
+        "kind": "Identifier",
+        "value": "PaperNodeValue",
+        "loc": {
+          "start": {
+            "line": 1,
+            "column": 7,
+            "index": 6
+          },
+          "end": {
+            "line": 1,
+            "column": 21,
+            "index": 20
+          }
+        }
+      },
+      "members": [
+        {
+          "kind": "FieldDefinition",
+          "loc": {
+            "start": {
+              "line": 2,
+              "column": 5,
+              "index": 27
+            },
+            "end": {
+              "line": 2,
+              "column": 34,
+              "index": 56
+            }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "section",
+            "loc": {
+              "start": {
+                "line": 2,
+                "column": 25,
+                "index": 47
+              },
+              "end": {
+                "line": 2,
+                "column": 32,
+                "index": 54
+              }
+            }
+          },
+          "fieldID": {
+            "kind": "FieldID",
+            "value": "1",
+            "loc": {
+              "start": {
+                "line": 2,
+                "column": 5,
+                "index": 27
+              },
+              "end": {
+                "line": 2,
+                "column": 7,
+                "index": 29
+              }
+            }
+          },
+          "fieldType": {
+            "kind": "Identifier",
+            "value": "PaperNodeSection",
+            "loc": {
+              "start": {
+                "line": 2,
+                "column": 8,
+                "index": 30
+              },
+              "end": {
+                "line": 2,
+                "column": 24,
+                "index": 46
+              }
+            }
+          },
+          "requiredType": "default",
+          "defaultValue": {
+            "kind": "IntegerLiteral",
+            "value": "1",
+            "loc": {
+              "start": {
+                "line": 2,
+                "column": 33,
+                "index": 55
+              },
+              "end": {
+                "line": 2,
+                "column": 34,
+                "index": 56
+              }
+            }
+          },
+          "annotations": null,
+          "comments": []
+        },
+        {
+          "kind": "FieldDefinition",
+          "loc": {
+            "start": {
+              "line": 3,
+              "column": 5,
+              "index": 69
+            },
+            "end": {
+              "line": 3,
+              "column": 26,
+              "index": 90
+            }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "item",
+            "loc": {
+              "start": {
+                "line": 3,
+                "column": 22,
+                "index": 86
+              },
+              "end": {
+                "line": 3,
+                "column": 26,
+                "index": 90
+              }
+            }
+          },
+          "fieldID": {
+            "kind": "FieldID",
+            "value": "2",
+            "loc": {
+              "start": {
+                "line": 3,
+                "column": 5,
+                "index": 69
+              },
+              "end": {
+                "line": 3,
+                "column": 7,
+                "index": 71
+              }
+            }
+          },
+          "fieldType": {
+            "kind": "Identifier",
+            "value": "PaperNodeItem",
+            "loc": {
+              "start": {
+                "line": 3,
+                "column": 8,
+                "index": 72
+              },
+              "end": {
+                "line": 3,
+                "column": 21,
+                "index": 85
+              }
+            }
+          },
+          "requiredType": "default",
+          "defaultValue": null,
+          "annotations": null,
+          "comments": [
+            {
+              "kind": "CommentLine",
+              "value": "// 节",
+              "loc": {
+                "start": {
+                  "line": 2,
+                  "column": 36,
+                  "index": 58
+                },
+                "end": {
+                  "line": 2,
+                  "column": 42,
+                  "index": 64
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "comments": []
+    }
+  ]
+}

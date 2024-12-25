@@ -56,6 +56,7 @@ impl<'a> Parser<'a> {
                     Token::Typedef => members.push(DocumentMembers::Typedef(self.parse_typedef()?)),
                     Token::Enum => members.push(DocumentMembers::Enum(self.parse_enum()?)),
                     Token::Struct => members.push(DocumentMembers::Struct(self.parse_struct()?)),
+                    Token::Union => members.push(DocumentMembers::Union(self.parse_union()?)),
                     Token::Exception => {
                         members.push(DocumentMembers::Exception(self.parse_exception()?))
                     }

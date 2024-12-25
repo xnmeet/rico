@@ -119,7 +119,7 @@ fn get_tests_dir() -> String {
 }
 
 fn main() {
-    let test_files = vec!["struct", "service", "enum", "const", "typedef"];
+    let test_files = vec!["struct", "service", "enum", "const", "typedef", "common"];
     let mut benchmark = ThriftBenchmark::new();
     let tests_dir = get_tests_dir();
 

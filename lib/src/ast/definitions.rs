@@ -179,6 +179,15 @@ pub struct Struct {
 }
 
 #[derive(Serialize, Deserialize, Debug)]
+pub struct Union {
+    pub kind: NodeType,
+    pub loc: LOC,
+    pub name: Common<String>,
+    pub members: Vec<Field>,
+    pub comments: Vec<Comment>,
+}
+
+#[derive(Serialize, Deserialize, Debug)]
 pub struct Function {
     pub kind: NodeType,
     pub loc: LOC,
@@ -211,6 +220,7 @@ pub enum DocumentMembers {
     Struct(Struct),
     Service(Service),
     Exception(Exception),
+    Union(Union),
 }
 
 #[derive(Serialize, Deserialize, Debug)]

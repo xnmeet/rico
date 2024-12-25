@@ -227,6 +227,19 @@ impl<'a> Parser<'a> {
         )
     }
 
+    pub(crate) fn parse_union(&mut self) -> Result<Union, ParseError> {
+        self.parse_struct_like(
+            NodeType::UnionDefinition,
+            |kind, loc, name, members, comments| Union {
+                kind,
+                loc,
+                name,
+                members,
+                comments,
+            },
+        )
+    }
+
     pub(crate) fn parse_exception(&mut self) -> Result<Exception, ParseError> {
         self.parse_struct_like(
             NodeType::ExceptionDefinition,
