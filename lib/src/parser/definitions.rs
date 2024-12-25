@@ -301,6 +301,30 @@ impl<'a> Parser<'a> {
         }
     }
 
+    fn parse_extends(&mut self) -> Result<Option<Common<String>>, ParseError> {
+        if let Some(Token::Extends) = self.peek() {
+            self.advance(); // Consume 'extends'
+            self.consume(Token::Identifier)?;
+            Ok(Some(create_identifier(
+                self.get_token_loc(),
+                self.text().to_owned(),
+            )))
+        } else {
+            Ok(None)
+        }
+    }
+
+    fn parse_return_type(&mut self) -> Result<FieldType, ParseError> {
+        match self.token() {
+            Some(Token::Void) => Ok(FieldType::CommonType(create_void(
+                self.get_token_loc(),
+                self.text().to_owned(),
+            ))),
+            Some(_) => self.parse_field_type_opt(false),
+            None => Err(ParseError::InvalidReturnType(self.start_pos())),
+        }
+    }
+
     pub(crate) fn parse_service(&mut self) -> Result<Service, ParseError> {
         let tracker = LocationTracker::new(self.start_pos());
         let comments = self.take_pending_comments();
@@ -308,18 +332,14 @@ impl<'a> Parser<'a> {
         self.consume(Token::Identifier)?;
         let name = create_identifier(self.get_token_loc(), self.text().to_owned());
 
+        // Parse extends clause if present
+        let extends = self.parse_extends()?;
+
         let members = self.parse_members(|parser| {
             let function_comments = parser.take_pending_comments();
 
             // Parse return type
-            let return_type = match parser.token() {
-                Some(Token::Void) => FieldType::CommonType(create_void(
-                    parser.get_token_loc(),
-                    parser.text().to_owned(),
-                )),
-                Some(_) => parser.parse_field_type_opt(false)?,
-                None => return Err(ParseError::InvalidReturnType(parser.start_pos())),
-            };
+            let return_type = parser.parse_return_type()?;
 
             parser.consume(Token::Identifier)?;
             let function_name = create_identifier(parser.get_token_loc(), parser.text().to_owned());
@@ -348,12 +368,17 @@ impl<'a> Parser<'a> {
             })
         })?;
 
+        // Parse service annotations
+        let annotations = self.parse_annotations()?;
+
         Ok(Service {
             kind: NodeType::ServiceDefinition,
             loc: tracker.to_parent_loc(&self.get_token_loc()),
             name,
+            extends,
             members,
             comments,
+            annotations,
         })
     }
 

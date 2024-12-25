@@ -70,7 +70,7 @@ fn main() {
         process_thrift_file(file, output_path, Arc::clone(&stats), &pb);
     });
 
-    pb.finish_and_clear();
+    pb.finish_with_message("Done");
 
     let elapsed = start_time.elapsed().as_secs_f32();
 

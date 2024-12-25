@@ -1701,6 +1701,7 @@
           }
         }
       },
+      "extends": null,
       "members": [
         {
           "kind": "FunctionDefinition",
@@ -2484,7 +2485,8 @@
             }
           }
         }
-      ]
+      ],
+      "annotations": null
     },
     {
       "kind": "ServiceDefinition",
@@ -2516,6 +2518,7 @@
           }
         }
       },
+      "extends": null,
       "members": [
         {
           "kind": "FunctionDefinition",
@@ -3009,7 +3012,8 @@
             }
           }
         }
-      ]
+      ],
+      "annotations": null
     },
     {
       "kind": "ServiceDefinition",
@@ -3041,6 +3045,7 @@
           }
         }
       },
+      "extends": null,
       "members": [
         {
           "kind": "FunctionDefinition",
@@ -3414,7 +3419,8 @@
             }
           }
         }
-      ]
+      ],
+      "annotations": null
     },
     {
       "kind": "StructDefinition",

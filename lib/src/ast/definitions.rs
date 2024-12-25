@@ -205,8 +205,10 @@ pub struct Service {
     pub kind: NodeType,
     pub loc: LOC,
     pub name: Common<String>,
+    pub extends: Option<Common<String>>,
     pub members: Vec<Function>,
     pub comments: Vec<Comment>,
+    pub annotations: Option<Annotations>,
 }
 
 #[derive(Serialize, Deserialize, Debug)]
