@@ -557,6 +557,15 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "2b15c43186be67a4fd63bee50d0303afffcef381492ebe2c5d87f324e1b8815c"
 
 [[package]]
+name = "rico_parser"
+version = "0.1.0"
+dependencies = [
+ "logos",
+ "serde",
+ "serde_json",
+]
+
+[[package]]
 name = "rustc_version"
 version = "0.4.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -644,8 +653,8 @@ dependencies = [
  "humantime",
  "indicatif",
  "memory-stats",
+ "rico_parser",
  "serde_json",
- "thrift_parser",
 ]
 
 [[package]]
@@ -656,16 +665,7 @@ dependencies = [
  "colored",
  "indicatif",
  "rayon",
- "serde_json",
- "thrift_parser",
-]
-
-[[package]]
-name = "thrift_parser"
-version = "0.1.0"
-dependencies = [
- "logos",
- "serde",
+ "rico_parser",
  "serde_json",
 ]
 

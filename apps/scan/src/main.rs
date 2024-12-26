@@ -2,12 +2,12 @@ use clap::Parser;
 use colored::*;
 use indicatif::{MultiProgress, ProgressBar, ProgressStyle};
 use rayon::prelude::*;
+use rico_parser::parser::Parser as ThriftParser;
 use std::fs;
 use std::path::{Path, PathBuf};
 use std::sync::atomic::{AtomicUsize, Ordering};
 use std::sync::{Arc, Mutex};
 use std::time::Instant;
-use thrift_parser::parser::Parser as ThriftParser;
 
 #[derive(Parser, Debug)]
 #[command(author, version, about, long_about = None)]

@@ -1,3 +1,19 @@
 [workspace]
-members = ["lib", "scan", "benchmark"]
+members = ["creates/rico_parser", "apps/scan", "apps/benchmark"]
 resolver = "2"
+
+[workspace.package]
+version = "0.1.0"
+authors = ["xxnmeet@gmail.com"]
+edition = "2021"
+description = "thrift parser"
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/xxnmeet/thrift-parser"
+documentation = "https://docs.rs/projectname"
+keywords = ["thrift", "parser", "AST"]
+categories = ["development-tools"]
+
+[workspace.dependencies]
+serde = { version = "1.0.210", features = ["derive"] }
+serde_json = "1.0.128"
+rico_parser = { path = "./creates/rico_parser" }

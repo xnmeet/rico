@@ -2,10 +2,10 @@ use colored::*;
 use humantime::format_duration;
 use indicatif::{ProgressBar, ProgressStyle};
 use memory_stats::memory_stats;
+use rico_parser::Parser;
 use std::fs;
 use std::path::Path;
 use std::time::{Duration, Instant};
-use thrift_parser::Parser;
 
 struct BenchmarkResult {
     file_name: String,

@@ -1,7 +1,7 @@
+use rico_parser::parser::Parser;
 use serde_json;
 use std::fs;
 use std::path::Path;
-use thrift_parser::parser::Parser;
 
 fn get_tests_dir() -> String {
     // 首先尝试当前目录下的 tests
