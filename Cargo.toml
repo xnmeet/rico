@@ -8,8 +8,7 @@ authors = ["xxnmeet@gmail.com"]
 edition = "2021"
 description = "thrift parser"
 license = "MIT OR Apache-2.0"
-repository = "https://github.com/xxnmeet/thrift-parser"
-documentation = "https://docs.rs/projectname"
+repository = "https://github.com/xxnmeet/rico"
 keywords = ["thrift", "parser", "AST"]
 categories = ["development-tools"]
 
