@@ -2,6 +2,16 @@
 
 A high-performance Apache Thrift IDL parser written in Rust that converts Thrift IDL files to JSON AST.
 
+<div align="center">
+
+[![Crates.io](https://img.shields.io/crates/v/rico_parser.svg)](https://crates.io/crates/rico_parser)
+[![Documentation](https://docs.rs/rico_parser/badge.svg)](https://docs.rs/rico_parser)
+[![License](https://img.shields.io/github/license/xnmeet/rico)](LICENSE)
+[![Build Status](https://github.com/xnmeet/rico/workflows/Build%20and%20Test/badge.svg)](https://github.com/xnmeet/rico/actions)
+[![Crates.io Downloads](https://img.shields.io/crates/d/rico_parser)](https://crates.io/crates/rico_parser)
+
+</div>
+
 ## Features
 
 - 🚀 Fast and efficient parsing
