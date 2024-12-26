@@ -1,0 +1,23 @@
+name: Publish to Creates
+
+on:
+  workflow_dispatch:
+env:
+  CARGO_TERM_COLOR: always
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Build
+        run: cargo build --workspace
+
+      - name: Run tests
+        run: cargo test --workspace
+
+      - name: Publish to creates
+        run: |
+          cargo publish --token ${{ secrets.CARGO_TOKEN }} --manifest-path creates/rico_parser/Cargo.toml
