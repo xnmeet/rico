@@ -1,6 +1,6 @@
 [package]
 name = "rico_parser"
-version = "0.1.1-alpha.0"
+version = "0.1.1"
 edition = "2021"
 description = "A high-performance Apache Thrift IDL parser that converts Thrift IDL files to JSON AST"
 license = "MIT OR Apache-2.0"
