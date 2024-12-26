@@ -1,4 +1,4 @@
 typedef string ResourceType
-const ResourceType ResourceTypeInternalApp = "internal_app" // 对应应用模版
-const ResourceType ResourceTypeISVApp = "isv_app" // 解决方案
-const ResourceType ResourceTypeComponentLib = "component_lib" // 组件库
+const ResourceType ResourceTypeWebApp = "web_app" // 网页应用
+const ResourceType ResourceTypeMobileApp = "mobile_app" // 移动应用
+const ResourceType ResourceTypeDesktopApp = "desktop_app" // 桌面应用
