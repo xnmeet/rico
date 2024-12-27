@@ -1,10 +1,10 @@
 [package]
-name = "thrift-benchmark"
+name = "benchmark"
 version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-rico_parser = { workspace = true }
+rico = { workspace = true }
 colored = "2.1.0"
 indicatif = "0.17.8"
 serde_json = { workspace = true }

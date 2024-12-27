@@ -24,7 +24,7 @@ rico_parser = "0.1.0"
 ### Basic Parsing
 
 ```rust
-use rico_parser::Parser;
+use rico::Parser;
 
 fn main() {
     let input = r#"

@@ -4,11 +4,11 @@ A high-performance Apache Thrift IDL parser written in Rust that converts Thrift
 
 <div align="center">
 
-[![Crates.io](https://img.shields.io/crates/v/rico_parser.svg)](https://crates.io/crates/rico_parser)
-[![Documentation](https://docs.rs/rico_parser/badge.svg)](https://docs.rs/rico_parser)
+[![Crates.io](https://img.shields.io/crates/v/rico.svg)](https://crates.io/crates/rico)
+[![Documentation](https://docs.rs/rico/badge.svg)](https://docs.rs/rico)
 [![License](https://img.shields.io/github/license/xnmeet/rico)](LICENSE)
 [![Build Status](https://github.com/xnmeet/rico/workflows/Build%20and%20Test/badge.svg)](https://github.com/xnmeet/rico/actions)
-[![Crates.io Downloads](https://img.shields.io/crates/d/rico_parser)](https://crates.io/crates/rico_parser)
+[![Crates.io Downloads](https://img.shields.io/crates/d/rico)](https://crates.io/crates/rico)
 
 </div>
 
@@ -26,7 +26,7 @@ A high-performance Apache Thrift IDL parser written in Rust that converts Thrift
 
 ```bash
 [dependencies]
-rico_parser = "0.1.0"
+rico = "0.1.0"
 ```
 
 ## Usage
@@ -34,7 +34,7 @@ rico_parser = "0.1.0"
 ### Basic Parsing
 
 ```rust
-use rico_parser::Parser;
+use rico::Parser;
 
 fn main() {
     let input = r#"

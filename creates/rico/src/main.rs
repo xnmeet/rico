@@ -1,4 +1,4 @@
-use rico_parser::parser::Parser;
+use rico::parser::Parser;
 use serde_json;
 use std::fs;
 use std::path::Path;
