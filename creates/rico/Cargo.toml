@@ -1,15 +1,15 @@
 [package]
 name = "rico"
-version = "0.1.2"
+version = "0.1.3"
 edition = "2021"
 description = "A high-performance Apache Thrift IDL parser that converts Thrift IDL files to JSON AST"
-license = "MIT OR Apache-2.0"
+license.workspace = true
 documentation = "https://docs.rs/rico"
-repository = "https://github.com/xxnmeet/rico"
+repository.workspace = true
 readme = "README.md"
 keywords = ["thrift", "parser", "ast", "idl", "json"]
 categories = ["parsing", "development-tools"]
-authors = ["xxnmeet@gmail.com"]
+authors.workspace = true
 
 [dependencies]
 logos = "0.15.0"
