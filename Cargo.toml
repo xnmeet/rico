@@ -1,5 +1,5 @@
 [workspace]
-members = ["creates/rico_parser", "apps/scan", "apps/benchmark"]
+members = ["creates/rico", "apps/scan", "apps/benchmark"]
 resolver = "2"
 
 [workspace.package]
@@ -15,4 +15,4 @@ categories = ["development-tools"]
 [workspace.dependencies]
 serde = { version = "1.0.210", features = ["derive"] }
 serde_json = "1.0.128"
-rico_parser = { path = "./creates/rico_parser" }
+rico = { path = "./creates/rico" }

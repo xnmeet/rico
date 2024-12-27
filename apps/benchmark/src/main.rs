@@ -2,7 +2,7 @@ use colored::*;
 use humantime::format_duration;
 use indicatif::{ProgressBar, ProgressStyle};
 use memory_stats::memory_stats;
-use rico_parser::Parser;
+use rico::Parser;
 use std::fs;
 use std::path::Path;
 use std::time::{Duration, Instant};

@@ -79,6 +79,19 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "3a8241f3ebb85c056b509d4327ad0358fbbba6ffb340bf388f26350aeda225b1"
 
 [[package]]
+name = "benchmark"
+version = "0.1.0"
+dependencies = [
+ "colored",
+ "criterion",
+ "humantime",
+ "indicatif",
+ "memory-stats",
+ "rico",
+ "serde_json",
+]
+
+[[package]]
 name = "bumpalo"
 version = "3.16.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -557,11 +570,23 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "2b15c43186be67a4fd63bee50d0303afffcef381492ebe2c5d87f324e1b8815c"
 
 [[package]]
-name = "rico_parser"
-version = "0.1.1"
+name = "rico"
+version = "0.1.2"
 dependencies = [
  "logos",
  "serde",
+ "serde_json",
+]
+
+[[package]]
+name = "rico-scan"
+version = "0.1.0"
+dependencies = [
+ "clap",
+ "colored",
+ "indicatif",
+ "rayon",
+ "rico",
  "serde_json",
 ]
 
@@ -642,31 +667,6 @@ dependencies = [
  "proc-macro2",
  "quote",
  "unicode-ident",
-]
-
-[[package]]
-name = "thrift-benchmark"
-version = "0.1.0"
-dependencies = [
- "colored",
- "criterion",
- "humantime",
- "indicatif",
- "memory-stats",
- "rico_parser",
- "serde_json",
-]
-
-[[package]]
-name = "thrift-scan"
-version = "0.1.0"
-dependencies = [
- "clap",
- "colored",
- "indicatif",
- "rayon",
- "rico_parser",
- "serde_json",
 ]
 
 [[package]]

@@ -2,7 +2,7 @@ use clap::Parser;
 use colored::*;
 use indicatif::{MultiProgress, ProgressBar, ProgressStyle};
 use rayon::prelude::*;
-use rico_parser::parser::Parser as ThriftParser;
+use rico::parser::Parser as ThriftParser;
 use std::fs;
 use std::path::{Path, PathBuf};
 use std::sync::atomic::{AtomicUsize, Ordering};

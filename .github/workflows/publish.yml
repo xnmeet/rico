@@ -20,4 +20,4 @@ jobs:
 
       - name: Publish to creates
         run: |
-          cargo publish --token ${{ secrets.CARGO_TOKEN }} --manifest-path creates/rico_parser/Cargo.toml
+          cargo publish --token ${{ secrets.CARGO_TOKEN }} --manifest-path creates/rico/Cargo.toml
