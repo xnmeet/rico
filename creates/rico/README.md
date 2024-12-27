@@ -16,7 +16,7 @@ A high-performance Apache Thrift IDL parser written in Rust that converts Thrift
 
 ```bash
 [dependencies]
-rico_parser = "0.1.0"
+rico = { version = "*" }
 ```
 
 ## Usage
@@ -43,30 +43,6 @@ fn main() {
     }
 }
 ```
-
-### Command Line Tools
-
-#### Scan Multiple Files
-
-The project includes a CLI tool for processing multiple Thrift files:
-
-```bash
-cargo run -p thrift-scan -- --path ./thrift/files --output ./json/output
-```
-
-#### Benchmark Parser Performance
-
-Run benchmarks on Thrift files:
-
-```bash
-cargo run -p thrift-benchmark
-```
-
-## Project Structure
-
-- `lib/`: Core parser library
-- `scan/`: CLI tool for batch processing
-- `benchmark/`: Performance benchmarking tool
 
 ## Supported Thrift Features
 
