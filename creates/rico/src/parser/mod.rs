@@ -20,6 +20,36 @@ pub struct ParserToken<'a> {
     pub end: Span,
 }
 
+/// A Thrift IDL parser that produces a JSON AST representation.
+///
+/// The parser supports all standard Thrift features including:
+/// - Base types and collections
+/// - Structs, unions, and exceptions
+/// - Services and functions
+/// - Enums and constants
+/// - Namespaces and includes
+/// - Comments and annotations
+///
+/// # Example
+///
+/// ```rust
+/// use rico::Parser;
+///
+/// let input = r#"
+///     namespace rs demo
+///     
+///     struct User {
+///         1: string name
+///         2: i32 age
+///     }
+/// "#;
+///
+/// let mut parser = Parser::new(input);
+/// match parser.parse() {
+///     Ok(ast) => println!("{}", serde_json::to_string_pretty(&ast).unwrap()),
+///     Err(e) => eprintln!("Error: {}", e),
+/// }
+/// ```
 pub struct Parser<'a> {
     lexer: logos::Lexer<'a, Token>,
     cur_token: Option<ParserToken<'a>>,
@@ -28,6 +58,7 @@ pub struct Parser<'a> {
 }
 
 impl<'a> Parser<'a> {
+    /// Creates a new Parser instance for the given Thrift IDL input string.
     pub fn new(input: &'a str) -> Self {
         let lexer = Token::lexer(input);
         Parser {
@@ -38,6 +69,22 @@ impl<'a> Parser<'a> {
         }
     }
 
+    /// Parses the Thrift IDL input and returns a Document AST.
+    ///
+    /// The Document contains all parsed definitions including:
+    /// - Namespaces
+    /// - Includes
+    /// - Constants
+    /// - Typedefs
+    /// - Enums
+    /// - Structs
+    /// - Unions
+    /// - Exceptions
+    /// - Services
+    ///
+    /// # Errors
+    ///
+    /// Returns a ParseError if the input contains syntax errors or unsupported features.
     pub fn parse(&mut self) -> Result<Document, ParseError> {
         let mut members = Vec::new();
 
