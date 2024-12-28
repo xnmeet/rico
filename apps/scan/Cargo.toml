@@ -2,11 +2,24 @@
 name = "rico-scan"
 version = "0.1.0"
 edition = "2021"
+description = "A high-performance CLI tool for parsing and validating Thrift IDL files"
+license.workspace = true
+documentation = "https://docs.rs/rico-scan"
+repository.workspace = true
+readme = "README.md"
+keywords = ["thrift", "parser", "cli", "idl", "validator"]
+categories = ["command-line-utilities", "development-tools", "parsing"]
+authors.workspace = true
 
 [dependencies]
 rico = { workspace = true }
 clap = { version = "4.5.1", features = ["derive"] }
-rayon = "1.8.1"
+miette = { workspace = true }
 indicatif = "0.17.8"
-serde_json = { workspace = true }
+rayon = "1.8.1"
+serde_json = { workspace = true, optional = true }
 colored = "2.1.0"
+
+[features]
+default = ["json-output"]
+json-output = ["dep:serde_json"]

@@ -5,6 +5,8 @@ use crate::parser::factory::*;
 use crate::parser::location::LocationTracker;
 use crate::parser::Parser;
 
+use super::error::ParseErrorKind;
+
 impl<'a> Parser<'a> {
     pub(crate) fn parse_include(&mut self) -> Result<Include, ParseError> {
         let tracker = LocationTracker::new(self.start_pos());
@@ -115,7 +117,7 @@ impl<'a> Parser<'a> {
                         NodeType::IntConstant,
                     ));
                 } else {
-                    return Err(ParseError::InvalidValueDeclaration(parser.start_pos()));
+                    return Err(parser.error(ParseErrorKind::InvalidValueDeclaration));
                 }
             }
 
@@ -156,7 +158,7 @@ impl<'a> Parser<'a> {
         ];
 
         if !VALID_TOKENS.iter().any(|valid| self.token() == Some(valid)) {
-            return Err(ParseError::InvalidFieldName(self.start_pos()));
+            return Err(self.error(ParseErrorKind::InvalidFieldName));
         }
 
         Ok(create_identifier(
@@ -343,7 +345,7 @@ impl<'a> Parser<'a> {
                 self.text().to_owned(),
             ))),
             Some(_) => self.parse_field_type_opt(false),
-            None => Err(ParseError::InvalidReturnType(self.start_pos())),
+            None => Err(self.error(ParseErrorKind::InvalidReturnType)),
         }
     }
 
@@ -488,10 +490,11 @@ impl<'a> Parser<'a> {
         // Validate that it's a valid unsigned integer
         let field_id = match text.parse::<u64>() {
             Ok(_) => Ok(create_field_id(self.get_token_loc(), text.to_string())),
-            Err(_) => Err(ParseError::InvalidFieldId(self.start_pos())),
+            Err(_) => Err(self.error(ParseErrorKind::InvalidFieldId)),
         };
-        self.consume(Token::Colon)?;
-
+        if field_id.is_ok() {
+            self.consume(Token::Colon)?;
+        }
         field_id
     }
 }

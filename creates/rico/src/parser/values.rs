@@ -4,6 +4,8 @@ use crate::parser::error::ParseError;
 use crate::parser::factory::*;
 use crate::parser::Parser;
 
+use super::ParseErrorKind;
+
 impl<'a> Parser<'a> {
     fn parse_delimited_values<T>(
         &mut self,
@@ -92,9 +94,9 @@ impl<'a> Parser<'a> {
                 Token::Identifier => Ok(create_identifier_value(self.get_token_loc(), self.text())),
                 Token::LeftBracket => self.parse_list_value(),
                 Token::LeftBrace => self.parse_map_value(),
-                _ => Err(ParseError::InvalidValueDeclaration(self.start_pos())),
+                _ => Err(self.error(ParseErrorKind::InvalidValueDeclaration)),
             },
-            None => Err(ParseError::UnexpectedEOF(self.start_pos())),
+            None => Err(self.error(ParseErrorKind::UnexpectedEOF)),
         }
     }
 

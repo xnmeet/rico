@@ -9,6 +9,7 @@ mod values;
 use crate::ast::*;
 use crate::lexer::Token;
 use crate::parser::error::ParseError;
+use error::ParseErrorKind;
 use logos::Logos;
 
 #[derive(Debug, Clone)]
@@ -20,24 +21,74 @@ pub struct ParserToken<'a> {
     pub end: Span,
 }
 
+/// A Thrift IDL parser that produces a JSON AST representation.
+///
+/// The parser supports all standard Thrift features including:
+/// - Base types and collections
+/// - Structs, unions, and exceptions
+/// - Services and functions
+/// - Enums and constants
+/// - Namespaces and includes
+/// - Comments and annotations
+///
+/// # Example
+///
+/// ```rust
+/// use rico::Parser;
+///
+/// let input = r#"
+///     namespace rs demo
+///     
+///     struct User {
+///         1: string name
+///         2: i32 age
+///     }
+/// "#;
+///
+/// let mut parser = Parser::new(input);
+/// match parser.parse() {
+///     Ok(ast) => println!("{}", serde_json::to_string_pretty(&ast).unwrap()),
+///     Err(e) => eprintln!("Error: {}", e),
+/// }
+/// ```
 pub struct Parser<'a> {
     lexer: logos::Lexer<'a, Token>,
     cur_token: Option<ParserToken<'a>>,
     next_token: Option<ParserToken<'a>>,
     pending_comments: Vec<Comment>,
+    last_span: logos::Span,
 }
 
 impl<'a> Parser<'a> {
+    /// Creates a new Parser instance for the given Thrift IDL input string.
     pub fn new(input: &'a str) -> Self {
         let lexer = Token::lexer(input);
+        let last_span = lexer.span().clone();
         Parser {
             lexer,
             next_token: None,
             cur_token: None,
             pending_comments: Vec::new(),
+            last_span,
         }
     }
 
+    /// Parses the Thrift IDL input and returns a Document AST.
+    ///
+    /// The Document contains all parsed definitions including:
+    /// - Namespaces
+    /// - Includes
+    /// - Constants
+    /// - Typedefs
+    /// - Enums
+    /// - Structs
+    /// - Unions
+    /// - Exceptions
+    /// - Services
+    ///
+    /// # Errors
+    ///
+    /// Returns a ParseError if the input contains syntax errors or unsupported features.
     pub fn parse(&mut self) -> Result<Document, ParseError> {
         let mut members = Vec::new();
 
@@ -62,10 +113,14 @@ impl<'a> Parser<'a> {
                     }
                     Token::Service => members.push(DocumentMembers::Service(self.parse_service()?)),
                     _ => {
-                        return Err(ParseError::UnexpectedToken(self.start_pos()));
+                        return Err(self.error(ParseErrorKind::UnexpectedToken));
                     }
                 }
             } else {
+                // if last_span.end == 1, it means the first token is unrecognized
+                if self.last_span.end == 1 {
+                    return Err(self.error(ParseErrorKind::UnrecognizedToken));
+                }
                 self.clear_pending_comments();
                 break;
             }
@@ -77,44 +132,42 @@ impl<'a> Parser<'a> {
         })
     }
 
-    fn advance(&mut self) -> Option<&Token> {
-        // 如果没有下一个 token 且当前 token 存在，清空当前 token
-        if self.next_token.is_none() && self.cur_token.is_some() {
-            self.cur_token = None;
-            return None;
-        }
-
-        // 更新当前 token
-        self.cur_token = self.next_token.take(); // Move next_token to cur_token
-
-        // 获取当前 token，发生于首 token
-        if self.cur_token.is_none() {
-            if let Some(Ok(token)) = self.lexer.next() {
-                self.cur_token = Some(ParserToken {
-                    text: self.lexer.slice(),
-                    span: self.lexer.span(),
-                    token,
-                    start: self.bind_start_position(),
-                    end: self.bind_end_position(),
-                });
-            }
-        }
-
-        // 获取下一个 token
-        self.next_token = self
-            .lexer
-            .next()
-            .map(|result| {
-                result.map(|token| ParserToken {
+    fn create_parser_token(&mut self) -> Option<ParserToken<'a>> {
+        self.lexer.next().and_then(|result| {
+            result
+                .map(|token| ParserToken {
                     text: self.lexer.slice(),
                     span: self.lexer.span(),
                     token,
                     start: self.bind_start_position(),
                     end: self.bind_end_position(),
                 })
-            })
-            .transpose()
-            .unwrap_or(None);
+                .map_err(|_| {
+                    println!("lexer.next() error {:?}", self.lexer.span());
+                    self.last_span = self.lexer.span();
+                })
+                .ok()
+        })
+    }
+
+    fn advance(&mut self) -> Option<&Token> {
+        // If there's no next token and current token exists, clear the current token
+        if self.next_token.is_none() && self.cur_token.is_some() {
+            self.last_span = self.cur_token.as_ref().unwrap().span.clone();
+            self.cur_token = None;
+            return None;
+        }
+
+        // Get current token (happens for the first token)
+        if self.cur_token.is_none() {
+            self.cur_token = self.create_parser_token();
+        } else {
+            // Update current token
+            self.cur_token = self.next_token.take(); // Move next_token to cur_token
+        }
+
+        // Get next token
+        self.next_token = self.create_parser_token();
 
         self.cur_token.as_ref().map(|token| &token.token)
     }
@@ -169,4 +222,22 @@ impl<'a> Parser<'a> {
 
         Span::new(line, column, index)
     }
+
+    fn error(&self, kind: ParseErrorKind) -> ParseError {
+        match &self.cur_token {
+            Some(token) => ParseError::from_loc(token.span.clone(), kind),
+            None => {
+                if self.last_span.end == self.lexer.source().bytes().len() {
+                    return ParseError::from_loc(
+                        self.last_span.clone(),
+                        ParseErrorKind::UnexpectedEOF,
+                    );
+                }
+                ParseError::from_loc(self.last_span.clone(), ParseErrorKind::UnrecognizedToken)
+            }
+        }
+    }
 }
+
+#[cfg(test)]
+mod tests;

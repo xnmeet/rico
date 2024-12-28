@@ -213,22 +213,35 @@ pub struct Service {
     pub annotations: Option<Annotations>,
 }
 
+/// Represents a complete Thrift IDL document
+#[derive(Serialize, Deserialize, Debug)]
+pub struct Document {
+    /// The node type (always ThriftDocument)
+    pub kind: NodeType,
+    /// The list of top-level definitions in the document
+    pub members: Vec<DocumentMembers>,
+}
+
+/// Represents a top-level definition in a Thrift document
 #[derive(Serialize, Deserialize, Debug)]
 #[serde(untagged)]
 pub enum DocumentMembers {
+    /// A namespace declaration
     Namespace(Namespace),
+    /// An include statement
     Include(Include),
+    /// A constant definition
     Const(Const),
+    /// A typedef definition
     Typedef(Typedef),
+    /// An enum definition
     Enum(Enum),
+    /// A struct definition
     Struct(Struct),
+    /// A service definition
     Service(Service),
+    /// An exception definition
     Exception(Exception),
+    /// A union definition
     Union(Union),
-}
-
-#[derive(Serialize, Deserialize, Debug)]
-pub struct Document {
-    pub kind: NodeType,
-    pub members: Vec<DocumentMembers>,
 }
