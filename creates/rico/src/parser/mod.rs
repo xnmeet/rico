@@ -217,3 +217,6 @@ impl<'a> Parser<'a> {
         Span::new(line, column, index)
     }
 }
+
+#[cfg(test)]
+mod tests;
