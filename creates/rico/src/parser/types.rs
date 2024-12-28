@@ -5,6 +5,8 @@ use crate::parser::error::ParseError;
 use crate::parser::factory::*;
 use crate::parser::Parser;
 
+use super::error::ParseErrorKind;
+
 impl<'a> Parser<'a> {
     pub(crate) fn parse_complex_type<F>(
         &mut self,
@@ -93,9 +95,9 @@ impl<'a> Parser<'a> {
                 Token::List => self.parse_list_type(),
                 Token::Map => self.parse_map_type(),
                 Token::Set => self.parse_set_type(),
-                _ => Err(ParseError::UnsupportedType(self.start_pos())),
+                _ => Err(self.error(ParseErrorKind::UnsupportedType)),
             },
-            None => Err(ParseError::MissingTypeDeclaration(self.start_pos())),
+            None => Err(self.error(ParseErrorKind::MissingTypeDeclaration)),
         }
     }
 }

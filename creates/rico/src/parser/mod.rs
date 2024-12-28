@@ -9,6 +9,7 @@ mod values;
 use crate::ast::*;
 use crate::lexer::Token;
 use crate::parser::error::ParseError;
+use error::ParseErrorKind;
 use logos::Logos;
 
 #[derive(Debug, Clone)]
@@ -109,7 +110,7 @@ impl<'a> Parser<'a> {
                     }
                     Token::Service => members.push(DocumentMembers::Service(self.parse_service()?)),
                     _ => {
-                        return Err(ParseError::UnexpectedToken(self.start_pos()));
+                        return Err(self.error(ParseErrorKind::UnexpectedToken));
                     }
                 }
             } else {
@@ -215,6 +216,10 @@ impl<'a> Parser<'a> {
         let index = source[..span.end].len();
 
         Span::new(line, column, index)
+    }
+
+    fn error(&self, kind: ParseErrorKind) -> ParseError {
+        ParseError::from_loc(self.cur_token.clone().unwrap().span, kind)
     }
 }
 

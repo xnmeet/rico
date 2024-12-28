@@ -12,12 +12,12 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Build
-        run: cargo build --workspace
-
-      - name: Run tests
-        run: cargo test --workspace
-
-      - name: Publish to creates
+      - name: Build and Test
         run: |
-          cargo publish --token ${{ secrets.CARGO_TOKEN }} --manifest-path creates/rico/Cargo.toml
+          cargo build --workspace
+          cargo test --workspace
+
+      - name: Publish
+        run: |
+          cargo publish --token ${{ secrets.CARGO_TOKEN }} -p rico
+          cargo publish --token ${{ secrets.CARGO_TOKEN }} -p rico-scan

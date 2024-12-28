@@ -2,13 +2,14 @@ use crate::lexer::Token;
 use crate::parser::error::ParseError;
 use crate::parser::Parser;
 
+use super::error::ParseErrorKind;
 use super::Comment;
 
 impl<'a> Parser<'a> {
     pub(crate) fn expect_token(&mut self, expected: Token) -> Result<(), ParseError> {
         match self.token() {
             Some(token) if token == &expected => Ok(()),
-            Some(_) | None => Err(ParseError::UnexpectedToken(self.start_pos())),
+            Some(_) | None => Err(self.error(ParseErrorKind::UnexpectedToken)),
         }
     }
 

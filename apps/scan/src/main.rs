@@ -1,185 +1,232 @@
-use clap::Parser;
-use colored::*;
-use indicatif::{MultiProgress, ProgressBar, ProgressStyle};
-use rayon::prelude::*;
-use rico::parser::Parser as ThriftParser;
-use std::fs;
+//! Rico-scan is a high-performance CLI tool for parsing and validating Thrift IDL files.
+//!
+//! # Features
+//!
+//! - Fast parallel processing of Thrift files
+//! - Detailed error reporting with source context
+//! - Optional JSON AST output
+//! - Progress indication with ETA
+//! - Colorful and informative terminal output
+//!
+//! # Usage
+//!
+//! ```bash
+//! # Just validate Thrift files
+//! rico-scan -p /path/to/thrift/files
+//!
+//! # Parse and output JSON AST
+//! rico-scan -p /path/to/thrift/files -o /path/to/output
+//! ```
+
 use std::path::{Path, PathBuf};
 use std::sync::atomic::{AtomicUsize, Ordering};
-use std::sync::{Arc, Mutex};
+use std::sync::Arc;
 use std::time::Instant;
+use std::{fs, io};
 
+use clap::Parser;
+use colored::Colorize;
+use indicatif::{ProgressBar, ProgressStyle};
+use miette::{miette, NamedSource, Result};
+use rayon::{current_num_threads, prelude::*};
+use rico::parser::Parser as ThriftParser;
+
+/// Command line arguments for rico-scan
 #[derive(Parser, Debug)]
-#[command(author, version, about, long_about = None)]
+#[command(
+    author,
+    version,
+    about = "A high-performance CLI tool for parsing and validating Thrift IDL files"
+)]
 struct Args {
     /// Directory path containing thrift files
     #[arg(short, long)]
-    path: String,
+    path: PathBuf,
 
-    /// Output directory for JSON files
-    #[arg(short, long, default_value = "output")]
-    output: String,
+    /// Optional output directory for JSON AST files
+    /// If not provided, files will only be validated without generating output
+    #[arg(short, long)]
+    output: Option<PathBuf>,
 }
 
-/// 记录处理状态
-#[derive(Default)]
-struct ProcessStats {
-    processed_count: AtomicUsize,
-    failed_files: Mutex<Vec<(PathBuf, String)>>,
+/// Statistics for tracking file processing progress
+struct Stats {
+    /// Number of files processed so far
+    processed: AtomicUsize,
+    /// Total number of files to process
+    total: usize,
 }
 
-fn main() {
-    let args = Args::parse();
-    let start_time = Instant::now();
-
-    let input_path = Path::new(&args.path);
-    let output_path = Path::new(&args.output);
-
-    // 创建输出目录
-    if !output_path.exists() {
-        fs::create_dir_all(output_path).expect("Failed to create output directory");
-    }
-
-    // 查找所有 thrift 文件
-    let thrift_files = collect_thrift_files(input_path);
-    let total_files = thrift_files.len();
-    println!(
-        "{} {} thrift files found",
-        "•".green().bold(),
-        total_files.to_string().green().bold()
+/// Sets up a progress bar with a custom style for file processing
+fn setup_progress_bar(total: usize) -> ProgressBar {
+    let pb = ProgressBar::new(total as u64);
+    pb.set_style(
+        ProgressStyle::default_bar()
+            .template("{spinner:.green} [{bar:40.cyan/blue}] {pos}/{len} ({eta})")
+            .unwrap()
+            .progress_chars("=>-"),
     );
-
-    let stats = Arc::new(ProcessStats {
-        processed_count: AtomicUsize::new(0),
-        failed_files: Mutex::new(Vec::new()),
-    });
-
-    // 进度条设置
-    let multi = MultiProgress::new();
-    let progress_style = ProgressStyle::default_bar()
-        .template("{spinner:.magenta} [{elapsed_precise}] [{wide_bar:.cyan/blue}] {pos}/{len} ({percent}%) {msg}")
-        .unwrap()
-        .progress_chars("#>-");
-
-    let pb = multi.add(ProgressBar::new(total_files as u64));
-    pb.set_style(progress_style);
-    pb.enable_steady_tick(std::time::Duration::from_millis(80));
-
-    // 并行处理文件
-    thrift_files.par_iter().for_each(|file| {
-        process_thrift_file(file, output_path, Arc::clone(&stats), &pb);
-    });
-
-    pb.finish_with_message("Done");
-
-    let elapsed = start_time.elapsed().as_secs_f32();
-
-    // 打印最终结果
-    let failed_files = stats.failed_files.lock().unwrap();
-    let success_count = total_files - failed_files.len();
-
-    let summary_title = format!("{} Summary", "🚀".yellow());
-    println!("{}", summary_title.bold().yellow());
-    println!(
-        "{} {} files processed in {:.2}s",
-        "•".green().bold(),
-        total_files.to_string().green().bold(),
-        elapsed
-    );
-    println!(
-        "{} {} succeeded",
-        "•".green().bold(),
-        success_count.to_string().green().bold()
-    );
-
-    if failed_files.is_empty() {
-        println!("{} All files processed successfully!", "✓".green().bold());
-    } else {
-        print_errors_table(&failed_files);
-    }
+    pb.enable_steady_tick(std::time::Duration::from_millis(100));
+    pb
 }
 
-/// 深度遍历目录，收集 .thrift 文件
-fn collect_thrift_files(dir: &Path) -> Vec<PathBuf> {
+/// Recursively collects all .thrift files from a directory
+///
+/// # Arguments
+///
+/// * `dir` - The directory to search for .thrift files
+///
+/// # Returns
+///
+/// A vector of paths to all .thrift files found
+fn collect_thrift_files(dir: &Path) -> io::Result<Vec<PathBuf>> {
     let mut files = Vec::new();
-    if let Ok(entries) = fs::read_dir(dir) {
-        for entry in entries.flatten() {
+    if dir.is_dir() {
+        for entry in fs::read_dir(dir)? {
+            let entry = entry?;
             let path = entry.path();
             if path.is_dir() {
-                files.extend(collect_thrift_files(&path));
-            } else if let Some(ext) = path.extension() {
-                if ext == "thrift" {
-                    files.push(path);
-                }
+                files.extend(collect_thrift_files(&path)?);
+            } else if path.extension().and_then(|s| s.to_str()) == Some("thrift") {
+                files.push(path);
             }
         }
     }
-    files
+    Ok(files)
 }
 
-/// 处理单个 thrift 文件
-fn process_thrift_file(
-    input_file: &Path,
-    output_dir: &Path,
-    stats: Arc<ProcessStats>,
-    pb: &ProgressBar,
-) {
-    let file_stem = input_file.file_stem().unwrap().to_str().unwrap();
-    let output_file = output_dir.join(format!("{}.json", file_stem));
+/// Writes the AST to a JSON file
+///
+/// This function is only available when the `json-output` feature is enabled.
+///
+/// # Arguments
+///
+/// * `ast` - The AST to serialize
+/// * `output_path` - The path where to write the JSON file
+#[cfg(feature = "json-output")]
+fn write_output(ast: rico::ast::Document, output_path: &Path) -> io::Result<()> {
+    let json = serde_json::to_string_pretty(&ast)?;
+    fs::write(output_path, json)
+}
 
-    pb.set_message(format!(
-        "Parsing {:?}",
-        input_file.file_name().unwrap_or_default()
-    ));
+/// Processes a single Thrift file
+///
+/// This function will:
+/// 1. Read the file content
+/// 2. Parse it using the Rico parser
+/// 3. Optionally write the AST as JSON if an output directory is provided
+///
+/// # Arguments
+///
+/// * `input` - Path to the input Thrift file
+/// * `output_dir` - Optional output directory for JSON files
+///
+/// # Returns
+///
+/// * `Ok(())` if processing succeeded
+/// * `Err` with a detailed error message if any step failed
+fn process_file(input: &Path, output_dir: Option<&Path>) -> Result<()> {
+    let content = fs::read_to_string(input)
+        .map_err(|e| miette!("Failed to read {}: {}", input.display(), e))?;
+    let mut parser = ThriftParser::new(&content);
 
-    let result = fs::read_to_string(input_file).and_then(|content| {
-        let mut parser = ThriftParser::new(&content);
-        parser
-            .parse()
-            .map_err(|e| std::io::Error::new(std::io::ErrorKind::Other, e.to_string()))
-            .and_then(|value| {
-                serde_json::to_string_pretty(&value)
-                    .map_err(|e| std::io::Error::new(std::io::ErrorKind::Other, e.to_string()))
-            })
-            .and_then(|json_output| fs::write(&output_file, json_output))
+    let ast = parser.parse().map_err(|error| {
+        miette::Error::new(error).with_source_code(NamedSource::new(
+            input.display().to_string(),
+            content.clone(),
+        ))
+    })?;
+
+    if let Some(output_dir) = output_dir {
+        #[cfg(feature = "json-output")]
+        {
+            let file_name = input
+                .file_stem()
+                .and_then(|s| s.to_str())
+                .ok_or_else(|| miette!("Invalid file name"))?;
+            let output_path = output_dir.join(format!("{}.json", file_name));
+            write_output(ast, &output_path)
+                .map_err(|e| miette!("Failed to write {}: {}", output_path.display(), e))?;
+        }
+    }
+
+    Ok(())
+}
+
+fn main() -> Result<()> {
+    let start_time = Instant::now();
+    let args = Args::parse();
+    let thrift_files = collect_thrift_files(&args.path)
+        .map_err(|e| miette!("Failed to collect Thrift files: {}", e))?;
+
+    if thrift_files.is_empty() {
+        println!(
+            "{} {} {}",
+            "!".yellow(),
+            "No Thrift files found in".yellow(),
+            args.path.display().to_string().yellow().underline()
+        );
+        return Ok(());
+    }
+
+    println!("📝 Found {} Thrift files", thrift_files.len());
+
+    if let Some(output_dir) = &args.output {
+        fs::create_dir_all(output_dir)
+            .map_err(|e| miette!("Failed to create output directory: {}", e))?;
+        println!("📁 Output directory: {}", output_dir.display());
+    }
+
+    let stats = Arc::new(Stats {
+        processed: AtomicUsize::new(0),
+        total: thrift_files.len(),
     });
 
-    match result {
-        Ok(_) => {
-            stats.processed_count.fetch_add(1, Ordering::SeqCst);
-        }
-        Err(e) => {
-            stats.processed_count.fetch_add(1, Ordering::SeqCst);
-            stats
-                .failed_files
-                .lock()
-                .unwrap()
-                .push((input_file.to_path_buf(), e.to_string()));
+    let pb = setup_progress_bar(stats.total);
+
+    // Process files in parallel
+    let results: Vec<_> = thrift_files
+        .par_iter()
+        .map(|file| {
+            let result = process_file(file, args.output.as_deref());
+            stats.processed.fetch_add(1, Ordering::SeqCst);
+            pb.inc(1);
+            (file, result)
+        })
+        .collect();
+
+    pb.finish_and_clear();
+
+    // Report results
+    let (success, failures): (Vec<_>, Vec<_>) =
+        results.into_iter().partition(|(_, result)| result.is_ok());
+
+    let elapsed = start_time.elapsed();
+    // Print summary in one line
+    println!(
+        "{} {} {} {} {} {} {} {} {} {} {} {} {}",
+        "Done!".bright_green(),
+        "•".bright_black(),
+        "✅".green(),
+        format!("succeeded: {}", success.len()).green(),
+        "•".bright_black(),
+        "❌".red(),
+        format!("failed: {}", failures.len()).red(),
+        "•".bright_black(),
+        "⚡".cyan(),
+        format!("threads: {}", current_num_threads()).cyan(),
+        "•".bright_black(),
+        "⏱".yellow(),
+        format!("time: {:.2}s", elapsed.as_secs_f32()).yellow()
+    );
+
+    // Only show error details if there are failures
+    if !failures.is_empty() {
+        println!("\n");
+        for (_, error) in failures {
+            eprintln!("{:?}", error.err().unwrap());
         }
     }
 
-    pb.inc(1);
-}
-
-/// 显示失败文件列表
-fn print_errors_table(failed_files: &[(PathBuf, String)]) {
-    if failed_files.is_empty() {
-        return;
-    }
-
-    println!("{}", "\nFailed files:".red().bold());
-
-    for (i, (file, error)) in failed_files.iter().enumerate() {
-        println!(
-            "{}{}",
-            "┌─".bright_blue().bold(),
-            file.display().to_string().red().bold()
-        );
-        println!("{}{}", "└─".bright_blue().bold(), error.bright_red());
-
-        // 如果不是最后一个错误，添加空行
-        if i < failed_files.len() - 1 {
-            println!();
-        }
-    }
+    Ok(())
 }

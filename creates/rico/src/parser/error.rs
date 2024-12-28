@@ -1,68 +1,160 @@
-use std::fmt;
+use logos::Span;
+use miette::{Diagnostic, SourceSpan};
+use thiserror::Error;
 
-use super::Span;
-
-#[derive(Debug)]
+#[derive(Error, Debug, Diagnostic)]
 pub enum ParseError {
-    UnexpectedToken(Span),
-    UnexpectedEOF(Span),
-    InvalidInteger(Span),
-    InvalidFloat(Span),
-    LexerError(Span),
-    NestedComplexType(Span),
-    UnsupportedType(Span),
-    MissingTypeDeclaration(Span),
-    InvalidValueDeclaration(Span),
-    InvalidReturnType(Span),
-    InvalidFieldName(Span),
-    InvalidFieldId(Span),
+    #[error("Unexpected token")]
+    #[diagnostic(
+        code(rico::parser::unexpected_token),
+        help("Expected a different token here")
+    )]
+    UnexpectedToken {
+        #[label("This token was not expected in this context")]
+        span: SourceSpan,
+    },
+
+    #[error("Unexpected end of file")]
+    #[diagnostic(
+        code(rico::parser::unexpected_eof),
+        help("The file ended unexpectedly, you might be missing some closing tokens")
+    )]
+    UnexpectedEOF {
+        #[label("The file ended here")]
+        span: SourceSpan,
+    },
+
+    #[error("Invalid integer value")]
+    #[diagnostic(
+        code(rico::parser::invalid_integer),
+        help("Integer values must be valid numbers")
+    )]
+    InvalidInteger {
+        #[label("This integer value is invalid")]
+        span: SourceSpan,
+    },
+
+    #[error("Invalid float value")]
+    #[diagnostic(
+        code(rico::parser::invalid_float),
+        help("Float values must be valid decimal numbers")
+    )]
+    InvalidFloat {
+        #[label("This float value is invalid")]
+        span: SourceSpan,
+    },
+
+    #[error("Lexer error")]
+    #[diagnostic(
+        code(rico::parser::lexer_error),
+        help("There was an error tokenizing the input")
+    )]
+    LexerError {
+        #[label("Error occurred here")]
+        span: SourceSpan,
+    },
+
+    #[error("Nested complex type")]
+    #[diagnostic(
+        code(rico::parser::nested_complex_type),
+        help("Complex types cannot be nested directly. Consider using a typedef")
+    )]
+    NestedComplexType {
+        #[label("This complex type is nested")]
+        span: SourceSpan,
+    },
+
+    #[error("Unsupported type")]
+    #[diagnostic(
+        code(rico::parser::unsupported_type),
+        help("This type is not supported in Thrift IDL")
+    )]
+    UnsupportedType {
+        #[label("This type is not supported")]
+        span: SourceSpan,
+    },
+
+    #[error("Missing type declaration")]
+    #[diagnostic(
+        code(rico::parser::missing_type),
+        help("A type declaration is required here")
+    )]
+    MissingTypeDeclaration {
+        #[label("Type declaration is missing")]
+        span: SourceSpan,
+    },
+
+    #[error("Invalid value declaration")]
+    #[diagnostic(
+        code(rico::parser::invalid_value),
+        help("The value declaration is not valid in this context")
+    )]
+    InvalidValueDeclaration {
+        #[label("This value declaration is invalid")]
+        span: SourceSpan,
+    },
+
+    #[error("Invalid return type")]
+    #[diagnostic(
+        code(rico::parser::invalid_return_type),
+        help("The return type is not valid for this function")
+    )]
+    InvalidReturnType {
+        #[label("This return type is invalid")]
+        span: SourceSpan,
+    },
+
+    #[error("Invalid field name")]
+    #[diagnostic(
+        code(rico::parser::invalid_field_name),
+        help("Field names must be valid identifiers")
+    )]
+    InvalidFieldName {
+        #[label("This field name is invalid")]
+        span: SourceSpan,
+    },
+
+    #[error("Invalid field ID")]
+    #[diagnostic(
+        code(rico::parser::invalid_field_id),
+        help("Field IDs must be positive integers,use like: \"1: string name\"")
+    )]
+    InvalidFieldId {
+        #[label("This field ID is invalid")]
+        span: SourceSpan,
+    },
 }
 
-impl fmt::Display for ParseError {
-    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
-        match self {
-            ParseError::UnexpectedToken(loc) => {
-                write!(f, "Unexpected token:{}:{}", loc.line, loc.column)
+// Helper function to convert our Span to miette's SourceSpan
+impl ParseError {
+    pub(crate) fn from_loc(span: Span, kind: ParseErrorKind) -> Self {
+        let source_span = SourceSpan::new(span.start.into(), span.end - span.start);
+
+        match kind {
+            ParseErrorKind::UnexpectedToken => Self::UnexpectedToken { span: source_span },
+            ParseErrorKind::UnexpectedEOF => Self::UnexpectedEOF { span: source_span },
+            ParseErrorKind::UnsupportedType => Self::UnsupportedType { span: source_span },
+            ParseErrorKind::MissingTypeDeclaration => {
+                Self::MissingTypeDeclaration { span: source_span }
             }
-            ParseError::UnexpectedEOF(loc) => {
-                write!(f, "Unexpected end of file:{}:{}", loc.line, loc.column)
+            ParseErrorKind::InvalidValueDeclaration => {
+                Self::InvalidValueDeclaration { span: source_span }
             }
-            ParseError::InvalidInteger(loc) => {
-                write!(f, "Invalid integer:{}:{}", loc.line, loc.column)
-            }
-            ParseError::InvalidFloat(loc) => {
-                write!(f, "Invalid float:{}:{}", loc.line, loc.column)
-            }
-            ParseError::LexerError(loc) => {
-                write!(f, "Lexer error:{}:{}", loc.line, loc.column)
-            }
-            ParseError::NestedComplexType(loc) => {
-                write!(
-                    f,
-                    "Nested complex types are not allowed:{}:{}",
-                    loc.line, loc.column
-                )
-            }
-            ParseError::UnsupportedType(loc) => {
-                write!(f, "Unsupported type format:{}:{}", loc.line, loc.column)
-            }
-            ParseError::MissingTypeDeclaration(loc) => {
-                write!(f, "Missing type declaration:{}:{}", loc.line, loc.column)
-            }
-            ParseError::InvalidValueDeclaration(loc) => {
-                write!(f, "Invalid value declaration:{}:{}", loc.line, loc.column)
-            }
-            ParseError::InvalidReturnType(loc) => {
-                write!(f, "Invalid return type:{}:{}", loc.line, loc.column)
-            }
-            ParseError::InvalidFieldName(loc) => {
-                write!(f, "Invalid field name:{}:{}", loc.line, loc.column)
-            }
-            ParseError::InvalidFieldId(loc) => {
-                write!(f, "Invalid field ID:{}:{}", loc.line, loc.column)
-            }
+            ParseErrorKind::InvalidReturnType => Self::InvalidReturnType { span: source_span },
+            ParseErrorKind::InvalidFieldName => Self::InvalidFieldName { span: source_span },
+            ParseErrorKind::InvalidFieldId => Self::InvalidFieldId { span: source_span },
         }
     }
 }
 
-impl std::error::Error for ParseError {}
+#[derive(Debug, Clone, Copy)]
+pub(crate) enum ParseErrorKind {
+    UnexpectedToken,
+    UnexpectedEOF,
+    UnsupportedType,
+    MissingTypeDeclaration,
+    InvalidValueDeclaration,
+    InvalidReturnType,
+    InvalidFieldName,
+    InvalidFieldId,
+}
