@@ -4,6 +4,16 @@ use thiserror::Error;
 
 #[derive(Error, Debug, Diagnostic)]
 pub enum ParseError {
+    #[error("Unrecognized token")]
+    #[diagnostic(
+        code(rico::parser::unrecognized_token),
+        help("Found a token that is not valid in the Thrift IDL syntax")
+    )]
+    UnrecognizedToken {
+        #[label("This token is not recognized in Thrift IDL")]
+        span: SourceSpan,
+    },
+
     #[error("Unexpected token")]
     #[diagnostic(
         code(rico::parser::unexpected_token),
@@ -131,6 +141,7 @@ impl ParseError {
         let source_span = SourceSpan::new(span.start.into(), span.end - span.start);
 
         match kind {
+            ParseErrorKind::UnrecognizedToken => Self::UnrecognizedToken { span: source_span },
             ParseErrorKind::UnexpectedToken => Self::UnexpectedToken { span: source_span },
             ParseErrorKind::UnexpectedEOF => Self::UnexpectedEOF { span: source_span },
             ParseErrorKind::UnsupportedType => Self::UnsupportedType { span: source_span },
@@ -149,6 +160,7 @@ impl ParseError {
 
 #[derive(Debug, Clone, Copy)]
 pub(crate) enum ParseErrorKind {
+    UnrecognizedToken,
     UnexpectedToken,
     UnexpectedEOF,
     UnsupportedType,

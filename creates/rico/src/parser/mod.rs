@@ -56,17 +56,20 @@ pub struct Parser<'a> {
     cur_token: Option<ParserToken<'a>>,
     next_token: Option<ParserToken<'a>>,
     pending_comments: Vec<Comment>,
+    last_span: logos::Span,
 }
 
 impl<'a> Parser<'a> {
     /// Creates a new Parser instance for the given Thrift IDL input string.
     pub fn new(input: &'a str) -> Self {
         let lexer = Token::lexer(input);
+        let last_span = lexer.span().clone();
         Parser {
             lexer,
             next_token: None,
             cur_token: None,
             pending_comments: Vec::new(),
+            last_span,
         }
     }
 
@@ -114,6 +117,10 @@ impl<'a> Parser<'a> {
                     }
                 }
             } else {
+                // if last_span.end == 1, it means the first token is unrecognized
+                if self.last_span.end == 1 {
+                    return Err(self.error(ParseErrorKind::UnrecognizedToken));
+                }
                 self.clear_pending_comments();
                 break;
             }
@@ -125,44 +132,42 @@ impl<'a> Parser<'a> {
         })
     }
 
-    fn advance(&mut self) -> Option<&Token> {
-        // 如果没有下一个 token 且当前 token 存在，清空当前 token
-        if self.next_token.is_none() && self.cur_token.is_some() {
-            self.cur_token = None;
-            return None;
-        }
-
-        // 更新当前 token
-        self.cur_token = self.next_token.take(); // Move next_token to cur_token
-
-        // 获取当前 token，发生于首 token
-        if self.cur_token.is_none() {
-            if let Some(Ok(token)) = self.lexer.next() {
-                self.cur_token = Some(ParserToken {
-                    text: self.lexer.slice(),
-                    span: self.lexer.span(),
-                    token,
-                    start: self.bind_start_position(),
-                    end: self.bind_end_position(),
-                });
-            }
-        }
-
-        // 获取下一个 token
-        self.next_token = self
-            .lexer
-            .next()
-            .map(|result| {
-                result.map(|token| ParserToken {
+    fn create_parser_token(&mut self) -> Option<ParserToken<'a>> {
+        self.lexer.next().and_then(|result| {
+            result
+                .map(|token| ParserToken {
                     text: self.lexer.slice(),
                     span: self.lexer.span(),
                     token,
                     start: self.bind_start_position(),
                     end: self.bind_end_position(),
                 })
-            })
-            .transpose()
-            .unwrap_or(None);
+                .map_err(|_| {
+                    println!("lexer.next() error {:?}", self.lexer.span());
+                    self.last_span = self.lexer.span();
+                })
+                .ok()
+        })
+    }
+
+    fn advance(&mut self) -> Option<&Token> {
+        // If there's no next token and current token exists, clear the current token
+        if self.next_token.is_none() && self.cur_token.is_some() {
+            self.last_span = self.cur_token.as_ref().unwrap().span.clone();
+            self.cur_token = None;
+            return None;
+        }
+
+        // Get current token (happens for the first token)
+        if self.cur_token.is_none() {
+            self.cur_token = self.create_parser_token();
+        } else {
+            // Update current token
+            self.cur_token = self.next_token.take(); // Move next_token to cur_token
+        }
+
+        // Get next token
+        self.next_token = self.create_parser_token();
 
         self.cur_token.as_ref().map(|token| &token.token)
     }
@@ -219,7 +224,18 @@ impl<'a> Parser<'a> {
     }
 
     fn error(&self, kind: ParseErrorKind) -> ParseError {
-        ParseError::from_loc(self.cur_token.clone().unwrap().span, kind)
+        match &self.cur_token {
+            Some(token) => ParseError::from_loc(token.span.clone(), kind),
+            None => {
+                if self.last_span.end == self.lexer.source().bytes().len() {
+                    return ParseError::from_loc(
+                        self.last_span.clone(),
+                        ParseErrorKind::UnexpectedEOF,
+                    );
+                }
+                ParseError::from_loc(self.last_span.clone(), ParseErrorKind::UnrecognizedToken)
+            }
+        }
     }
 }
 
