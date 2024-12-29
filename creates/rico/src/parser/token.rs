@@ -18,6 +18,18 @@ impl<'a> Parser<'a> {
         self.expect_token(token)
     }
 
+    pub(crate) fn consume_with_error(
+        &mut self,
+        token: Token,
+        error_kind: ParseErrorKind,
+    ) -> Result<(), ParseError> {
+        self.advance();
+        match self.token() {
+            Some(t) if t == &token => Ok(()),
+            Some(_) | None => Err(self.error(error_kind)),
+        }
+    }
+
     pub(crate) fn take_pending_comments(&mut self) -> Vec<Comment> {
         std::mem::take(&mut self.pending_comments)
     }

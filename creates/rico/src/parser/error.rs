@@ -133,6 +133,26 @@ pub enum ParseError {
         #[label("This field ID is invalid")]
         span: SourceSpan,
     },
+
+    #[error("Missing namespace identifier")]
+    #[diagnostic(
+        code(rico::parser::missing_namespace_identifier),
+        help("Namespace declaration requires a scope and name identifier, use like: \"namespace cpp my.namespace\"")
+    )]
+    MissingNamespaceIdentifier {
+        #[label("Expected namespace identifier here")]
+        span: SourceSpan,
+    },
+
+    #[error("Missing namespace scope")]
+    #[diagnostic(
+        code(rico::parser::missing_namespace_scope),
+        help("Namespace declaration requires a scope (e.g., cpp, java, py), use like: \"namespace cpp my.namespace\"")
+    )]
+    MissingNamespaceScope {
+        #[label("Expected namespace scope (cpp, java, py, etc.) here")]
+        span: SourceSpan,
+    },
 }
 
 // Helper function to convert our Span to miette's SourceSpan
@@ -154,6 +174,12 @@ impl ParseError {
             ParseErrorKind::InvalidReturnType => Self::InvalidReturnType { span: source_span },
             ParseErrorKind::InvalidFieldName => Self::InvalidFieldName { span: source_span },
             ParseErrorKind::InvalidFieldId => Self::InvalidFieldId { span: source_span },
+            ParseErrorKind::MissingNamespaceIdentifier => {
+                Self::MissingNamespaceIdentifier { span: source_span }
+            }
+            ParseErrorKind::MissingNamespaceScope => {
+                Self::MissingNamespaceScope { span: source_span }
+            }
         }
     }
 }
@@ -169,4 +195,6 @@ pub(crate) enum ParseErrorKind {
     InvalidReturnType,
     InvalidFieldName,
     InvalidFieldId,
+    MissingNamespaceIdentifier,
+    MissingNamespaceScope,
 }
