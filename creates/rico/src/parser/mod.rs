@@ -143,7 +143,6 @@ impl<'a> Parser<'a> {
                     end: self.bind_end_position(),
                 })
                 .map_err(|_| {
-                    println!("lexer.next() error {:?}", self.lexer.span());
                     self.last_span = self.lexer.span();
                 })
                 .ok()
