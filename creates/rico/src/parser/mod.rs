@@ -237,6 +237,3 @@ impl<'a> Parser<'a> {
         }
     }
 }
-
-#[cfg(test)]
-mod tests;

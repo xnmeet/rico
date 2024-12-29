@@ -1,0 +1,1345 @@
+---
+source: creates/rico/tests/snapshots/mod.rs
+description: Testing exception thrift file
+snapshot_kind: text
+---
+{
+  "kind": "ThriftDocument",
+  "members": [
+    {
+      "kind": "ExceptionDefinition",
+      "loc": {
+        "start": {
+          "line": 2,
+          "column": 1,
+          "index": 42
+        },
+        "end": {
+          "line": 4,
+          "column": 2,
+          "index": 99
+        }
+      },
+      "name": {
+        "kind": "Identifier",
+        "value": "UserNotFoundException",
+        "loc": {
+          "start": {
+            "line": 2,
+            "column": 11,
+            "index": 52
+          },
+          "end": {
+            "line": 2,
+            "column": 32,
+            "index": 73
+          }
+        }
+      },
+      "members": [
+        {
+          "kind": "FieldDefinition",
+          "loc": {
+            "start": {
+              "line": 3,
+              "column": 5,
+              "index": 80
+            },
+            "end": {
+              "line": 3,
+              "column": 22,
+              "index": 97
+            }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "message",
+            "loc": {
+              "start": {
+                "line": 3,
+                "column": 15,
+                "index": 90
+              },
+              "end": {
+                "line": 3,
+                "column": 22,
+                "index": 97
+              }
+            }
+          },
+          "fieldID": {
+            "kind": "FieldID",
+            "value": "1",
+            "loc": {
+              "start": {
+                "line": 3,
+                "column": 5,
+                "index": 80
+              },
+              "end": {
+                "line": 3,
+                "column": 6,
+                "index": 81
+              }
+            }
+          },
+          "fieldType": {
+            "kind": "StringKeyword",
+            "value": "string",
+            "loc": {
+              "start": {
+                "line": 3,
+                "column": 8,
+                "index": 83
+              },
+              "end": {
+                "line": 3,
+                "column": 14,
+                "index": 89
+              }
+            }
+          },
+          "requiredType": "default",
+          "defaultValue": null,
+          "annotations": null,
+          "comments": []
+        }
+      ],
+      "comments": [
+        {
+          "kind": "CommentLine",
+          "value": "// Exception for when a user is not found",
+          "loc": {
+            "start": {
+              "line": 1,
+              "column": 1,
+              "index": 0
+            },
+            "end": {
+              "line": 1,
+              "column": 42,
+              "index": 41
+            }
+          }
+        }
+      ],
+      "annotations": null
+    },
+    {
+      "kind": "ExceptionDefinition",
+      "loc": {
+        "start": {
+          "line": 7,
+          "column": 1,
+          "index": 173
+        },
+        "end": {
+          "line": 10,
+          "column": 2,
+          "index": 280
+        }
+      },
+      "name": {
+        "kind": "Identifier",
+        "value": "InvalidUserRegistrationException",
+        "loc": {
+          "start": {
+            "line": 7,
+            "column": 11,
+            "index": 183
+          },
+          "end": {
+            "line": 7,
+            "column": 43,
+            "index": 215
+          }
+        }
+      },
+      "members": [
+        {
+          "kind": "FieldDefinition",
+          "loc": {
+            "start": {
+              "line": 8,
+              "column": 5,
+              "index": 222
+            },
+            "end": {
+              "line": 8,
+              "column": 27,
+              "index": 244
+            }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "errorMessage",
+            "loc": {
+              "start": {
+                "line": 8,
+                "column": 15,
+                "index": 232
+              },
+              "end": {
+                "line": 8,
+                "column": 27,
+                "index": 244
+              }
+            }
+          },
+          "fieldID": {
+            "kind": "FieldID",
+            "value": "1",
+            "loc": {
+              "start": {
+                "line": 8,
+                "column": 5,
+                "index": 222
+              },
+              "end": {
+                "line": 8,
+                "column": 6,
+                "index": 223
+              }
+            }
+          },
+          "fieldType": {
+            "kind": "StringKeyword",
+            "value": "string",
+            "loc": {
+              "start": {
+                "line": 8,
+                "column": 8,
+                "index": 225
+              },
+              "end": {
+                "line": 8,
+                "column": 14,
+                "index": 231
+              }
+            }
+          },
+          "requiredType": "default",
+          "defaultValue": null,
+          "annotations": null,
+          "comments": []
+        },
+        {
+          "kind": "FieldDefinition",
+          "loc": {
+            "start": {
+              "line": 9,
+              "column": 5,
+              "index": 249
+            },
+            "end": {
+              "line": 9,
+              "column": 34,
+              "index": 278
+            }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "invalidFields",
+            "loc": {
+              "start": {
+                "line": 9,
+                "column": 21,
+                "index": 265
+              },
+              "end": {
+                "line": 9,
+                "column": 34,
+                "index": 278
+              }
+            }
+          },
+          "fieldID": {
+            "kind": "FieldID",
+            "value": "2",
+            "loc": {
+              "start": {
+                "line": 9,
+                "column": 5,
+                "index": 249
+              },
+              "end": {
+                "line": 9,
+                "column": 6,
+                "index": 250
+              }
+            }
+          },
+          "fieldType": {
+            "kind": "ListType",
+            "loc": {
+              "start": {
+                "line": 9,
+                "column": 8,
+                "index": 252
+              },
+              "end": {
+                "line": 9,
+                "column": 20,
+                "index": 264
+              }
+            },
+            "value": "list",
+            "valueType": {
+              "kind": "StringKeyword",
+              "value": "string",
+              "loc": {
+                "start": {
+                  "line": 9,
+                  "column": 13,
+                  "index": 257
+                },
+                "end": {
+                  "line": 9,
+                  "column": 19,
+                  "index": 263
+                }
+              }
+            }
+          },
+          "requiredType": "default",
+          "defaultValue": null,
+          "annotations": null,
+          "comments": []
+        }
+      ],
+      "comments": [
+        {
+          "kind": "CommentLine",
+          "value": "// Exception for when there's an invalid input during user registration",
+          "loc": {
+            "start": {
+              "line": 6,
+              "column": 1,
+              "index": 101
+            },
+            "end": {
+              "line": 6,
+              "column": 72,
+              "index": 172
+            }
+          }
+        }
+      ],
+      "annotations": null
+    },
+    {
+      "kind": "ExceptionDefinition",
+      "loc": {
+        "start": {
+          "line": 13,
+          "column": 1,
+          "index": 360
+        },
+        "end": {
+          "line": 17,
+          "column": 2,
+          "index": 487
+        }
+      },
+      "name": {
+        "kind": "Identifier",
+        "value": "InsufficientInventoryException",
+        "loc": {
+          "start": {
+            "line": 13,
+            "column": 11,
+            "index": 370
+          },
+          "end": {
+            "line": 13,
+            "column": 41,
+            "index": 400
+          }
+        }
+      },
+      "members": [
+        {
+          "kind": "FieldDefinition",
+          "loc": {
+            "start": {
+              "line": 14,
+              "column": 5,
+              "index": 407
+            },
+            "end": {
+              "line": 14,
+              "column": 26,
+              "index": 428
+            }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "productName",
+            "loc": {
+              "start": {
+                "line": 14,
+                "column": 15,
+                "index": 417
+              },
+              "end": {
+                "line": 14,
+                "column": 26,
+                "index": 428
+              }
+            }
+          },
+          "fieldID": {
+            "kind": "FieldID",
+            "value": "1",
+            "loc": {
+              "start": {
+                "line": 14,
+                "column": 5,
+                "index": 407
+              },
+              "end": {
+                "line": 14,
+                "column": 6,
+                "index": 408
+              }
+            }
+          },
+          "fieldType": {
+            "kind": "StringKeyword",
+            "value": "string",
+            "loc": {
+              "start": {
+                "line": 14,
+                "column": 8,
+                "index": 410
+              },
+              "end": {
+                "line": 14,
+                "column": 14,
+                "index": 416
+              }
+            }
+          },
+          "requiredType": "default",
+          "defaultValue": null,
+          "annotations": null,
+          "comments": []
+        },
+        {
+          "kind": "FieldDefinition",
+          "loc": {
+            "start": {
+              "line": 15,
+              "column": 5,
+              "index": 433
+            },
+            "end": {
+              "line": 15,
+              "column": 28,
+              "index": 456
+            }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "requiredQuantity",
+            "loc": {
+              "start": {
+                "line": 15,
+                "column": 12,
+                "index": 440
+              },
+              "end": {
+                "line": 15,
+                "column": 28,
+                "index": 456
+              }
+            }
+          },
+          "fieldID": {
+            "kind": "FieldID",
+            "value": "2",
+            "loc": {
+              "start": {
+                "line": 15,
+                "column": 5,
+                "index": 433
+              },
+              "end": {
+                "line": 15,
+                "column": 6,
+                "index": 434
+              }
+            }
+          },
+          "fieldType": {
+            "kind": "I32Keyword",
+            "value": "i32",
+            "loc": {
+              "start": {
+                "line": 15,
+                "column": 8,
+                "index": 436
+              },
+              "end": {
+                "line": 15,
+                "column": 11,
+                "index": 439
+              }
+            }
+          },
+          "requiredType": "default",
+          "defaultValue": null,
+          "annotations": null,
+          "comments": []
+        },
+        {
+          "kind": "FieldDefinition",
+          "loc": {
+            "start": {
+              "line": 16,
+              "column": 5,
+              "index": 461
+            },
+            "end": {
+              "line": 16,
+              "column": 29,
+              "index": 485
+            }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "availableQuantity",
+            "loc": {
+              "start": {
+                "line": 16,
+                "column": 12,
+                "index": 468
+              },
+              "end": {
+                "line": 16,
+                "column": 29,
+                "index": 485
+              }
+            }
+          },
+          "fieldID": {
+            "kind": "FieldID",
+            "value": "3",
+            "loc": {
+              "start": {
+                "line": 16,
+                "column": 5,
+                "index": 461
+              },
+              "end": {
+                "line": 16,
+                "column": 6,
+                "index": 462
+              }
+            }
+          },
+          "fieldType": {
+            "kind": "I32Keyword",
+            "value": "i32",
+            "loc": {
+              "start": {
+                "line": 16,
+                "column": 8,
+                "index": 464
+              },
+              "end": {
+                "line": 16,
+                "column": 11,
+                "index": 467
+              }
+            }
+          },
+          "requiredType": "default",
+          "defaultValue": null,
+          "annotations": null,
+          "comments": []
+        }
+      ],
+      "comments": [
+        {
+          "kind": "CommentLine",
+          "value": "// Exception for when an order cannot be placed due to insufficient inventory",
+          "loc": {
+            "start": {
+              "line": 12,
+              "column": 1,
+              "index": 282
+            },
+            "end": {
+              "line": 12,
+              "column": 78,
+              "index": 359
+            }
+          }
+        }
+      ],
+      "annotations": null
+    },
+    {
+      "kind": "ExceptionDefinition",
+      "loc": {
+        "start": {
+          "line": 20,
+          "column": 1,
+          "index": 561
+        },
+        "end": {
+          "line": 23,
+          "column": 2,
+          "index": 652
+        }
+      },
+      "name": {
+        "kind": "Identifier",
+        "value": "UnauthorizedAccessException",
+        "loc": {
+          "start": {
+            "line": 20,
+            "column": 11,
+            "index": 571
+          },
+          "end": {
+            "line": 20,
+            "column": 38,
+            "index": 598
+          }
+        }
+      },
+      "members": [
+        {
+          "kind": "FieldDefinition",
+          "loc": {
+            "start": {
+              "line": 21,
+              "column": 5,
+              "index": 605
+            },
+            "end": {
+              "line": 21,
+              "column": 27,
+              "index": 627
+            }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "resourceName",
+            "loc": {
+              "start": {
+                "line": 21,
+                "column": 15,
+                "index": 615
+              },
+              "end": {
+                "line": 21,
+                "column": 27,
+                "index": 627
+              }
+            }
+          },
+          "fieldID": {
+            "kind": "FieldID",
+            "value": "1",
+            "loc": {
+              "start": {
+                "line": 21,
+                "column": 5,
+                "index": 605
+              },
+              "end": {
+                "line": 21,
+                "column": 6,
+                "index": 606
+              }
+            }
+          },
+          "fieldType": {
+            "kind": "StringKeyword",
+            "value": "string",
+            "loc": {
+              "start": {
+                "line": 21,
+                "column": 8,
+                "index": 608
+              },
+              "end": {
+                "line": 21,
+                "column": 14,
+                "index": 614
+              }
+            }
+          },
+          "requiredType": "default",
+          "defaultValue": null,
+          "annotations": null,
+          "comments": []
+        },
+        {
+          "kind": "FieldDefinition",
+          "loc": {
+            "start": {
+              "line": 22,
+              "column": 5,
+              "index": 632
+            },
+            "end": {
+              "line": 22,
+              "column": 23,
+              "index": 650
+            }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "userRole",
+            "loc": {
+              "start": {
+                "line": 22,
+                "column": 15,
+                "index": 642
+              },
+              "end": {
+                "line": 22,
+                "column": 23,
+                "index": 650
+              }
+            }
+          },
+          "fieldID": {
+            "kind": "FieldID",
+            "value": "2",
+            "loc": {
+              "start": {
+                "line": 22,
+                "column": 5,
+                "index": 632
+              },
+              "end": {
+                "line": 22,
+                "column": 6,
+                "index": 633
+              }
+            }
+          },
+          "fieldType": {
+            "kind": "StringKeyword",
+            "value": "string",
+            "loc": {
+              "start": {
+                "line": 22,
+                "column": 8,
+                "index": 635
+              },
+              "end": {
+                "line": 22,
+                "column": 14,
+                "index": 641
+              }
+            }
+          },
+          "requiredType": "default",
+          "defaultValue": null,
+          "annotations": null,
+          "comments": []
+        }
+      ],
+      "comments": [
+        {
+          "kind": "CommentLine",
+          "value": "// Exception for when accessing a resource without proper authorization",
+          "loc": {
+            "start": {
+              "line": 19,
+              "column": 1,
+              "index": 489
+            },
+            "end": {
+              "line": 19,
+              "column": 72,
+              "index": 560
+            }
+          }
+        }
+      ],
+      "annotations": null
+    },
+    {
+      "kind": "ExceptionDefinition",
+      "loc": {
+        "start": {
+          "line": 26,
+          "column": 1,
+          "index": 703
+        },
+        "end": {
+          "line": 29,
+          "column": 2,
+          "index": 794
+        }
+      },
+      "name": {
+        "kind": "Identifier",
+        "value": "DatabaseOperationException",
+        "loc": {
+          "start": {
+            "line": 26,
+            "column": 11,
+            "index": 713
+          },
+          "end": {
+            "line": 26,
+            "column": 37,
+            "index": 739
+          }
+        }
+      },
+      "members": [
+        {
+          "kind": "FieldDefinition",
+          "loc": {
+            "start": {
+              "line": 27,
+              "column": 5,
+              "index": 746
+            },
+            "end": {
+              "line": 27,
+              "column": 24,
+              "index": 765
+            }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "operation",
+            "loc": {
+              "start": {
+                "line": 27,
+                "column": 15,
+                "index": 756
+              },
+              "end": {
+                "line": 27,
+                "column": 24,
+                "index": 765
+              }
+            }
+          },
+          "fieldID": {
+            "kind": "FieldID",
+            "value": "1",
+            "loc": {
+              "start": {
+                "line": 27,
+                "column": 5,
+                "index": 746
+              },
+              "end": {
+                "line": 27,
+                "column": 6,
+                "index": 747
+              }
+            }
+          },
+          "fieldType": {
+            "kind": "StringKeyword",
+            "value": "string",
+            "loc": {
+              "start": {
+                "line": 27,
+                "column": 8,
+                "index": 749
+              },
+              "end": {
+                "line": 27,
+                "column": 14,
+                "index": 755
+              }
+            }
+          },
+          "requiredType": "default",
+          "defaultValue": null,
+          "annotations": null,
+          "comments": []
+        },
+        {
+          "kind": "FieldDefinition",
+          "loc": {
+            "start": {
+              "line": 28,
+              "column": 5,
+              "index": 770
+            },
+            "end": {
+              "line": 28,
+              "column": 27,
+              "index": 792
+            }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "errorDetails",
+            "loc": {
+              "start": {
+                "line": 28,
+                "column": 15,
+                "index": 780
+              },
+              "end": {
+                "line": 28,
+                "column": 27,
+                "index": 792
+              }
+            }
+          },
+          "fieldID": {
+            "kind": "FieldID",
+            "value": "2",
+            "loc": {
+              "start": {
+                "line": 28,
+                "column": 5,
+                "index": 770
+              },
+              "end": {
+                "line": 28,
+                "column": 6,
+                "index": 771
+              }
+            }
+          },
+          "fieldType": {
+            "kind": "StringKeyword",
+            "value": "string",
+            "loc": {
+              "start": {
+                "line": 28,
+                "column": 8,
+                "index": 773
+              },
+              "end": {
+                "line": 28,
+                "column": 14,
+                "index": 779
+              }
+            }
+          },
+          "requiredType": "default",
+          "defaultValue": null,
+          "annotations": null,
+          "comments": []
+        }
+      ],
+      "comments": [
+        {
+          "kind": "CommentLine",
+          "value": "// Exception for when a database operation fails",
+          "loc": {
+            "start": {
+              "line": 25,
+              "column": 1,
+              "index": 654
+            },
+            "end": {
+              "line": 25,
+              "column": 49,
+              "index": 702
+            }
+          }
+        }
+      ],
+      "annotations": null
+    },
+    {
+      "kind": "ExceptionDefinition",
+      "loc": {
+        "start": {
+          "line": 32,
+          "column": 1,
+          "index": 852
+        },
+        "end": {
+          "line": 35,
+          "column": 2,
+          "index": 971
+        }
+      },
+      "name": {
+        "kind": "Identifier",
+        "value": "NetworkConnectionException",
+        "loc": {
+          "start": {
+            "line": 32,
+            "column": 11,
+            "index": 862
+          },
+          "end": {
+            "line": 32,
+            "column": 37,
+            "index": 888
+          }
+        }
+      },
+      "members": [
+        {
+          "kind": "FieldDefinition",
+          "loc": {
+            "start": {
+              "line": 33,
+              "column": 5,
+              "index": 895
+            },
+            "end": {
+              "line": 33,
+              "column": 29,
+              "index": 919
+            }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "connectionType",
+            "loc": {
+              "start": {
+                "line": 33,
+                "column": 15,
+                "index": 905
+              },
+              "end": {
+                "line": 33,
+                "column": 29,
+                "index": 919
+              }
+            }
+          },
+          "fieldID": {
+            "kind": "FieldID",
+            "value": "1",
+            "loc": {
+              "start": {
+                "line": 33,
+                "column": 5,
+                "index": 895
+              },
+              "end": {
+                "line": 33,
+                "column": 6,
+                "index": 896
+              }
+            }
+          },
+          "fieldType": {
+            "kind": "StringKeyword",
+            "value": "string",
+            "loc": {
+              "start": {
+                "line": 33,
+                "column": 8,
+                "index": 898
+              },
+              "end": {
+                "line": 33,
+                "column": 14,
+                "index": 904
+              }
+            }
+          },
+          "requiredType": "default",
+          "defaultValue": null,
+          "annotations": null,
+          "comments": []
+        },
+        {
+          "kind": "FieldDefinition",
+          "loc": {
+            "start": {
+              "line": 34,
+              "column": 5,
+              "index": 947
+            },
+            "end": {
+              "line": 34,
+              "column": 27,
+              "index": 969
+            }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "errorMessage",
+            "loc": {
+              "start": {
+                "line": 34,
+                "column": 15,
+                "index": 957
+              },
+              "end": {
+                "line": 34,
+                "column": 27,
+                "index": 969
+              }
+            }
+          },
+          "fieldID": {
+            "kind": "FieldID",
+            "value": "2",
+            "loc": {
+              "start": {
+                "line": 34,
+                "column": 5,
+                "index": 947
+              },
+              "end": {
+                "line": 34,
+                "column": 6,
+                "index": 948
+              }
+            }
+          },
+          "fieldType": {
+            "kind": "StringKeyword",
+            "value": "string",
+            "loc": {
+              "start": {
+                "line": 34,
+                "column": 8,
+                "index": 950
+              },
+              "end": {
+                "line": 34,
+                "column": 14,
+                "index": 956
+              }
+            }
+          },
+          "requiredType": "default",
+          "defaultValue": null,
+          "annotations": null,
+          "comments": [
+            {
+              "kind": "CommentLine",
+              "value": "// e.g., \"TCP\", \"HTTP\"",
+              "loc": {
+                "start": {
+                  "line": 33,
+                  "column": 30,
+                  "index": 920
+                },
+                "end": {
+                  "line": 33,
+                  "column": 52,
+                  "index": 942
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "comments": [
+        {
+          "kind": "CommentLine",
+          "value": "// Exception for when a network connection error occurs",
+          "loc": {
+            "start": {
+              "line": 31,
+              "column": 1,
+              "index": 796
+            },
+            "end": {
+              "line": 31,
+              "column": 56,
+              "index": 851
+            }
+          }
+        }
+      ],
+      "annotations": null
+    },
+    {
+      "kind": "ExceptionDefinition",
+      "loc": {
+        "start": {
+          "line": 38,
+          "column": 1,
+          "index": 1018
+        },
+        "end": {
+          "line": 41,
+          "column": 2,
+          "index": 1111
+        }
+      },
+      "name": {
+        "kind": "Identifier",
+        "value": "OperationTimeoutException",
+        "loc": {
+          "start": {
+            "line": 38,
+            "column": 11,
+            "index": 1028
+          },
+          "end": {
+            "line": 38,
+            "column": 36,
+            "index": 1053
+          }
+        }
+      },
+      "members": [
+        {
+          "kind": "FieldDefinition",
+          "loc": {
+            "start": {
+              "line": 39,
+              "column": 5,
+              "index": 1060
+            },
+            "end": {
+              "line": 39,
+              "column": 28,
+              "index": 1083
+            }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "operationName",
+            "loc": {
+              "start": {
+                "line": 39,
+                "column": 15,
+                "index": 1070
+              },
+              "end": {
+                "line": 39,
+                "column": 28,
+                "index": 1083
+              }
+            }
+          },
+          "fieldID": {
+            "kind": "FieldID",
+            "value": "1",
+            "loc": {
+              "start": {
+                "line": 39,
+                "column": 5,
+                "index": 1060
+              },
+              "end": {
+                "line": 39,
+                "column": 6,
+                "index": 1061
+              }
+            }
+          },
+          "fieldType": {
+            "kind": "StringKeyword",
+            "value": "string",
+            "loc": {
+              "start": {
+                "line": 39,
+                "column": 8,
+                "index": 1063
+              },
+              "end": {
+                "line": 39,
+                "column": 14,
+                "index": 1069
+              }
+            }
+          },
+          "requiredType": "default",
+          "defaultValue": null,
+          "annotations": null,
+          "comments": []
+        },
+        {
+          "kind": "FieldDefinition",
+          "loc": {
+            "start": {
+              "line": 40,
+              "column": 5,
+              "index": 1088
+            },
+            "end": {
+              "line": 40,
+              "column": 26,
+              "index": 1109
+            }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "timeoutSeconds",
+            "loc": {
+              "start": {
+                "line": 40,
+                "column": 12,
+                "index": 1095
+              },
+              "end": {
+                "line": 40,
+                "column": 26,
+                "index": 1109
+              }
+            }
+          },
+          "fieldID": {
+            "kind": "FieldID",
+            "value": "2",
+            "loc": {
+              "start": {
+                "line": 40,
+                "column": 5,
+                "index": 1088
+              },
+              "end": {
+                "line": 40,
+                "column": 6,
+                "index": 1089
+              }
+            }
+          },
+          "fieldType": {
+            "kind": "I32Keyword",
+            "value": "i32",
+            "loc": {
+              "start": {
+                "line": 40,
+                "column": 8,
+                "index": 1091
+              },
+              "end": {
+                "line": 40,
+                "column": 11,
+                "index": 1094
+              }
+            }
+          },
+          "requiredType": "default",
+          "defaultValue": null,
+          "annotations": null,
+          "comments": []
+        }
+      ],
+      "comments": [
+        {
+          "kind": "CommentLine",
+          "value": "// Exception for when an operation times out",
+          "loc": {
+            "start": {
+              "line": 37,
+              "column": 1,
+              "index": 973
+            },
+            "end": {
+              "line": 37,
+              "column": 45,
+              "index": 1017
+            }
+          }
+        }
+      ],
+      "annotations": null
+    }
+  ]
+}

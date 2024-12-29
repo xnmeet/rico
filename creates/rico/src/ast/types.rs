@@ -34,8 +34,7 @@ impl<T> Common<T> {
     }
 }
 
-#[derive(Serialize, Deserialize, Debug)]
-#[serde(rename_all = "PascalCase")]
+#[derive(Serialize, Deserialize, Debug, Clone, Copy, PartialEq)]
 pub enum NodeType {
     ThriftDocument,
     ThriftErrors,

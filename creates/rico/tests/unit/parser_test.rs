@@ -1,8 +1,8 @@
-use super::*;
 
-#[cfg(test)]
-mod tests {
-    use super::*;
+    use rico::DocumentMembers;
+    use rico::FieldInitialValue;
+    use rico::FieldType;
+    use rico::Parser;
 
     #[test]
     fn test_parse_namespace() {
@@ -189,4 +189,4 @@ mod tests {
             assert!(parser.parse().is_err());
         }
     }
-}
+

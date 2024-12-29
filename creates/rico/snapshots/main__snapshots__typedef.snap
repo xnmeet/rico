@@ -1,0 +1,1129 @@
+---
+source: creates/rico/tests/snapshots/mod.rs
+description: Testing typedef thrift file
+snapshot_kind: text
+---
+{
+  "kind": "ThriftDocument",
+  "members": [
+    {
+      "kind": "TypedefDefinition",
+      "loc": {
+        "start": {
+          "line": 2,
+          "column": 1,
+          "index": 51
+        },
+        "end": {
+          "line": 2,
+          "column": 19,
+          "index": 69
+        }
+      },
+      "name": {
+        "kind": "Identifier",
+        "value": "UserId",
+        "loc": {
+          "start": {
+            "line": 2,
+            "column": 13,
+            "index": 63
+          },
+          "end": {
+            "line": 2,
+            "column": 19,
+            "index": 69
+          }
+        }
+      },
+      "fieldType": {
+        "kind": "I32Keyword",
+        "value": "i32",
+        "loc": {
+          "start": {
+            "line": 2,
+            "column": 9,
+            "index": 59
+          },
+          "end": {
+            "line": 2,
+            "column": 12,
+            "index": 62
+          }
+        }
+      },
+      "comments": [
+        {
+          "kind": "CommentLine",
+          "value": "// Typedef for a user ID, which is an integer type",
+          "loc": {
+            "start": {
+              "line": 1,
+              "column": 1,
+              "index": 0
+            },
+            "end": {
+              "line": 1,
+              "column": 51,
+              "index": 50
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "ConstDefinition",
+      "loc": {
+        "start": {
+          "line": 3,
+          "column": 1,
+          "index": 70
+        },
+        "end": {
+          "line": 3,
+          "column": 20,
+          "index": 89
+        }
+      },
+      "name": {
+        "kind": "Identifier",
+        "value": "foo",
+        "loc": {
+          "start": {
+            "line": 3,
+            "column": 14,
+            "index": 83
+          },
+          "end": {
+            "line": 3,
+            "column": 17,
+            "index": 86
+          }
+        }
+      },
+      "value": {
+        "kind": "IntegerLiteral",
+        "value": "12",
+        "loc": {
+          "start": {
+            "line": 3,
+            "column": 18,
+            "index": 87
+          },
+          "end": {
+            "line": 3,
+            "column": 20,
+            "index": 89
+          }
+        }
+      },
+      "fieldType": {
+        "kind": "Identifier",
+        "value": "UserId",
+        "loc": {
+          "start": {
+            "line": 3,
+            "column": 7,
+            "index": 76
+          },
+          "end": {
+            "line": 3,
+            "column": 13,
+            "index": 82
+          }
+        }
+      },
+      "comments": []
+    },
+    {
+      "kind": "ConstDefinition",
+      "loc": {
+        "start": {
+          "line": 4,
+          "column": 1,
+          "index": 90
+        },
+        "end": {
+          "line": 4,
+          "column": 20,
+          "index": 109
+        }
+      },
+      "name": {
+        "kind": "Identifier",
+        "value": "bar",
+        "loc": {
+          "start": {
+            "line": 4,
+            "column": 14,
+            "index": 103
+          },
+          "end": {
+            "line": 4,
+            "column": 17,
+            "index": 106
+          }
+        }
+      },
+      "value": {
+        "kind": "IntegerLiteral",
+        "value": "14",
+        "loc": {
+          "start": {
+            "line": 4,
+            "column": 18,
+            "index": 107
+          },
+          "end": {
+            "line": 4,
+            "column": 20,
+            "index": 109
+          }
+        }
+      },
+      "fieldType": {
+        "kind": "Identifier",
+        "value": "UserId",
+        "loc": {
+          "start": {
+            "line": 4,
+            "column": 7,
+            "index": 96
+          },
+          "end": {
+            "line": 4,
+            "column": 13,
+            "index": 102
+          }
+        }
+      },
+      "comments": []
+    },
+    {
+      "kind": "TypedefDefinition",
+      "loc": {
+        "start": {
+          "line": 7,
+          "column": 1,
+          "index": 161
+        },
+        "end": {
+          "line": 7,
+          "column": 24,
+          "index": 184
+        }
+      },
+      "name": {
+        "kind": "Identifier",
+        "value": "Username",
+        "loc": {
+          "start": {
+            "line": 7,
+            "column": 16,
+            "index": 176
+          },
+          "end": {
+            "line": 7,
+            "column": 24,
+            "index": 184
+          }
+        }
+      },
+      "fieldType": {
+        "kind": "StringKeyword",
+        "value": "string",
+        "loc": {
+          "start": {
+            "line": 7,
+            "column": 9,
+            "index": 169
+          },
+          "end": {
+            "line": 7,
+            "column": 15,
+            "index": 175
+          }
+        }
+      },
+      "comments": [
+        {
+          "kind": "CommentLine",
+          "value": "// Typedef for a username, which is a string type",
+          "loc": {
+            "start": {
+              "line": 6,
+              "column": 1,
+              "index": 111
+            },
+            "end": {
+              "line": 6,
+              "column": 50,
+              "index": 160
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "TypedefDefinition",
+      "loc": {
+        "start": {
+          "line": 10,
+          "column": 1,
+          "index": 220
+        },
+        "end": {
+          "line": 10,
+          "column": 32,
+          "index": 251
+        }
+      },
+      "name": {
+        "kind": "Identifier",
+        "value": "UserIdList",
+        "loc": {
+          "start": {
+            "line": 10,
+            "column": 22,
+            "index": 241
+          },
+          "end": {
+            "line": 10,
+            "column": 32,
+            "index": 251
+          }
+        }
+      },
+      "fieldType": {
+        "kind": "ListType",
+        "loc": {
+          "start": {
+            "line": 10,
+            "column": 9,
+            "index": 228
+          },
+          "end": {
+            "line": 10,
+            "column": 21,
+            "index": 240
+          }
+        },
+        "value": "list",
+        "valueType": {
+          "kind": "Identifier",
+          "value": "UserId",
+          "loc": {
+            "start": {
+              "line": 10,
+              "column": 14,
+              "index": 233
+            },
+            "end": {
+              "line": 10,
+              "column": 20,
+              "index": 239
+            }
+          }
+        }
+      },
+      "comments": [
+        {
+          "kind": "CommentLine",
+          "value": "// Typedef for a list of user IDs",
+          "loc": {
+            "start": {
+              "line": 9,
+              "column": 1,
+              "index": 186
+            },
+            "end": {
+              "line": 9,
+              "column": 34,
+              "index": 219
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "TypedefDefinition",
+      "loc": {
+        "start": {
+          "line": 13,
+          "column": 1,
+          "index": 306
+        },
+        "end": {
+          "line": 13,
+          "column": 50,
+          "index": 355
+        }
+      },
+      "name": {
+        "kind": "Identifier",
+        "value": "UsernameToUserIdMap",
+        "loc": {
+          "start": {
+            "line": 13,
+            "column": 31,
+            "index": 336
+          },
+          "end": {
+            "line": 13,
+            "column": 50,
+            "index": 355
+          }
+        }
+      },
+      "fieldType": {
+        "kind": "MapType",
+        "loc": {
+          "start": {
+            "line": 13,
+            "column": 9,
+            "index": 314
+          },
+          "end": {
+            "line": 13,
+            "column": 30,
+            "index": 335
+          }
+        },
+        "value": "map",
+        "valueType": {
+          "kind": "Identifier",
+          "value": "UserId",
+          "loc": {
+            "start": {
+              "line": 13,
+              "column": 23,
+              "index": 328
+            },
+            "end": {
+              "line": 13,
+              "column": 29,
+              "index": 334
+            }
+          }
+        },
+        "keyType": {
+          "kind": "Identifier",
+          "value": "Username",
+          "loc": {
+            "start": {
+              "line": 13,
+              "column": 13,
+              "index": 318
+            },
+            "end": {
+              "line": 13,
+              "column": 21,
+              "index": 326
+            }
+          }
+        }
+      },
+      "comments": [
+        {
+          "kind": "CommentLine",
+          "value": "// Typedef for a map that maps usernames to user IDs",
+          "loc": {
+            "start": {
+              "line": 12,
+              "column": 1,
+              "index": 253
+            },
+            "end": {
+              "line": 12,
+              "column": 53,
+              "index": 305
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "StructDefinition",
+      "loc": {
+        "start": {
+          "line": 16,
+          "column": 1,
+          "index": 426
+        },
+        "end": {
+          "line": 21,
+          "column": 2,
+          "index": 522
+        }
+      },
+      "name": {
+        "kind": "Identifier",
+        "value": "Address",
+        "loc": {
+          "start": {
+            "line": 16,
+            "column": 8,
+            "index": 433
+          },
+          "end": {
+            "line": 16,
+            "column": 15,
+            "index": 440
+          }
+        }
+      },
+      "members": [
+        {
+          "kind": "FieldDefinition",
+          "loc": {
+            "start": {
+              "line": 17,
+              "column": 5,
+              "index": 447
+            },
+            "end": {
+              "line": 17,
+              "column": 21,
+              "index": 463
+            }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "street",
+            "loc": {
+              "start": {
+                "line": 17,
+                "column": 15,
+                "index": 457
+              },
+              "end": {
+                "line": 17,
+                "column": 21,
+                "index": 463
+              }
+            }
+          },
+          "fieldID": {
+            "kind": "FieldID",
+            "value": "1",
+            "loc": {
+              "start": {
+                "line": 17,
+                "column": 5,
+                "index": 447
+              },
+              "end": {
+                "line": 17,
+                "column": 6,
+                "index": 448
+              }
+            }
+          },
+          "fieldType": {
+            "kind": "StringKeyword",
+            "value": "string",
+            "loc": {
+              "start": {
+                "line": 17,
+                "column": 8,
+                "index": 450
+              },
+              "end": {
+                "line": 17,
+                "column": 14,
+                "index": 456
+              }
+            }
+          },
+          "requiredType": "default",
+          "defaultValue": null,
+          "annotations": null,
+          "comments": []
+        },
+        {
+          "kind": "FieldDefinition",
+          "loc": {
+            "start": {
+              "line": 18,
+              "column": 5,
+              "index": 468
+            },
+            "end": {
+              "line": 18,
+              "column": 19,
+              "index": 482
+            }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "city",
+            "loc": {
+              "start": {
+                "line": 18,
+                "column": 15,
+                "index": 478
+              },
+              "end": {
+                "line": 18,
+                "column": 19,
+                "index": 482
+              }
+            }
+          },
+          "fieldID": {
+            "kind": "FieldID",
+            "value": "2",
+            "loc": {
+              "start": {
+                "line": 18,
+                "column": 5,
+                "index": 468
+              },
+              "end": {
+                "line": 18,
+                "column": 6,
+                "index": 469
+              }
+            }
+          },
+          "fieldType": {
+            "kind": "StringKeyword",
+            "value": "string",
+            "loc": {
+              "start": {
+                "line": 18,
+                "column": 8,
+                "index": 471
+              },
+              "end": {
+                "line": 18,
+                "column": 14,
+                "index": 477
+              }
+            }
+          },
+          "requiredType": "default",
+          "defaultValue": null,
+          "annotations": null,
+          "comments": []
+        },
+        {
+          "kind": "FieldDefinition",
+          "loc": {
+            "start": {
+              "line": 19,
+              "column": 5,
+              "index": 487
+            },
+            "end": {
+              "line": 19,
+              "column": 20,
+              "index": 502
+            }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "state",
+            "loc": {
+              "start": {
+                "line": 19,
+                "column": 15,
+                "index": 497
+              },
+              "end": {
+                "line": 19,
+                "column": 20,
+                "index": 502
+              }
+            }
+          },
+          "fieldID": {
+            "kind": "FieldID",
+            "value": "3",
+            "loc": {
+              "start": {
+                "line": 19,
+                "column": 5,
+                "index": 487
+              },
+              "end": {
+                "line": 19,
+                "column": 6,
+                "index": 488
+              }
+            }
+          },
+          "fieldType": {
+            "kind": "StringKeyword",
+            "value": "string",
+            "loc": {
+              "start": {
+                "line": 19,
+                "column": 8,
+                "index": 490
+              },
+              "end": {
+                "line": 19,
+                "column": 14,
+                "index": 496
+              }
+            }
+          },
+          "requiredType": "default",
+          "defaultValue": null,
+          "annotations": null,
+          "comments": []
+        },
+        {
+          "kind": "FieldDefinition",
+          "loc": {
+            "start": {
+              "line": 20,
+              "column": 5,
+              "index": 507
+            },
+            "end": {
+              "line": 20,
+              "column": 18,
+              "index": 520
+            }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "zip",
+            "loc": {
+              "start": {
+                "line": 20,
+                "column": 15,
+                "index": 517
+              },
+              "end": {
+                "line": 20,
+                "column": 18,
+                "index": 520
+              }
+            }
+          },
+          "fieldID": {
+            "kind": "FieldID",
+            "value": "4",
+            "loc": {
+              "start": {
+                "line": 20,
+                "column": 5,
+                "index": 507
+              },
+              "end": {
+                "line": 20,
+                "column": 6,
+                "index": 508
+              }
+            }
+          },
+          "fieldType": {
+            "kind": "StringKeyword",
+            "value": "string",
+            "loc": {
+              "start": {
+                "line": 20,
+                "column": 8,
+                "index": 510
+              },
+              "end": {
+                "line": 20,
+                "column": 14,
+                "index": 516
+              }
+            }
+          },
+          "requiredType": "default",
+          "defaultValue": null,
+          "annotations": null,
+          "comments": []
+        }
+      ],
+      "comments": [
+        {
+          "kind": "CommentLine",
+          "value": "// Typedef for a custom data structure representing a user's address",
+          "loc": {
+            "start": {
+              "line": 15,
+              "column": 1,
+              "index": 357
+            },
+            "end": {
+              "line": 15,
+              "column": 69,
+              "index": 425
+            }
+          }
+        }
+      ],
+      "annotations": null
+    },
+    {
+      "kind": "TypedefDefinition",
+      "loc": {
+        "start": {
+          "line": 22,
+          "column": 1,
+          "index": 523
+        },
+        "end": {
+          "line": 22,
+          "column": 28,
+          "index": 550
+        }
+      },
+      "name": {
+        "kind": "Identifier",
+        "value": "UserAddress",
+        "loc": {
+          "start": {
+            "line": 22,
+            "column": 17,
+            "index": 539
+          },
+          "end": {
+            "line": 22,
+            "column": 28,
+            "index": 550
+          }
+        }
+      },
+      "fieldType": {
+        "kind": "Identifier",
+        "value": "Address",
+        "loc": {
+          "start": {
+            "line": 22,
+            "column": 9,
+            "index": 531
+          },
+          "end": {
+            "line": 22,
+            "column": 16,
+            "index": 538
+          }
+        }
+      },
+      "comments": []
+    },
+    {
+      "kind": "UnionDefinition",
+      "loc": {
+        "start": {
+          "line": 25,
+          "column": 1,
+          "index": 634
+        },
+        "end": {
+          "line": 28,
+          "column": 2,
+          "index": 694
+        }
+      },
+      "name": {
+        "kind": "Identifier",
+        "value": "Result",
+        "loc": {
+          "start": {
+            "line": 25,
+            "column": 7,
+            "index": 640
+          },
+          "end": {
+            "line": 25,
+            "column": 13,
+            "index": 646
+          }
+        }
+      },
+      "members": [
+        {
+          "kind": "FieldDefinition",
+          "loc": {
+            "start": {
+              "line": 26,
+              "column": 5,
+              "index": 653
+            },
+            "end": {
+              "line": 26,
+              "column": 17,
+              "index": 665
+            }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "user",
+            "loc": {
+              "start": {
+                "line": 26,
+                "column": 13,
+                "index": 661
+              },
+              "end": {
+                "line": 26,
+                "column": 17,
+                "index": 665
+              }
+            }
+          },
+          "fieldID": {
+            "kind": "FieldID",
+            "value": "1",
+            "loc": {
+              "start": {
+                "line": 26,
+                "column": 5,
+                "index": 653
+              },
+              "end": {
+                "line": 26,
+                "column": 6,
+                "index": 654
+              }
+            }
+          },
+          "fieldType": {
+            "kind": "Identifier",
+            "value": "User",
+            "loc": {
+              "start": {
+                "line": 26,
+                "column": 8,
+                "index": 656
+              },
+              "end": {
+                "line": 26,
+                "column": 12,
+                "index": 660
+              }
+            }
+          },
+          "requiredType": "default",
+          "defaultValue": null,
+          "annotations": null,
+          "comments": []
+        },
+        {
+          "kind": "FieldDefinition",
+          "loc": {
+            "start": {
+              "line": 27,
+              "column": 5,
+              "index": 670
+            },
+            "end": {
+              "line": 27,
+              "column": 27,
+              "index": 692
+            }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "errorMessage",
+            "loc": {
+              "start": {
+                "line": 27,
+                "column": 15,
+                "index": 680
+              },
+              "end": {
+                "line": 27,
+                "column": 27,
+                "index": 692
+              }
+            }
+          },
+          "fieldID": {
+            "kind": "FieldID",
+            "value": "2",
+            "loc": {
+              "start": {
+                "line": 27,
+                "column": 5,
+                "index": 670
+              },
+              "end": {
+                "line": 27,
+                "column": 6,
+                "index": 671
+              }
+            }
+          },
+          "fieldType": {
+            "kind": "StringKeyword",
+            "value": "string",
+            "loc": {
+              "start": {
+                "line": 27,
+                "column": 8,
+                "index": 673
+              },
+              "end": {
+                "line": 27,
+                "column": 14,
+                "index": 679
+              }
+            }
+          },
+          "requiredType": "default",
+          "defaultValue": null,
+          "annotations": null,
+          "comments": []
+        }
+      ],
+      "comments": [
+        {
+          "kind": "CommentLine",
+          "value": "// Typedef for a result type that can be either a user object or an error message",
+          "loc": {
+            "start": {
+              "line": 24,
+              "column": 1,
+              "index": 552
+            },
+            "end": {
+              "line": 24,
+              "column": 82,
+              "index": 633
+            }
+          }
+        }
+      ],
+      "annotations": null
+    },
+    {
+      "kind": "TypedefDefinition",
+      "loc": {
+        "start": {
+          "line": 29,
+          "column": 1,
+          "index": 695
+        },
+        "end": {
+          "line": 29,
+          "column": 35,
+          "index": 729
+        }
+      },
+      "name": {
+        "kind": "Identifier",
+        "value": "UserOperationResult",
+        "loc": {
+          "start": {
+            "line": 29,
+            "column": 16,
+            "index": 710
+          },
+          "end": {
+            "line": 29,
+            "column": 35,
+            "index": 729
+          }
+        }
+      },
+      "fieldType": {
+        "kind": "Identifier",
+        "value": "Result",
+        "loc": {
+          "start": {
+            "line": 29,
+            "column": 9,
+            "index": 703
+          },
+          "end": {
+            "line": 29,
+            "column": 15,
+            "index": 709
+          }
+        }
+      },
+      "comments": []
+    },
+    {
+      "kind": "TypedefDefinition",
+      "loc": {
+        "start": {
+          "line": 32,
+          "column": 1,
+          "index": 771
+        },
+        "end": {
+          "line": 32,
+          "column": 42,
+          "index": 812
+        }
+      },
+      "name": {
+        "kind": "Identifier",
+        "value": "UserAddressList",
+        "loc": {
+          "start": {
+            "line": 32,
+            "column": 27,
+            "index": 797
+          },
+          "end": {
+            "line": 32,
+            "column": 42,
+            "index": 812
+          }
+        }
+      },
+      "fieldType": {
+        "kind": "ListType",
+        "loc": {
+          "start": {
+            "line": 32,
+            "column": 9,
+            "index": 779
+          },
+          "end": {
+            "line": 32,
+            "column": 26,
+            "index": 796
+          }
+        },
+        "value": "list",
+        "valueType": {
+          "kind": "Identifier",
+          "value": "UserAddress",
+          "loc": {
+            "start": {
+              "line": 32,
+              "column": 14,
+              "index": 784
+            },
+            "end": {
+              "line": 32,
+              "column": 25,
+              "index": 795
+            }
+          }
+        }
+      },
+      "comments": [
+        {
+          "kind": "CommentLine",
+          "value": "// Typedef for a list of user addresses",
+          "loc": {
+            "start": {
+              "line": 31,
+              "column": 1,
+              "index": 731
+            },
+            "end": {
+              "line": 31,
+              "column": 40,
+              "index": 770
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

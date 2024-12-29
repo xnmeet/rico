@@ -1,0 +1,654 @@
+---
+source: creates/rico/tests/snapshots/mod.rs
+description: Testing const thrift file
+snapshot_kind: text
+---
+{
+  "kind": "ThriftDocument",
+  "members": [
+    {
+      "kind": "ConstDefinition",
+      "loc": {
+        "start": {
+          "line": 2,
+          "column": 1,
+          "index": 65
+        },
+        "end": {
+          "line": 2,
+          "column": 30,
+          "index": 94
+        }
+      },
+      "name": {
+        "kind": "Identifier",
+        "value": "DEFAULT_PORT",
+        "loc": {
+          "start": {
+            "line": 2,
+            "column": 11,
+            "index": 75
+          },
+          "end": {
+            "line": 2,
+            "column": 23,
+            "index": 87
+          }
+        }
+      },
+      "value": {
+        "kind": "IntegerLiteral",
+        "value": "8080",
+        "loc": {
+          "start": {
+            "line": 2,
+            "column": 26,
+            "index": 90
+          },
+          "end": {
+            "line": 2,
+            "column": 30,
+            "index": 94
+          }
+        }
+      },
+      "fieldType": {
+        "kind": "I32Keyword",
+        "value": "i32",
+        "loc": {
+          "start": {
+            "line": 2,
+            "column": 7,
+            "index": 71
+          },
+          "end": {
+            "line": 2,
+            "column": 10,
+            "index": 74
+          }
+        }
+      },
+      "comments": [
+        {
+          "kind": "CommentLine",
+          "value": "// Constant of integer type representing the default port number",
+          "loc": {
+            "start": {
+              "line": 1,
+              "column": 1,
+              "index": 0
+            },
+            "end": {
+              "line": 1,
+              "column": 65,
+              "index": 64
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "ConstDefinition",
+      "loc": {
+        "start": {
+          "line": 5,
+          "column": 1,
+          "index": 148
+        },
+        "end": {
+          "line": 5,
+          "column": 44,
+          "index": 191
+        }
+      },
+      "name": {
+        "kind": "Identifier",
+        "value": "DEFAULT_HOSTNAME",
+        "loc": {
+          "start": {
+            "line": 5,
+            "column": 14,
+            "index": 161
+          },
+          "end": {
+            "line": 5,
+            "column": 30,
+            "index": 177
+          }
+        }
+      },
+      "value": {
+        "kind": "StringLiteral",
+        "value": "\"localhost\"",
+        "loc": {
+          "start": {
+            "line": 5,
+            "column": 33,
+            "index": 180
+          },
+          "end": {
+            "line": 5,
+            "column": 44,
+            "index": 191
+          }
+        }
+      },
+      "fieldType": {
+        "kind": "StringKeyword",
+        "value": "string",
+        "loc": {
+          "start": {
+            "line": 5,
+            "column": 7,
+            "index": 154
+          },
+          "end": {
+            "line": 5,
+            "column": 13,
+            "index": 160
+          }
+        }
+      },
+      "comments": [
+        {
+          "kind": "CommentLine",
+          "value": "// Constant of string type for the default hostname",
+          "loc": {
+            "start": {
+              "line": 4,
+              "column": 1,
+              "index": 96
+            },
+            "end": {
+              "line": 4,
+              "column": 52,
+              "index": 147
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "ConstDefinition",
+      "loc": {
+        "start": {
+          "line": 8,
+          "column": 1,
+          "index": 268
+        },
+        "end": {
+          "line": 8,
+          "column": 33,
+          "index": 300
+        }
+      },
+      "name": {
+        "kind": "Identifier",
+        "value": "IS_DEBUG_MODE",
+        "loc": {
+          "start": {
+            "line": 8,
+            "column": 12,
+            "index": 279
+          },
+          "end": {
+            "line": 8,
+            "column": 25,
+            "index": 292
+          }
+        }
+      },
+      "value": {
+        "kind": "BooleanLiteral",
+        "value": "false",
+        "loc": {
+          "start": {
+            "line": 8,
+            "column": 28,
+            "index": 295
+          },
+          "end": {
+            "line": 8,
+            "column": 33,
+            "index": 300
+          }
+        }
+      },
+      "fieldType": {
+        "kind": "BoolKeyword",
+        "value": "bool",
+        "loc": {
+          "start": {
+            "line": 8,
+            "column": 7,
+            "index": 274
+          },
+          "end": {
+            "line": 8,
+            "column": 11,
+            "index": 278
+          }
+        }
+      },
+      "comments": [
+        {
+          "kind": "CommentLine",
+          "value": "// Constant of boolean type indicating if the application is in debug mode",
+          "loc": {
+            "start": {
+              "line": 7,
+              "column": 1,
+              "index": 193
+            },
+            "end": {
+              "line": 7,
+              "column": 75,
+              "index": 267
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "ConstDefinition",
+      "loc": {
+        "start": {
+          "line": 11,
+          "column": 1,
+          "index": 363
+        },
+        "end": {
+          "line": 11,
+          "column": 67,
+          "index": 429
+        }
+      },
+      "name": {
+        "kind": "Identifier",
+        "value": "DEFAULT_USERNAMES",
+        "loc": {
+          "start": {
+            "line": 11,
+            "column": 20,
+            "index": 382
+          },
+          "end": {
+            "line": 11,
+            "column": 37,
+            "index": 399
+          }
+        }
+      },
+      "value": {
+        "kind": "ConstList",
+        "loc": {
+          "start": {
+            "line": 11,
+            "column": 40,
+            "index": 402
+          },
+          "end": {
+            "line": 11,
+            "column": 67,
+            "index": 429
+          }
+        },
+        "elements": [
+          {
+            "kind": "StringLiteral",
+            "value": "\"user1\"",
+            "loc": {
+              "start": {
+                "line": 11,
+                "column": 41,
+                "index": 403
+              },
+              "end": {
+                "line": 11,
+                "column": 48,
+                "index": 410
+              }
+            }
+          },
+          {
+            "kind": "StringLiteral",
+            "value": "\"user2\"",
+            "loc": {
+              "start": {
+                "line": 11,
+                "column": 50,
+                "index": 412
+              },
+              "end": {
+                "line": 11,
+                "column": 57,
+                "index": 419
+              }
+            }
+          },
+          {
+            "kind": "StringLiteral",
+            "value": "\"user3\"",
+            "loc": {
+              "start": {
+                "line": 11,
+                "column": 59,
+                "index": 421
+              },
+              "end": {
+                "line": 11,
+                "column": 66,
+                "index": 428
+              }
+            }
+          }
+        ]
+      },
+      "fieldType": {
+        "kind": "ListType",
+        "loc": {
+          "start": {
+            "line": 11,
+            "column": 7,
+            "index": 369
+          },
+          "end": {
+            "line": 11,
+            "column": 19,
+            "index": 381
+          }
+        },
+        "value": "list",
+        "valueType": {
+          "kind": "StringKeyword",
+          "value": "string",
+          "loc": {
+            "start": {
+              "line": 11,
+              "column": 12,
+              "index": 374
+            },
+            "end": {
+              "line": 11,
+              "column": 18,
+              "index": 380
+            }
+          }
+        }
+      },
+      "comments": [
+        {
+          "kind": "CommentLine",
+          "value": "// Constant of list<string> type with some default usernames",
+          "loc": {
+            "start": {
+              "line": 10,
+              "column": 1,
+              "index": 302
+            },
+            "end": {
+              "line": 10,
+              "column": 61,
+              "index": 362
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "ConstDefinition",
+      "loc": {
+        "start": {
+          "line": 14,
+          "column": 1,
+          "index": 524
+        },
+        "end": {
+          "line": 18,
+          "column": 2,
+          "index": 633
+        }
+      },
+      "name": {
+        "kind": "Identifier",
+        "value": "DEPARTMENT_IDS",
+        "loc": {
+          "start": {
+            "line": 14,
+            "column": 24,
+            "index": 547
+          },
+          "end": {
+            "line": 14,
+            "column": 38,
+            "index": 561
+          }
+        }
+      },
+      "value": {
+        "kind": "ConstMap",
+        "loc": {
+          "start": {
+            "line": 14,
+            "column": 41,
+            "index": 564
+          },
+          "end": {
+            "line": 18,
+            "column": 2,
+            "index": 633
+          }
+        },
+        "properties": [
+          {
+            "kind": "PropertyAssignment",
+            "loc": {
+              "start": {
+                "line": 15,
+                "column": 5,
+                "index": 570
+              },
+              "end": {
+                "line": 15,
+                "column": 24,
+                "index": 589
+              }
+            },
+            "value": {
+              "kind": "IntegerLiteral",
+              "value": "1001",
+              "loc": {
+                "start": {
+                  "line": 15,
+                  "column": 20,
+                  "index": 585
+                },
+                "end": {
+                  "line": 15,
+                  "column": 24,
+                  "index": 589
+                }
+              }
+            },
+            "name": {
+              "kind": "StringLiteral",
+              "value": "\"Engineering\"",
+              "loc": {
+                "start": {
+                  "line": 15,
+                  "column": 5,
+                  "index": 570
+                },
+                "end": {
+                  "line": 15,
+                  "column": 18,
+                  "index": 583
+                }
+              }
+            }
+          },
+          {
+            "kind": "PropertyAssignment",
+            "loc": {
+              "start": {
+                "line": 16,
+                "column": 5,
+                "index": 595
+              },
+              "end": {
+                "line": 16,
+                "column": 22,
+                "index": 612
+              }
+            },
+            "value": {
+              "kind": "IntegerLiteral",
+              "value": "1002",
+              "loc": {
+                "start": {
+                  "line": 16,
+                  "column": 18,
+                  "index": 608
+                },
+                "end": {
+                  "line": 16,
+                  "column": 22,
+                  "index": 612
+                }
+              }
+            },
+            "name": {
+              "kind": "StringLiteral",
+              "value": "\"Marketing\"",
+              "loc": {
+                "start": {
+                  "line": 16,
+                  "column": 5,
+                  "index": 595
+                },
+                "end": {
+                  "line": 16,
+                  "column": 16,
+                  "index": 606
+                }
+              }
+            }
+          },
+          {
+            "kind": "PropertyAssignment",
+            "loc": {
+              "start": {
+                "line": 17,
+                "column": 5,
+                "index": 618
+              },
+              "end": {
+                "line": 17,
+                "column": 18,
+                "index": 631
+              }
+            },
+            "value": {
+              "kind": "IntegerLiteral",
+              "value": "1003",
+              "loc": {
+                "start": {
+                  "line": 17,
+                  "column": 14,
+                  "index": 627
+                },
+                "end": {
+                  "line": 17,
+                  "column": 18,
+                  "index": 631
+                }
+              }
+            },
+            "name": {
+              "kind": "StringLiteral",
+              "value": "\"Sales\"",
+              "loc": {
+                "start": {
+                  "line": 17,
+                  "column": 5,
+                  "index": 618
+                },
+                "end": {
+                  "line": 17,
+                  "column": 12,
+                  "index": 625
+                }
+              }
+            }
+          }
+        ]
+      },
+      "fieldType": {
+        "kind": "MapType",
+        "loc": {
+          "start": {
+            "line": 14,
+            "column": 7,
+            "index": 530
+          },
+          "end": {
+            "line": 14,
+            "column": 23,
+            "index": 546
+          }
+        },
+        "value": "map",
+        "valueType": {
+          "kind": "I32Keyword",
+          "value": "i32",
+          "loc": {
+            "start": {
+              "line": 14,
+              "column": 19,
+              "index": 542
+            },
+            "end": {
+              "line": 14,
+              "column": 22,
+              "index": 545
+            }
+          }
+        },
+        "keyType": {
+          "kind": "StringKeyword",
+          "value": "string",
+          "loc": {
+            "start": {
+              "line": 14,
+              "column": 11,
+              "index": 534
+            },
+            "end": {
+              "line": 14,
+              "column": 17,
+              "index": 540
+            }
+          }
+        }
+      },
+      "comments": [
+        {
+          "kind": "CommentLine",
+          "value": "// Constant of map<string, i32> type mapping department names to their respective ID numbers",
+          "loc": {
+            "start": {
+              "line": 13,
+              "column": 1,
+              "index": 431
+            },
+            "end": {
+              "line": 13,
+              "column": 93,
+              "index": 523
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
