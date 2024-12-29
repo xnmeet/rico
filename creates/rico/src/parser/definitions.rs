@@ -28,10 +28,13 @@ impl<'a> Parser<'a> {
         let tracker = LocationTracker::new(self.start_pos());
         let comments = self.take_pending_comments();
 
-        self.consume(Token::Identifier)?;
+        self.consume_with_error(Token::Identifier, ParseErrorKind::MissingNamespaceScope)?;
         let scope = create_identifier(self.get_token_loc(), self.text().to_owned());
 
-        self.consume(Token::Identifier)?;
+        self.consume_with_error(
+            Token::Identifier,
+            ParseErrorKind::MissingNamespaceIdentifier,
+        )?;
         let name = create_identifier(self.get_token_loc(), self.text().to_string());
         let end_loc = name.loc;
 
@@ -366,6 +369,7 @@ impl<'a> Parser<'a> {
 
         const VALID_TOKENS: &[Token] = &[
             Token::Identifier,
+            // adapt keywords, but not recommend to use
             Token::Namespace,
             Token::Include,
             Token::List,
@@ -376,6 +380,11 @@ impl<'a> Parser<'a> {
             Token::Optional,
             Token::Throws,
             Token::Bool,
+            Token::Extends,
+            Token::Struct,
+            Token::Double,
+            Token::Service,
+            Token::Enum,
         ];
 
         if !VALID_TOKENS.iter().any(|valid| self.token() == Some(valid)) {
