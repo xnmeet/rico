@@ -6,11 +6,27 @@ use super::error::ParseErrorKind;
 use super::Comment;
 
 impl<'a> Parser<'a> {
+    pub(crate) fn with_error_boundary<T>(
+        &mut self,
+        result: Result<T, ParseError>,
+        error_kind: ParseErrorKind,
+    ) -> Result<T, ParseError> {
+        result.map_err(|_| self.error(error_kind))
+    }
+
     pub(crate) fn expect_token(&mut self, expected: Token) -> Result<(), ParseError> {
         match self.token() {
             Some(token) if token == &expected => Ok(()),
             Some(_) | None => Err(self.error(ParseErrorKind::UnexpectedToken)),
         }
+    }
+    pub(crate) fn expect_token_with_error(
+        &mut self,
+        expected: Token,
+        error_kind: ParseErrorKind,
+    ) -> Result<(), ParseError> {
+        let result = self.expect_token(expected);
+        self.with_error_boundary(result, error_kind)
     }
 
     pub(crate) fn consume(&mut self, token: Token) -> Result<(), ParseError> {
@@ -23,11 +39,8 @@ impl<'a> Parser<'a> {
         token: Token,
         error_kind: ParseErrorKind,
     ) -> Result<(), ParseError> {
-        self.advance();
-        match self.token() {
-            Some(t) if t == &token => Ok(()),
-            Some(_) | None => Err(self.error(error_kind)),
-        }
+        let result = self.consume(token);
+        self.with_error_boundary(result, error_kind)
     }
 
     pub(crate) fn take_pending_comments(&mut self) -> Vec<Comment> {

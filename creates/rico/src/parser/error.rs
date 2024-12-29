@@ -34,46 +34,6 @@ pub enum ParseError {
         span: SourceSpan,
     },
 
-    #[error("Invalid integer value")]
-    #[diagnostic(
-        code(rico::parser::invalid_integer),
-        help("Integer values must be valid numbers")
-    )]
-    InvalidInteger {
-        #[label("This integer value is invalid")]
-        span: SourceSpan,
-    },
-
-    #[error("Invalid float value")]
-    #[diagnostic(
-        code(rico::parser::invalid_float),
-        help("Float values must be valid decimal numbers")
-    )]
-    InvalidFloat {
-        #[label("This float value is invalid")]
-        span: SourceSpan,
-    },
-
-    #[error("Lexer error")]
-    #[diagnostic(
-        code(rico::parser::lexer_error),
-        help("There was an error tokenizing the input")
-    )]
-    LexerError {
-        #[label("Error occurred here")]
-        span: SourceSpan,
-    },
-
-    #[error("Nested complex type")]
-    #[diagnostic(
-        code(rico::parser::nested_complex_type),
-        help("Complex types cannot be nested directly. Consider using a typedef")
-    )]
-    NestedComplexType {
-        #[label("This complex type is nested")]
-        span: SourceSpan,
-    },
-
     #[error("Unsupported type")]
     #[diagnostic(
         code(rico::parser::unsupported_type),
@@ -153,6 +113,86 @@ pub enum ParseError {
         #[label("Expected namespace scope (cpp, java, py, etc.) here")]
         span: SourceSpan,
     },
+
+    #[error("Missing include path")]
+    #[diagnostic(
+        code(rico::parser::missing_include_identifier),
+        help("Include statement requires a string literal path, use like: \"include \\\"myservice.thrift\\\"\"")
+    )]
+    MissingIncludeIdentifier {
+        #[label("Expected string literal path here")]
+        span: SourceSpan,
+    },
+
+    #[error("Missing const identifier")]
+    #[diagnostic(
+        code(rico::parser::missing_const_identifier),
+        help("Const declaration requires a name, use like: \"const i32 MAX_RETRIES = 3\"")
+    )]
+    MissingConstIdentifier {
+        #[label("Expected const name here")]
+        span: SourceSpan,
+    },
+
+    #[error("Missing typedef identifier")]
+    #[diagnostic(
+        code(rico::parser::missing_typedef_identifier),
+        help("Typedef requires a name, use like: \"typedef i32 UserId\"")
+    )]
+    MissingTypedefIdentifier {
+        #[label("Expected typedef name here")]
+        span: SourceSpan,
+    },
+
+    #[error("Missing enum identifier")]
+    #[diagnostic(
+        code(rico::parser::missing_enum_identifier),
+        help("Enum declaration requires a name, use like: \"enum Status {{ OK = 1 }}\"")
+    )]
+    MissingEnumIdentifier {
+        #[label("Expected enum name here")]
+        span: SourceSpan,
+    },
+
+    #[error("Missing struct identifier")]
+    #[diagnostic(
+        code(rico::parser::missing_struct_identifier),
+        help("Struct declaration requires a name, use like: \"struct User {{ 1: string name }}\"")
+    )]
+    MissingStructIdentifier {
+        #[label("Expected struct name here")]
+        span: SourceSpan,
+    },
+
+    #[error("Missing service identifier")]
+    #[diagnostic(
+        code(rico::parser::missing_service_identifier),
+        help("Service declaration requires a name, use like: \"service UserService {{ }}\"")
+    )]
+    MissingServiceIdentifier {
+        #[label("Expected service name here")]
+        span: SourceSpan,
+    },
+
+    #[error("Missing service extends")]
+    #[diagnostic(
+        code(rico::parser::missing_service_extends),
+        help("Service extends clause requires a service name, use like: \"service UserService extends BaseService {{ }}\"")
+    )]
+    MissingServiceExtends {
+        #[label("Expected service name after extends keyword")]
+        span: SourceSpan,
+    },
+
+    #[error("Invalid enum member name")]
+    #[diagnostic(
+        code(rico::parser::invalid_enum_member_name),
+        help("Enum member names must be valid identifiers and cannot be keywords")
+    )]
+    InvalidEnumMemberName {
+        #[label("This enum member name is invalid")]
+        span: SourceSpan,
+    },
 }
 
 // Helper function to convert our Span to miette's SourceSpan
@@ -180,12 +220,36 @@ impl ParseError {
             ParseErrorKind::MissingNamespaceScope => {
                 Self::MissingNamespaceScope { span: source_span }
             }
+            ParseErrorKind::MissingIncludeIdentifier => {
+                Self::MissingIncludeIdentifier { span: source_span }
+            }
+            ParseErrorKind::MissingConstIdentifier => {
+                Self::MissingConstIdentifier { span: source_span }
+            }
+            ParseErrorKind::MissingTypedefIdentifier => {
+                Self::MissingTypedefIdentifier { span: source_span }
+            }
+            ParseErrorKind::MissingEnumIdentifier => {
+                Self::MissingEnumIdentifier { span: source_span }
+            }
+            ParseErrorKind::MissingStructIdentifier => {
+                Self::MissingStructIdentifier { span: source_span }
+            }
+            ParseErrorKind::MissingServiceIdentifier => {
+                Self::MissingServiceIdentifier { span: source_span }
+            }
+            ParseErrorKind::MissingServiceExtends => {
+                Self::MissingServiceExtends { span: source_span }
+            }
+            ParseErrorKind::InvalidEnumMemberName => {
+                Self::InvalidEnumMemberName { span: source_span }
+            }
         }
     }
 }
 
-#[derive(Debug, Clone, Copy)]
-pub(crate) enum ParseErrorKind {
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum ParseErrorKind {
     UnrecognizedToken,
     UnexpectedToken,
     UnexpectedEOF,
@@ -197,4 +261,12 @@ pub(crate) enum ParseErrorKind {
     InvalidFieldId,
     MissingNamespaceIdentifier,
     MissingNamespaceScope,
+    MissingIncludeIdentifier,
+    MissingConstIdentifier,
+    MissingTypedefIdentifier,
+    MissingEnumIdentifier,
+    MissingStructIdentifier,
+    MissingServiceIdentifier,
+    MissingServiceExtends,
+    InvalidEnumMemberName,
 }

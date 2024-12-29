@@ -12,7 +12,10 @@ impl<'a> Parser<'a> {
         let tracker = LocationTracker::new(self.start_pos());
         let comments = self.take_pending_comments();
 
-        self.consume(Token::StringLiteral)?;
+        self.consume_with_error(
+            Token::StringLiteral,
+            ParseErrorKind::MissingIncludeIdentifier,
+        )?;
         let name = create_identifier(self.get_token_loc(), self.text().to_string());
         let end_loc = name.loc;
 
@@ -52,7 +55,7 @@ impl<'a> Parser<'a> {
         let comments = self.take_pending_comments();
         let field_type = self.parse_field_type()?;
 
-        self.consume(Token::Identifier)?;
+        self.consume_with_error(Token::Identifier, ParseErrorKind::MissingConstIdentifier)?;
         let name = create_identifier(self.get_token_loc(), self.text().to_owned());
 
         self.consume(Token::Equals)?;
@@ -75,7 +78,7 @@ impl<'a> Parser<'a> {
         let comments = self.take_pending_comments();
         let field_type = self.parse_field_type()?;
 
-        self.consume(Token::Identifier)?;
+        self.consume_with_error(Token::Identifier, ParseErrorKind::MissingTypedefIdentifier)?;
         let name = create_identifier(self.get_token_loc(), self.text().to_string());
 
         Ok(Typedef {
@@ -91,7 +94,7 @@ impl<'a> Parser<'a> {
         let tracker = LocationTracker::new(self.start_pos());
         let comments = self.take_pending_comments();
 
-        self.consume(Token::Identifier)?;
+        self.consume_with_error(Token::Identifier, ParseErrorKind::MissingEnumIdentifier)?;
         let name = create_identifier(self.get_token_loc(), self.text().to_owned());
 
         let members = self.parse_members(|parser| parser.parse_enum_member())?;
@@ -201,7 +204,7 @@ impl<'a> Parser<'a> {
         let tracker = LocationTracker::new(self.start_pos());
         let comments = self.take_pending_comments();
 
-        self.consume(Token::Identifier)?;
+        self.consume_with_error(Token::Identifier, ParseErrorKind::MissingServiceIdentifier)?;
         let name = create_identifier(self.get_token_loc(), self.text().to_owned());
 
         // Parse extends clause if present
@@ -301,7 +304,7 @@ impl<'a> Parser<'a> {
         let tracker = LocationTracker::new(self.start_pos());
         let comments = self.take_pending_comments();
 
-        self.consume(Token::Identifier)?;
+        self.consume_with_error(Token::Identifier, ParseErrorKind::MissingStructIdentifier)?;
         let name = create_identifier(self.get_token_loc(), self.text().to_owned());
 
         let members = self.parse_members(|parser| parser.parse_field())?;
@@ -322,7 +325,7 @@ impl<'a> Parser<'a> {
     fn parse_extends(&mut self) -> Result<Option<Common<String>>, ParseError> {
         if let Some(Token::Extends) = self.peek() {
             self.advance(); // Consume 'extends'
-            self.consume(Token::Identifier)?;
+            self.consume_with_error(Token::Identifier, ParseErrorKind::MissingServiceExtends)?;
             Ok(Some(create_identifier(
                 self.get_token_loc(),
                 self.text().to_owned(),
@@ -450,7 +453,7 @@ impl<'a> Parser<'a> {
     fn parse_enum_member(&mut self) -> Result<EnumMember, ParseError> {
         let member_comments = self.take_pending_comments();
 
-        self.expect_token(Token::Identifier)?;
+        self.expect_token_with_error(Token::Identifier, ParseErrorKind::InvalidEnumMemberName)?;
         let member_name = create_identifier(self.get_token_loc(), self.text().to_owned());
         let member_start_loc = member_name.loc;
 
