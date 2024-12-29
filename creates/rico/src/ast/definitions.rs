@@ -143,6 +143,7 @@ pub struct Enum {
     pub name: Common<String>,
     pub members: Vec<EnumMember>,
     pub comments: Vec<Comment>,
+    pub annotations: Option<Annotations>,
 }
 
 #[derive(Serialize, Deserialize, Debug)]
@@ -168,6 +169,7 @@ pub struct Exception {
     pub name: Common<String>,
     pub members: Vec<Field>,
     pub comments: Vec<Comment>,
+    pub annotations: Option<Annotations>,
 }
 
 #[derive(Serialize, Deserialize, Debug)]
@@ -177,6 +179,7 @@ pub struct Struct {
     pub name: Common<String>,
     pub members: Vec<Field>,
     pub comments: Vec<Comment>,
+    pub annotations: Option<Annotations>,
 }
 
 #[derive(Serialize, Deserialize, Debug)]
@@ -186,6 +189,7 @@ pub struct Union {
     pub name: Common<String>,
     pub members: Vec<Field>,
     pub comments: Vec<Comment>,
+    pub annotations: Option<Annotations>,
 }
 
 #[derive(Serialize, Deserialize, Debug)]
