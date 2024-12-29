@@ -170,7 +170,8 @@ impl<'a> Parser<'a> {
     fn parse_field(&mut self) -> Result<Field, ParseError> {
         let field_comments = self.take_pending_comments();
 
-        // Parse field ID using the new function
+        let field_start_pos = self.start_pos();
+        // Parse field ID if present
         let field_id = self.parse_field_id()?;
 
         // Parse required/optional
@@ -205,7 +206,7 @@ impl<'a> Parser<'a> {
         let field_annotations = self.parse_annotations()?;
         Ok(Field {
             kind: NodeType::FieldDefinition,
-            loc: self.get_token_parent_loc(field_id.loc.start, self.end_pos()),
+            loc: self.get_token_parent_loc(field_start_pos, self.end_pos()),
             field_id,
             name: field_name,
             field_type,
@@ -484,17 +485,24 @@ impl<'a> Parser<'a> {
         }
     }
 
-    fn parse_field_id(&mut self) -> Result<Common<String>, ParseError> {
-        // Get the token text without the colon
-        let text = self.text();
-        // Validate that it's a valid unsigned integer
-        let field_id = match text.parse::<u64>() {
-            Ok(_) => Ok(create_field_id(self.get_token_loc(), text.to_string())),
-            Err(_) => Err(self.error(ParseErrorKind::InvalidFieldId)),
-        };
-        if field_id.is_ok() {
-            self.consume(Token::Colon)?;
+    fn parse_field_id(&mut self) -> Result<Option<Common<String>>, ParseError> {
+        if let Some(Token::IntegerLiteral) = self.token() {
+            // Get the token text without the colon
+            let text = self.text();
+            // Validate that it's a valid unsigned integer
+            let field_id = match text.parse::<u64>() {
+                Ok(_) => Ok(Some(create_field_id(
+                    self.get_token_loc(),
+                    text.to_string(),
+                ))),
+                Err(_) => Err(self.error(ParseErrorKind::InvalidFieldId)),
+            };
+
+            if field_id.is_ok() {
+                self.consume(Token::Colon)?;
+            }
+            return field_id;
         }
-        field_id
+        Ok(None)
     }
 }

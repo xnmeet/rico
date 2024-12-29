@@ -1,4 +1,4 @@
-# Thrift Parser
+# Rico Parser
 
 A high-performance Apache Thrift IDL parser written in Rust that converts Thrift IDL files to JSON AST.
 

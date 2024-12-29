@@ -151,7 +151,7 @@ pub struct Field {
     pub loc: LOC,
     pub name: Common<String>,
     #[serde(rename = "fieldID")]
-    pub field_id: Common<String>,
+    pub field_id: Option<Common<String>>,
     #[serde(rename = "fieldType")]
     pub field_type: FieldType,
     #[serde(rename = "requiredType")]
