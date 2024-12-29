@@ -202,6 +202,16 @@ fn main() -> Result<()> {
         results.into_iter().partition(|(_, result)| result.is_ok());
 
     let elapsed = start_time.elapsed();
+    let failures_count = failures.len();
+
+    // Only show error details if there are failures
+    if !failures.is_empty() {
+        println!("\n");
+        for (_, error) in failures {
+            eprintln!("{:?}", error.err().unwrap());
+        }
+    }
+
     // Print summary in one line
     println!(
         "{} {} {} {} {} {} {} {} {} {} {} {} {}",
@@ -211,22 +221,14 @@ fn main() -> Result<()> {
         format!("succeeded: {}", success.len()).green(),
         "•".bright_black(),
         "❌".red(),
-        format!("failed: {}", failures.len()).red(),
+        format!("failed: {}", failures_count).red(),
         "•".bright_black(),
         "⚡".cyan(),
         format!("threads: {}", current_num_threads()).cyan(),
         "•".bright_black(),
         "⏱".yellow(),
-        format!("time: {:.2}s", elapsed.as_secs_f32()).yellow()
+        format!("time: {:.3}s", elapsed.as_secs_f32()).yellow()
     );
-
-    // Only show error details if there are failures
-    if !failures.is_empty() {
-        println!("\n");
-        for (_, error) in failures {
-            eprintln!("{:?}", error.err().unwrap());
-        }
-    }
 
     Ok(())
 }
