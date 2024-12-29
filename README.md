@@ -58,10 +58,16 @@ fn main() {
 
 #### Scan Multiple Files
 
-The project includes a CLI tool for processing multiple Thrift files:
+You can also use the `rico-scan` command to scan multiple files and output the JSON AST to a folder.
 
 ```bash
-cargo run -p rico-scan -- --path ./thrift/files --output ./json/output
+cargo install rico-scan
+```
+
+Now you can use the `rico-scan` CLI tool for processing multiple Thrift files:
+
+```bash
+rico-scan --path ./thrift/files --output ./output
 ```
 
 #### Benchmark Parser Performance

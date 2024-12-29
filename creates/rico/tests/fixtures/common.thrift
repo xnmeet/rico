@@ -86,58 +86,56 @@ service NotificationService {
   list<string> getUserNotifications(1: i32 userId)
 }
 
-// 下面是一些不规范的写法示例
+// The following are examples of irregular writing
 
-// 不一致的缩进
+// Inconsistent indentation
 struct InconsistentIndentation {
   1: i32 id,
-    2: string name, // 这个字段的缩进不一致
+    2: string name, // The indentation of this field is inconsistent
   3: string email
 }
 
-// 重复的字段名
+// Duplicate field names
 struct DuplicateFieldNames {
   1: string name,
-  2: string name, // 这个字段名重复了
+  2: string name, // This field name is duplicated
   3: i32 age
 }
 
-// 缺少必要的字段
+// Missing necessary fields
 struct IncompleteUser {
   1: i32 id,
-  // 2: string name, // 这个字段缺失
+  // 2: string name, // This field is missing
   3: string email
 }
 
-// 不规范的注释风格
+// Irregular comment style
 // This is a comment without a clear purpose
-// 这行注释没有提供有用的信息
+// This line of comment doesn't provide useful information
 struct UnclearComment {
-  1: string data // 这个字段的注释不清晰
+  1: string data // The comment for this field is not clear
 }
 
-// 额外的空行
+// Extra blank lines
 struct ExtraEmptyLines {
 
   1: string info
 
 
-  // 这个结构体中有多余的空行
+  // There are redundant blank lines in this struct
 }
 
-// 过长的行
+// Long line
 struct LongLineExample {
   1: string description = "This is a very long line that exceeds the typical length for a single line in Thrift IDL and should be broken up for better readability."
 }
 
-// 过多的空格
+// Excessive spaces
 struct ExcessiveSpaces {
-  1: string   name, // 这个字段前有过多的空格
+  1: string   name, // There are excessive spaces before this field
   2: i32 age,
   3: list<string> hobbies = [
-    # 另一种不规范的写法
-    "reading", // 值注释
+    # Another irregular writing
+    "reading", // Value comment
      "traveling", "coding"]
 }
-
-

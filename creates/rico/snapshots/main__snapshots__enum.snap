@@ -1,0 +1,998 @@
+---
+source: creates/rico/tests/snapshots/mod.rs
+description: Testing enum thrift file
+snapshot_kind: text
+---
+{
+  "kind": "ThriftDocument",
+  "members": [
+    {
+      "kind": "EnumDefinition",
+      "loc": {
+        "start": {
+          "line": 2,
+          "column": 1,
+          "index": 35
+        },
+        "end": {
+          "line": 7,
+          "column": 2,
+          "index": 122
+        }
+      },
+      "name": {
+        "kind": "Identifier",
+        "value": "UserStatus",
+        "loc": {
+          "start": {
+            "line": 2,
+            "column": 6,
+            "index": 40
+          },
+          "end": {
+            "line": 2,
+            "column": 16,
+            "index": 50
+          }
+        }
+      },
+      "members": [
+        {
+          "kind": "EnumMember",
+          "loc": {
+            "start": {
+              "line": 3,
+              "column": 5,
+              "index": 57
+            },
+            "end": {
+              "line": 3,
+              "column": 17,
+              "index": 69
+            }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "INACTIVE",
+            "loc": {
+              "start": {
+                "line": 3,
+                "column": 5,
+                "index": 57
+              },
+              "end": {
+                "line": 3,
+                "column": 13,
+                "index": 65
+              }
+            }
+          },
+          "initializer": {
+            "kind": "IntConstant",
+            "value": {
+              "kind": "IntegerLiteral",
+              "value": "0",
+              "loc": {
+                "start": {
+                  "line": 3,
+                  "column": 16,
+                  "index": 68
+                },
+                "end": {
+                  "line": 3,
+                  "column": 17,
+                  "index": 69
+                }
+              }
+            },
+            "loc": {
+              "start": {
+                "line": 3,
+                "column": 16,
+                "index": 68
+              },
+              "end": {
+                "line": 3,
+                "column": 17,
+                "index": 69
+              }
+            }
+          },
+          "comments": [],
+          "annotations": null
+        },
+        {
+          "kind": "EnumMember",
+          "loc": {
+            "start": {
+              "line": 4,
+              "column": 5,
+              "index": 75
+            },
+            "end": {
+              "line": 4,
+              "column": 15,
+              "index": 85
+            }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "ACTIVE",
+            "loc": {
+              "start": {
+                "line": 4,
+                "column": 5,
+                "index": 75
+              },
+              "end": {
+                "line": 4,
+                "column": 11,
+                "index": 81
+              }
+            }
+          },
+          "initializer": {
+            "kind": "IntConstant",
+            "value": {
+              "kind": "IntegerLiteral",
+              "value": "1",
+              "loc": {
+                "start": {
+                  "line": 4,
+                  "column": 14,
+                  "index": 84
+                },
+                "end": {
+                  "line": 4,
+                  "column": 15,
+                  "index": 85
+                }
+              }
+            },
+            "loc": {
+              "start": {
+                "line": 4,
+                "column": 14,
+                "index": 84
+              },
+              "end": {
+                "line": 4,
+                "column": 15,
+                "index": 85
+              }
+            }
+          },
+          "comments": [],
+          "annotations": null
+        },
+        {
+          "kind": "EnumMember",
+          "loc": {
+            "start": {
+              "line": 5,
+              "column": 5,
+              "index": 91
+            },
+            "end": {
+              "line": 5,
+              "column": 18,
+              "index": 104
+            }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "SUSPENDED",
+            "loc": {
+              "start": {
+                "line": 5,
+                "column": 5,
+                "index": 91
+              },
+              "end": {
+                "line": 5,
+                "column": 14,
+                "index": 100
+              }
+            }
+          },
+          "initializer": {
+            "kind": "IntConstant",
+            "value": {
+              "kind": "IntegerLiteral",
+              "value": "2",
+              "loc": {
+                "start": {
+                  "line": 5,
+                  "column": 17,
+                  "index": 103
+                },
+                "end": {
+                  "line": 5,
+                  "column": 18,
+                  "index": 104
+                }
+              }
+            },
+            "loc": {
+              "start": {
+                "line": 5,
+                "column": 17,
+                "index": 103
+              },
+              "end": {
+                "line": 5,
+                "column": 18,
+                "index": 104
+              }
+            }
+          },
+          "comments": [],
+          "annotations": null
+        },
+        {
+          "kind": "EnumMember",
+          "loc": {
+            "start": {
+              "line": 6,
+              "column": 5,
+              "index": 110
+            },
+            "end": {
+              "line": 6,
+              "column": 15,
+              "index": 120
+            }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "BANNED",
+            "loc": {
+              "start": {
+                "line": 6,
+                "column": 5,
+                "index": 110
+              },
+              "end": {
+                "line": 6,
+                "column": 11,
+                "index": 116
+              }
+            }
+          },
+          "initializer": {
+            "kind": "IntConstant",
+            "value": {
+              "kind": "IntegerLiteral",
+              "value": "3",
+              "loc": {
+                "start": {
+                  "line": 6,
+                  "column": 14,
+                  "index": 119
+                },
+                "end": {
+                  "line": 6,
+                  "column": 15,
+                  "index": 120
+                }
+              }
+            },
+            "loc": {
+              "start": {
+                "line": 6,
+                "column": 14,
+                "index": 119
+              },
+              "end": {
+                "line": 6,
+                "column": 15,
+                "index": 120
+              }
+            }
+          },
+          "comments": [],
+          "annotations": null
+        }
+      ],
+      "comments": [
+        {
+          "kind": "CommentLine",
+          "value": "// Enum definition for user status",
+          "loc": {
+            "start": {
+              "line": 1,
+              "column": 1,
+              "index": 0
+            },
+            "end": {
+              "line": 1,
+              "column": 35,
+              "index": 34
+            }
+          }
+        }
+      ],
+      "annotations": null
+    },
+    {
+      "kind": "EnumDefinition",
+      "loc": {
+        "start": {
+          "line": 10,
+          "column": 1,
+          "index": 161
+        },
+        "end": {
+          "line": 15,
+          "column": 2,
+          "index": 277
+        }
+      },
+      "name": {
+        "kind": "Identifier",
+        "value": "AccessLevel",
+        "loc": {
+          "start": {
+            "line": 10,
+            "column": 6,
+            "index": 166
+          },
+          "end": {
+            "line": 10,
+            "column": 17,
+            "index": 177
+          }
+        }
+      },
+      "members": [
+        {
+          "kind": "EnumMember",
+          "loc": {
+            "start": {
+              "line": 11,
+              "column": 5,
+              "index": 184
+            },
+            "end": {
+              "line": 11,
+              "column": 21,
+              "index": 200
+            }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "GUEST_ACCESS",
+            "loc": {
+              "start": {
+                "line": 11,
+                "column": 5,
+                "index": 184
+              },
+              "end": {
+                "line": 11,
+                "column": 17,
+                "index": 196
+              }
+            }
+          },
+          "initializer": {
+            "kind": "IntConstant",
+            "value": {
+              "kind": "IntegerLiteral",
+              "value": "1",
+              "loc": {
+                "start": {
+                  "line": 11,
+                  "column": 20,
+                  "index": 199
+                },
+                "end": {
+                  "line": 11,
+                  "column": 21,
+                  "index": 200
+                }
+              }
+            },
+            "loc": {
+              "start": {
+                "line": 11,
+                "column": 20,
+                "index": 199
+              },
+              "end": {
+                "line": 11,
+                "column": 21,
+                "index": 200
+              }
+            }
+          },
+          "comments": [],
+          "annotations": null
+        },
+        {
+          "kind": "EnumMember",
+          "loc": {
+            "start": {
+              "line": 12,
+              "column": 5,
+              "index": 206
+            },
+            "end": {
+              "line": 12,
+              "column": 25,
+              "index": 226
+            }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "READ_ONLY_ACCESS",
+            "loc": {
+              "start": {
+                "line": 12,
+                "column": 5,
+                "index": 206
+              },
+              "end": {
+                "line": 12,
+                "column": 21,
+                "index": 222
+              }
+            }
+          },
+          "initializer": {
+            "kind": "IntConstant",
+            "value": {
+              "kind": "IntegerLiteral",
+              "value": "2",
+              "loc": {
+                "start": {
+                  "line": 12,
+                  "column": 24,
+                  "index": 225
+                },
+                "end": {
+                  "line": 12,
+                  "column": 25,
+                  "index": 226
+                }
+              }
+            },
+            "loc": {
+              "start": {
+                "line": 12,
+                "column": 24,
+                "index": 225
+              },
+              "end": {
+                "line": 12,
+                "column": 25,
+                "index": 226
+              }
+            }
+          },
+          "comments": [],
+          "annotations": null
+        },
+        {
+          "kind": "EnumMember",
+          "loc": {
+            "start": {
+              "line": 13,
+              "column": 5,
+              "index": 232
+            },
+            "end": {
+              "line": 13,
+              "column": 26,
+              "index": 253
+            }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "READ_WRITE_ACCESS",
+            "loc": {
+              "start": {
+                "line": 13,
+                "column": 5,
+                "index": 232
+              },
+              "end": {
+                "line": 13,
+                "column": 22,
+                "index": 249
+              }
+            }
+          },
+          "initializer": {
+            "kind": "IntConstant",
+            "value": {
+              "kind": "IntegerLiteral",
+              "value": "3",
+              "loc": {
+                "start": {
+                  "line": 13,
+                  "column": 25,
+                  "index": 252
+                },
+                "end": {
+                  "line": 13,
+                  "column": 26,
+                  "index": 253
+                }
+              }
+            },
+            "loc": {
+              "start": {
+                "line": 13,
+                "column": 25,
+                "index": 252
+              },
+              "end": {
+                "line": 13,
+                "column": 26,
+                "index": 253
+              }
+            }
+          },
+          "comments": [],
+          "annotations": null
+        },
+        {
+          "kind": "EnumMember",
+          "loc": {
+            "start": {
+              "line": 14,
+              "column": 5,
+              "index": 259
+            },
+            "end": {
+              "line": 14,
+              "column": 21,
+              "index": 275
+            }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "ADMIN_ACCESS",
+            "loc": {
+              "start": {
+                "line": 14,
+                "column": 5,
+                "index": 259
+              },
+              "end": {
+                "line": 14,
+                "column": 17,
+                "index": 271
+              }
+            }
+          },
+          "initializer": {
+            "kind": "IntConstant",
+            "value": {
+              "kind": "IntegerLiteral",
+              "value": "4",
+              "loc": {
+                "start": {
+                  "line": 14,
+                  "column": 20,
+                  "index": 274
+                },
+                "end": {
+                  "line": 14,
+                  "column": 21,
+                  "index": 275
+                }
+              }
+            },
+            "loc": {
+              "start": {
+                "line": 14,
+                "column": 20,
+                "index": 274
+              },
+              "end": {
+                "line": 14,
+                "column": 21,
+                "index": 275
+              }
+            }
+          },
+          "comments": [],
+          "annotations": null
+        }
+      ],
+      "comments": [
+        {
+          "kind": "CommentLine",
+          "value": "// Enum definition for access levels",
+          "loc": {
+            "start": {
+              "line": 9,
+              "column": 1,
+              "index": 124
+            },
+            "end": {
+              "line": 9,
+              "column": 37,
+              "index": 160
+            }
+          }
+        }
+      ],
+      "annotations": null
+    },
+    {
+      "kind": "EnumDefinition",
+      "loc": {
+        "start": {
+          "line": 18,
+          "column": 1,
+          "index": 313
+        },
+        "end": {
+          "line": 24,
+          "column": 2,
+          "index": 398
+        }
+      },
+      "name": {
+        "kind": "Identifier",
+        "value": "LogLevel",
+        "loc": {
+          "start": {
+            "line": 18,
+            "column": 6,
+            "index": 318
+          },
+          "end": {
+            "line": 18,
+            "column": 14,
+            "index": 326
+          }
+        }
+      },
+      "members": [
+        {
+          "kind": "EnumMember",
+          "loc": {
+            "start": {
+              "line": 19,
+              "column": 5,
+              "index": 333
+            },
+            "end": {
+              "line": 19,
+              "column": 14,
+              "index": 342
+            }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "DEBUG",
+            "loc": {
+              "start": {
+                "line": 19,
+                "column": 5,
+                "index": 333
+              },
+              "end": {
+                "line": 19,
+                "column": 10,
+                "index": 338
+              }
+            }
+          },
+          "initializer": {
+            "kind": "IntConstant",
+            "value": {
+              "kind": "IntegerLiteral",
+              "value": "1",
+              "loc": {
+                "start": {
+                  "line": 19,
+                  "column": 13,
+                  "index": 341
+                },
+                "end": {
+                  "line": 19,
+                  "column": 14,
+                  "index": 342
+                }
+              }
+            },
+            "loc": {
+              "start": {
+                "line": 19,
+                "column": 13,
+                "index": 341
+              },
+              "end": {
+                "line": 19,
+                "column": 14,
+                "index": 342
+              }
+            }
+          },
+          "comments": [],
+          "annotations": null
+        },
+        {
+          "kind": "EnumMember",
+          "loc": {
+            "start": {
+              "line": 20,
+              "column": 5,
+              "index": 347
+            },
+            "end": {
+              "line": 20,
+              "column": 13,
+              "index": 355
+            }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "INFO",
+            "loc": {
+              "start": {
+                "line": 20,
+                "column": 5,
+                "index": 347
+              },
+              "end": {
+                "line": 20,
+                "column": 9,
+                "index": 351
+              }
+            }
+          },
+          "initializer": {
+            "kind": "IntConstant",
+            "value": {
+              "kind": "IntegerLiteral",
+              "value": "2",
+              "loc": {
+                "start": {
+                  "line": 20,
+                  "column": 12,
+                  "index": 354
+                },
+                "end": {
+                  "line": 20,
+                  "column": 13,
+                  "index": 355
+                }
+              }
+            },
+            "loc": {
+              "start": {
+                "line": 20,
+                "column": 12,
+                "index": 354
+              },
+              "end": {
+                "line": 20,
+                "column": 13,
+                "index": 355
+              }
+            }
+          },
+          "comments": [],
+          "annotations": null
+        },
+        {
+          "kind": "EnumMember",
+          "loc": {
+            "start": {
+              "line": 21,
+              "column": 5,
+              "index": 360
+            },
+            "end": {
+              "line": 21,
+              "column": 13,
+              "index": 368
+            }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "WARN",
+            "loc": {
+              "start": {
+                "line": 21,
+                "column": 5,
+                "index": 360
+              },
+              "end": {
+                "line": 21,
+                "column": 9,
+                "index": 364
+              }
+            }
+          },
+          "initializer": {
+            "kind": "IntConstant",
+            "value": {
+              "kind": "IntegerLiteral",
+              "value": "3",
+              "loc": {
+                "start": {
+                  "line": 21,
+                  "column": 12,
+                  "index": 367
+                },
+                "end": {
+                  "line": 21,
+                  "column": 13,
+                  "index": 368
+                }
+              }
+            },
+            "loc": {
+              "start": {
+                "line": 21,
+                "column": 12,
+                "index": 367
+              },
+              "end": {
+                "line": 21,
+                "column": 13,
+                "index": 368
+              }
+            }
+          },
+          "comments": [],
+          "annotations": null
+        },
+        {
+          "kind": "EnumMember",
+          "loc": {
+            "start": {
+              "line": 22,
+              "column": 5,
+              "index": 373
+            },
+            "end": {
+              "line": 22,
+              "column": 14,
+              "index": 382
+            }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "ERROR",
+            "loc": {
+              "start": {
+                "line": 22,
+                "column": 5,
+                "index": 373
+              },
+              "end": {
+                "line": 22,
+                "column": 10,
+                "index": 378
+              }
+            }
+          },
+          "initializer": {
+            "kind": "IntConstant",
+            "value": {
+              "kind": "IntegerLiteral",
+              "value": "4",
+              "loc": {
+                "start": {
+                  "line": 22,
+                  "column": 13,
+                  "index": 381
+                },
+                "end": {
+                  "line": 22,
+                  "column": 14,
+                  "index": 382
+                }
+              }
+            },
+            "loc": {
+              "start": {
+                "line": 22,
+                "column": 13,
+                "index": 381
+              },
+              "end": {
+                "line": 22,
+                "column": 14,
+                "index": 382
+              }
+            }
+          },
+          "comments": [],
+          "annotations": null
+        },
+        {
+          "kind": "EnumMember",
+          "loc": {
+            "start": {
+              "line": 23,
+              "column": 5,
+              "index": 387
+            },
+            "end": {
+              "line": 23,
+              "column": 14,
+              "index": 396
+            }
+          },
+          "name": {
+            "kind": "Identifier",
+            "value": "FATAL",
+            "loc": {
+              "start": {
+                "line": 23,
+                "column": 5,
+                "index": 387
+              },
+              "end": {
+                "line": 23,
+                "column": 10,
+                "index": 392
+              }
+            }
+          },
+          "initializer": {
+            "kind": "IntConstant",
+            "value": {
+              "kind": "IntegerLiteral",
+              "value": "5",
+              "loc": {
+                "start": {
+                  "line": 23,
+                  "column": 13,
+                  "index": 395
+                },
+                "end": {
+                  "line": 23,
+                  "column": 14,
+                  "index": 396
+                }
+              }
+            },
+            "loc": {
+              "start": {
+                "line": 23,
+                "column": 13,
+                "index": 395
+              },
+              "end": {
+                "line": 23,
+                "column": 14,
+                "index": 396
+              }
+            }
+          },
+          "comments": [],
+          "annotations": null
+        }
+      ],
+      "comments": [
+        {
+          "kind": "CommentLine",
+          "value": "// Enum definition for log levels",
+          "loc": {
+            "start": {
+              "line": 17,
+              "column": 1,
+              "index": 279
+            },
+            "end": {
+              "line": 17,
+              "column": 34,
+              "index": 312
+            }
+          }
+        }
+      ],
+      "annotations": null
+    }
+  ]
+}
