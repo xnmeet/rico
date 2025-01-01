@@ -22,6 +22,14 @@ A high-performance Apache Thrift IDL parser written in Rust that converts Thrift
 - ⚡ Parallel processing support
 - 📊 Built-in benchmarking
 
+## Performance vs thrift-parser
+
+The program takes `0.03` seconds, which is nearly a 10x performance improvement compared to the JavaScript implementation.
+
+> The test file contains approximately 15,000 lines of code.
+
+![performance](./performance.png)
+
 ## Installation
 
 ```bash

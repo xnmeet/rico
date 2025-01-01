@@ -47,6 +47,10 @@ struct Args {
     /// If not provided, files will only be validated without generating output
     #[arg(short, long)]
     output: Option<PathBuf>,
+
+    /// Optional flag to enable pretty JSON output
+    #[arg(long)]
+    pretty: bool,
 }
 
 /// Statistics for tracking file processing progress
@@ -70,42 +74,44 @@ fn setup_progress_bar(total: usize) -> ProgressBar {
     pb
 }
 
-/// Recursively collects all .thrift files from a directory
-///
-/// # Arguments
-///
-/// * `dir` - The directory to search for .thrift files
-///
-/// # Returns
-///
-/// A vector of paths to all .thrift files found
-fn collect_thrift_files(dir: &Path) -> io::Result<Vec<PathBuf>> {
+/// Collects Thrift files based on the input path
+/// If the path is a Thrift file, returns a vector with just that file
+/// If the path is a directory, recursively collects all Thrift files
+fn collect_thrift_files(path: &Path) -> io::Result<Vec<PathBuf>> {
+    if path.is_file() {
+        if path.extension().and_then(|s| s.to_str()) == Some("thrift") {
+            return Ok(vec![path.to_path_buf()]);
+        }
+        return Err(io::Error::new(
+            io::ErrorKind::InvalidInput,
+            format!("File '{}' is not a Thrift file", path.display()),
+        ));
+    }
+
     let mut files = Vec::new();
-    if dir.is_dir() {
-        for entry in fs::read_dir(dir)? {
-            let entry = entry?;
-            let path = entry.path();
-            if path.is_dir() {
-                files.extend(collect_thrift_files(&path)?);
-            } else if path.extension().and_then(|s| s.to_str()) == Some("thrift") {
-                files.push(path);
-            }
+    for entry in fs::read_dir(path)? {
+        let entry = entry?;
+        let path = entry.path();
+        if path.is_dir() {
+            files.extend(collect_thrift_files(&path)?);
+        } else if path.extension().and_then(|s| s.to_str()) == Some("thrift") {
+            files.push(path);
         }
     }
     Ok(files)
 }
 
 /// Writes the AST to a JSON file
-///
-/// This function is only available when the `json-output` feature is enabled.
-///
 /// # Arguments
 ///
 /// * `ast` - The AST to serialize
 /// * `output_path` - The path where to write the JSON file
-#[cfg(feature = "json-output")]
-fn write_output(ast: rico::ast::Document, output_path: &Path) -> io::Result<()> {
-    let json = serde_json::to_string_pretty(&ast)?;
+fn write_output(ast: rico::ast::Document, output_path: &Path, pretty: bool) -> io::Result<()> {
+    let json = if pretty {
+        serde_json::to_string_pretty(&ast)?
+    } else {
+        serde_json::to_string(&ast)?
+    };
     fs::write(output_path, json)
 }
 
@@ -125,7 +131,7 @@ fn write_output(ast: rico::ast::Document, output_path: &Path) -> io::Result<()> 
 ///
 /// * `Ok(())` if processing succeeded
 /// * `Err` with a detailed error message if any step failed
-fn process_file(input: &Path, output_dir: Option<&Path>) -> Result<()> {
+fn process_file(input: &Path, output_dir: Option<&Path>, pretty: bool) -> Result<()> {
     let content = fs::read_to_string(input)
         .map_err(|e| miette!("Failed to read {}: {}", input.display(), e))?;
     let mut parser = ThriftParser::new(&content);
@@ -138,14 +144,13 @@ fn process_file(input: &Path, output_dir: Option<&Path>) -> Result<()> {
     })?;
 
     if let Some(output_dir) = output_dir {
-        #[cfg(feature = "json-output")]
         {
             let file_name = input
                 .file_stem()
                 .and_then(|s| s.to_str())
                 .ok_or_else(|| miette!("Invalid file name"))?;
             let output_path = output_dir.join(format!("{}.json", file_name));
-            write_output(ast, &output_path)
+            write_output(ast, &output_path, pretty)
                 .map_err(|e| miette!("Failed to write {}: {}", output_path.display(), e))?;
         }
     }
@@ -188,7 +193,7 @@ fn main() -> Result<()> {
     let results: Vec<_> = thrift_files
         .par_iter()
         .map(|file| {
-            let result = process_file(file, args.output.as_deref());
+            let result = process_file(file, args.output.as_deref(), args.pretty);
             stats.processed.fetch_add(1, Ordering::SeqCst);
             pb.inc(1);
             (file, result)
