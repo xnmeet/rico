@@ -1,48 +1,36 @@
 use criterion::{black_box, criterion_group, criterion_main, BenchmarkId, Criterion};
 use rico::Parser;
 use std::fs;
-use std::path::Path;
 use std::time::Duration;
 
-fn get_test_files() -> Vec<(String, String)> {
-    let fixtures_dir = Path::new("benches").join("fixtures");
-    if !fixtures_dir.exists() {
-        panic!("fixtures directory not found at benches/fixtures/. Please create it and add .thrift files.");
+fn create_test_content(base_content: &str, multiplier: usize) -> String {
+    let mut result = String::with_capacity(base_content.len() * multiplier);
+    for i in 0..multiplier {
+        result.push_str(&format!("// File Section {}\n", i + 1));
+        result.push_str(base_content);
     }
-
-    let mut files = Vec::new();
-    if let Ok(entries) = fs::read_dir(fixtures_dir) {
-        for entry in entries.filter_map(Result::ok) {
-            let path = entry.path();
-            if path.extension().and_then(|s| s.to_str()) == Some("thrift") {
-                if let Ok(content) = fs::read_to_string(&path) {
-                    let name = path
-                        .file_stem()
-                        .and_then(|s| s.to_str())
-                        .unwrap_or("unknown")
-                        .to_string();
-                    files.push((name, content));
-                }
-            }
-        }
-    }
-
-    if files.is_empty() {
-        panic!("No .thrift files found in benches/fixtures/ directory.");
-    }
-
-    files
+    result
 }
 
-fn bench_parser(c: &mut Criterion) {
-    let test_files = get_test_files();
-    let mut group = c.benchmark_group("Parser");
-    group.measurement_time(Duration::from_secs(10));
-    group.sample_size(100);
+fn parser_benchmark(c: &mut Criterion) {
+    let base_content = fs::read_to_string("benches/fixtures/large.thrift").unwrap();
+    let multipliers = [1, 10, 30, 50, 100];
 
-    for (file_type, content) in test_files {
+    let mut group = c.benchmark_group("parser");
+    group.measurement_time(Duration::from_secs(10));
+    group.sample_size(10);
+    group.noise_threshold(0.05); // 5% noise threshold
+    group.significance_level(0.1); // 10% significance level
+    group.warm_up_time(Duration::from_secs(1));
+
+    for &m in &multipliers {
+        let content = create_test_content(&base_content, m);
+        let lines = content.lines().count();
+        let size_label = format!("{}_lines", lines);
+
+        // Basic parsing benchmark
         group.bench_with_input(
-            BenchmarkId::new("parse", file_type.clone()),
+            BenchmarkId::new("parse", &size_label),
             &content,
             |b, content| {
                 b.iter(|| {
@@ -51,8 +39,10 @@ fn bench_parser(c: &mut Criterion) {
                 });
             },
         );
+
+        // JSON output benchmark
         group.bench_with_input(
-            BenchmarkId::new("json_output", file_type.clone()),
+            BenchmarkId::new("json_output", &size_label),
             &content,
             |b, content| {
                 b.iter(|| {
@@ -62,8 +52,10 @@ fn bench_parser(c: &mut Criterion) {
                 });
             },
         );
+
+        // Pretty JSON output benchmark
         group.bench_with_input(
-            BenchmarkId::new("json_pretty_output", file_type.clone()),
+            BenchmarkId::new("json_pretty_output", &size_label),
             &content,
             |b, content| {
                 b.iter(|| {
@@ -74,7 +66,6 @@ fn bench_parser(c: &mut Criterion) {
             },
         );
     }
-
     group.finish();
 }
 
@@ -82,8 +73,11 @@ criterion_group!(
     name = benches;
     config = Criterion::default()
         .with_plots()
-        .sample_size(100)
-        .measurement_time(Duration::from_secs(10));
-    targets = bench_parser
+        .sample_size(10)
+        .measurement_time(Duration::from_secs(10))
+        .noise_threshold(0.05)
+        .significance_level(0.1)
+        .warm_up_time(Duration::from_secs(1));
+    targets = parser_benchmark
 );
 criterion_main!(benches);
