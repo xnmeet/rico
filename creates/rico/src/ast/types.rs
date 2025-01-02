@@ -1,5 +1,6 @@
 use crate::lexer::Token;
 use serde::{Deserialize, Serialize};
+use std::fmt;
 
 #[derive(Serialize, Deserialize, Debug, Clone, Copy)]
 pub struct Span {
@@ -28,6 +29,13 @@ pub struct Common<T = String> {
     pub value: T,
     pub loc: LOC,
 }
+
+impl<T: fmt::Display> fmt::Display for Common<T> {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        write!(f, "{}", self.value)
+    }
+}
+
 impl<T> Common<T> {
     pub fn new(kind: NodeType, value: T, loc: LOC) -> Self {
         Self { kind, value, loc }

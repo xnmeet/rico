@@ -1,0 +1,8 @@
+---
+source: creates/rico/tests/snapshots/writer.rs
+description: Testing include thrift file
+snapshot_kind: text
+---
+include ""common""
+
+include ""common.a.b""

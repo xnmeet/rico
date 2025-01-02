@@ -1,0 +1,10 @@
+---
+source: creates/rico/tests/snapshots/writer.rs
+description: Testing namespace thrift file
+snapshot_kind: text
+---
+namespace py main_service
+
+namespace go other_service
+
+namespace go a.b.c
