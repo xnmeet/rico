@@ -1,3 +1,89 @@
+//! Parser module for converting Thrift IDL text into AST.
+//!
+//! This module implements a recursive descent parser that converts tokenized
+//! Thrift IDL into an Abstract Syntax Tree (AST). The parser provides:
+//!
+//! - Complete Thrift IDL support
+//! - Detailed error reporting
+//! - Source location tracking
+//! - Comment preservation
+//!
+//! # Parsing Process
+//!
+//! The parser operates in several stages:
+//!
+//! 1. Tokenization (via lexer)
+//! 2. Recursive descent parsing
+//! 3. AST construction
+//! 4. Error handling and recovery
+//!
+//! # Error Handling
+//!
+//! The parser provides detailed error information:
+//!
+//! - Source location (line and column)
+//! - Expected vs actual tokens
+//! - Context about the construct being parsed
+//! - Suggestions for common mistakes
+//!
+//! # Implementation Details
+//!
+//! ## Parser Design
+//!
+//! - Recursive descent parsing for clarity
+//! - Look-ahead tokens for better error handling
+//! - State tracking for context-sensitive parsing
+//! - Comment attachment to AST nodes
+//!
+//! ## Performance Considerations
+//!
+//! - Efficient token handling
+//! - Minimal memory allocation
+//! - Fast error recovery
+//! - Optimized AST construction
+//!
+//! # Usage Examples
+//!
+//! ## Basic Parsing
+//!
+//! ```rust
+//! use rico::Parser;
+//!
+//! let input = r#"
+//!     namespace rs example
+//!     struct User {
+//!         1: string name
+//!     }
+//! "#;
+//!
+//! let mut parser = Parser::new(input);
+//! match parser.parse() {
+//!     Ok(ast) => println!("Parsing successful"),
+//!     Err(e) => eprintln!("Parse error: {}", e),
+//! }
+//! ```
+//!
+//! ## Error Handling
+//!
+//! ```rust
+//! use rico::Parser;
+//!
+//! let input = r#"
+//!     struct User {
+//!         1: invalid_type name  // Error: invalid type
+//!     }
+//! "#;
+//!
+//! let mut parser = Parser::new(input);
+//! match parser.parse() {
+//!     Ok(_) => println!("Parsing successful"),
+//!     Err(e) => {
+//!         eprintln!("Error at {}:{}: {}", e.line(), e.column(), e.message());
+//!         // Handle specific error cases
+//!     }
+//! }
+//! ```
+
 mod definitions;
 mod error;
 mod factory;

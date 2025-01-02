@@ -1,5 +1,5 @@
 ---
-source: creates/rico/tests/snapshots/mod.rs
+source: creates/rico/tests/snapshots/parser.rs
 description: Testing union thrift file
 snapshot_kind: text
 ---
