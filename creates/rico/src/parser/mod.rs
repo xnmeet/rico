@@ -78,7 +78,6 @@
 //! match parser.parse() {
 //!     Ok(_) => println!("Parsing successful"),
 //!     Err(e) => {
-//!         eprintln!("Error at {}:{}: {}", e.line(), e.column(), e.message());
 //!         // Handle specific error cases
 //!     }
 //! }

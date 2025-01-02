@@ -487,9 +487,10 @@ impl Document {
     ///
     /// ```
     /// use rico::ast::Document;
+    /// use rico::NodeType;
     ///
     /// let doc = Document {
-    ///     kind: "ThriftDocument".into(),
+    ///     kind: NodeType::ThriftDocument,
     ///     members: vec![]
     /// };
     ///
@@ -511,9 +512,10 @@ impl Document {
     ///
     /// ```
     /// use rico::ast::Document;
+    /// use rico::NodeType;
     ///
     /// let doc = Document {
-    ///     kind: "ThriftDocument".into(),
+    ///     kind: NodeType::ThriftDocument,
     ///     members: vec![]
     /// };
     ///
