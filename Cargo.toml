@@ -19,7 +19,7 @@ miette = { version = "7.4.0", features = ["fancy"] }
 thiserror = "2.0.9"
 insta = { version = "1.41.1", features = ["json"] }
 # publish = true
-rico = { version = "0.1.6-alpha.1", path = "./creates/rico" }
-rico-scan = { version = "0.1.1-alpha.1", path = "./apps/scan" }
+rico = { version = "0.1.6", path = "./creates/rico" }
+rico-scan = { version = "0.1.1", path = "./apps/scan" }
 # publish = false
 rico-benchmark = { path = "./apps/benchmark" }
