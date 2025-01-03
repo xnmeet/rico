@@ -451,11 +451,11 @@ pub enum DocumentMembers {
 }
 
 impl Document {
-    /// Converts a JSON string into a Document.
+    /// Parse a Document from a JSON string
     ///
     /// # Arguments
     ///
-    /// * `json` - A string slice that holds the JSON data
+    /// * `json` - The JSON string to parse
     ///
     /// # Returns
     ///
@@ -473,11 +473,12 @@ impl Document {
     ///
     /// let doc = Document::from_json(json).unwrap();
     /// ```
+    #[cfg(feature = "json")]
     pub fn from_json(json: &str) -> Result<Self, serde_json::Error> {
         serde_json::from_str(json)
     }
 
-    /// Converts the Document into a compact JSON string without formatting.
+    /// Convert the Document to a compact JSON string
     ///
     /// # Returns
     ///
@@ -496,13 +497,12 @@ impl Document {
     ///
     /// let json = doc.to_json_compact().unwrap();
     /// ```
+    #[cfg(feature = "json")]
     pub fn to_json_compact(&self) -> Result<String, serde_json::Error> {
         serde_json::to_string(self)
     }
 
-    /// Converts the Document into a pretty-printed JSON string with formatting.
-    ///
-    /// The output will include proper indentation and line breaks for better readability.
+    /// Convert the Document to a pretty-printed JSON string
     ///
     /// # Returns
     ///
@@ -521,6 +521,7 @@ impl Document {
     ///
     /// let json = doc.to_json_pretty().unwrap();
     /// ```
+    #[cfg(feature = "json")]
     pub fn to_json_pretty(&self) -> Result<String, serde_json::Error> {
         serde_json::to_string_pretty(self)
     }

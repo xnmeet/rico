@@ -13,7 +13,7 @@ authors.workspace = true
 publish = true
 
 [dependencies]
-rico = { workspace = true }
+rico = { workspace = true, features = ["json"] }
 clap = { version = "4.5.1", features = ["derive"] }
 miette = { workspace = true }
 indicatif = "0.17.8"

@@ -16,9 +16,13 @@ publish = true
 [dependencies]
 logos = "0.15.0"
 serde = { workspace = true }
-serde_json = { workspace = true }
+serde_json = { workspace = true, optional = true }
 miette = { workspace = true }
 thiserror = { workspace = true }
+
+[features]
+default = []
+json = ["dep:serde_json"]
 
 [dev-dependencies]
 insta = { workspace = true }

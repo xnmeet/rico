@@ -5,7 +5,7 @@ edition = "2021"
 publish = false
 
 [dependencies]
-rico = { workspace = true }
+rico = { workspace = true, features = ["json"] }
 serde_json = { workspace = true }
 
 [dev-dependencies]
