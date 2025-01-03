@@ -210,3 +210,16 @@ export type FieldValue =
   | Common<string | number | boolean>
   | ConstList
   | ConstMap;
+
+export interface ParseError {
+  kind: 'ParseError' | 'SerializationError' | 'DeserializationError';
+  message: string;
+  code: string;
+  help?: string;
+  location?: {
+    line: number;
+    column: number;
+    length: number;
+    sourceText: string;
+  };
+}
