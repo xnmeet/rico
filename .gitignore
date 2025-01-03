@@ -2,3 +2,5 @@ target
 output
 dist
 node_modules
+.DS_Store
+wasm/rico/src/wasm

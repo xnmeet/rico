@@ -1,5 +1,5 @@
 [workspace]
-members = ["creates/rico", "apps/scan", "apps/benchmark"]
+members = ["creates/rico", "apps/scan", "apps/benchmark", "wasm/rico"]
 resolver = "2"
 
 [workspace.package]
@@ -23,3 +23,4 @@ rico = { version = "0.1.6", path = "./creates/rico" }
 rico-scan = { version = "0.1.1", path = "./apps/scan" }
 # publish = false
 rico-benchmark = { path = "./apps/benchmark" }
+rico-wasm = { path = "./wasm/rico" }

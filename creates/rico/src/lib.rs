@@ -28,6 +28,8 @@
 //! - [`writer`]: Converting AST back to Thrift IDL text. Handles proper formatting,
 //!   indentation, and comment preservation.
 //!
+//! - [`wasm`]: Wasm bindings for the library. Provides bindings for the Wasm target.
+//!
 //! # Getting Started
 //!
 //! Rico can be used in two main ways:

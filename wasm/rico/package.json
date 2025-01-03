@@ -1,0 +1,41 @@
+{
+  "name": "@rico-core/parser",
+  "version": "0.0.1",
+  "description": "WebAssembly bindings for Rico - A high-performance Apache Thrift IDL parser",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "collaborators": [
+    "xxnmeet@gmail.com"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/xnmeet/rico"
+  },
+  "scripts": {
+    "clean": "rm -rf dist src/wasm",
+    "pack": "wasm-pack build ../rico --target web --out-dir ./src/wasm",
+    "move-wasm": "mkdir -p dist/wasm && cp src/wasm/*.{ts,js,wasm} dist/wasm/",
+    "build": "npm run clean && npm run pack && tsc && npm run move-wasm"
+  },
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "thrift",
+    "idl",
+    "parser",
+    "wasm",
+    "webassembly"
+  ],
+  "author": "xxnmeet@gmail.com",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0",
+    "wasm-pack": "^0.13.0"
+  }
+}

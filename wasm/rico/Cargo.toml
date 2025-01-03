@@ -1,0 +1,21 @@
+[package]
+name = "rico-wasm"
+version = "0.0.1"
+edition = "2021"
+description = "WebAssembly bindings for Rico - A high-performance Apache Thrift IDL parser and writer library."
+license.workspace = true
+documentation = "https://docs.rs/rico"
+repository.workspace = true
+readme = "README.md"
+keywords = ["thrift", "parser", "ast", "idl", "json"]
+categories = ["parsing", "development-tools"]
+authors.workspace = true
+publish = false
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+rico = { workspace = true }
+wasm-bindgen = "0.2"
+serde-wasm-bindgen = "0.6"
