@@ -74,7 +74,7 @@ service AdminService {
   void activateUser(1: i32 id) throws (1: UserNotFoundException e),
 
   // Method to get user statistics
-  map<string, i32> getUserStatistics()
+  map<string, list<i32>> getUserStatistics()
 }
 
 // Service definition for NotificationService

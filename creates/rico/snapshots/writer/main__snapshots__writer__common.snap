@@ -12,7 +12,7 @@ namespace cpp mock_example_cpp
 // It can span multiple lines
 // and is useful for providing detailed explanations
 // Include another Thrift file
-include ""common.thrift""
+include "common.thrift"
 
 // Enum definition for user roles
 enum UserRole {
@@ -72,7 +72,7 @@ service AdminService {
   // Method to activate a user
   void activateUser(1: i32 id) throws (1: UserNotFoundException e)
   // Method to get user statistics
-  map<string, i32> getUserStatistics()
+  map<string, list<i32>> getUserStatistics()
 }
 
 // Service definition for NotificationService

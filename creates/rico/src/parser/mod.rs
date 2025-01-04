@@ -211,10 +211,7 @@ impl<'a> Parser<'a> {
             }
         }
 
-        Ok(Document {
-            kind: NodeType::ThriftDocument,
-            members,
-        })
+        Ok(Document { members })
     }
 
     fn create_parser_token(&mut self) -> Option<ParserToken<'a>> {
