@@ -122,22 +122,25 @@ pnpm install
 
 ### Building
 
-build crates
+*build crates*
 
 ```bash
 cargo build --workspace
 ```
 
-build docs
+*build docs*
 
 ```bash
 cargo doc --workspace
 ```
 
-build wasm
+*build wasm*
 
-````bash
+```bash
 cd wasm/rico && npm run build
+
+// debug use bun
+bun examples/basic.ts
 ```
 
 ### Updating Snapshots
