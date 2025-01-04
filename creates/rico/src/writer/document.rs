@@ -25,7 +25,7 @@ impl Writer {
     /// Writes an include statement to the output string.
     pub(crate) fn write_include(&mut self, output: &mut String, inc: &Include) {
         self.write_comments(output, &inc.comments);
-        writeln!(output, "include \"{}\"", inc.name.value).unwrap();
+        writeln!(output, "include {}", inc.name.value).unwrap();
     }
 
     /// Writes a constant definition to the output string.

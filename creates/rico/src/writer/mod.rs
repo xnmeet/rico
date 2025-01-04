@@ -32,10 +32,8 @@ use std::fmt::Write;
 /// ```rust
 /// use rico::writer::Writer;
 /// use rico::ast::Document;
-/// use rico::NodeType;
 ///
 /// let document = Document {
-///     kind: NodeType::ThriftDocument,
 ///     members: vec![]
 /// };
 /// let mut writer = Writer::new();

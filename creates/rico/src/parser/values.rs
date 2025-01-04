@@ -1,4 +1,4 @@
-use crate::ast::{FieldInitialValue, MapProperty, NodeType};
+use crate::ast::{FieldInitialValue, MapProperty};
 use crate::lexer::Token;
 use crate::parser::error::ParseError;
 use crate::parser::factory::*;
@@ -57,7 +57,6 @@ impl<'a> Parser<'a> {
             let property_value = parser.parse_field_value()?;
 
             Ok(MapProperty {
-                kind: NodeType::PropertyAssignment,
                 loc: parser.get_token_parent_loc(property_start_pos, parser.get_token_loc().end),
                 name: property_key,
                 value: property_value,

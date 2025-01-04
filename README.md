@@ -107,17 +107,49 @@ cargo run -p benchmark
 
 ## Development
 
+### Setup
+
+```bash
+# Install insta
+curl -LsSf https://insta.rs/install.sh | sh
+
+# Install pnpm
+npm install -g pnpm bun
+
+# Install dependencies
+pnpm install
+```
+
 ### Building
+
+build crates
 
 ```bash
 cargo build --workspace
 ```
 
-### Running Tests
+build docs
 
 ```bash
-cargo test --workspace
+cargo doc --workspace
 ```
+
+build wasm
+
+````bash
+cd wasm/rico && npm run build
+```
+
+### Updating Snapshots
+
+You can for instance first run the tests and not write and new snapshots, and if you like them run the tests again and update them:
+
+```bash
+INSTA_UPDATE=no cargo test
+INSTA_UPDATE=always cargo test
+```
+
+For more information see [insta](https://insta.rs/docs/quickstart/)
 
 ### Code Structure
 
@@ -142,3 +174,4 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 - [Logos](https://github.com/maciejhirsz/logos) for lexer generation
 - [Serde](https://github.com/serde-rs/serde) for JSON serialization
+````

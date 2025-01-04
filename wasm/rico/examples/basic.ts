@@ -10,6 +10,7 @@ async function main() {
     struct User {
       1: string name
       2: i32 age
+      3: map<string, list<i32>> getUserStatistics()
     }
   `;
 
@@ -32,7 +33,7 @@ async function main() {
 
     // Write AST back to Thrift IDL
     const output = Rico.write(ast);
-    console.log('Generated Thrift IDL:', output);
+    console.log('Generated Thrift IDL:\n', output);
   } catch (error) {
     console.error('Error:', error);
   }

@@ -21,7 +21,6 @@ impl<'a> Parser<'a> {
 
         Ok(Include {
             name,
-            kind: NodeType::IncludeDefinition,
             loc: tracker.to_parent_loc(&end_loc),
             comments,
         })
@@ -42,7 +41,6 @@ impl<'a> Parser<'a> {
         let end_loc = name.loc;
 
         Ok(Namespace {
-            kind: NodeType::NamespaceDefinition,
             name,
             scope,
             loc: tracker.to_parent_loc(&end_loc),
@@ -62,7 +60,6 @@ impl<'a> Parser<'a> {
         let const_value = self.parse_field_value()?;
 
         let result = Const {
-            kind: NodeType::ConstDefinition,
             loc: tracker.to_parent_loc(&self.get_token_loc()),
             name,
             value: const_value,
@@ -82,7 +79,6 @@ impl<'a> Parser<'a> {
         let name = create_identifier(self.get_token_loc(), self.text().to_string());
 
         Ok(Typedef {
-            kind: NodeType::TypedefDefinition,
             loc: tracker.to_parent_loc(&name.loc),
             name,
             field_type,
@@ -101,7 +97,6 @@ impl<'a> Parser<'a> {
         let annotations = self.parse_annotations()?;
 
         Ok(Enum {
-            kind: NodeType::EnumDefinition,
             loc: tracker.to_parent_loc(&self.get_token_loc()),
             name,
             members,
@@ -111,45 +106,33 @@ impl<'a> Parser<'a> {
     }
 
     pub(crate) fn parse_struct(&mut self) -> Result<Struct, ParseError> {
-        self.parse_struct_like(
-            NodeType::StructDefinition,
-            |kind, loc, name, members, comments, annotations| Struct {
-                kind,
-                loc,
-                name,
-                members,
-                comments,
-                annotations,
-            },
-        )
+        self.parse_struct_like(|loc, name, members, comments, annotations| Struct {
+            loc,
+            name,
+            members,
+            comments,
+            annotations,
+        })
     }
 
     pub(crate) fn parse_union(&mut self) -> Result<Union, ParseError> {
-        self.parse_struct_like(
-            NodeType::UnionDefinition,
-            |kind, loc, name, members, comments, annotations| Union {
-                kind,
-                loc,
-                name,
-                members,
-                comments,
-                annotations,
-            },
-        )
+        self.parse_struct_like(|loc, name, members, comments, annotations| Union {
+            loc,
+            name,
+            members,
+            comments,
+            annotations,
+        })
     }
 
     pub(crate) fn parse_exception(&mut self) -> Result<Exception, ParseError> {
-        self.parse_struct_like(
-            NodeType::ExceptionDefinition,
-            |kind, loc, name, members, comments, annotations| Exception {
-                kind,
-                loc,
-                name,
-                members,
-                comments,
-                annotations,
-            },
-        )
+        self.parse_struct_like(|loc, name, members, comments, annotations| Exception {
+            loc,
+            name,
+            members,
+            comments,
+            annotations,
+        })
     }
 
     pub(crate) fn parse_annotations(&mut self) -> Result<Option<Annotations>, ParseError> {
@@ -179,7 +162,6 @@ impl<'a> Parser<'a> {
                 };
 
                 annotations.push(Annotation {
-                    kind: NodeType::Annotation,
                     loc: self.get_token_parent_loc(annotation_name.loc.start, value_loc.end),
                     name: annotation_name,
                     value,
@@ -191,7 +173,6 @@ impl<'a> Parser<'a> {
             }
 
             Ok(Some(Annotations {
-                kind: NodeType::Annotations,
                 loc: tracker.to_parent_loc(&self.get_token_loc()),
                 members: annotations,
             }))
@@ -240,7 +221,6 @@ impl<'a> Parser<'a> {
             let function_annotations = parser.parse_annotations()?;
 
             Ok(Function {
-                kind: NodeType::FunctionDefinition,
                 loc: parser.get_token_parent_loc(function_start_loc.start, parser.end_pos()),
                 name: function_name,
                 return_type,
@@ -256,7 +236,6 @@ impl<'a> Parser<'a> {
         let annotations = self.parse_annotations()?;
 
         Ok(Service {
-            kind: NodeType::ServiceDefinition,
             loc: tracker.to_parent_loc(&self.get_token_loc()),
             name,
             extends,
@@ -291,9 +270,7 @@ impl<'a> Parser<'a> {
 
     fn parse_struct_like<T>(
         &mut self,
-        kind: NodeType,
         constructor: impl FnOnce(
-            NodeType,
             LOC,
             Common<String>,
             Vec<Field>,
@@ -313,7 +290,6 @@ impl<'a> Parser<'a> {
         let annotations = self.parse_annotations()?;
 
         Ok(constructor(
-            kind,
             tracker.to_parent_loc(&self.get_token_loc()),
             name,
             members,
@@ -438,7 +414,6 @@ impl<'a> Parser<'a> {
         // Parse annotations if present
         let field_annotations = self.parse_annotations()?;
         Ok(Field {
-            kind: NodeType::FieldDefinition,
             loc: self.get_token_parent_loc(field_start_pos, self.end_pos()),
             field_id,
             name: field_name,

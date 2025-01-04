@@ -20,7 +20,12 @@ impl Writer {
     pub(crate) fn write_field_type(&mut self, output: &mut String, field_type: &FieldType) {
         match field_type {
             FieldType::CommonType(t) => write!(output, "{}", t.value).unwrap(),
-            FieldType::CollectionType(t) => {
+            FieldType::ListType(t) => {
+                write!(output, "{}<", t.value).unwrap();
+                self.write_field_type(output, &t.value_type);
+                write!(output, ">").unwrap();
+            }
+            FieldType::SetType(t) => {
                 write!(output, "{}<", t.value).unwrap();
                 self.write_field_type(output, &t.value_type);
                 write!(output, ">").unwrap();

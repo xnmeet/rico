@@ -2,8 +2,8 @@ use crate::ast::*;
 use crate::lexer::Token;
 
 use super::{
-    Common, ConstList, ConstMap, FieldCollectionType, FieldInitialValue, FieldMapType, FieldType,
-    MapProperty, NodeType, LOC,
+    Common, ConstList, ConstMap, FieldInitialValue, FieldMapType, FieldType, MapProperty, NodeType,
+    LOC,
 };
 
 // for field type
@@ -31,7 +31,6 @@ pub fn create_map_field_type(
     value_type: FieldType,
 ) -> FieldType {
     FieldType::MapType(FieldMapType {
-        kind: NodeType::MapType,
         loc,
         key_type: Box::new(key_type),
         value_type: Box::new(value_type),
@@ -40,8 +39,7 @@ pub fn create_map_field_type(
 }
 
 pub fn create_list_field_type(loc: LOC, slice: &str, value_type: FieldType) -> FieldType {
-    FieldType::CollectionType(FieldCollectionType {
-        kind: NodeType::ListType,
+    FieldType::ListType(FieldListType {
         loc,
         value_type: Box::new(value_type),
         value: slice.to_string(),
@@ -49,8 +47,7 @@ pub fn create_list_field_type(loc: LOC, slice: &str, value_type: FieldType) -> F
 }
 
 pub fn create_set_field_type(loc: LOC, slice: &str, value_type: FieldType) -> FieldType {
-    FieldType::CollectionType(FieldCollectionType {
-        kind: NodeType::SetType,
+    FieldType::SetType(FieldSetType {
         loc,
         value_type: Box::new(value_type),
         value: slice.to_string(),
@@ -76,19 +73,11 @@ pub fn create_identifier_value(loc: LOC, slice: &str) -> FieldInitialValue {
 }
 
 pub fn create_const_list_value(loc: LOC, elements: Vec<FieldInitialValue>) -> FieldInitialValue {
-    FieldInitialValue::ConstList(ConstList {
-        kind: NodeType::ConstList,
-        loc,
-        elements,
-    })
+    FieldInitialValue::ConstList(ConstList { loc, elements })
 }
 
 pub fn create_map_value(loc: LOC, properties: Vec<MapProperty>) -> FieldInitialValue {
-    FieldInitialValue::ConstMap(ConstMap {
-        kind: NodeType::ConstMap,
-        loc,
-        properties,
-    })
+    FieldInitialValue::ConstMap(ConstMap { loc, properties })
 }
 
 pub(crate) fn create_identifier(loc: LOC, value: String) -> Common {
@@ -107,7 +96,6 @@ pub(crate) fn create_enum_member(
     annotations: Option<Annotations>,
 ) -> EnumMember {
     EnumMember {
-        kind: NodeType::EnumMember,
         loc,
         name,
         initializer,
