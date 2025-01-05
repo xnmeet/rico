@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "description": "A high-performance Apache Thrift IDL parser written in Rust that converts Thrift IDL files to JSON AST.",
   "scripts": {
-    "build:playground": "pnpm build:wasm && pnpm --filter rico-playground build",
+    "build:playground": "pnpm --filter rico-playground build",
     "build:wasm": "pnpm --filter @rico-core/parser build"
   },
   "engines": {

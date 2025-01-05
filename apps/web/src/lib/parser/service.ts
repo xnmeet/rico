@@ -22,7 +22,7 @@ export class ParserService {
     }
 
     try {
-      const result = await Rico.parse(content, true);
+      const result = await Rico.parse(content);
       return {
         success: true,
         data: result
