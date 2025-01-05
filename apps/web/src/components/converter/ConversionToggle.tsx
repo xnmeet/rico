@@ -1,11 +1,9 @@
-import { Button } from '../ui/button';
-import { ArrowLeftRight } from 'lucide-react';
-import { cn } from '../../lib/utils';
+import { RefreshCw } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 interface ConversionToggleProps {
   isThriftToJson: boolean;
-  isDisabled?: boolean;
+  isDisabled: boolean;
   onToggle: () => void;
 }
 
@@ -15,91 +13,56 @@ export function ConversionToggle({
   onToggle
 }: ConversionToggleProps) {
   return (
-    <Button
+    <button
       onClick={onToggle}
-      variant="outline"
-      className={cn(
-        'relative flex items-center gap-2 rounded-full border-gray-200/60 px-4 py-2 text-base shadow-sm transition-colors',
-        isDisabled && 'opacity-50 cursor-not-allowed',
-        !isDisabled && 'hover:border-gray-300 hover:bg-gray-50'
-      )}
-      disabled={isDisabled}>
-      <div className="relative w-[4.5rem]">
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={isThriftToJson ? 'thrift' : 'json'}
-            initial={{
-              y: isThriftToJson ? 20 : -20,
-              opacity: 0
-            }}
-            animate={{
-              y: 0,
-              opacity: 1
-            }}
-            exit={{
-              y: isThriftToJson ? -20 : 20,
-              opacity: 0
-            }}
-            transition={{
-              duration: 0.15,
-              ease: 'easeInOut'
-            }}
-            className="absolute inset-0 flex items-center justify-center">
-            <span
-              className={cn(
-                'font-display tracking-tight whitespace-nowrap text-base',
-                isThriftToJson ? 'text-blue-600 font-semibold' : 'text-gray-500'
-              )}>
-              {isThriftToJson ? 'Thrift' : 'JSON'}
-            </span>
-          </motion.div>
-        </AnimatePresence>
-      </div>
+      disabled={isDisabled}
+      className="group relative flex h-8 items-center rounded-lg bg-white/80 px-1 shadow-sm ring-1 ring-gray-200/50 transition hover:bg-white/90 disabled:opacity-50 dark:bg-[#1a1b26]/90 dark:ring-[#2c2e3f] dark:hover:bg-[#1a1b26]">
+      <div className="relative flex items-center gap-3 px-3">
+        <div className="w-14 text-center">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={isThriftToJson ? 'thrift' : 'json'}
+              initial={{ y: 10, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: -10, opacity: 0 }}
+              transition={{ duration: 0.15 }}
+              className="text-gray-900 dark:text-[#c0caf5]">
+              <span className="text-xs font-semibold tracking-wide">
+                {isThriftToJson ? 'THRIFT' : 'JSON'}
+              </span>
+            </motion.div>
+          </AnimatePresence>
+        </div>
 
-      <motion.div
-        animate={{ rotate: isThriftToJson ? 0 : 180 }}
-        transition={{
-          type: 'spring',
-          stiffness: 200,
-          damping: 30
-        }}
-        className="mx-0.5">
-        <ArrowLeftRight className="h-4 w-4 text-gray-400" />
-      </motion.div>
-
-      <div className="relative w-[4.5rem]">
-        <AnimatePresence mode="wait">
+        <div className="relative flex h-5 w-5 items-center justify-center">
+          <div className="absolute inset-0 rounded-full bg-gray-900/[0.03] shadow-sm ring-1 ring-gray-900/[0.05] transition group-hover:bg-gray-900/[0.05] dark:bg-[#2c2e3f] dark:ring-[#414868] dark:group-hover:bg-[#414868]" />
           <motion.div
-            key={isThriftToJson ? 'json' : 'thrift'}
-            initial={{
-              y: isThriftToJson ? -20 : 20,
-              opacity: 0
-            }}
-            animate={{
-              y: 0,
-              opacity: 1
-            }}
-            exit={{
-              y: isThriftToJson ? 20 : -20,
-              opacity: 0
-            }}
+            animate={{ rotate: isThriftToJson ? 360 : 0 }}
             transition={{
-              duration: 0.15,
-              ease: 'easeInOut'
-            }}
-            className="absolute inset-0 flex items-center justify-center">
-            <span
-              className={cn(
-                'font-display tracking-tight whitespace-nowrap text-base',
-                !isThriftToJson
-                  ? 'text-blue-600 font-semibold'
-                  : 'text-gray-500'
-              )}>
-              {isThriftToJson ? 'JSON' : 'Thrift'}
-            </span>
+              type: 'spring',
+              stiffness: 200,
+              damping: 10
+            }}>
+            <RefreshCw className="relative h-3 w-3 text-gray-500 transition-colors group-hover:text-gray-900 dark:text-[#7aa2f7] dark:group-hover:text-[#89b4f7]" />
           </motion.div>
-        </AnimatePresence>
+        </div>
+
+        <div className="w-14 text-center">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={isThriftToJson ? 'json' : 'thrift'}
+              initial={{ y: -10, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: 10, opacity: 0 }}
+              transition={{ duration: 0.15 }}
+              className="text-gray-400 dark:text-[#565f89]">
+              <span className="text-xs font-semibold tracking-wide">
+                {isThriftToJson ? 'JSON' : 'THRIFT'}
+              </span>
+            </motion.div>
+          </AnimatePresence>
+        </div>
       </div>
-    </Button>
+    </button>
   );
 }

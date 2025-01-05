@@ -1,6 +1,6 @@
 import { RicoLogo } from '../logo/RicoLogo';
 import { ConversionToggle } from '../converter/ConversionToggle';
-import { ParserStatus } from '../status/ParserStatus';
+import { StatusDisplay } from '../status/StatusDisplay';
 import { ThemeToggle } from '../theme/ThemeToggle';
 import type {
   WasmStatus,
@@ -26,19 +26,15 @@ export function Header({
   parserMetrics
 }: HeaderProps) {
   return (
-    <header className="relative flex items-center justify-between overflow-hidden rounded-2xl border border-gray-200/20 bg-white/10 px-6 py-4 shadow-[0_8px_16px_-6px_rgb(0_0_0/0.05)] backdrop-blur-xl dark:border-white/10 dark:bg-gray-800/10 dark:shadow-[0_8px_16px_-6px_rgb(0_0_0/0.15)]">
-      <div className="absolute inset-0 bg-gradient-to-r from-white/50 via-white/30 to-white/50 dark:from-white/[0.03] dark:via-white/[0.02] dark:to-white/[0.03]" />
+    <header className="relative flex items-center justify-between overflow-hidden rounded-2xl border border-gray-200/20 bg-white/10 px-5 py-3 shadow-[0_8px_16px_-6px_rgb(0_0_0/0.05)] backdrop-blur-xl dark:border-[#363d52]/30 dark:bg-[#2b3245]/40 dark:shadow-[0_8px_16px_-6px_rgb(0_0_0/0.2)]">
+      <div className="absolute inset-0 bg-gradient-to-r from-white/50 via-white/30 to-white/50 dark:from-[#363d52]/20 dark:via-[#2f354a]/15 dark:to-[#363d52]/20" />
       <div className="relative flex items-center gap-3">
-        <RicoLogo />
+        <RicoLogo className="h-8 w-8" />
         <div>
-          <h1 className="font-display text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+          <h1 className="font-display text-xl font-bold tracking-tight text-gray-900 dark:text-white">
             Rico
-            <span className="font-display font-medium text-gray-600 dark:text-gray-400">
-              {' '}
-              Thrift Converter
-            </span>
           </h1>
-          <p className="font-display text-sm font-medium tracking-tight text-gray-500 dark:text-gray-400">
+          <p className="font-display text-xs font-normal tracking-tight text-gray-500 dark:text-gray-400">
             Convert between Thrift IDL and JSON with ease
           </p>
         </div>
@@ -52,13 +48,13 @@ export function Header({
         />
       </div>
 
-      <div className="relative flex items-center space-x-4">
-        <ParserStatus
+      <div className="relative flex items-center gap-3">
+        <StatusDisplay
           wasmStatus={wasmStatus}
           parserStatus={parserStatus}
           metrics={parserMetrics}
         />
-        <div className="ml-2 h-4 w-px bg-gray-200/50 dark:bg-white/10" />
+        <div className="h-4 w-px bg-gray-200/50 dark:bg-white/10" />
         <ThemeToggle />
       </div>
     </header>

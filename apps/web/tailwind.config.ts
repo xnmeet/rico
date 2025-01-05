@@ -13,8 +13,8 @@ const config: Config = {
     },
     extend: {
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
-        display: ['"Jersey 15"', 'serif']
+        sans: ['Concert One', 'system-ui', 'sans-serif'],
+        display: ['Jersey 15', 'serif']
       },
       backdropBlur: {
         xl: '20px'

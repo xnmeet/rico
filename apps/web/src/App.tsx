@@ -4,6 +4,8 @@ import { ParserService } from './lib/parser/service';
 import { initRicoWasm } from './lib/rico';
 import { EXAMPLE_THRIFT, EXAMPLE_JSON } from './lib/examples';
 import { Header } from './components/layout/Header';
+import { Footer } from './components/layout/Footer';
+import { ArrowRight } from './components/icons/ArrowRight';
 import {
   CONVERSION_MODES,
   type ConversionMode,
@@ -159,8 +161,8 @@ function App() {
       : 'thrift';
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 p-6 dark:from-gray-900 dark:to-gray-800">
-      <div className="mx-auto flex max-w-[1600px] flex-col gap-6">
+    <div className="flex h-screen flex-col bg-gradient-to-br from-gray-50 to-gray-100 p-3 dark:from-[#242938] dark:to-[#1e2230]">
+      <div className="mx-auto flex h-full w-full max-w-[1600px] flex-col gap-3">
         <Header
           isThriftToJson={isThriftToJson}
           isDisabled={isDisabled}
@@ -170,7 +172,7 @@ function App() {
           parserMetrics={parserMetrics}
         />
 
-        <main className="grid h-[calc(100vh-12rem)] grid-cols-2 gap-6">
+        <main className="flex-1 grid grid-cols-2 gap-3 min-h-0 relative">
           <ThriftEditor
             value={input}
             onChange={setInput}
@@ -178,6 +180,11 @@ function App() {
             subtitle={getEditorSubtitle(true)}
             language={getEditorLanguage(true)}
           />
+          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/80 dark:bg-[#2b3245]/80 shadow-lg flex items-center justify-center z-10">
+            <div className="text-gray-400 dark:text-gray-500">
+              <ArrowRight />
+            </div>
+          </div>
           <ThriftEditor
             value={output}
             editable={false}
@@ -186,6 +193,8 @@ function App() {
             language={getEditorLanguage(false)}
           />
         </main>
+
+        <Footer />
       </div>
     </div>
   );
