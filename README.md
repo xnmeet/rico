@@ -1,6 +1,11 @@
-# Rico Parser
-
+<div align="center">
+    <img src="./apps/web/public/logo.svg" width="80px" height="80px"></img>
+    <h1>Rico</h1>
+</div>
+<div align="center">
 A high-performance Apache Thrift IDL parser written in Rust that converts Thrift IDL files to JSON AST.
+</div>
+<br/>
 
 <div align="center">
 
@@ -11,6 +16,7 @@ A high-performance Apache Thrift IDL parser written in Rust that converts Thrift
 [![Crates.io Downloads](https://img.shields.io/crates/d/rico)](https://crates.io/crates/rico)
 
 </div>
+
 
 ## Features
 
@@ -177,4 +183,3 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 - [Logos](https://github.com/maciejhirsz/logos) for lexer generation
 - [Serde](https://github.com/serde-rs/serde) for JSON serialization
-````
