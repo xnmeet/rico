@@ -1,0 +1,32 @@
+{
+  "name": "rico",
+  "private": true,
+  "version": "1.0.0",
+  "description": "A high-performance Apache Thrift IDL parser written in Rust that converts Thrift IDL files to JSON AST.",
+  "scripts": {
+    "build:playground": "pnpm build:wasm && pnpm --filter rico-playground build",
+    "build:wasm": "pnpm --filter @rico-core/parser build"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "packageManager": "pnpm@9.12.0",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/xnmeet/rico"
+  },
+  "keywords": [
+    "thrift",
+    "idl",
+    "parser",
+    "wasm",
+    "webassembly"
+  ],
+  "author": "xxnmeet@gmail.com",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.7.2"
+  }
+}

@@ -2,7 +2,7 @@ use std::error::Error;
 
 use miette::{Diagnostic, LabeledSpan};
 use serde::Serialize;
-use wasm_bindgen::prelude::*;
+use serde_json;
 
 #[derive(Serialize)]
 pub struct Location {
@@ -55,8 +55,8 @@ impl RicoError {
         }
     }
 
-    pub fn to_js_value(&self) -> JsValue {
-        serde_wasm_bindgen::to_value(self).unwrap()
+    pub fn to_string(&self) -> String {
+        serde_json::to_string(self).unwrap()
     }
 }
 

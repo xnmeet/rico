@@ -3,6 +3,7 @@ use wasm_bindgen::prelude::*;
 
 use crate::error::RicoError;
 use crate::utils::set_panic_hook;
+use serde_json;
 
 #[wasm_bindgen]
 pub struct Parser {
@@ -18,12 +19,16 @@ impl Parser {
     }
 
     #[wasm_bindgen]
-    pub fn parse(&mut self) -> Result<JsValue, JsValue> {
+    pub fn parse(&mut self) -> Result<String, String> {
         let mut parser = RicoParser::new(&self.input);
         match parser.parse() {
-            Ok(ast) => serde_wasm_bindgen::to_value(&ast)
-                .map_err(|e| RicoError::serialization(e).to_js_value()),
-            Err(e) => Err(RicoError::parse(e, &self.input).to_js_value()),
+            Ok(ast) => {
+                let value = serde_json::to_string(&ast)
+                    .map_err(|e| RicoError::serialization(e).to_string());
+
+                return value;
+            }
+            Err(e) => Err(RicoError::parse(e, &self.input).to_string()),
         }
     }
 }
@@ -44,10 +49,12 @@ impl Writer {
     }
 
     #[wasm_bindgen]
-    pub fn write(&mut self, ast: JsValue) -> Result<String, JsValue> {
-        let ast: rico::Document = serde_wasm_bindgen::from_value(ast)
-            .map_err(|e| RicoError::deserialization(e).to_js_value())?;
+    pub fn write(&mut self, ast: &str) -> Result<String, JsValue> {
+        let ast: rico::Document =
+            serde_json::from_str(&ast).map_err(|e| RicoError::deserialization(e).to_string())?;
 
-        Ok(self.inner.write(&ast))
+        let result = self.inner.write(&ast);
+
+        Ok(result)
     }
 }
