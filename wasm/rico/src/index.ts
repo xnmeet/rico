@@ -30,18 +30,29 @@ export class Rico {
     }
   }
 
-  static parse(input: string): Promise<Document> {
+  static parse(input: string): Promise<string>;
+  static parse(input: string, toString: false): Promise<Document>;
+  static parse(input: string, toString: true): Promise<string>;
+  static parse(
+    input: string,
+    toString: boolean = true
+  ): Promise<Document | string> {
     if (!Rico.initialized) {
       throw new Error('Rico is not initialized. Call Rico.initialize() first.');
     }
     const parser = new Parser(input);
     try {
-      return parser.parse();
+      const result = parser.parse();
+      return Promise.resolve(!toString ? JSON.parse(result) : result);
     } catch (error) {
-      if (typeof error === 'object' && error !== null && 'kind' in error) {
-        throw new RicoError(error as ParseError);
+      try {
+        const parserError = JSON.parse(error as string);
+        if (parserError && 'kind' in parserError) {
+          throw new RicoError(error as ParseError);
+        }
+      } finally {
+        throw error;
       }
-      throw error;
     }
   }
 
@@ -51,12 +62,16 @@ export class Rico {
     }
     const writer = new Writer();
     try {
-      return writer.write(ast);
+      return writer.write(JSON.stringify(ast));
     } catch (error) {
-      if (typeof error === 'object' && error !== null && 'kind' in error) {
-        throw new RicoError(error as ParseError);
+      try {
+        const parserError = JSON.parse(error as string);
+        if (parserError && 'kind' in parserError) {
+          throw new RicoError(error as ParseError);
+        }
+      } finally {
+        throw error;
       }
-      throw error;
     }
   }
 }

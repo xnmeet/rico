@@ -21,15 +21,14 @@ default = ["console_error_panic_hook"]
 [dependencies]
 rico = { workspace = true }
 wasm-bindgen = "0.2"
-serde-wasm-bindgen = "0.6"
 serde = { workspace = true }
+serde_json = { workspace = true }
 miette = { workspace = true }
 # The `console_error_panic_hook` crate provides better debugging of panics by
 # logging them with `console.error`. This is great for development, but requires
 # all the `std::fmt` and `std::panicking` infrastructure, so isn't great for
 # code size when deploying.
 console_error_panic_hook = { version = "0.1.7", optional = true }
-
 
 [profile.release]
 # Tell `rustc` to optimize for small code size.

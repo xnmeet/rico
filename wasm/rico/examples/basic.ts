@@ -16,7 +16,7 @@ async function main() {
 
   try {
     // Parse Thrift IDL to AST with proper typing
-    const ast: Document = await Rico.parse(input);
+    const ast = await Rico.parse(input, false);
     console.log('Parsed AST:', JSON.stringify(ast, null, 2));
 
     // Type-safe access to AST properties
