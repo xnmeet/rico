@@ -33,14 +33,12 @@ export class Rico {
   static parse(input: string): Promise<string>;
   static parse(input: string, toString: false): Promise<Document>;
   static parse(input: string, toString: true): Promise<string>;
-  static parse(
-    input: string,
-    toString: boolean = true
-  ): Promise<Document | string> {
+  static parse(input: string, toString?: boolean): Promise<Document | string> {
     if (!Rico.initialized) {
       throw new Error('Rico is not initialized. Call Rico.initialize() first.');
     }
     const parser = new Parser(input);
+    toString = typeof toString === 'undefined' ? true : toString;
     try {
       const result = parser.parse();
       return Promise.resolve(!toString ? JSON.parse(result) : result);

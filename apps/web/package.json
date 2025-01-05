@@ -13,7 +13,7 @@
     "@codemirror/state": "^6.5.0",
     "@codemirror/view": "^6.36.1",
     "@radix-ui/react-slot": "^1.1.1",
-    "@rico-core/parser": "workspace:*",
+    "@rico-core/parser": "0.0.3",
     "@uiw/codemirror-theme-github": "^4.23.7",
     "@uiw/react-codemirror": "^4.23.6",
     "class-variance-authority": "^0.7.1",
