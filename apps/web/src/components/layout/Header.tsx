@@ -26,8 +26,8 @@ export function Header({
   parserMetrics
 }: HeaderProps) {
   return (
-    <header className="relative flex items-center justify-between overflow-hidden rounded-2xl border border-gray-200/20 bg-white/10 px-5 py-3 shadow-[0_8px_16px_-6px_rgb(0_0_0/0.05)] backdrop-blur-xl dark:border-[#363d52]/30 dark:bg-[#2b3245]/40 dark:shadow-[0_8px_16px_-6px_rgb(0_0_0/0.2)]">
-      <div className="absolute inset-0 bg-gradient-to-r from-white/50 via-white/30 to-white/50 dark:from-[#363d52]/20 dark:via-[#2f354a]/15 dark:to-[#363d52]/20" />
+    <header className="relative flex items-center justify-between overflow-hidden rounded-2xl border border-gray-200/20 bg-white/10 px-5 py-3 shadow-[0_8px_16px_-6px_rgb(0_0_0/0.05)] backdrop-blur-xl dark:border-[#363d52]/30 dark:bg-[#282b33]/40 dark:shadow-[0_8px_16px_-6px_rgb(0_0_0/0.2)]">
+      <div className="absolute inset-0 bg-gradient-to-r from-white/50 via-white/30 to-white/50 dark:from-[#282b33]/20 dark:via-[#282b33]/15 dark:to-[#282b33]/20" />
       <div className="relative flex items-center gap-3">
         <RicoLogo className="h-8 w-8" />
         <div>

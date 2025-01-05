@@ -161,7 +161,7 @@ function App() {
       : 'thrift';
 
   return (
-    <div className="flex h-screen flex-col bg-gradient-to-br from-gray-50 to-gray-100 p-3 dark:from-[#242938] dark:to-[#1e2230]">
+    <div className="flex h-screen flex-col bg-gradient-to-br from-gray-50 to-gray-100 p-3 dark:from-[#1a1c23] dark:to-[#22242c]">
       <div className="mx-auto flex h-full w-full max-w-[1600px] flex-col gap-3">
         <Header
           isThriftToJson={isThriftToJson}

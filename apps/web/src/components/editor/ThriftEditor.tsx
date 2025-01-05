@@ -58,7 +58,7 @@ export function ThriftEditor({
         'flex h-full flex-col overflow-hidden rounded-lg bg-white shadow-sm dark:bg-[#2b3245]/90',
         className
       )}>
-      <div className="flex items-center justify-between border-b border-gray-100 px-4 py-2 dark:border-[#363d52]/50">
+      <div className="flex items-center justify-between border-b border-gray-100 bg-gray-50/80 px-4 py-2 dark:border-[#363d52]/50 dark:bg-[#282b33]">
         <div className="flex items-center gap-2">
           <TitleIcon className="h-4 w-4 text-blue-500/70" strokeWidth={2.5} />
           <div>
@@ -95,7 +95,7 @@ export function ThriftEditor({
           readOnly={!editable}
           extensions={[json()]}
           className={cn(
-            'h-full overflow-auto [&_.cm-gutters]:border-none [&_.cm-gutters]:bg-white [&_.cm-focused]:outline-none dark:[&_.cm-gutters]:bg-[#0d1117]',
+            'h-full overflow-auto [&_.cm-gutters]:border-none [&_.cm-gutters]:bg-white [&_.cm-focused]:outline-none dark:[&_.cm-gutters]:bg-[#282b33] dark:[&_.cm-editor]:bg-[#282b33]',
             !editable && 'cursor-text select-text'
           )}
           basicSetup={{
