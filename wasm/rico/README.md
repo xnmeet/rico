@@ -28,7 +28,7 @@ async function main() {
 
   try {
     // Parse Thrift IDL to AST with full type information
-    const ast: Document = await Rico.parse(input);
+    const ast: Document = await Rico.parse(input, false);
 
     // Type-safe access to AST properties
     ast.members.forEach(member => {
@@ -96,7 +96,8 @@ Rico provides a comprehensive type system that exactly matches the Rust AST defi
 - `Field`: Field definitions in structs/unions/exceptions
 - `FieldType`: Union type of all possible field types
   - `CommonType`: Basic types (string, i32, etc.)
-  - `CollectionType`: Lists and sets
+  - `FieldSetType`: Sets
+  - `FieldListType`: Lists
   - `MapType`: Map types with key and value types
 
 ### Value Types
@@ -126,7 +127,7 @@ interface Span {
 ### Type Safety Example
 
 ```typescript
-import { Document, Struct, Field, FieldType } from '@rico/wasm';
+import { Document, Struct, Field, FieldType } from '@rico-core/parser';
 
 function processStruct(struct: Struct) {
   // All fields are properly typed

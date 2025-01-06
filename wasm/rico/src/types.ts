@@ -167,8 +167,15 @@ export interface Service extends BaseNode {
   members: Function[];
 }
 
-export interface FieldCollectionType {
-  kind: 'CollectionType';
+export interface FieldListType {
+  kind: 'ListType';
+  loc: LOC;
+  value: string;
+  valueType: FieldType;
+}
+
+export interface FieldSetType {
+  kind: 'SetType';
   loc: LOC;
   value: string;
   valueType: FieldType;
@@ -184,7 +191,8 @@ export interface FieldMapType {
 
 export type FieldType =
   | { kind: 'CommonType'; value: string; loc: LOC }
-  | FieldCollectionType
+  | FieldListType
+  | FieldSetType
   | FieldMapType;
 
 export interface ConstList {

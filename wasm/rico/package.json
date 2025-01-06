@@ -1,6 +1,6 @@
 {
   "name": "@rico-core/parser",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "WebAssembly bindings for Rico - A high-performance Apache Thrift IDL parser",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
