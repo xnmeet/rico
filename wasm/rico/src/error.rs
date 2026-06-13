@@ -5,6 +5,7 @@ use serde::Serialize;
 use serde_json;
 
 #[derive(Serialize)]
+#[serde(rename_all = "camelCase")]
 pub struct Location {
     line: usize,
     column: usize,
@@ -71,18 +72,15 @@ fn get_error_location(e: &impl Diagnostic, source: &str) -> Option<Location> {
 fn calculate_location(offset: usize, length: usize, source: &str) -> Location {
     let lines: Vec<&str> = source.lines().collect();
 
-    // Calculate line number and column by counting newlines
     let mut line = 1;
     let mut last_newline = 0;
-    let mut pos = 0;
-    for (i, c) in source[..offset].chars().enumerate() {
-        if c == '\n' {
+    for (i, byte) in source.as_bytes()[..offset].iter().enumerate() {
+        if *byte == b'\n' {
             line += 1;
             last_newline = i + 1;
         }
-        pos = i;
     }
-    let column = pos - last_newline + 1;
+    let column = offset.saturating_sub(last_newline) + 1;
 
     Location {
         line,

@@ -153,7 +153,7 @@ impl<'a> Parser<'a> {
             lexer,
             next_token: None,
             cur_token: None,
-            pending_comments: Vec::new(),
+            pending_comments: Vec::with_capacity(4),
             last_span,
         }
     }
@@ -175,15 +175,20 @@ impl<'a> Parser<'a> {
     ///
     /// Returns a ParseError if the input contains syntax errors or unsupported features.
     pub fn parse(&mut self) -> Result<Document, ParseError> {
-        let mut members = Vec::new();
+        let mut members = Vec::with_capacity(self.lexer.source().len() / 128);
 
         loop {
             self.advance();
+            self.skip_separator();
             self.skip_comments();
+            self.skip_separator();
             if let Some(token) = self.token() {
                 match token {
                     Token::Include => {
                         members.push(DocumentMembers::Include(self.parse_include()?));
+                    }
+                    Token::CppInclude => {
+                        members.push(DocumentMembers::CppInclude(self.parse_cpp_include()?));
                     }
                     Token::Namespace => {
                         members.push(DocumentMembers::Namespace(self.parse_namespace()?));
@@ -215,20 +220,27 @@ impl<'a> Parser<'a> {
     }
 
     fn create_parser_token(&mut self) -> Option<ParserToken<'a>> {
-        self.lexer.next().and_then(|result| {
-            result
-                .map(|token| ParserToken {
-                    text: self.lexer.slice(),
-                    span: self.lexer.span(),
+        let result = self.lexer.next()?;
+        match result {
+            Ok(token) => {
+                let span = self.lexer.span();
+                let text = self.lexer.slice();
+                let start = self.bind_start_position(&span);
+                let end = self.bind_end_position(&span, token);
+
+                Some(ParserToken {
+                    text,
+                    span,
                     token,
-                    start: self.bind_start_position(),
-                    end: self.bind_end_position(),
+                    start,
+                    end,
                 })
-                .map_err(|_| {
-                    self.last_span = self.lexer.span();
-                })
-                .ok()
-        })
+            }
+            Err(_) => {
+                self.last_span = self.lexer.span();
+                None
+            }
+        }
     }
 
     fn advance(&mut self) -> Option<&Token> {
@@ -269,39 +281,39 @@ impl<'a> Parser<'a> {
         return None;
     }
 
-    fn text(&self) -> &str {
+    fn text(&self) -> &'a str {
         if let Some(token) = &self.cur_token {
             return token.text;
         }
         return "";
     }
 
-    fn bind_start_position(&mut self) -> Span {
-        let source = self.lexer.source();
-        let span = self.lexer.span();
-        let start_index = source[..span.start].len();
-        let column = source[self.lexer.extras.1..span.start].len() + 1;
+    fn bind_start_position(&self, span: &logos::Span) -> Span {
         let line = self.lexer.extras.0 + 1;
-        let index = start_index;
-        Span::new(line, column, index)
+        let column = span.start.saturating_sub(self.lexer.extras.1) + 1;
+        Span::new(line, column, span.start)
     }
 
-    fn bind_end_position(&mut self) -> Span {
-        let span = self.lexer.span();
-        let source = self.lexer.source();
-        // handle inner multiple content
-        let newline_count = self.lexer.slice().matches('\n').count();
+    fn bind_end_position(&mut self, span: &logos::Span, token: Token) -> Span {
+        let mut line = self.lexer.extras.0 + 1;
+        let mut line_start = self.lexer.extras.1;
 
-        if newline_count > 0 {
+        if matches!(token, Token::BlockComment) {
+            let mut newline_count = 0;
+            for (offset, byte) in self.lexer.slice().bytes().enumerate() {
+                if byte == b'\n' {
+                    newline_count += 1;
+                    line_start = span.start + offset + 1;
+                }
+            }
             self.lexer.extras.0 += newline_count;
-            self.lexer.extras.1 = self.lexer.span().end;
+            self.lexer.extras.1 = line_start;
+            line = self.lexer.extras.0 + 1;
         }
 
-        let line = self.lexer.extras.0 + 1;
-        let column = source[self.lexer.extras.1..span.end].len() + 1;
-        let index = source[..span.end].len();
+        let column = span.end.saturating_sub(line_start) + 1;
 
-        Span::new(line, column, index)
+        Span::new(line, column, span.end)
     }
 
     fn error(&self, kind: ParseErrorKind) -> ParseError {

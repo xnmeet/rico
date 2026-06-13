@@ -287,6 +287,17 @@ pub struct Include {
     pub comments: Vec<Comment>,
 }
 
+/// Represents a C++ include statement in the Thrift IDL.
+#[derive(Serialize, Deserialize, Debug)]
+pub struct CppInclude {
+    /// The location of the cpp_include declaration in the source code
+    pub loc: LOC,
+    /// The name/path of the included C++ header
+    pub name: Common<String>,
+    /// Associated comments
+    pub comments: Vec<Comment>,
+}
+
 /// Represents a constant definition in the Thrift IDL.
 ///
 /// Constants can be used to define shared values of any type.
@@ -436,6 +447,9 @@ pub enum DocumentMembers {
     /// An include statement
     #[serde(rename = "IncludeDefinition")]
     Include(Include),
+    /// A C++ include statement
+    #[serde(rename = "CppIncludeDefinition")]
+    CppInclude(CppInclude),
     /// A constant definition
     #[serde(rename = "ConstDefinition")]
     Const(Const),

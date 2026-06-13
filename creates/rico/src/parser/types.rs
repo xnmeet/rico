@@ -16,7 +16,7 @@ impl<'a> Parser<'a> {
         F: Fn(LOC, &str, FieldType) -> FieldType,
     {
         let start_loc = self.start_pos();
-        let slice = self.text().to_owned();
+        let slice = self.text();
 
         self.consume(Token::LeftAngle)?;
         let filed_type = self.parse_field_type()?;
@@ -43,7 +43,7 @@ impl<'a> Parser<'a> {
 
     pub(crate) fn parse_map_type(&mut self) -> Result<FieldType, ParseError> {
         let start_loc = self.start_pos();
-        let slice = self.text().to_owned();
+        let slice = self.text();
 
         self.consume(Token::LeftAngle)?;
         let filed_key_type = self.parse_field_type()?;
@@ -79,6 +79,7 @@ impl<'a> Parser<'a> {
                 Token::Binary
                 | Token::String
                 | Token::Byte
+                | Token::I8
                 | Token::I16
                 | Token::I32
                 | Token::I64

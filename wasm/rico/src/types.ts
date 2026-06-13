@@ -1,7 +1,11 @@
 export type NodeType =
   | 'ThriftDocument'
+  | 'ThriftErrors'
+  | 'Identifier'
+  | 'FieldID'
   | 'NamespaceDefinition'
   | 'IncludeDefinition'
+  | 'CppIncludeDefinition'
   | 'ConstDefinition'
   | 'TypedefDefinition'
   | 'EnumDefinition'
@@ -15,13 +19,54 @@ export type NodeType =
   | 'CommentBlock'
   | 'Annotation'
   | 'Annotations'
-  | 'CommonType'
-  | 'CollectionType'
+  | 'FieldType'
+  | 'BaseType'
+  | 'SetType'
+  | 'ListType'
   | 'MapType'
   | 'ConstValue'
+  | 'IntConstant'
+  | 'DoubleConstant'
   | 'ConstList'
   | 'ConstMap'
-  | 'PropertyAssignment';
+  | 'StringLiteral'
+  | 'IntegerLiteral'
+  | 'FloatLiteral'
+  | 'HexLiteral'
+  | 'ExponentialLiteral'
+  | 'BooleanLiteral'
+  | 'PropertyAssignment'
+  | 'NamespaceKeyword'
+  | 'IncludeKeyword'
+  | 'CppIncludeKeyword'
+  | 'ExceptionKeyword'
+  | 'ServiceKeyword'
+  | 'ExtendsKeyword'
+  | 'RequiredKeyword'
+  | 'OptionalKeyword'
+  | 'FalseKeyword'
+  | 'TrueKeyword'
+  | 'ConstKeyword'
+  | 'DoubleKeyword'
+  | 'StructKeyword'
+  | 'TypedefKeyword'
+  | 'UnionKeyword'
+  | 'StringKeyword'
+  | 'BinaryKeyword'
+  | 'BoolKeyword'
+  | 'ByteKeyword'
+  | 'EnumKeyword'
+  | 'ListKeyword'
+  | 'SetKeyword'
+  | 'MapKeyword'
+  | 'I8Keyword'
+  | 'I16Keyword'
+  | 'I32Keyword'
+  | 'I64Keyword'
+  | 'ThrowsKeyword'
+  | 'VoidKeyword'
+  | 'OnewayKeyword'
+  | 'EOF';
 
 export interface Span {
   line: number;
@@ -48,6 +93,7 @@ export interface Document {
 export type DocumentMember =
   | Namespace
   | Include
+  | CppInclude
   | Const
   | Typedef
   | Enum
@@ -90,6 +136,11 @@ export interface Namespace extends BaseNode {
 
 export interface Include extends BaseNode {
   kind: 'IncludeDefinition';
+  name: Common<string>;
+}
+
+export interface CppInclude extends BaseNode {
+  kind: 'CppIncludeDefinition';
   name: Common<string>;
 }
 
@@ -190,7 +241,7 @@ export interface FieldMapType {
 }
 
 export type FieldType =
-  | { kind: 'CommonType'; value: string; loc: LOC }
+  | Common<string>
   | FieldListType
   | FieldSetType
   | FieldMapType;
