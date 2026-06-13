@@ -5,7 +5,7 @@ A high-performance Apache Thrift IDL parser written in Rust that converts Thrift
 ## Features
 
 - 🚀 Fast and efficient parsing
-- 🎯 Complete Thrift IDL support
+- 🎯 Practical Thrift IDL support with a stable JSON AST
 - 🔄 JSON AST output
 - 📝 Comment preservation
 - 🎨 Detailed source location tracking
@@ -44,18 +44,29 @@ fn main() {
 }
 ```
 
-## Supported Thrift Features
+## Supported Thrift Syntax
 
-- Base types (i32, i64, string, etc.)
-- Collections (list, set, map)
-- Structs and Exceptions
-- Services and Functions
-- Enums
-- Constants
-- Typedefs
-- Namespaces
-- Includes
-- Comments and Annotations
+Rico focuses on the mainstream Thrift IDL surface used by JS and Rust tooling while keeping the JSON `Document` AST stable.
+
+### Types
+
+- Base types: `bool`, `byte`, `i8`, `i16`, `i32`, `i64`, `double`, `string`, `binary`
+- Identifier types: user-defined structs, enums, exceptions, unions, typedefs, and qualified names such as `shared.User`
+- Containers: `list<T>`, `set<T>`, `map<K, V>`, including nested containers
+
+### Definitions
+
+- Headers: `include`, `cpp_include`, `namespace`, and `namespace *`
+- `const`, `typedef`, `enum`, `struct`, `union`, `exception`, `service`
+- Service `extends`, `throws`, and `oneway`
+- Field ids, `required`, `optional`, and default-required fields
+- Const/default values: strings, integers, hex integers, doubles, scientific notation, booleans, identifiers, lists, and maps
+- Annotations on fields, enum members, definitions, functions, and services
+- Comments: `//`, `#`, and `/* ... */`
+
+### Intentional Non-Goals
+
+Rare or legacy Thrift extensions are not currently parsed, including `senum`, `uuid`, container `cpp_type`, and XSD-specific options such as `xsd_all`, `xsd_optional`, `xsd_nillable`, and `xsd_attrs`. Keeping these out preserves a smaller parser surface and a stable AST for JS ecosystem consumers.
 
 ## Development
 

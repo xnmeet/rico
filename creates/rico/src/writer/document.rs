@@ -28,6 +28,12 @@ impl Writer {
         writeln!(output, "include {}", inc.name.value).unwrap();
     }
 
+    /// Writes a C++ include statement to the output string.
+    pub(crate) fn write_cpp_include(&mut self, output: &mut String, inc: &CppInclude) {
+        self.write_comments(output, &inc.comments);
+        writeln!(output, "cpp_include {}", inc.name.value).unwrap();
+    }
+
     /// Writes a constant definition to the output string.
     pub(crate) fn write_const(&mut self, output: &mut String, c: &Const) {
         self.write_comments(output, &c.comments);

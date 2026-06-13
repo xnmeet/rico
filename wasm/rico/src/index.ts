@@ -1,4 +1,7 @@
-import init, { Parser, Writer } from './wasm/rico_wasm';
+import init, {
+  parse as parseWasm,
+  write as writeWasm
+} from './wasm/rico_wasm';
 import type { Document, ParseError } from './types';
 
 export class RicoError extends Error {
@@ -15,64 +18,79 @@ export class RicoError extends Error {
 
     super(message);
     this.name = 'RicoError';
-    // Prevent V8 from collecting stack trace
-    Error.captureStackTrace(this, RicoError);
+    if ('captureStackTrace' in Error) {
+      Error.captureStackTrace(this, RicoError);
+    }
   }
 }
 
 export class Rico {
   private static initialized = false;
 
-  static async initialize(): Promise<void> {
+  static async initialize(moduleOrPath?: Parameters<typeof init>[0]): Promise<void> {
     if (!Rico.initialized) {
-      await init();
+      await init(moduleOrPath);
       Rico.initialized = true;
     }
   }
 
-  static parse(input: string): Promise<string>;
-  static parse(input: string, toString: false): Promise<Document>;
-  static parse(input: string, toString: true): Promise<string>;
-  static parse(input: string, toString?: boolean): Promise<Document | string> {
+  static parse(input: string): string;
+  static parse(input: string, toString: false): Document;
+  static parse(input: string, toString: true): string;
+  static parse(input: string, toString?: boolean): Document | string {
     if (!Rico.initialized) {
       throw new Error('Rico is not initialized. Call Rico.initialize() first.');
     }
-    const parser = new Parser(input);
     toString = typeof toString === 'undefined' ? true : toString;
     try {
-      const result = parser.parse();
-      return Promise.resolve(!toString ? JSON.parse(result) : result);
+      const result = parseWasm(input);
+      return !toString ? JSON.parse(result) : result;
     } catch (error) {
-      try {
-        const parserError = JSON.parse(error as string);
-        if (parserError && 'kind' in parserError) {
-          throw new RicoError(error as ParseError);
-        }
-      } finally {
-        throw error;
-      }
+      throw toRicoError(error);
     }
+  }
+
+  static parseObject(input: string): Document {
+    return Rico.parse(input, false);
+  }
+
+  static parseString(input: string): string {
+    return Rico.parse(input, true);
   }
 
   static write(ast: Document): string {
     if (!Rico.initialized) {
       throw new Error('Rico is not initialized. Call Rico.initialize() first.');
     }
-    const writer = new Writer();
     try {
-      return writer.write(JSON.stringify(ast));
+      return writeWasm(JSON.stringify(ast));
     } catch (error) {
-      try {
-        const parserError = JSON.parse(error as string);
-        if (parserError && 'kind' in parserError) {
-          throw new RicoError(error as ParseError);
-        }
-      } finally {
-        throw error;
-      }
+      throw toRicoError(error);
     }
   }
 }
 
+function toRicoError(error: unknown): unknown {
+  if (typeof error !== 'string') {
+    return error;
+  }
+
+  try {
+    const parserError = JSON.parse(error) as ParseError;
+    if (parserError && 'kind' in parserError) {
+      return new RicoError(parserError);
+    }
+  } catch {
+    // Fall through to the original WASM error string.
+  }
+
+  return error;
+}
+
+export const initialize = Rico.initialize.bind(Rico);
+export const parse = Rico.parse.bind(Rico);
+export const parseObject = Rico.parseObject.bind(Rico);
+export const parseString = Rico.parseString.bind(Rico);
+export const write = Rico.write.bind(Rico);
 export * from './types';
 export default Rico;

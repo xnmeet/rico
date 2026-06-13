@@ -98,6 +98,7 @@ impl Writer {
             match member {
                 DocumentMembers::Namespace(ns) => self.write_namespace(&mut output, ns),
                 DocumentMembers::Include(inc) => self.write_include(&mut output, inc),
+                DocumentMembers::CppInclude(inc) => self.write_cpp_include(&mut output, inc),
                 DocumentMembers::Const(c) => self.write_const(&mut output, c),
                 DocumentMembers::Typedef(td) => self.write_typedef(&mut output, td),
                 DocumentMembers::Enum(e) => self.write_enum(&mut output, e),

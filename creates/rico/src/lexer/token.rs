@@ -7,7 +7,7 @@ fn newline_callback(lex: &mut Lexer<Token>) -> Skip {
     Skip
 }
 
-#[derive(Logos, Debug, PartialEq, Clone)]
+#[derive(Logos, Debug, PartialEq, Clone, Copy)]
 #[logos(skip r"[ \t]+")]
 #[logos(extras = (usize, usize))]
 pub enum Token {
@@ -17,6 +17,8 @@ pub enum Token {
     // Keywords
     #[token("namespace")]
     Namespace,
+    #[token("cpp_include")]
+    CppInclude,
     #[token("include")]
     Include,
     #[token("typedef")]
@@ -49,6 +51,8 @@ pub enum Token {
     Bool,
     #[token("byte")]
     Byte,
+    #[token("i8")]
+    I8,
     #[token("i16")]
     I16,
     #[token("i32")]
@@ -74,18 +78,18 @@ pub enum Token {
     #[regex(r#"(?:"([^"\\]|\\.)*"|'([^'\\]|\\.)*')"#)]
     StringLiteral,
 
+    #[regex(r"[+-]?(?:(?:[0-9]+\.[0-9]*|\.[0-9]+)(?:[eE][-+]?[0-9]+)?|[0-9]+[eE][-+]?[0-9]+)")]
+    DoubleLiteral,
+
+    #[regex(r"0[xX][0-9a-fA-F]+")]
+    HexLiteral,
+
     #[regex(r"[+-]?[0-9]+")]
     IntegerLiteral,
-
-    #[regex(r"[+-]?[0-9]*\.[0-9]+([eE][-+]?[0-9]+)?")]
-    DoubleLiteral,
 
     #[token("true")]
     #[token("false")]
     BooleanLiteral,
-
-    #[regex(r"0[xX][0-9a-fA-F]+")]
-    HexLiteral,
 
     // Punctuation
     #[token("{")]
@@ -114,6 +118,8 @@ pub enum Token {
     Equals,
     #[token(".")]
     Dot,
+    #[token("*")]
+    Star,
 
     // Comments
     #[regex(r"(//|#).*")]

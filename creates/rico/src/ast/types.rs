@@ -141,6 +141,7 @@ impl NodeType {
             // Keywords
             Token::Namespace => Some(NodeType::NamespaceKeyword),
             Token::Include => Some(NodeType::IncludeKeyword),
+            Token::CppInclude => Some(NodeType::CppIncludeKeyword),
             Token::Exception => Some(NodeType::ExceptionKeyword),
             Token::Service => Some(NodeType::ServiceKeyword),
             Token::Extends => Some(NodeType::ExtendsKeyword),
@@ -155,6 +156,7 @@ impl NodeType {
             Token::Binary => Some(NodeType::BinaryKeyword),
             Token::Bool => Some(NodeType::BoolKeyword),
             Token::Byte => Some(NodeType::ByteKeyword),
+            Token::I8 => Some(NodeType::I8Keyword),
             Token::Enum => Some(NodeType::EnumKeyword),
             Token::List => Some(NodeType::ListKeyword),
             Token::Set => Some(NodeType::SetKeyword),

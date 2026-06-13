@@ -12,11 +12,12 @@ impl<'a> Parser<'a> {
         is_end: fn(&mut Self) -> bool,
         parse_element: impl Fn(&mut Self) -> Result<T, ParseError>,
     ) -> Result<Vec<T>, ParseError> {
-        let mut elements = Vec::new();
+        let mut elements = Vec::with_capacity(4);
 
         loop {
             self.advance();
-            self.skip_comments();
+            self.skip_separator();
+            self.skip_comments_discard();
 
             if is_end(self) {
                 break;
@@ -25,8 +26,8 @@ impl<'a> Parser<'a> {
             let element = parse_element(self)?;
             elements.push(element);
 
-            if let Some(Token::Comma) = self.peek() {
-                self.consume(Token::Comma)?;
+            if matches!(self.peek(), Some(Token::Comma | Token::Semicolon)) {
+                self.advance();
             }
         }
 

@@ -26,11 +26,32 @@ impl<'a> Parser<'a> {
         })
     }
 
+    pub(crate) fn parse_cpp_include(&mut self) -> Result<CppInclude, ParseError> {
+        let tracker = LocationTracker::new(self.start_pos());
+        let comments = self.take_pending_comments();
+
+        self.consume_with_error(
+            Token::StringLiteral,
+            ParseErrorKind::MissingIncludeIdentifier,
+        )?;
+        let name = create_identifier(self.get_token_loc(), self.text().to_string());
+        let end_loc = name.loc;
+
+        Ok(CppInclude {
+            name,
+            loc: tracker.to_parent_loc(&end_loc),
+            comments,
+        })
+    }
+
     pub(crate) fn parse_namespace(&mut self) -> Result<Namespace, ParseError> {
         let tracker = LocationTracker::new(self.start_pos());
         let comments = self.take_pending_comments();
 
-        self.consume_with_error(Token::Identifier, ParseErrorKind::MissingNamespaceScope)?;
+        self.advance();
+        if !matches!(self.token(), Some(Token::Identifier | Token::Star)) {
+            return Err(self.error(ParseErrorKind::MissingNamespaceScope));
+        }
         let scope = create_identifier(self.get_token_loc(), self.text().to_owned());
 
         self.consume_with_error(
@@ -136,7 +157,7 @@ impl<'a> Parser<'a> {
     }
 
     pub(crate) fn parse_annotations(&mut self) -> Result<Option<Annotations>, ParseError> {
-        let mut annotations = Vec::new();
+        let mut annotations = Vec::with_capacity(2);
 
         if let Some(Token::LeftParen) = self.peek() {
             let tracker = LocationTracker::new(self.start_pos());
@@ -144,6 +165,7 @@ impl<'a> Parser<'a> {
 
             loop {
                 self.advance();
+                self.skip_comments_discard();
                 if let Some(Token::RightParen) = self.token() {
                     break;
                 }
@@ -167,7 +189,7 @@ impl<'a> Parser<'a> {
                     value,
                 });
 
-                if let Some(Token::Comma) = self.peek() {
+                if matches!(self.peek(), Some(Token::Comma | Token::Semicolon)) {
                     self.advance();
                 }
             }
@@ -346,27 +368,37 @@ impl<'a> Parser<'a> {
     fn parse_field_name(&mut self) -> Result<Common<String>, ParseError> {
         self.advance();
 
-        const VALID_TOKENS: &[Token] = &[
-            Token::Identifier,
-            // adapt keywords, but not recommend to use
-            Token::Namespace,
-            Token::Include,
-            Token::List,
-            Token::Map,
-            Token::Set,
-            Token::Oneway,
-            Token::Required,
-            Token::Optional,
-            Token::Throws,
-            Token::Bool,
-            Token::Extends,
-            Token::Struct,
-            Token::Double,
-            Token::Service,
-            Token::Enum,
-        ];
+        let is_valid_field_name = matches!(
+            self.token(),
+            Some(
+                Token::Identifier
+                // adapt keywords, but not recommend to use
+                | Token::Namespace
+                | Token::Include
+                | Token::List
+                | Token::Map
+                | Token::Set
+                | Token::Oneway
+                | Token::Required
+                | Token::Optional
+                | Token::Throws
+                | Token::Bool
+                | Token::Byte
+                | Token::I8
+                | Token::I16
+                | Token::I32
+                | Token::I64
+                | Token::String
+                | Token::Binary
+                | Token::Extends
+                | Token::Struct
+                | Token::Double
+                | Token::Service
+                | Token::Enum
+            )
+        );
 
-        if !VALID_TOKENS.iter().any(|valid| self.token() == Some(valid)) {
+        if !is_valid_field_name {
             return Err(self.error(ParseErrorKind::InvalidFieldName));
         }
 
@@ -469,7 +501,7 @@ impl<'a> Parser<'a> {
     where
         F: FnMut(&mut Self) -> Result<T, ParseError>,
     {
-        let mut members = Vec::new();
+        let mut members = Vec::with_capacity(8);
 
         self.consume(Token::LeftBrace)?;
 
@@ -492,18 +524,20 @@ impl<'a> Parser<'a> {
     where
         F: FnMut(&mut Self) -> Result<T, ParseError>,
     {
-        let mut params = Vec::new();
+        let mut params = Vec::with_capacity(4);
         self.consume(Token::LeftParen)?;
 
         loop {
             self.advance();
+            self.skip_separator();
+            self.skip_comments();
             if let Some(Token::RightParen) = self.token() {
                 break;
             }
 
             params.push(parse_param(self)?);
 
-            if let Some(Token::Comma) = self.peek() {
+            if matches!(self.peek(), Some(Token::Comma | Token::Semicolon)) {
                 self.advance();
             }
         }

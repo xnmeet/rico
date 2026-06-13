@@ -53,24 +53,26 @@ impl<'a> Parser<'a> {
 
     pub(crate) fn skip_comments(&mut self) {
         loop {
-            if let Some(token) = self.token() {
-                if token == &Token::LineComment || token == &Token::BlockComment {
-                    self.parser_comments();
-                    self.advance();
-                    continue;
-                }
+            if matches!(self.token(), Some(Token::LineComment | Token::BlockComment)) {
+                self.parser_comments();
+                self.advance();
+                continue;
             }
             break;
         }
     }
 
+    pub(crate) fn skip_comments_discard(&mut self) {
+        while matches!(self.token(), Some(Token::LineComment | Token::BlockComment)) {
+            self.advance();
+        }
+    }
+
     pub(crate) fn skip_separator(&mut self) {
         loop {
-            if let Some(token) = self.token() {
-                if token == &Token::Comma || token == &Token::Semicolon {
-                    self.advance();
-                    continue;
-                }
+            if matches!(self.token(), Some(Token::Comma | Token::Semicolon)) {
+                self.advance();
+                continue;
             }
             break;
         }
